@@ -1,0 +1,19 @@
+PODS:
+  - BarcodeHero/Core (0.0.1)
+  - BarcodeHero/UI (0.0.1):
+    - BarcodeHero/Core
+
+DEPENDENCIES:
+  - BarcodeHero/Core (from `.`)
+  - BarcodeHero/UI (from `.`)
+
+EXTERNAL SOURCES:
+  BarcodeHero:
+    :path: .
+
+SPEC CHECKSUMS:
+  BarcodeHero: 3011d05d2f12671aa9d459a85fd15a5c6560598d
+
+PODFILE CHECKSUM: cba8ef4be4067fb87fc27985e61267c8cea0dfba
+
+COCOAPODS: 1.4.0.beta.2

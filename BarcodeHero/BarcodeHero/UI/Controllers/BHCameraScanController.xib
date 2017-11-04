@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BHCameraScanController" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="CQl-cu-phx" id="LUH-E4-On6"/>
+                <outlet property="barcodeDataLabel" destination="Avi-1n-njL" id="Xt8-b8-qfr"/>
+                <outlet property="barcodeTypeLabel" destination="8bd-nO-OCU" id="Urj-C9-AIw"/>
+                <outlet property="crosshairImageView" destination="imq-xZ-hhW" id="eC6-zI-97Y"/>
+                <outlet property="instructionsLabel" destination="DqH-22-Hsz" id="9KD-Ja-CP1"/>
+                <outlet property="overlayView" destination="b8D-oO-dUr" id="Gyk-h3-9MP"/>
+                <outlet property="view" destination="j22-04-M0r" id="PQI-ZF-g4S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="j22-04-M0r">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQl-cu-phx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8D-oO-dUr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crosshair" translatesAutoresizingMaskIntoConstraints="NO" id="imq-xZ-hhW">
+                            <rect key="frame" x="60" y="248.5" width="255" height="170"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="imq-xZ-hhW" secondAttribute="height" multiplier="6:4" id="fU1-H4-MXt"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avi-1n-njL">
+                            <rect key="frame" x="170.5" y="438.5" width="34" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bd-nO-OCU">
+                            <rect key="frame" x="169.5" y="208.5" width="36" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqH-22-Hsz">
+                            <rect key="frame" x="144.5" y="639" width="86" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="8bd-nO-OCU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="b8D-oO-dUr" secondAttribute="topMargin" id="4Dx-lj-S4X"/>
+                        <constraint firstItem="imq-xZ-hhW" firstAttribute="top" secondItem="8bd-nO-OCU" secondAttribute="bottom" constant="20" id="4NI-Ho-OiB"/>
+                        <constraint firstItem="Avi-1n-njL" firstAttribute="top" secondItem="imq-xZ-hhW" secondAttribute="bottom" constant="20" id="92m-LN-s12"/>
+                        <constraint firstItem="imq-xZ-hhW" firstAttribute="leading" secondItem="b8D-oO-dUr" secondAttribute="leading" constant="60" id="ByM-4H-4vp"/>
+                        <constraint firstItem="imq-xZ-hhW" firstAttribute="centerY" secondItem="b8D-oO-dUr" secondAttribute="centerY" id="CJW-Pz-xxx"/>
+                        <constraint firstItem="Avi-1n-njL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b8D-oO-dUr" secondAttribute="leadingMargin" id="FBl-bq-bT2"/>
+                        <constraint firstItem="8bd-nO-OCU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b8D-oO-dUr" secondAttribute="leadingMargin" id="Gre-ok-LbE"/>
+                        <constraint firstItem="8bd-nO-OCU" firstAttribute="centerX" secondItem="b8D-oO-dUr" secondAttribute="centerX" id="Ha1-oP-Wl1"/>
+                        <constraint firstItem="DqH-22-Hsz" firstAttribute="centerX" secondItem="b8D-oO-dUr" secondAttribute="centerX" id="KWe-3B-adX"/>
+                        <constraint firstItem="Avi-1n-njL" firstAttribute="centerX" secondItem="b8D-oO-dUr" secondAttribute="centerX" id="P38-ON-ovX"/>
+                        <constraint firstItem="DqH-22-Hsz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b8D-oO-dUr" secondAttribute="leadingMargin" id="QMl-dz-2fC"/>
+                        <constraint firstItem="imq-xZ-hhW" firstAttribute="centerX" secondItem="b8D-oO-dUr" secondAttribute="centerX" id="Szj-ta-aXa"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="DqH-22-Hsz" secondAttribute="bottom" id="VaG-5h-rSF"/>
+                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Avi-1n-njL" secondAttribute="trailing" id="bTU-13-f3R"/>
+                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="8bd-nO-OCU" secondAttribute="trailing" id="oUQ-hr-LX1"/>
+                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Avi-1n-njL" secondAttribute="bottom" id="tQ2-mq-TmU"/>
+                        <constraint firstItem="DqH-22-Hsz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Avi-1n-njL" secondAttribute="bottom" constant="8" id="vbV-PS-zUp"/>
+                        <constraint firstAttribute="trailing" secondItem="imq-xZ-hhW" secondAttribute="trailing" constant="60" id="y1g-dm-Yf6"/>
+                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="DqH-22-Hsz" secondAttribute="trailing" id="yU7-qN-fey"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="b8D-oO-dUr" firstAttribute="leading" secondItem="j22-04-M0r" secondAttribute="leading" id="90f-20-Y4f"/>
+                <constraint firstAttribute="trailing" secondItem="b8D-oO-dUr" secondAttribute="trailing" id="FGB-d9-Wf0"/>
+                <constraint firstItem="CQl-cu-phx" firstAttribute="leading" secondItem="j22-04-M0r" secondAttribute="leading" id="KYX-S0-2rY"/>
+                <constraint firstAttribute="bottom" secondItem="b8D-oO-dUr" secondAttribute="bottom" id="OfC-kJ-d0c"/>
+                <constraint firstItem="CQl-cu-phx" firstAttribute="top" secondItem="j22-04-M0r" secondAttribute="top" id="Tqd-dp-3dA"/>
+                <constraint firstAttribute="trailing" secondItem="CQl-cu-phx" secondAttribute="trailing" id="Uit-rb-Z76"/>
+                <constraint firstItem="b8D-oO-dUr" firstAttribute="top" secondItem="j22-04-M0r" secondAttribute="top" id="cv8-Fx-m4l"/>
+                <constraint firstAttribute="bottom" secondItem="CQl-cu-phx" secondAttribute="bottom" id="v8H-tC-Tsc"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="Crosshair" width="23" height="23"/>
+    </resources>
+</document>

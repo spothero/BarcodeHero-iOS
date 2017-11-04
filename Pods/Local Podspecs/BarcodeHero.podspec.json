@@ -1,0 +1,41 @@
+{
+  "name": "BarcodeHero",
+  "version": "0.0.1",
+  "authors": {
+    "SpotHero": "dev@spothero.com"
+  },
+  "homepage": "https://github.com/SpotHero/BarcodeHero-iOS",
+  "license": {
+    "type": "Commercial",
+    "text": "Copyright 2017 SpotHero Inc."
+  },
+  "source": {
+    "git": "https://github.com/SpotHero/BarcodeHero-iOS.git",
+    "tag": "0.0.1"
+  },
+  "summary": "Allows easy generation of barcodes.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "BarcodeHero",
+  "source_files": "BarcodeHero/Core",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "BarcodeHero/BarcodeHero/Core/**/*.swift",
+        "BarcodeHero/BarcodeHero/Extensions/**/*.swift"
+      ]
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "BarcodeHero/Core": [
+
+        ]
+      },
+      "source_files": "BarcodeHero/BarcodeHero/UI/**/*.swift"
+    }
+  ]
+}
