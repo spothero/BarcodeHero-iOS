@@ -6,6 +6,7 @@
 //  Copyright © 2017 SpotHero. All rights reserved.
 //
 
+import AVFoundation
 import BarcodeHero
 import Foundation
 import UIKit
@@ -13,6 +14,8 @@ import UIKit
 class GeneratorController: UIViewController {
     // MARK: - Properties
 
+    @IBOutlet weak var alertLabel: UILabel?
+    @IBOutlet weak var alertView: UIView?
     @IBOutlet weak var barcodeImageView: UIImageView?
     @IBOutlet weak var dataTextField: UITextField?
     @IBOutlet weak var sizeSlider: UISlider?
@@ -20,8 +23,8 @@ class GeneratorController: UIViewController {
 
     @IBOutlet var barcodeImageViewWidthConstraint: NSLayoutConstraint?
 
-    private var data: String = "Example"
-    private var type: BHBarcodeType = .qr
+    private var data: String = "12345678"
+    private var type: BHBarcodeType = .code39
 
     // MARK: - Methods
 
@@ -85,11 +88,18 @@ class GeneratorController: UIViewController {
     // MARK: Utilities
 
     func regenerateBarcode() {
-        guard let image = BHBarcodeGenerator.generate(type: type, text: data)?.transformToFit(barcodeImageView)?.uiImage else {
-            return
-        }
+        do {
+            alertView?.isHidden = true
 
-        barcodeImageView?.image = image
+            let image = try BHBarcodeGenerator.generate(type, withData: data).transformToFit(barcodeImageView)
+            barcodeImageView?.image = image
+        } catch {
+            alertLabel?.text = error.localizedDescription
+            alertView?.isHidden = false
+            
+            barcodeImageView?.image = nil
+            print(error.localizedDescription)
+        }
     }
 }
 

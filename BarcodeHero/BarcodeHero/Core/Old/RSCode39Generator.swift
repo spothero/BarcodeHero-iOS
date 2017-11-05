@@ -61,14 +61,14 @@ open class RSCode39Generator: RSAbstractCodeGenerator {
         "1010010010010",
         "1001011011010"
     ]
-    
+
     func encodeCharacterString(_ characterString:String) -> String {
         let location = CODE39_ALPHABET_STRING.location(characterString)
         return CODE39_CHARACTER_ENCODINGS[location]
     }
-    
+
     // MAKR: RSAbstractCodeGenerator
-    
+
     override open func isValid(_ contents: String) -> Bool {
         if contents.length() > 0
             && contents.range(of: "*") == nil
@@ -83,15 +83,15 @@ open class RSCode39Generator: RSAbstractCodeGenerator {
         }
         return false
     }
-    
+
     override open func initiator() -> String {
         return self.encodeCharacterString("*")
     }
-    
+
     override open func terminator() -> String {
         return self.encodeCharacterString("*")
     }
-    
+
     override open func barcode(_ contents: String) -> String {
         var barcode = ""
         for character in contents.characters {
@@ -100,3 +100,4 @@ open class RSCode39Generator: RSAbstractCodeGenerator {
         return barcode
     }
 }
+

@@ -157,11 +157,33 @@
                                                             <constraint firstAttribute="width" secondItem="jzF-YF-Ws2" secondAttribute="height" multiplier="1:1" id="yTX-3S-KKB"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="577-oJ-cB5">
+                                                        <rect key="frame" x="20" y="0.0" width="335" height="32"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHq-Rw-Iog">
+                                                                <rect key="frame" x="0.0" y="6" width="335" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.92941176470588238" green="0.20000000000000001" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="lHq-Rw-Iog" secondAttribute="trailing" id="Akg-dD-bn3"/>
+                                                            <constraint firstItem="lHq-Rw-Iog" firstAttribute="top" secondItem="577-oJ-cB5" secondAttribute="top" constant="6" id="Kld-nx-4X8"/>
+                                                            <constraint firstItem="lHq-Rw-Iog" firstAttribute="leading" secondItem="577-oJ-cB5" secondAttribute="leading" id="mjd-Zh-qHw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="lHq-Rw-Iog" secondAttribute="bottom" constant="6" id="w6k-lg-1qx"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="577-oJ-cB5" firstAttribute="leading" secondItem="9Sl-rS-FPO" secondAttribute="leading" constant="20" id="IRd-jk-I2s"/>
                                                     <constraint firstAttribute="width" secondItem="9Sl-rS-FPO" secondAttribute="height" multiplier="1:1" id="LMa-6O-KgK"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="577-oJ-cB5" secondAttribute="bottom" id="Phf-ZV-iVw"/>
                                                     <constraint firstItem="jzF-YF-Ws2" firstAttribute="centerY" secondItem="9Sl-rS-FPO" secondAttribute="centerY" id="axC-yr-reH"/>
+                                                    <constraint firstItem="577-oJ-cB5" firstAttribute="top" secondItem="9Sl-rS-FPO" secondAttribute="top" id="r7G-9c-2DC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="577-oJ-cB5" secondAttribute="trailing" constant="20" id="tWa-Jo-ho8"/>
                                                     <constraint firstItem="jzF-YF-Ws2" firstAttribute="centerX" secondItem="9Sl-rS-FPO" secondAttribute="centerX" id="v0i-96-lln"/>
                                                 </constraints>
                                             </view>
@@ -197,6 +219,8 @@
                         <viewLayoutGuide key="safeArea" id="Te6-7d-4JL"/>
                     </view>
                     <connections>
+                        <outlet property="alertLabel" destination="lHq-Rw-Iog" id="5FS-t5-9Dk"/>
+                        <outlet property="alertView" destination="577-oJ-cB5" id="MAe-58-thA"/>
                         <outlet property="barcodeImageView" destination="jzF-YF-Ws2" id="SZJ-Ua-I3b"/>
                         <outlet property="barcodeImageViewWidthConstraint" destination="dSK-Zb-YLj" id="lF9-kk-z9u"/>
                         <outlet property="dataTextField" destination="lkK-bx-AnV" id="EhL-n5-ter"/>

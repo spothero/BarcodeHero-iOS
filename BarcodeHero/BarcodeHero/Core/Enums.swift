@@ -6,40 +6,69 @@
 //  Copyright © 2017 SpotHero. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
 
 public enum BHBarcodeType: String {
+//    case unknown = "Unknown"
     case aztec = "Aztec"
+    case code39 = "Code 39"
+//    case code39mod43 = "Code 39 Mod 43"
     case code128 = "Code 128"
+    case dataMatrix = "Data Matrix"
+    case ean8 = "EAN 8"
+    case ean13 = "EAN 13"
+//    case itf = "ITF"
+    case itf14 = "ITF 14"
+    case isbn13 = "ISBN 13"
+    case issn13 = "ISSN 13"
     case pdf417 = "PDF 417"
     case qr = "QR" // swiftlint:disable:this identifier_name
+    case upce = "UPCE"
 
     public static var array: [BHBarcodeType] {
-        return [.aztec, .code128, .pdf417, .qr]
+        return [.aztec, .code39, .code128, .dataMatrix, .ean8, .ean13, .itf14, .isbn13, .issn13, .pdf417, .qr, .upce]
     }
 
-    public var generator: BHCodeGeneratorType {
-        return BHCodeGeneratorType(barcodeType: self)
+    public var isNative: Bool {
+        return self == .aztec || self == .code128 || self == .pdf417 || self == .qr
+    }
+
+    init?(metadataObjectType: AVMetadataObject.ObjectType) {
+        switch metadataObjectType {
+        case .aztec:
+            self = BHBarcodeType.aztec
+        case .code128:
+            self = BHBarcodeType.code128
+        case .pdf417:
+            self = BHBarcodeType.pdf417
+        case .qr:
+            self = BHBarcodeType.qr
+        default:
+            return nil
+        }
     }
 }
 
 // https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html
-public enum BHCodeGeneratorType: String {
+public enum BHNativeCodeGeneratorType: String {
     case aztec = "CIAztecCodeGenerator"
     case code128 = "CICode128BarcodeGenerator"
     case pdf417 = "CIPDF417BarcodeGenerator"
     case qr = "CIQRCodeGenerator" // swiftlint:disable:this identifier_name
 
-    init(barcodeType: BHBarcodeType) {
+    init?(barcodeType: BHBarcodeType) {
         switch barcodeType {
         case .aztec:
-            self = BHCodeGeneratorType.aztec
+            self = BHNativeCodeGeneratorType.aztec
         case .code128:
-            self = BHCodeGeneratorType.code128
+            self = BHNativeCodeGeneratorType.code128
         case .pdf417:
-            self = BHCodeGeneratorType.pdf417
+            self = BHNativeCodeGeneratorType.pdf417
         case .qr:
-            self = BHCodeGeneratorType.qr
+            self = BHNativeCodeGeneratorType.qr
+        default:
+            return nil
         }
     }
 }

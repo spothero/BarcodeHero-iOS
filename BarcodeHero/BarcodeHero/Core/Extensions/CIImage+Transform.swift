@@ -1,5 +1,5 @@
 //
-//  CIImage+TransformToFit.swift
+//  CIImage+Transform.swift
 //  BarcodeHero
 //
 //  Created by Brian Drelling on 10/19/17.

@@ -130,7 +130,7 @@ open class RSAbstractCodeGenerator : RSCodeGenerator {
     }
 
     // Generate CI related code image
-    open class func generateCode(_ contents:String, inputCorrectionLevel: InputCorrectionLevel, filterName:String) -> UIImage? {
+    open class func generateCode(_ contents:String, inputCorrectionLevel: InputCorrectionLevel = .Medium, filterName:String) -> UIImage? {
         if filterName.length() > 0 {
             if let filter = CIFilter(name: filterName) {
                 filter.setDefaults()
