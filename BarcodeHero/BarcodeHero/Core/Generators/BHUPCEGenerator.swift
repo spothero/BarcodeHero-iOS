@@ -149,8 +149,14 @@ extension BHUPCEGenerator: BHBarcodeGenerating {
             throw BHError.dataRequired
         }
 
-//        && contents.length() == 8
-//            && Int(contents[0])! == 0
+        guard rawData.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil else {
+            throw BHError.invalidData(rawData, for: barcodeType)
+        }
+
+        guard rawData.count == 8 && Int(rawData[0]) == 0 else {
+            throw BHError.invalidData(rawData, for: barcodeType)
+        }
+
 //            && contents[contents.length() - 1] == self.checkDigit(contents)
 
         return false
