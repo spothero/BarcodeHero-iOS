@@ -10,25 +10,22 @@ import AVFoundation
 import Foundation
 
 public enum BHBarcodeType: String {
-//    case unknown = "Unknown"
     case aztec = "Aztec"
     case code39 = "Code 39"
     case code39Mod43 = "Code 39 mod 43"
     case code93 = "Code 93"
     case code128 = "Code 128"
 //    case dataMatrix = "Data Matrix"
-    case ean8 = "EAN 8"
-    case ean13 = "EAN 13"
+    case ean8 = "EAN-8"
+    case ean13 = "EAN-13"
 //    case extendedCode39 = "Extended Code 39"
-    case isbn13 = "ISBN 13"
-    case issn13 = "ISSN 13"
+    case isbn13 = "ISBN-13"
+    case issn13 = "ISSN-13"
     case itf = "Interleaved 2 of 5"
-    case itf14 = "ITF 14"
-//    case isbn13 = "ISBN 13"
-//    case issn13 = "ISSN 13"
-    case pdf417 = "PDF 417"
+    case itf14 = "ITF-14"
+    case pdf417 = "PDF417"
     case qr = "QR" // swiftlint:disable:this identifier_name
-    case upce = "UPCE"
+    case upce = "UPC-E"
 
     public static var asArray: [BHBarcodeType] {
         return [.aztec, .code39, .code39Mod43, .code93, .code128,
