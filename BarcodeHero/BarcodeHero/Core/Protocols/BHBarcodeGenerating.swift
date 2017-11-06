@@ -13,8 +13,8 @@ protocol BHBarcodeGenerating {
 
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String
 
-    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?) throws -> UIImage
-    func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage
+    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?, options: BHBarcodeOptions?) throws -> UIImage
+    func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions?) throws -> UIImage
 
     func isValid(_ rawData: String?, for barcodeType: BHBarcodeType?) throws -> Bool
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool
@@ -27,7 +27,7 @@ extension BHBarcodeGenerating {
         return rawData
     }
 
-    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?) throws -> UIImage {
+    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?, options: BHBarcodeOptions? = nil) throws -> UIImage {
         guard let barcodeType = barcodeType else {
             throw BHError.typeRequired
         }
@@ -39,7 +39,7 @@ extension BHBarcodeGenerating {
         return try generate(barcodeType, withData: rawData)
     }
 
-    func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage {
+    func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions? = nil) throws -> UIImage {
         try validate(rawData, for: barcodeType)
 //        guard try isValid(barcodeType, withData: rawData) else {
 //            throw BHError.invalidData(rawData, for: barcodeType)
@@ -47,7 +47,7 @@ extension BHBarcodeGenerating {
 
         let data = try encode(rawData, for: barcodeType)
 
-        guard let image = try BHImageHelper.draw(data) else {
+        guard let image = try BHImageHelper.draw(data, options: options) else {
             throw BHError.couldNotCreateImage(barcodeType)
         }
 

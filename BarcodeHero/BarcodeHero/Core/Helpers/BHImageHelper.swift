@@ -12,10 +12,12 @@ import Foundation
 import UIKit
 
 class BHImageHelper {
-    static func draw(_ data: String) throws -> UIImage? {
+    static func draw(_ data: String, options: BHBarcodeOptions? = nil) throws -> UIImage? {
         guard !data.isEmpty else {
             throw BHError.dataRequired
         }
+
+        let options = options ?? BHBarcodeOptions()
 
         // Values taken from CIImage generated AVMetadataObjectTypePDF417Code type image
         // Top spacing          = 1.5
@@ -33,8 +35,8 @@ class BHImageHelper {
 
         context.setShouldAntialias(false)
 
-        UIColor.white.setFill()
-        UIColor.black.setStroke()
+        options.fillColor.setFill()
+        options.strokeColor.setStroke()
 
         context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
         context.setLineWidth(1)
