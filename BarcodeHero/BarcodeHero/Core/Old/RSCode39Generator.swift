@@ -101,3 +101,4 @@ open class RSCode39Generator: RSAbstractCodeGenerator {
     }
 }
 
+

@@ -13,12 +13,14 @@ public enum BHBarcodeType: String {
 //    case unknown = "Unknown"
     case aztec = "Aztec"
     case code39 = "Code 39"
-//    case code39mod43 = "Code 39 Mod 43"
+    case code39Mod43 = "Code 39 mod 43"
+    case code93 = "Code 93"
     case code128 = "Code 128"
     case dataMatrix = "Data Matrix"
     case ean8 = "EAN 8"
     case ean13 = "EAN 13"
-//    case itf = "ITF"
+    case extendedCode39 = "Extended Code 39"
+    case itf = "Interleaved 2 of 5"
     case itf14 = "ITF 14"
     case isbn13 = "ISBN 13"
     case issn13 = "ISSN 13"
@@ -27,23 +29,43 @@ public enum BHBarcodeType: String {
     case upce = "UPCE"
 
     public static var array: [BHBarcodeType] {
-        return [.aztec, .code39, .code128, .dataMatrix, .ean8, .ean13, .itf14, .isbn13, .issn13, .pdf417, .qr, .upce]
+        return [.aztec, .code39, .code39Mod43, .code93, .code128,
+                .dataMatrix, .ean8, .ean13, .extendedCode39, .itf,
+                .itf14, .isbn13, .issn13, .pdf417, .qr, .upce]
     }
 
     public var isNative: Bool {
-        return self == .aztec || self == .code128 || self == .pdf417 || self == .qr
+        return [.aztec, .code128, .pdf417, .qr].contains(self)
     }
 
     init?(metadataObjectType: AVMetadataObject.ObjectType) {
         switch metadataObjectType {
         case .aztec:
-            self = BHBarcodeType.aztec
+            self = .aztec
+        case .code39:
+            self = .code39
+        case .code39Mod43:
+            self = .code39Mod43
+        case .code93:
+            self = .code93
         case .code128:
-            self = BHBarcodeType.code128
+            self = .code128
+        case .dataMatrix:
+            self = .dataMatrix
+        case .ean8:
+            self = .ean8
+        case .ean13:
+            self = .ean13
+        case .interleaved2of5:
+            self = .itf
+        case .itf14:
+            self = .itf14
         case .pdf417:
-            self = BHBarcodeType.pdf417
+            self = .pdf417
         case .qr:
-            self = BHBarcodeType.qr
+            self = .qr
+        case .upce:
+            self = .upce
         default:
             return nil
         }
@@ -57,7 +79,7 @@ public enum BHNativeCodeGeneratorType: String {
     case pdf417 = "CIPDF417BarcodeGenerator"
     case qr = "CIQRCodeGenerator" // swiftlint:disable:this identifier_name
 
-    init?(barcodeType: BHBarcodeType) {
+    init?(barcodeType: BHBarcodeType) throws {
         switch barcodeType {
         case .aztec:
             self = BHNativeCodeGeneratorType.aztec
@@ -68,7 +90,7 @@ public enum BHNativeCodeGeneratorType: String {
         case .qr:
             self = BHNativeCodeGeneratorType.qr
         default:
-            return nil
+            throw BHError.nonNativeType(barcodeType)
         }
     }
 }

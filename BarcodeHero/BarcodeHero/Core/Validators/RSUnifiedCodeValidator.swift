@@ -23,12 +23,6 @@ open class RSUnifiedCodeValidator {
             return false
         case AVMetadataObject.ObjectType.code39.rawValue:
             codeGenerator = RSCode39Generator()
-        case AVMetadataObject.ObjectType.code39Mod43.rawValue:
-            codeGenerator = RSCode39Mod43Generator()
-        case AVMetadataObject.ObjectType.ean8.rawValue:
-            codeGenerator = RSEAN8Generator()
-        case AVMetadataObject.ObjectType.ean13.rawValue:
-            codeGenerator = RSEAN13Generator()
         case AVMetadataObject.ObjectType.interleaved2of5.rawValue:
             codeGenerator = RSITFGenerator()
         case AVMetadataObject.ObjectType.itf14.rawValue:
@@ -41,10 +35,6 @@ open class RSUnifiedCodeValidator {
             codeGenerator = RSCode128Generator()
         case AVMetadataObject.ObjectType.dataMatrix.rawValue:
             codeGenerator = RSCodeDataMatrixGenerator()
-        case RSBarcodesTypeISBN13Code:
-            codeGenerator = RSISBN13Generator()
-        case RSBarcodesTypeISSN13Code:
-            codeGenerator = RSISSN13Generator()
         case RSBarcodesTypeExtendedCode39Code:
             codeGenerator = RSExtendedCode39Generator()
         default:

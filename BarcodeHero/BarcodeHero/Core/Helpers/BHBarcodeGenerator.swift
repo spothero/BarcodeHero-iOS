@@ -18,19 +18,6 @@ public class BHBarcodeGenerator {
             throw BHError.dataRequired
         }
 
-//        switch barcodeType {
-//        case .code39:
-//            return RSCode39Generator().drawCompleteBarcode(data)!
-//        case .dataMatrix:
-//            return RSCodeDataMatrixGenerator().drawCompleteBarcode(data)!
-//        case .itf14:
-//            return RSITF14Generator().drawCompleteBarcode(data)!
-//        case .upce:
-//            return RSUPCEGenerator().drawCompleteBarcode(data)!
-//        default:
-//            break
-//        }
-
         guard let generator = try getGenerator(for: barcodeType) else {
             throw BHError.couldNotCreateGenerator(barcodeType)
         }
@@ -46,7 +33,7 @@ public class BHBarcodeGenerator {
         switch barcodeType {
         case .aztec, .code128, .pdf417, .qr:
             return BHNativeBarcodeGenerator()
-        case .code39:
+        case .code39, .code39Mod43:
             return BHCode39Generator()
         case .ean8, .ean13, .isbn13, .issn13:
             return BHEANGenerator()

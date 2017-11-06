@@ -6,6 +6,8 @@
 //  Copyright © 2017 SpotHero. All rights reserved.
 //
 //  http://blog.sina.com.cn/s/blog_4015406e0100bsqk.html
+//  http://www.appsbarcode.com/ISBN.php
+//  http://www.appsbarcode.com/ISSN.php
 
 //public let RSBarcodesTypeISBN13Code = "com.pdq.rsbarcodes.isbn13"
 //public let RSBarcodesTypeISSN13Code = "com.pdq.rsbarcodes.issn13"
@@ -62,34 +64,28 @@ extension BHEANGenerator: BHBarcodeGenerating {
         return "01010"
     }
 
-    func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage {
+    func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
         guard acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
 
-        let data = try processRawData(rawData, for: barcodeType)
-        let wrappedData = wrapData(data)
-
-        guard let image = try BHImageHelper.draw(wrappedData) else {
-            throw BHError.couldNotCreateImage(barcodeType)
-        }
-
-        return image
-    }
-
-    func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
         guard !rawData.isEmpty else {
             throw BHError.dataRequired
         }
 
-        for i in 0 ..< rawData.count {
-            if !"0123456789".contains(rawData[i]) {
-                return false
-            }
+        guard rawData.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil else {
+            throw BHError.invalidData(rawData, for: barcodeType)
+        }
+
+        guard barcodeType == .ean8
+            || barcodeType == .ean13
+            || (barcodeType == .isbn13 && rawData.starts(with: "978"))
+            || (barcodeType == .issn13 && rawData.starts(with: "977")) else {
+            throw BHError.invalidData(rawData, for: barcodeType)
         }
 
         guard (barcodeType == .ean8 && rawData.count == 8) || rawData.count == 13 else {
-            return false
+            throw BHError.invalidData(rawData, for: barcodeType)
         }
 
         var sum_odd = 0
@@ -117,49 +113,25 @@ extension BHEANGenerator: BHBarcodeGenerating {
         var newContents = rawData
 
         if rawData.count == 13 {
-            lefthandParity = self.lefthandParities[Int(rawData[0])!]
+            lefthandParity = lefthandParities[Int(rawData[0])!]
             newContents = rawData.substring(1, length: rawData.length() - 1)
         }
 
         var barcode = ""
-        for i in 0..<newContents.length() {
+
+        for i in 0 ..< newContents.length() {
             let digit = Int(newContents[i])!
             if i < lefthandParity.length() {
-                barcode += self.parityEncodingTable[digit][lefthandParity[i]]!
+                barcode += parityEncodingTable[digit][lefthandParity[i]]!
                 if i == lefthandParity.length() - 1 {
                     barcode += centerGuardPattern
                 }
             } else {
-                barcode += self.parityEncodingTable[digit]["R"]!
+                barcode += parityEncodingTable[digit]["R"]!
             }
         }
-        return barcode
+
+        return initiator + barcode + terminator
     }
 }
-
-//class RSEAN8Generator: RSEANGenerator {
-//    init() {
-//        super.init(length: 8)
-//    }
-//}
-//
-//class RSEAN13Generator: RSEANGenerator {
-//    init() {
-//        super.init(length: 13)
-//    }
-//}
-//
-//class RSISBN13Generator: RSEAN13Generator {
-//    override func isValid(_ contents: String) -> Bool {
-//        // http://www.appsbarcode.com/ISBN.php
-//        return super.isValid(contents) && contents.substring(0, length: 3) == "978"
-//    }
-//}
-//
-//class RSISSN13Generator: RSEAN13Generator {
-//    override func isValid(_ contents: String) -> Bool {
-//        // http://www.appsbarcode.com/ISSN.php
-//        return super.isValid(contents) && contents.substring(0, length: 3) == "977"
-//    }
-//}
 

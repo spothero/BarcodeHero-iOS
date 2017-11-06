@@ -12,13 +12,11 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] = [.aztec, .code128, .pdf417, .qr]
 
     func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage {
+        try validate(rawData, for: barcodeType)
+
         let data = rawData.data(using: .isoLatin1, allowLossyConversion: false)
 
-        guard barcodeType.isNative == true else {
-            throw BHError.nonNativeType(barcodeType)
-        }
-
-        guard let generator = BHNativeCodeGeneratorType(barcodeType: barcodeType) else {
+        guard let generator = try BHNativeCodeGeneratorType(barcodeType: barcodeType) else {
             throw BHError.nonNativeType(barcodeType)
         }
 
@@ -57,13 +55,5 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
         //        }
         //
         //        return UIImage(cgImage: cgImage, scale: 1, orientation: UIImageOrientation.up)
-    }
-
-    func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
-        return true
-    }
-
-    func processRawData(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
-        return ""
     }
 }

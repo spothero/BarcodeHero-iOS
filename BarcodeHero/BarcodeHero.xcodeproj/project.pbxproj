@@ -12,7 +12,7 @@
 		D358268E1FAE5316002A9858 /* BHCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268D1FAE5316002A9858 /* BHCode39Generator.swift */; };
 		D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268F1FAE5378002A9858 /* UIImage+Resize.swift */; };
 		D35826921FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */; };
-		D35826941FAE6FC9002A9858 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826931FAE6FC9002A9858 /* Errors.swift */; };
+		D35826941FAE6FC9002A9858 /* BHError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826931FAE6FC9002A9858 /* BHError.swift */; };
 		D35826961FAE7570002A9858 /* BHBarcodeGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826951FAE7570002A9858 /* BHBarcodeGenerating.swift */; };
 		D35826981FAFA234002A9858 /* BHEANGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826971FAFA234002A9858 /* BHEANGenerator.swift */; };
 		D358269D1FAFC31E002A9858 /* BHImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358269C1FAFC31E002A9858 /* BHImageHelper.swift */; };
@@ -62,7 +62,7 @@
 		D358268D1FAE5316002A9858 /* BHCode39Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHCode39Generator.swift; sourceTree = "<group>"; };
 		D358268F1FAE5378002A9858 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHNativeBarcodeGenerator.swift; sourceTree = "<group>"; };
-		D35826931FAE6FC9002A9858 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D35826931FAE6FC9002A9858 /* BHError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHError.swift; sourceTree = "<group>"; };
 		D35826951FAE7570002A9858 /* BHBarcodeGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHBarcodeGenerating.swift; sourceTree = "<group>"; };
 		D35826971FAFA234002A9858 /* BHEANGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHEANGenerator.swift; sourceTree = "<group>"; };
 		D358269C1FAFC31E002A9858 /* BHImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHImageHelper.swift; sourceTree = "<group>"; };
@@ -262,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				D358268D1FAE5316002A9858 /* BHCode39Generator.swift */,
-				D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */,
 				D35826971FAFA234002A9858 /* BHEANGenerator.swift */,
+				D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				D35F2BB21F9860340017A4D6 /* Enums.swift */,
-				D35826931FAE6FC9002A9858 /* Errors.swift */,
+				D35826931FAE6FC9002A9858 /* BHError.swift */,
 				D35F2BB61F986EED0017A4D6 /* Extensions */,
 				D365459D1F98492300AE06E2 /* Generators */,
 				D35F2BAD1F985F320017A4D6 /* Helpers */,
@@ -568,7 +568,7 @@
 				D35826921FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift in Sources */,
 				D36545B71F98493E00AE06E2 /* RSITFGenerator.swift in Sources */,
 				D36545BC1F98493E00AE06E2 /* RSExtendedCode39Generator.swift in Sources */,
-				D35826941FAE6FC9002A9858 /* Errors.swift in Sources */,
+				D35826941FAE6FC9002A9858 /* BHError.swift in Sources */,
 				D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */,
 				D35826981FAFA234002A9858 /* BHEANGenerator.swift in Sources */,
 				D36545C51F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  Errors.swift
+//  BHError.swift
 //  BarcodeHero
 //
 //  Created by Brian Drelling on 11/4/17.
@@ -10,6 +10,7 @@ import Foundation
 
 public enum BHError: Error {
 //    case generic(String)
+    case characterEncodingNotFound(String)
     case couldNotCreateFilter(BHBarcodeType)
     case couldNotCreateGenerator(BHBarcodeType)
     case couldNotCreateImage(BHBarcodeType)
@@ -27,6 +28,8 @@ public enum BHError: Error {
 extension BHError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .characterEncodingNotFound(let character):
+            return "Character encoding not found for character '\(character)'."
         case .couldNotCreateFilter(let barcodeType):
             return "Could not create filter for barcode type '\(barcodeType)'."
         case .couldNotCreateGenerator(let barcodeType):

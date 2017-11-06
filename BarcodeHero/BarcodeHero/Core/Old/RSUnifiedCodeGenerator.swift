@@ -32,16 +32,6 @@ open class RSUnifiedCodeGenerator: RSCodeGenerator {
     open func generateCode(_ contents: String, inputCorrectionLevel: InputCorrectionLevel, machineReadableCodeObjectType: String) -> UIImage? {
         var codeGenerator: RSCodeGenerator?
         switch machineReadableCodeObjectType {
-        case AVMetadataObject.ObjectType.qr.rawValue, AVMetadataObject.ObjectType.pdf417.rawValue, AVMetadataObject.ObjectType.aztec.rawValue:
-            return RSAbstractCodeGenerator.generateCode(contents, inputCorrectionLevel: inputCorrectionLevel, filterName: RSAbstractCodeGenerator.filterName(machineReadableCodeObjectType))
-        case AVMetadataObject.ObjectType.code39.rawValue:
-            codeGenerator = RSCode39Generator()
-        case AVMetadataObject.ObjectType.code39Mod43.rawValue:
-            codeGenerator = RSCode39Mod43Generator()
-        case AVMetadataObject.ObjectType.ean8.rawValue:
-            codeGenerator = RSEAN8Generator()
-        case AVMetadataObject.ObjectType.ean13.rawValue:
-            codeGenerator = RSEAN13Generator()
         case AVMetadataObject.ObjectType.interleaved2of5.rawValue:
             codeGenerator = RSITFGenerator()
         case AVMetadataObject.ObjectType.itf14.rawValue:
@@ -50,19 +40,8 @@ open class RSUnifiedCodeGenerator: RSCodeGenerator {
             codeGenerator = RSUPCEGenerator()
         case AVMetadataObject.ObjectType.code93.rawValue:
             codeGenerator = RSCode93Generator()
-            // iOS 8 included, but my implementation's performance is better :)
-        case AVMetadataObject.ObjectType.code128.rawValue:
-            if self.isBuiltInCode128GeneratorSelected {
-                return RSAbstractCodeGenerator.generateCode(contents, inputCorrectionLevel: inputCorrectionLevel, filterName: RSAbstractCodeGenerator.filterName(machineReadableCodeObjectType))
-            } else {
-                codeGenerator = RSCode128Generator()
-            }
         case AVMetadataObject.ObjectType.dataMatrix.rawValue:
             codeGenerator = RSCodeDataMatrixGenerator()
-        case RSBarcodesTypeISBN13Code:
-            codeGenerator = RSISBN13Generator()
-        case RSBarcodesTypeISSN13Code:
-            codeGenerator = RSISSN13Generator()
         case RSBarcodesTypeExtendedCode39Code:
             codeGenerator = RSExtendedCode39Generator()
         default:
