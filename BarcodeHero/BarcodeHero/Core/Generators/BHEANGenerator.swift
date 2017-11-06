@@ -16,7 +16,13 @@ import Foundation
 import UIKit
 
 class BHEANGenerator {
-    let lefthandParities = [
+    // MARK: - Properties
+
+    private static var centerMarker = "01010"
+    private static var endMarker = "01010"
+    private static var startMarker = "101"
+
+    private static let lefthandParities = [
         "LLLLLL",
         "LLGLGG",
         "LLGGLG",
@@ -29,7 +35,7 @@ class BHEANGenerator {
         "LGGLGL",
     ]
 
-    let digitEncodings = [
+    private static let digitEncodings = [
         ["L" : "0001101", "G" : "0100111", "R" : "1110010"],
         ["L" : "0011001", "G" : "0110011", "R" : "1100110"],
         ["L" : "0010011", "G" : "0011011", "R" : "1101100"],
@@ -41,27 +47,13 @@ class BHEANGenerator {
         ["L" : "0110111", "G" : "0001001", "R" : "1001000"],
         ["L" : "0001011", "G" : "0010111", "R" : "1110100"],
     ]
-
-    var centerMarker = "01010"
-    var startMarker = "101"
-    var endMarker = "01010"
-
-    func wrapData(_ barcode: String) -> String {
-        return self.initiator + barcode + self.terminator
-    }
 }
+
+// MARK: - Extensions
 
 extension BHEANGenerator: BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] {
         return [.ean8, .ean13, .isbn13, .issn13]
-    }
-
-    var initiator: String {
-        return "101"
-    }
-
-    var terminator: String {
-        return "01010"
     }
 
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
@@ -69,7 +61,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
         var encodableData = rawData
 
         if rawData.count == 13 {
-            lefthandParity = lefthandParities[Int(rawData[0])!]
+            lefthandParity = BHEANGenerator.lefthandParities[Int(rawData[0])!]
 
             let startIndex = rawData.index(rawData.startIndex, offsetBy: 1)
             encodableData = String(rawData[startIndex...])
@@ -78,27 +70,27 @@ extension BHEANGenerator: BHBarcodeGenerating {
         var encodedData: String = ""
 
         for i in 0 ..< encodableData.count {
-            guard let digit = Int(encodableData[i]),
-                let parity = (i >= lefthandParity.count) ? "R" : lefthandParity[i],
-                let encodedDigit = digitEncodings[digit][parity] else {
+            guard let digit = Int(encodableData[i]) else {
                     throw BHError.couldNotEncode(rawData, for: barcodeType, withResult: encodedData)
+            }
+
+            let parity = (i >= lefthandParity.count) ? "R" : lefthandParity[i]
+
+            guard let encodedDigit = BHEANGenerator.digitEncodings[digit][parity] else {
+                throw BHError.couldNotEncode(rawData, for: barcodeType, withResult: encodedData)
             }
 
             encodedData += encodedDigit
 
             if i == lefthandParity.count - 1 {
-                encodedData += centerMarker
+                encodedData += BHEANGenerator.centerMarker
             }
         }
 
-        guard encodedData.count == 8 || encodedData.count == 13 else {
-            throw BHError.couldNotEncode(rawData, for: barcodeType, withResult: encodedData)
-        }
-
-        return initiator + encodedData + terminator
+        return BHEANGenerator.startMarker + encodedData + BHEANGenerator.endMarker
     }
 
-    func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
+    func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
         guard acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
@@ -139,7 +131,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
 
         let checkDigit = (10 - (sum_even + sum_odd * 3) % 10) % 10
         
-        return Int(rawData[rawData.length() - 1]) == checkDigit
+        return Int(rawData[rawData.count - 1]) == checkDigit
     }
 }
 

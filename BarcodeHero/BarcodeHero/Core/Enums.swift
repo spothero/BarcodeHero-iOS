@@ -16,26 +16,63 @@ public enum BHBarcodeType: String {
     case code39Mod43 = "Code 39 mod 43"
     case code93 = "Code 93"
     case code128 = "Code 128"
-    case dataMatrix = "Data Matrix"
+//    case dataMatrix = "Data Matrix"
     case ean8 = "EAN 8"
     case ean13 = "EAN 13"
-    case extendedCode39 = "Extended Code 39"
-    case itf = "Interleaved 2 of 5"
-    case itf14 = "ITF 14"
+//    case extendedCode39 = "Extended Code 39"
     case isbn13 = "ISBN 13"
     case issn13 = "ISSN 13"
+    case itf = "Interleaved 2 of 5"
+    case itf14 = "ITF 14"
+//    case isbn13 = "ISBN 13"
+//    case issn13 = "ISSN 13"
     case pdf417 = "PDF 417"
     case qr = "QR" // swiftlint:disable:this identifier_name
     case upce = "UPCE"
 
-    public static var array: [BHBarcodeType] {
+    public static var asArray: [BHBarcodeType] {
         return [.aztec, .code39, .code39Mod43, .code93, .code128,
-                .dataMatrix, .ean8, .ean13, .extendedCode39, .itf,
-                .itf14, .isbn13, .issn13, .pdf417, .qr, .upce]
+                .ean8, .ean13, .isbn13, .issn13, .itf, .itf14,
+                .pdf417, .qr, .upce]
     }
 
     public var isNative: Bool {
         return [.aztec, .code128, .pdf417, .qr].contains(self)
+    }
+
+    public var metadataObjectType: AVMetadataObject.ObjectType? {
+        switch self {
+        case .aztec:
+            return .aztec
+        case .code39:
+            return .code39
+        case .code39Mod43:
+            return .code39Mod43
+        case .code93:
+            return .code93
+        case .code128:
+            return .code128
+        case .ean8:
+            return .ean8
+        case .ean13:
+            return .ean13
+//        case .extendedCode39:
+//            return nil
+        case .isbn13:
+            return .ean13
+        case .issn13:
+            return .ean13
+        case .itf:
+            return .interleaved2of5
+        case .itf14:
+            return .itf14
+        case .pdf417:
+            return .pdf417
+        case .qr:
+            return .qr
+        case .upce:
+            return .upce
+        }
     }
 
     init?(metadataObjectType: AVMetadataObject.ObjectType) {
@@ -50,8 +87,8 @@ public enum BHBarcodeType: String {
             self = .code93
         case .code128:
             self = .code128
-        case .dataMatrix:
-            self = .dataMatrix
+//        case .dataMatrix:
+//            self = .dataMatrix
         case .ean8:
             self = .ean8
         case .ean13:

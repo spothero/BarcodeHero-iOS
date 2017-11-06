@@ -103,8 +103,6 @@ class BHImageHelper {
 
             break
         default:
-            break
-
             let scaledRect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(x: 0.0, y: 0.0, width: targetSize.width, height: targetSize.height))
 
             width = scaledRect.width

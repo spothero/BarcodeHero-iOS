@@ -18,6 +18,7 @@ public enum BHError: Error {
     case couldNotGetGraphicsContext
     case dataRequired
     case imageViewRequired
+    case indexOutOfBounds
     case invalidData(String, for: BHBarcodeType)
     case invalidType(BHBarcodeType)
     case nonNativeType(BHBarcodeType)
@@ -47,6 +48,8 @@ extension BHError: LocalizedError {
 //            return message
         case .imageViewRequired:
             return "Image view is required for barcode resizing."
+        case .indexOutOfBounds:
+            return "Index is out of bounds."
         case .invalidData(let data, let barcodeType):
             return "Data '\(data)' is invalid for barcode type '\(barcodeType.rawValue)'."
         case .invalidType(let barcodeType):

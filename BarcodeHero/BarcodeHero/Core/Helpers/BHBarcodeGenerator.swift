@@ -39,14 +39,10 @@ public class BHBarcodeGenerator {
             return BHEANGenerator()
         case .itf, .itf14:
             return BHITFGenerator()
-        case .dataMatrix:
-            return nil
         case .code93:
-            return nil
-        case .extendedCode39:
-            return nil
+            return BHCode93Generator()
         case .upce:
-            return nil
+            return BHUPCEGenerator()
         }
     }
 }

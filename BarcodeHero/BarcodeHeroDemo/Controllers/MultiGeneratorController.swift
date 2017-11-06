@@ -19,7 +19,7 @@ class MultiGeneratorController: UITableViewController {
     @IBOutlet var barcodeImageViewWidthConstraint: NSLayoutConstraint?
 
     private var data: String = "12345678"
-    private var types: [BHBarcodeType] = BHBarcodeType.array
+    private var types: [BHBarcodeType] = BHBarcodeType.asArray
 
     // MARK: - Methods
 

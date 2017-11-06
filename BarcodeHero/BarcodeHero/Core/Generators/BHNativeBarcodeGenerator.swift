@@ -9,7 +9,11 @@
 import Foundation
 
 class BHNativeBarcodeGenerator: BHBarcodeGenerating {
+    // MARK: - Properties
+
     var acceptedTypes: [BHBarcodeType] = [.aztec, .code128, .pdf417, .qr]
+
+    // MARK: - Methods
 
     func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage {
         try validate(rawData, for: barcodeType)

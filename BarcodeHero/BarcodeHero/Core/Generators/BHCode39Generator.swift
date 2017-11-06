@@ -11,6 +11,8 @@
 import Foundation
 
 class BHCode39Generator {
+    // MARK: - Properties
+
     private static let acceptedCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%"
     private static let characterSet = CharacterSet(charactersIn: acceptedCharacters)
     private static let endMarker = "*"
@@ -63,19 +65,17 @@ class BHCode39Generator {
         "*": "1001011011010",
     ]
 
-    private func encode(character: String) throws -> String {
-        guard let encodedCharacter = BHCode39Generator.characterEncodings[character] else {
-            throw BHError.characterEncodingNotFound(character)
+    // MARK: - Methods
+
+    private func encode(character: Character) throws -> String {
+        guard let encodedCharacter = BHCode39Generator.characterEncodings[String(character)] else {
+            throw BHError.characterEncodingNotFound(String(character))
         }
 
         return encodedCharacter
     }
 
-    private func encode(character: Character) throws -> String {
-        return try encode(character: String(character))
-    }
-
-    private func generateCheckDigit(for rawData: String) -> String {
+    private func generateCheckDigit(for rawData: String) throws -> String {
         /**
          Step 1: From the table below, find the values of each character.
          C    O    D    E        3    9    <--Message characters
@@ -93,13 +93,17 @@ class BHCode39Generator {
         var sum = 0
         
         for character in rawData {
-            sum += BHCode39Generator.acceptedCharacters.location(String(character))
+             let index = try BHCode39Generator.acceptedCharacters.indexDistance(of: character)
+
+            sum += index
         }
         
         // 43 = CODE39_ALPHABET_STRING's length - 1 -- excludes asterisk
-        return BHCode39Generator.acceptedCharacters[sum % (BHCode39Generator.acceptedCharacters.length() - 1)]
+        return BHCode39Generator.acceptedCharacters[sum % (BHCode39Generator.acceptedCharacters.count - 1)]
     }
 }
+
+// MARK: - Extensions
 
 extension BHCode39Generator: BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] {
@@ -110,7 +114,7 @@ extension BHCode39Generator: BHBarcodeGenerating {
         var rawData = rawData
 
         if barcodeType == .code39Mod43 {
-            rawData += generateCheckDigit(for: rawData)
+            rawData += try generateCheckDigit(for: rawData)
         }
 
         rawData = BHCode39Generator.startMarker + rawData + BHCode39Generator.endMarker
@@ -118,7 +122,7 @@ extension BHCode39Generator: BHBarcodeGenerating {
         return try rawData.map({ try encode(character: $0) }).joined()
     }
 
-    func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
+    func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
         guard acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }

@@ -14,7 +14,7 @@ extension UIImage {
             throw BHError.imageViewRequired
         }
 
-        return try resizeTo(imageView.frame.size, forContentMode: imageView.contentMode)
+        return try resizeTo(imageView.bounds.size, forContentMode: imageView.contentMode)
     }
 
     public func resizeTo(_ size: CGSize?, forContentMode contentMode: UIViewContentMode? = nil) throws -> UIImage? {

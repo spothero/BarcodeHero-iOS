@@ -11,6 +11,8 @@
 import Foundation
 
 class BHITFGenerator {
+    // MARK: - Properties
+
     private static let characterSet = CharacterSet.decimalDigits
     private static let endMarker = "1101"
     private static let startMarker = "1010"
@@ -29,6 +31,8 @@ class BHITFGenerator {
     ]
 }
 
+// MARK: - Extensions
+
 extension BHITFGenerator: BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] {
         return [.itf, .itf14]
@@ -38,10 +42,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
         var barcode = ""
 
         for i in 0 ..< rawData.count / 2 {
-            guard let pair = rawData.substring(i * 2, length: 2) else {
-                continue
-            }
-
+            let pair = try rawData.substring(i * 2, length: 2)
             let bars = BHITFGenerator.characterEncodings[Int(pair[0])!]
             let spaces = BHITFGenerator.characterEncodings[Int(pair[1])!]
 
@@ -67,7 +68,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
         return BHITFGenerator.startMarker + barcode + BHITFGenerator.endMarker
     }
 
-    func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
+    func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
         guard acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }

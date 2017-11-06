@@ -19,9 +19,11 @@
 		D358269F1FAFD2C7002A9858 /* MultiGeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */; };
 		D35826A11FAFD364002A9858 /* BarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826A01FAFD364002A9858 /* BarcodeCell.swift */; };
 		D35826A51FAFF86F002A9858 /* BHITFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826A41FAFF86F002A9858 /* BHITFGenerator.swift */; };
+		D35826A71FB00FB5002A9858 /* BHCode93Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826A61FB00FB5002A9858 /* BHCode93Generator.swift */; };
+		D35826A91FB012CB002A9858 /* BHUPCEGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826A81FB012CB002A9858 /* BHUPCEGenerator.swift */; };
+		D35826AB1FB01900002A9858 /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826AA1FB01900002A9858 /* String+Convenience.swift */; };
 		D358D1EA1FAE39AA00D207D1 /* BarcodeTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358D1E91FAE39AA00D207D1 /* BarcodeTypesController.swift */; };
 		D358D1EC1FAE3A8500D207D1 /* BarcodeTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358D1EB1FAE3A8500D207D1 /* BarcodeTypeCell.swift */; };
-		D35F2BAF1F985F3F0017A4D6 /* BHImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35F2BAE1F985F3F0017A4D6 /* BHImageResizer.swift */; };
 		D35F2BB11F9860070017A4D6 /* BHBarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35F2BB01F9860070017A4D6 /* BHBarcodeGenerator.swift */; };
 		D35F2BB31F9860340017A4D6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35F2BB21F9860340017A4D6 /* Enums.swift */; };
 		D35F2BB51F98631B0017A4D6 /* GeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35F2BB41F98631B0017A4D6 /* GeneratorController.swift */; };
@@ -37,21 +39,6 @@
 		D36545931F98491C00AE06E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36545911F98491C00AE06E2 /* Main.storyboard */; };
 		D36545951F98491C00AE06E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36545941F98491C00AE06E2 /* Assets.xcassets */; };
 		D36545981F98491C00AE06E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36545961F98491C00AE06E2 /* LaunchScreen.storyboard */; };
-		D36545B21F98493E00AE06E2 /* RSCode128Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D365459E1F98493C00AE06E2 /* RSCode128Generator.swift */; };
-		D36545B31F98493E00AE06E2 /* RSUnifiedCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D365459F1F98493C00AE06E2 /* RSUnifiedCodeValidator.swift */; };
-		D36545B41F98493E00AE06E2 /* RSCode93Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A01F98493C00AE06E2 /* RSCode93Generator.swift */; };
-		D36545B51F98493E00AE06E2 /* RSCodeDataMatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A11F98493D00AE06E2 /* RSCodeDataMatrixGenerator.swift */; };
-		D36545B71F98493E00AE06E2 /* RSITFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A31F98493D00AE06E2 /* RSITFGenerator.swift */; };
-		D36545B91F98493E00AE06E2 /* RSCode39Mod43Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A51F98493D00AE06E2 /* RSCode39Mod43Generator.swift */; };
-		D36545BA1F98493E00AE06E2 /* RSAbstractBarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A61F98493D00AE06E2 /* RSAbstractBarcodeGenerator.swift */; };
-		D36545BC1F98493E00AE06E2 /* RSExtendedCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A81F98493D00AE06E2 /* RSExtendedCode39Generator.swift */; };
-		D36545BD1F98493E00AE06E2 /* RSCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545A91F98493D00AE06E2 /* RSCode39Generator.swift */; };
-		D36545BE1F98493E00AE06E2 /* RSEANGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545AA1F98493D00AE06E2 /* RSEANGenerator.swift */; };
-		D36545BF1F98493E00AE06E2 /* RSCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545AB1F98493D00AE06E2 /* RSCodeGenerator.swift */; };
-		D36545C01F98493E00AE06E2 /* RSITF14Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545AC1F98493D00AE06E2 /* RSITF14Generator.swift */; };
-		D36545C21F98493E00AE06E2 /* RSUPCEGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545AE1F98493E00AE06E2 /* RSUPCEGenerator.swift */; };
-		D36545C41F98493E00AE06E2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545B01F98493E00AE06E2 /* StringExtension.swift */; };
-		D36545C51F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36545B11F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,10 +57,12 @@
 		D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGeneratorController.swift; sourceTree = "<group>"; };
 		D35826A01FAFD364002A9858 /* BarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCell.swift; sourceTree = "<group>"; };
 		D35826A41FAFF86F002A9858 /* BHITFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHITFGenerator.swift; sourceTree = "<group>"; };
+		D35826A61FB00FB5002A9858 /* BHCode93Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHCode93Generator.swift; sourceTree = "<group>"; };
+		D35826A81FB012CB002A9858 /* BHUPCEGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHUPCEGenerator.swift; sourceTree = "<group>"; };
+		D35826AA1FB01900002A9858 /* String+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Convenience.swift"; sourceTree = "<group>"; };
 		D358D1E71FAE2BF100D207D1 /* BarcodeHero.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BarcodeHero.podspec; path = ../BarcodeHero.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D358D1E91FAE39AA00D207D1 /* BarcodeTypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTypesController.swift; sourceTree = "<group>"; };
 		D358D1EB1FAE3A8500D207D1 /* BarcodeTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTypeCell.swift; sourceTree = "<group>"; };
-		D35F2BAE1F985F3F0017A4D6 /* BHImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHImageResizer.swift; sourceTree = "<group>"; };
 		D35F2BB01F9860070017A4D6 /* BHBarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHBarcodeGenerator.swift; sourceTree = "<group>"; };
 		D35F2BB21F9860340017A4D6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		D35F2BB41F98631B0017A4D6 /* GeneratorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorController.swift; sourceTree = "<group>"; };
@@ -93,21 +82,6 @@
 		D36545941F98491C00AE06E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D36545971F98491C00AE06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36545991F98491C00AE06E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D365459E1F98493C00AE06E2 /* RSCode128Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode128Generator.swift; sourceTree = "<group>"; };
-		D365459F1F98493C00AE06E2 /* RSUnifiedCodeValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSUnifiedCodeValidator.swift; sourceTree = "<group>"; };
-		D36545A01F98493C00AE06E2 /* RSCode93Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode93Generator.swift; sourceTree = "<group>"; };
-		D36545A11F98493D00AE06E2 /* RSCodeDataMatrixGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeDataMatrixGenerator.swift; sourceTree = "<group>"; };
-		D36545A31F98493D00AE06E2 /* RSITFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSITFGenerator.swift; sourceTree = "<group>"; };
-		D36545A51F98493D00AE06E2 /* RSCode39Mod43Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode39Mod43Generator.swift; sourceTree = "<group>"; };
-		D36545A61F98493D00AE06E2 /* RSAbstractBarcodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAbstractBarcodeGenerator.swift; sourceTree = "<group>"; };
-		D36545A81F98493D00AE06E2 /* RSExtendedCode39Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSExtendedCode39Generator.swift; sourceTree = "<group>"; };
-		D36545A91F98493D00AE06E2 /* RSCode39Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode39Generator.swift; sourceTree = "<group>"; };
-		D36545AA1F98493D00AE06E2 /* RSEANGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSEANGenerator.swift; sourceTree = "<group>"; };
-		D36545AB1F98493D00AE06E2 /* RSCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeGenerator.swift; sourceTree = "<group>"; };
-		D36545AC1F98493D00AE06E2 /* RSITF14Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSITF14Generator.swift; sourceTree = "<group>"; };
-		D36545AE1F98493E00AE06E2 /* RSUPCEGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSUPCEGenerator.swift; sourceTree = "<group>"; };
-		D36545B01F98493E00AE06E2 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		D36545B11F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSUnifiedCodeGenerator.swift; sourceTree = "<group>"; };
 		D43BAFA9DE3EE29EB45E7AAE /* Pods-BarcodeHeroDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHeroDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				D35F2BB01F9860070017A4D6 /* BHBarcodeGenerator.swift */,
-				D35F2BAE1F985F3F0017A4D6 /* BHImageResizer.swift */,
 				D358269C1FAFC31E002A9858 /* BHImageHelper.swift */,
 			);
 			path = Helpers;
@@ -162,29 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				D35F2BB71F986EFB0017A4D6 /* CIImage+Transform.swift */,
+				D35826AA1FB01900002A9858 /* String+Convenience.swift */,
 				D358268F1FAE5378002A9858 /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D35F2BB91F986FD60017A4D6 /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				D36545A61F98493D00AE06E2 /* RSAbstractBarcodeGenerator.swift */,
-				D36545A91F98493D00AE06E2 /* RSCode39Generator.swift */,
-				D36545A51F98493D00AE06E2 /* RSCode39Mod43Generator.swift */,
-				D36545A01F98493C00AE06E2 /* RSCode93Generator.swift */,
-				D365459E1F98493C00AE06E2 /* RSCode128Generator.swift */,
-				D36545A11F98493D00AE06E2 /* RSCodeDataMatrixGenerator.swift */,
-				D36545AB1F98493D00AE06E2 /* RSCodeGenerator.swift */,
-				D36545AA1F98493D00AE06E2 /* RSEANGenerator.swift */,
-				D36545A81F98493D00AE06E2 /* RSExtendedCode39Generator.swift */,
-				D36545AC1F98493D00AE06E2 /* RSITF14Generator.swift */,
-				D36545A31F98493D00AE06E2 /* RSITFGenerator.swift */,
-				D36545B11F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift */,
-				D36545AE1F98493E00AE06E2 /* RSUPCEGenerator.swift */,
-			);
-			path = Old;
 			sourceTree = "<group>";
 		};
 		D35F2BBD1F98F1290017A4D6 /* Extensions */ = {
@@ -240,7 +194,6 @@
 				D365457F1F9848E400AE06E2 /* BarcodeHero.h */,
 				D36545801F9848E400AE06E2 /* Info.plist */,
 				D3ABE8B31F984EF000FA00CE /* Core */,
-				D36545C81F98495900AE06E2 /* Extensions */,
 				D3ABE8B41F984EF500FA00CE /* UI */,
 			);
 			path = BarcodeHero;
@@ -264,9 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				D358268D1FAE5316002A9858 /* BHCode39Generator.swift */,
+				D35826A61FB00FB5002A9858 /* BHCode93Generator.swift */,
 				D35826971FAFA234002A9858 /* BHEANGenerator.swift */,
-				D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */,
 				D35826A41FAFF86F002A9858 /* BHITFGenerator.swift */,
+				D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */,
+				D35826A81FB012CB002A9858 /* BHUPCEGenerator.swift */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -278,22 +233,6 @@
 				D35F2BC21F990E6A0017A4D6 /* BHCameraScanController.xib */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D36545C81F98495900AE06E2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D36545B01F98493E00AE06E2 /* StringExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D36545CA1F98496E00AE06E2 /* Validators */ = {
-			isa = PBXGroup;
-			children = (
-				D365459F1F98493C00AE06E2 /* RSUnifiedCodeValidator.swift */,
-			);
-			path = Validators;
 			sourceTree = "<group>";
 		};
 		D36546071F984CA300AE06E2 /* Controllers */ = {
@@ -332,9 +271,7 @@
 				D35F2BB61F986EED0017A4D6 /* Extensions */,
 				D365459D1F98492300AE06E2 /* Generators */,
 				D35F2BAD1F985F320017A4D6 /* Helpers */,
-				D35F2BB91F986FD60017A4D6 /* Old */,
 				D358269B1FAFA7D0002A9858 /* Protocols */,
-				D36545CA1F98496E00AE06E2 /* Validators */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -567,34 +504,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D35F2BAF1F985F3F0017A4D6 /* BHImageResizer.swift in Sources */,
+				D35826A91FB012CB002A9858 /* BHUPCEGenerator.swift in Sources */,
 				D35826921FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift in Sources */,
-				D36545B71F98493E00AE06E2 /* RSITFGenerator.swift in Sources */,
-				D36545BC1F98493E00AE06E2 /* RSExtendedCode39Generator.swift in Sources */,
+				D35826A71FB00FB5002A9858 /* BHCode93Generator.swift in Sources */,
+				D35826AB1FB01900002A9858 /* String+Convenience.swift in Sources */,
 				D35826941FAE6FC9002A9858 /* BHError.swift in Sources */,
 				D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */,
 				D35826981FAFA234002A9858 /* BHEANGenerator.swift in Sources */,
-				D36545C51F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift in Sources */,
 				D358268E1FAE5316002A9858 /* BHCode39Generator.swift in Sources */,
-				D36545C21F98493E00AE06E2 /* RSUPCEGenerator.swift in Sources */,
-				D36545B91F98493E00AE06E2 /* RSCode39Mod43Generator.swift in Sources */,
-				D36545B51F98493E00AE06E2 /* RSCodeDataMatrixGenerator.swift in Sources */,
-				D36545B21F98493E00AE06E2 /* RSCode128Generator.swift in Sources */,
-				D36545B41F98493E00AE06E2 /* RSCode93Generator.swift in Sources */,
 				D35F2BB31F9860340017A4D6 /* Enums.swift in Sources */,
-				D36545BE1F98493E00AE06E2 /* RSEANGenerator.swift in Sources */,
 				D35F2BB81F986EFB0017A4D6 /* CIImage+Transform.swift in Sources */,
 				D35F2BC31F990E6E0017A4D6 /* BHCameraScanController.swift in Sources */,
 				D35F2BB11F9860070017A4D6 /* BHBarcodeGenerator.swift in Sources */,
-				D36545BF1F98493E00AE06E2 /* RSCodeGenerator.swift in Sources */,
-				D36545C01F98493E00AE06E2 /* RSITF14Generator.swift in Sources */,
-				D36545BD1F98493E00AE06E2 /* RSCode39Generator.swift in Sources */,
 				D358269D1FAFC31E002A9858 /* BHImageHelper.swift in Sources */,
 				D35826A51FAFF86F002A9858 /* BHITFGenerator.swift in Sources */,
 				D35826961FAE7570002A9858 /* BHBarcodeGenerating.swift in Sources */,
-				D36545B31F98493E00AE06E2 /* RSUnifiedCodeValidator.swift in Sources */,
-				D36545C41F98493E00AE06E2 /* StringExtension.swift in Sources */,
-				D36545BA1F98493E00AE06E2 /* RSAbstractBarcodeGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

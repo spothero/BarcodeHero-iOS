@@ -43,7 +43,7 @@ class GeneratorController: UIViewController {
         navigationItem.rightBarButtonItem = generateBarButtonItem
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         regenerateBarcode()
@@ -120,8 +120,6 @@ extension GeneratorController: BarcodeTypesControllerDelegate {
         self.type = type
 
         typeLabel?.text = type.rawValue
-
-        regenerateBarcode()
 
         navigationController?.popToViewController(self, animated: true)
     }
