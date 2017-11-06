@@ -23,10 +23,6 @@ open class RSUnifiedCodeValidator {
             return false
         case AVMetadataObject.ObjectType.code39.rawValue:
             codeGenerator = RSCode39Generator()
-        case AVMetadataObject.ObjectType.interleaved2of5.rawValue:
-            codeGenerator = RSITFGenerator()
-        case AVMetadataObject.ObjectType.itf14.rawValue:
-            codeGenerator = RSITF14Generator()
         case AVMetadataObject.ObjectType.upce.rawValue:
             codeGenerator = RSUPCEGenerator()
         case AVMetadataObject.ObjectType.code93.rawValue:

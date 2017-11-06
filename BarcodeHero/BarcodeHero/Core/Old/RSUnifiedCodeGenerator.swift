@@ -32,10 +32,6 @@ open class RSUnifiedCodeGenerator: RSCodeGenerator {
     open func generateCode(_ contents: String, inputCorrectionLevel: InputCorrectionLevel, machineReadableCodeObjectType: String) -> UIImage? {
         var codeGenerator: RSCodeGenerator?
         switch machineReadableCodeObjectType {
-        case AVMetadataObject.ObjectType.interleaved2of5.rawValue:
-            codeGenerator = RSITFGenerator()
-        case AVMetadataObject.ObjectType.itf14.rawValue:
-            codeGenerator = RSITF14Generator()
         case AVMetadataObject.ObjectType.upce.rawValue:
             codeGenerator = RSUPCEGenerator()
         case AVMetadataObject.ObjectType.code93.rawValue:

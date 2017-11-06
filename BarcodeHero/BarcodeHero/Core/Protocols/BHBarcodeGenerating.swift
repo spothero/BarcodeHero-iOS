@@ -10,8 +10,8 @@ import Foundation
 
 protocol BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] { get }
-    var initiator: String { get }
-    var terminator: String { get }
+
+    func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String
 
     func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?) throws -> UIImage
     func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage
@@ -19,17 +19,12 @@ protocol BHBarcodeGenerating {
     func isValid(_ rawData: String?, for barcodeType: BHBarcodeType?) throws -> Bool
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool
 
-    func processRawData(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String
 //    func validate(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool
 }
 
 extension BHBarcodeGenerating {
-    var initiator: String {
-        return ""
-    }
-
-    var terminator: String {
-        return ""
+    func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
+        return rawData
     }
 
     func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?) throws -> UIImage {
@@ -50,7 +45,7 @@ extension BHBarcodeGenerating {
 //            throw BHError.invalidData(rawData, for: barcodeType)
 //        }
 
-        let data = try processRawData(rawData, for: barcodeType)
+        let data = try encode(rawData, for: barcodeType)
 
         guard let image = try BHImageHelper.draw(data) else {
             throw BHError.couldNotCreateImage(barcodeType)
@@ -59,6 +54,7 @@ extension BHBarcodeGenerating {
         return image
     }
 
+    @discardableResult
     func isValid(_ rawData: String?, for barcodeType: BHBarcodeType?) throws -> Bool {
         guard let barcodeType = barcodeType else {
             throw BHError.typeRequired
@@ -71,6 +67,7 @@ extension BHBarcodeGenerating {
         return try isValid(rawData, for: barcodeType)
     }
 
+    @discardableResult
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
         guard acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
@@ -81,10 +78,6 @@ extension BHBarcodeGenerating {
         }
 
         return true
-    }
-
-    func processRawData(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
-        return rawData
     }
 
     func validate(_ rawData: String, for barcodeType: BHBarcodeType) throws {

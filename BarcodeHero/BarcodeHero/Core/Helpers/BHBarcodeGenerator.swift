@@ -19,7 +19,7 @@ public class BHBarcodeGenerator {
         }
 
         guard let generator = try getGenerator(for: barcodeType) else {
-            throw BHError.couldNotCreateGenerator(barcodeType)
+            throw BHError.couldNotGetGenerator(barcodeType)
         }
 
         return try generator.generate(barcodeType, withData: data)
@@ -37,7 +37,15 @@ public class BHBarcodeGenerator {
             return BHCode39Generator()
         case .ean8, .ean13, .isbn13, .issn13:
             return BHEANGenerator()
-        default:
+        case .itf, .itf14:
+            return BHITFGenerator()
+        case .dataMatrix:
+            return nil
+        case .code93:
+            return nil
+        case .extendedCode39:
+            return nil
+        case .upce:
             return nil
         }
     }

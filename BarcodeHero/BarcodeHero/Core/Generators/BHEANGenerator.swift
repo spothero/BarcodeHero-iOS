@@ -16,35 +16,35 @@ import Foundation
 import UIKit
 
 class BHEANGenerator {
-    // 'O' for odd and 'E' for even
     let lefthandParities = [
-        "OOOOOO",
-        "OOEOEE",
-        "OOEEOE",
-        "OOEEEO",
-        "OEOOEE",
-        "OEEOOE",
-        "OEEEOO",
-        "OEOEOE",
-        "OEOEEO",
-        "OEEOEO"
+        "LLLLLL",
+        "LLGLGG",
+        "LLGGLG",
+        "LLGGGL",
+        "LGLLGG",
+        "LGGLLG",
+        "LGGGLL",
+        "LGLGLG",
+        "LGLGGL",
+        "LGGLGL",
     ]
 
-    // 'R' for right-hand
-    let parityEncodingTable = [
-        ["O" : "0001101", "E" : "0100111", "R" : "1110010"],
-        ["O" : "0011001", "E" : "0110011", "R" : "1100110"],
-        ["O" : "0010011", "E" : "0011011", "R" : "1101100"],
-        ["O" : "0111101", "E" : "0100001", "R" : "1000010"],
-        ["O" : "0100011", "E" : "0011101", "R" : "1011100"],
-        ["O" : "0110001", "E" : "0111001", "R" : "1001110"],
-        ["O" : "0101111", "E" : "0000101", "R" : "1010000"],
-        ["O" : "0111011", "E" : "0010001", "R" : "1000100"],
-        ["O" : "0110111", "E" : "0001001", "R" : "1001000"],
-        ["O" : "0001011", "E" : "0010111", "R" : "1110100"]
+    let digitEncodings = [
+        ["L" : "0001101", "G" : "0100111", "R" : "1110010"],
+        ["L" : "0011001", "G" : "0110011", "R" : "1100110"],
+        ["L" : "0010011", "G" : "0011011", "R" : "1101100"],
+        ["L" : "0111101", "G" : "0100001", "R" : "1000010"],
+        ["L" : "0100011", "G" : "0011101", "R" : "1011100"],
+        ["L" : "0110001", "G" : "0111001", "R" : "1001110"],
+        ["L" : "0101111", "G" : "0000101", "R" : "1010000"],
+        ["L" : "0111011", "G" : "0010001", "R" : "1000100"],
+        ["L" : "0110111", "G" : "0001001", "R" : "1001000"],
+        ["L" : "0001011", "G" : "0010111", "R" : "1110100"],
     ]
 
-    var centerGuardPattern = "01010"
+    var centerMarker = "01010"
+    var startMarker = "101"
+    var endMarker = "01010"
 
     func wrapData(_ barcode: String) -> String {
         return self.initiator + barcode + self.terminator
@@ -62,6 +62,40 @@ extension BHEANGenerator: BHBarcodeGenerating {
 
     var terminator: String {
         return "01010"
+    }
+
+    func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
+        var lefthandParity = "LLLL"
+        var encodableData = rawData
+
+        if rawData.count == 13 {
+            lefthandParity = lefthandParities[Int(rawData[0])!]
+
+            let startIndex = rawData.index(rawData.startIndex, offsetBy: 1)
+            encodableData = String(rawData[startIndex...])
+        }
+
+        var encodedData: String = ""
+
+        for i in 0 ..< encodableData.count {
+            guard let digit = Int(encodableData[i]),
+                let parity = (i >= lefthandParity.count) ? "R" : lefthandParity[i],
+                let encodedDigit = digitEncodings[digit][parity] else {
+                    throw BHError.couldNotEncode(rawData, for: barcodeType, withResult: encodedData)
+            }
+
+            encodedData += encodedDigit
+
+            if i == lefthandParity.count - 1 {
+                encodedData += centerMarker
+            }
+        }
+
+        guard encodedData.count == 8 || encodedData.count == 13 else {
+            throw BHError.couldNotEncode(rawData, for: barcodeType, withResult: encodedData)
+        }
+
+        return initiator + encodedData + terminator
     }
 
     func isValid(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> Bool {
@@ -106,32 +140,6 @@ extension BHEANGenerator: BHBarcodeGenerating {
         let checkDigit = (10 - (sum_even + sum_odd * 3) % 10) % 10
         
         return Int(rawData[rawData.length() - 1]) == checkDigit
-    }
-
-    func processRawData(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
-        var lefthandParity = "OOOO"
-        var newContents = rawData
-
-        if rawData.count == 13 {
-            lefthandParity = lefthandParities[Int(rawData[0])!]
-            newContents = rawData.substring(1, length: rawData.length() - 1)
-        }
-
-        var barcode = ""
-
-        for i in 0 ..< newContents.length() {
-            let digit = Int(newContents[i])!
-            if i < lefthandParity.length() {
-                barcode += parityEncodingTable[digit][lefthandParity[i]]!
-                if i == lefthandParity.length() - 1 {
-                    barcode += centerGuardPattern
-                }
-            } else {
-                barcode += parityEncodingTable[digit]["R"]!
-            }
-        }
-
-        return initiator + barcode + terminator
     }
 }
 
