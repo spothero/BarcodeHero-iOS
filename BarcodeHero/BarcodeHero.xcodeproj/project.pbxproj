@@ -10,12 +10,14 @@
 		6137B83BDA7CA2B5AFD80B6F /* Pods_BarcodeHeroDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893790E5444B6D84DF70E80 /* Pods_BarcodeHeroDemo.framework */; };
 		87B4E14B8FFA27BB9E5A9F33 /* Pods_BarcodeHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6A775D6B9C4FE8E7F2C3F7 /* Pods_BarcodeHero.framework */; };
 		D358268E1FAE5316002A9858 /* BHCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268D1FAE5316002A9858 /* BHCode39Generator.swift */; };
-		D35826901FAE5378002A9858 /* UIImage+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268F1FAE5378002A9858 /* UIImage+Transform.swift */; };
+		D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268F1FAE5378002A9858 /* UIImage+Resize.swift */; };
 		D35826921FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */; };
 		D35826941FAE6FC9002A9858 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826931FAE6FC9002A9858 /* Errors.swift */; };
 		D35826961FAE7570002A9858 /* BHBarcodeGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826951FAE7570002A9858 /* BHBarcodeGenerating.swift */; };
 		D35826981FAFA234002A9858 /* BHEANGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826971FAFA234002A9858 /* BHEANGenerator.swift */; };
-		D358269D1FAFC31E002A9858 /* BHBarcodeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358269C1FAFC31E002A9858 /* BHBarcodeCreator.swift */; };
+		D358269D1FAFC31E002A9858 /* BHImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358269C1FAFC31E002A9858 /* BHImageHelper.swift */; };
+		D358269F1FAFD2C7002A9858 /* MultiGeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */; };
+		D35826A11FAFD364002A9858 /* BarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826A01FAFD364002A9858 /* BarcodeCell.swift */; };
 		D358D1EA1FAE39AA00D207D1 /* BarcodeTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358D1E91FAE39AA00D207D1 /* BarcodeTypesController.swift */; };
 		D358D1EC1FAE3A8500D207D1 /* BarcodeTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358D1EB1FAE3A8500D207D1 /* BarcodeTypeCell.swift */; };
 		D35F2BAF1F985F3F0017A4D6 /* BHImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35F2BAE1F985F3F0017A4D6 /* BHImageResizer.swift */; };
@@ -58,12 +60,14 @@
 		9EF02823FCEC3E4FAAF197A2 /* Pods-BarcodeHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHero.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHero/Pods-BarcodeHero.release.xcconfig"; sourceTree = "<group>"; };
 		C893790E5444B6D84DF70E80 /* Pods_BarcodeHeroDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHeroDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D358268D1FAE5316002A9858 /* BHCode39Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHCode39Generator.swift; sourceTree = "<group>"; };
-		D358268F1FAE5378002A9858 /* UIImage+Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Transform.swift"; sourceTree = "<group>"; };
+		D358268F1FAE5378002A9858 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHNativeBarcodeGenerator.swift; sourceTree = "<group>"; };
 		D35826931FAE6FC9002A9858 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D35826951FAE7570002A9858 /* BHBarcodeGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHBarcodeGenerating.swift; sourceTree = "<group>"; };
 		D35826971FAFA234002A9858 /* BHEANGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHEANGenerator.swift; sourceTree = "<group>"; };
-		D358269C1FAFC31E002A9858 /* BHBarcodeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHBarcodeCreator.swift; sourceTree = "<group>"; };
+		D358269C1FAFC31E002A9858 /* BHImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHImageHelper.swift; sourceTree = "<group>"; };
+		D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGeneratorController.swift; sourceTree = "<group>"; };
+		D35826A01FAFD364002A9858 /* BarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCell.swift; sourceTree = "<group>"; };
 		D358D1E71FAE2BF100D207D1 /* BarcodeHero.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BarcodeHero.podspec; path = ../BarcodeHero.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D358D1E91FAE39AA00D207D1 /* BarcodeTypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTypesController.swift; sourceTree = "<group>"; };
 		D358D1EB1FAE3A8500D207D1 /* BarcodeTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTypeCell.swift; sourceTree = "<group>"; };
@@ -147,7 +151,7 @@
 			children = (
 				D35F2BB01F9860070017A4D6 /* BHBarcodeGenerator.swift */,
 				D35F2BAE1F985F3F0017A4D6 /* BHImageResizer.swift */,
-				D358269C1FAFC31E002A9858 /* BHBarcodeCreator.swift */,
+				D358269C1FAFC31E002A9858 /* BHImageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -156,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D35F2BB71F986EFB0017A4D6 /* CIImage+Transform.swift */,
-				D358268F1FAE5378002A9858 /* UIImage+Transform.swift */,
+				D358268F1FAE5378002A9858 /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -192,8 +196,9 @@
 		D35F2BBE1F98F1300017A4D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D35F2BBF1F98F13E0017A4D6 /* BHPickerView.swift */,
+				D35826A01FAFD364002A9858 /* BarcodeCell.swift */,
 				D358D1EB1FAE3A8500D207D1 /* BarcodeTypeCell.swift */,
+				D35F2BBF1F98F13E0017A4D6 /* BHPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,9 +296,10 @@
 		D36546071F984CA300AE06E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D365458F1F98491C00AE06E2 /* MainViewController.swift */,
-				D35F2BB41F98631B0017A4D6 /* GeneratorController.swift */,
 				D358D1E91FAE39AA00D207D1 /* BarcodeTypesController.swift */,
+				D35F2BB41F98631B0017A4D6 /* GeneratorController.swift */,
+				D365458F1F98491C00AE06E2 /* MainViewController.swift */,
+				D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -563,7 +569,7 @@
 				D36545B71F98493E00AE06E2 /* RSITFGenerator.swift in Sources */,
 				D36545BC1F98493E00AE06E2 /* RSExtendedCode39Generator.swift in Sources */,
 				D35826941FAE6FC9002A9858 /* Errors.swift in Sources */,
-				D35826901FAE5378002A9858 /* UIImage+Transform.swift in Sources */,
+				D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */,
 				D35826981FAFA234002A9858 /* BHEANGenerator.swift in Sources */,
 				D36545C51F98493E00AE06E2 /* RSUnifiedCodeGenerator.swift in Sources */,
 				D358268E1FAE5316002A9858 /* BHCode39Generator.swift in Sources */,
@@ -580,7 +586,7 @@
 				D36545BF1F98493E00AE06E2 /* RSCodeGenerator.swift in Sources */,
 				D36545C01F98493E00AE06E2 /* RSITF14Generator.swift in Sources */,
 				D36545BD1F98493E00AE06E2 /* RSCode39Generator.swift in Sources */,
-				D358269D1FAFC31E002A9858 /* BHBarcodeCreator.swift in Sources */,
+				D358269D1FAFC31E002A9858 /* BHImageHelper.swift in Sources */,
 				D35826961FAE7570002A9858 /* BHBarcodeGenerating.swift in Sources */,
 				D36545B31F98493E00AE06E2 /* RSUnifiedCodeValidator.swift in Sources */,
 				D36545C41F98493E00AE06E2 /* StringExtension.swift in Sources */,
@@ -593,12 +599,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D36545901F98491C00AE06E2 /* MainViewController.swift in Sources */,
+				D35826A11FAFD364002A9858 /* BarcodeCell.swift in Sources */,
 				D365458E1F98491C00AE06E2 /* AppDelegate.swift in Sources */,
 				D358D1EC1FAE3A8500D207D1 /* BarcodeTypeCell.swift in Sources */,
 				D358D1EA1FAE39AA00D207D1 /* BarcodeTypesController.swift in Sources */,
 				D35F2BB51F98631B0017A4D6 /* GeneratorController.swift in Sources */,
 				D35F2BBC1F98F1210017A4D6 /* UITextField+LoadDropdownData.swift in Sources */,
 				D35F2BC01F98F13E0017A4D6 /* BHPickerView.swift in Sources */,
+				D358269F1FAFD2C7002A9858 /* MultiGeneratorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

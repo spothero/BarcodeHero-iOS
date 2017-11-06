@@ -11,11 +11,11 @@ import Foundation
 import UIKit
 
 class BarcodeTypeCell: UITableViewCell {
-    @IBOutlet private(set) var nameLabel: UILabel?
+    @IBOutlet private(set) var typeLabel: UILabel?
 
     var type: BHBarcodeType? {
         didSet {
-            nameLabel?.text = type?.rawValue
+            typeLabel?.text = type?.rawValue
         }
     }
 }

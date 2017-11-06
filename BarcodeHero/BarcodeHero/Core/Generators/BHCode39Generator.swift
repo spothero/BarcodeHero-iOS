@@ -91,7 +91,7 @@ extension BHCode39Generator: BHBarcodeGenerating {
         let data = try processRawData(rawData, for: barcodeType)
         let wrappedData = wrapData(data)
 
-        guard let image = try BHBarcodeCreator.draw(wrappedData) else {
+        guard let image = try BHImageHelper.draw(wrappedData) else {
             throw BHError.couldNotCreateImage(barcodeType)
         }
 

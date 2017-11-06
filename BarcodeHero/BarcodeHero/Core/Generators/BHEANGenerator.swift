@@ -27,6 +27,7 @@ class BHEANGenerator {
         "OEOEEO",
         "OEEOEO"
     ]
+
     // 'R' for right-hand
     let parityEncodingTable = [
         ["O" : "0001101", "E" : "0100111", "R" : "1110010"],
@@ -41,9 +42,7 @@ class BHEANGenerator {
         ["O" : "0001011", "E" : "0010111", "R" : "1110100"]
     ]
 
-    func centerGuardPattern() -> String {
-        return "01010"
-    }
+    var centerGuardPattern = "01010"
 
     func wrapData(_ barcode: String) -> String {
         return self.initiator + barcode + self.terminator
@@ -71,7 +70,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
         let data = try processRawData(rawData, for: barcodeType)
         let wrappedData = wrapData(data)
 
-        guard let image = try BHBarcodeCreator.draw(wrappedData) else {
+        guard let image = try BHImageHelper.draw(wrappedData) else {
             throw BHError.couldNotCreateImage(barcodeType)
         }
 
@@ -128,7 +127,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
             if i < lefthandParity.length() {
                 barcode += self.parityEncodingTable[digit][lefthandParity[i]]!
                 if i == lefthandParity.length() - 1 {
-                    barcode += self.centerGuardPattern()
+                    barcode += centerGuardPattern
                 }
             } else {
                 barcode += self.parityEncodingTable[digit]["R"]!

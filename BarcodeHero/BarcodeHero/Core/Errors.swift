@@ -15,9 +15,11 @@ public enum BHError: Error {
     case couldNotCreateImage(BHBarcodeType)
     case couldNotGetGraphicsContext
     case dataRequired
+    case imageViewRequired
     case invalidData(String, for: BHBarcodeType)
     case invalidType(BHBarcodeType)
     case nonNativeType(BHBarcodeType)
+    case sizeRequired
     case typeRequired
 //    case unknown
 }
@@ -37,12 +39,16 @@ extension BHError: LocalizedError {
             return "Data is required for barcode generation."
 //        case .generic(let message):
 //            return message
+        case .imageViewRequired:
+            return "Image view is required for barcode resizing."
         case .invalidData(let data, let barcodeType):
             return "Data '\(data)' is invalid for barcode type '\(barcodeType.rawValue)'."
         case .invalidType(let barcodeType):
             return "Barcode type '\(barcodeType.rawValue)' is invalid."
         case .nonNativeType(let barcodeType):
             return "'\(barcodeType.rawValue)' is not a native barcode type."
+        case .sizeRequired:
+            return "Size is required for barcode resizing."
         case .typeRequired:
             return "Type is required for barcode generation."
 //        case .unknown:

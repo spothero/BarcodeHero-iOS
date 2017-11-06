@@ -37,6 +37,8 @@ class GeneratorController: UIViewController {
         dataTextField?.delegate = self
         dataTextField?.text = data
 
+        typeLabel?.text = type.rawValue
+
         let generateBarButtonItem = UIBarButtonItem(title: "Generate", style: .plain, target: self, action: #selector(onGenerateButtonTapped))
         navigationItem.rightBarButtonItem = generateBarButtonItem
     }
@@ -91,7 +93,7 @@ class GeneratorController: UIViewController {
         do {
             alertView?.isHidden = true
 
-            let image = try BHBarcodeGenerator.generate(type, withData: data).transformToFit(barcodeImageView)
+            let image = try BHBarcodeGenerator.generate(type, withData: data).resizeTo(barcodeImageView)
             barcodeImageView?.image = image
         } catch {
             alertLabel?.text = error.localizedDescription
