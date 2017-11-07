@@ -1,4 +1,6 @@
-ParkingPandaSDK provides easy access to the Parking Panda API.
+# BarcodeHero
+
+BarcodeHero is a library that allows you to generate and scan barcodes.
 
 - [Features](#features)
 - [Formats](#formats)
