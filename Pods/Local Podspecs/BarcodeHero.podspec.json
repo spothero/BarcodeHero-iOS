@@ -1,6 +1,6 @@
 {
   "name": "BarcodeHero",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "authors": {
     "SpotHero": "dev@spothero.com"
   },
@@ -11,11 +11,11 @@
   },
   "source": {
     "git": "https://github.com/SpotHero/BarcodeHero-iOS.git",
-    "tag": "0.1.0"
+    "tag": "v0.2.1"
   },
   "summary": "Allows easy generation of barcodes.",
   "platforms": {
-    "ios": "9.0"
+    "ios": "10.0"
   },
   "module_name": "BarcodeHero",
   "default_subspecs": "Core",

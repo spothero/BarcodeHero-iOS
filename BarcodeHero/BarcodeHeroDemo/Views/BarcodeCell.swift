@@ -19,7 +19,7 @@ class BarcodeCell: UITableViewCell {
         typeLabel?.text = barcodeType?.rawValue
 
         do {
-            let image = try BHBarcodeGenerator.generate(barcodeType, withData: rawData).resizeTo(barcodeImageView)
+            let image = try BHBarcodeGenerator.generate(barcodeType, withData: rawData).bh_resizedTo(barcodeImageView)
 
             alertLabel?.isHidden = true
             alertLabel?.text = ""

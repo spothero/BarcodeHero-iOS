@@ -9,15 +9,15 @@
 import Foundation
 
 extension CIImage {
-    public var uiImage: UIImage {
+    var uiImage: UIImage {
         return UIImage(ciImage: self)
     }
 
-    public func transformToFit(_ imageView: UIImageView?) -> CIImage? {
-        return transformToFit(imageView?.frame.size)
+    func transformedToFit(_ imageView: UIImageView?) -> CIImage? {
+        return transformedToFit(imageView?.frame.size)
     }
 
-    public func transformToFit(_ size: CGSize?) -> CIImage? {
+    func transformedToFit(_ size: CGSize?) -> CIImage? {
         guard let size = size else {
             return nil
         }
