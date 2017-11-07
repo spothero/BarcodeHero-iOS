@@ -9,7 +9,7 @@ platform :ios do
   ENV['SLACK_URL'] = "https://hooks.slack.com/services/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"
   ENV['FL_SLACK_CHANNEL'] = "#herotech-ios-alerts"
 
-  ENV['GITHUB_PULL_REQUEST_API_TOKEN'] = "440d42a3cda39fcebb57ae4af791a8a22791b298"
+  ENV['GITHUB_PULL_REQUEST_API_TOKEN'] = "34b8766aecf706ec70b27115ba38a00d036ff56c"
   ENV['GITHUB_PULL_REQUEST_REPO'] = "SpotHero/BarcodeHero-iOS"
 
   # Custom Environment Variables
@@ -60,7 +60,7 @@ platform :ios do
       devices: ['iPhone 8'],
       # devices: ['iPhone 6s', 'iPhone 7', 'iPhone 7 Plus'],
       fail_build: false,
-      output_directory: "tests",
+      output_directory: "test_output",
       output_files: "test_report.html,test_report.xml",
       output_types: "html,junit",
       scheme: ENV['SCHEME'],

@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     # Root Specification
     spec.name     = 'BarcodeHero'
-    spec.version  = '0.1.0'
+    spec.version  = '0.2.0'
 
     spec.author   = { 'SpotHero' => 'dev@spothero.com' }
     spec.homepage = 'https://github.com/SpotHero/BarcodeHero-iOS'
@@ -31,5 +31,6 @@ Pod::Spec.new do |spec|
         subspec.dependency 'BarcodeHero/Core'
 
         subspec.source_files = 'BarcodeHero/BarcodeHero/UI/**/*.swift'
+        subspec.resources    = 'BarcodeHero/BarcodeHero/UI/**/*.xib', 'BarcodeHero/BarcodeHero/UI/**/*.xcassets'
     end
 end

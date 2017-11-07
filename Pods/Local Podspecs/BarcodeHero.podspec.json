@@ -1,6 +1,6 @@
 {
   "name": "BarcodeHero",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "authors": {
     "SpotHero": "dev@spothero.com"
   },
@@ -11,22 +11,18 @@
   },
   "source": {
     "git": "https://github.com/SpotHero/BarcodeHero-iOS.git",
-    "tag": "0.0.1"
+    "tag": "0.1.0"
   },
   "summary": "Allows easy generation of barcodes.",
   "platforms": {
     "ios": "9.0"
   },
   "module_name": "BarcodeHero",
-  "source_files": "BarcodeHero/Core",
   "default_subspecs": "Core",
   "subspecs": [
     {
       "name": "Core",
-      "source_files": [
-        "BarcodeHero/BarcodeHero/Core/**/*.swift",
-        "BarcodeHero/BarcodeHero/Extensions/**/*.swift"
-      ]
+      "source_files": "BarcodeHero/BarcodeHero/Core/**/*.swift"
     },
     {
       "name": "UI",
@@ -35,7 +31,11 @@
 
         ]
       },
-      "source_files": "BarcodeHero/BarcodeHero/UI/**/*.swift"
+      "source_files": "BarcodeHero/BarcodeHero/UI/**/*.swift",
+      "resources": [
+        "BarcodeHero/BarcodeHero/UI/**/*.xib",
+        "BarcodeHero/BarcodeHero/UI/**/*.xcassets"
+      ]
     }
   ]
 }

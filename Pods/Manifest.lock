@@ -1,6 +1,6 @@
 PODS:
-  - BarcodeHero/Core (0.0.1)
-  - BarcodeHero/UI (0.0.1):
+  - BarcodeHero/Core (0.1.0)
+  - BarcodeHero/UI (0.1.0):
     - BarcodeHero/Core
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  BarcodeHero: 3011d05d2f12671aa9d459a85fd15a5c6560598d
+  BarcodeHero: 5731fd06a5ad2108a30062814a106ab7ccc2902d
 
 PODFILE CHECKSUM: 989e90cca9746818a999ab856834d8c4cfbdf789
 
