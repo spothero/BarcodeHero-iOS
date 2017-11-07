@@ -9,7 +9,7 @@
 import Foundation
 
 public class BHBarcodeGenerator {
-    public class func generate(_ barcodeType: BHBarcodeType?, withData data: String?) throws -> UIImage {
+    public class func generate(_ barcodeType: BHBarcodeType?, withData data: String?, options: BHBarcodeOptions? = nil) throws -> UIImage {
         guard let barcodeType = barcodeType else {
             throw BHError.typeRequired
         }
@@ -22,7 +22,7 @@ public class BHBarcodeGenerator {
             throw BHError.couldNotGetGenerator(barcodeType)
         }
 
-        return try generator.generate(barcodeType, withData: data)
+        return try generator.generate(barcodeType, withData: data, options: options)
     }
 
     private static func getGenerator(for barcodeType: BHBarcodeType?) throws -> BHBarcodeGenerating? {

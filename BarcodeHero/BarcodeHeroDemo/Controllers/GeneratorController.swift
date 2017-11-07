@@ -24,7 +24,7 @@ class GeneratorController: UIViewController {
     @IBOutlet var barcodeImageViewWidthConstraint: NSLayoutConstraint?
 
     private var data: String = "12345678"
-    private var type: BHBarcodeType = .code39
+    private var type: BHBarcodeType = .qr
 
     // MARK: - Methods
 

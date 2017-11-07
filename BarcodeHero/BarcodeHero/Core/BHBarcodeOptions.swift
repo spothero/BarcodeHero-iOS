@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BHBarcodeOptions {
-    var fillColor = UIColor.white
-    var strokeColor = UIColor.black
+public struct BHBarcodeOptions {
+    public var fillColor = UIColor.white
+    public var strokeColor = UIColor.black
 }

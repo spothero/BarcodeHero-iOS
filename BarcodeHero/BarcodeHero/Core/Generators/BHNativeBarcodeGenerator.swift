@@ -15,7 +15,7 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
 
     // MARK: - Methods
 
-    func generate(_ barcodeType: BHBarcodeType, withData rawData: String) throws -> UIImage {
+    func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions? = nil) throws -> UIImage {
         try validate(rawData, for: barcodeType)
 
         let data = rawData.data(using: .isoLatin1, allowLossyConversion: false)

@@ -57,7 +57,7 @@ platform :ios do
     scan(
       clean: true,
       code_coverage: true,
-      devices: ['iPhone 7'],
+      devices: ['iPhone 8'],
       # devices: ['iPhone 6s', 'iPhone 7', 'iPhone 7 Plus'],
       fail_build: false,
       output_directory: "tests",

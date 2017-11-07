@@ -12,14 +12,8 @@ protocol BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] { get }
 
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String
-
-    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?, options: BHBarcodeOptions?) throws -> UIImage
     func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions?) throws -> UIImage
-
-    func isValid(_ rawData: String?, for barcodeType: BHBarcodeType?) throws -> Bool
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool
-
-//    func validate(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool
 }
 
 extension BHBarcodeGenerating {
@@ -27,17 +21,17 @@ extension BHBarcodeGenerating {
         return rawData
     }
 
-    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?, options: BHBarcodeOptions? = nil) throws -> UIImage {
-        guard let barcodeType = barcodeType else {
-            throw BHError.typeRequired
-        }
-
-        guard let rawData = rawData else {
-            throw BHError.dataRequired
-        }
-
-        return try generate(barcodeType, withData: rawData)
-    }
+//    func generate(_ barcodeType: BHBarcodeType?, withData rawData: String?, options: BHBarcodeOptions? = nil) throws -> UIImage {
+//        guard let barcodeType = barcodeType else {
+//            throw BHError.typeRequired
+//        }
+//
+//        guard let rawData = rawData else {
+//            throw BHError.dataRequired
+//        }
+//
+//        return try generate(barcodeType, withData: rawData, options: options)
+//    }
 
     func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions? = nil) throws -> UIImage {
         try validate(rawData, for: barcodeType)
@@ -54,18 +48,18 @@ extension BHBarcodeGenerating {
         return image
     }
 
-    @discardableResult
-    func isValid(_ rawData: String?, for barcodeType: BHBarcodeType?) throws -> Bool {
-        guard let barcodeType = barcodeType else {
-            throw BHError.typeRequired
-        }
-
-        guard let rawData = rawData else {
-            throw BHError.dataRequired
-        }
-
-        return try isValid(rawData, for: barcodeType)
-    }
+//    @discardableResult
+//    func isValid(_ rawData: String?, for barcodeType: BHBarcodeType?) throws -> Bool {
+//        guard let barcodeType = barcodeType else {
+//            throw BHError.typeRequired
+//        }
+//
+//        guard let rawData = rawData else {
+//            throw BHError.dataRequired
+//        }
+//
+//        return try isValid(rawData, for: barcodeType)
+//    }
 
     @discardableResult
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
