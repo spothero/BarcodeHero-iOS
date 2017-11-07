@@ -10,7 +10,7 @@ import AVFoundation
 import Foundation
 import UIKit
 
-public class BHCameraScanController: UIViewController {
+open class BHCameraScanController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private var backgroundView: UIView?
