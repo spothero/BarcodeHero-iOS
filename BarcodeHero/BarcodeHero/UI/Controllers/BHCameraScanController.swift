@@ -10,7 +10,7 @@ import AVFoundation
 import Foundation
 import UIKit
 
-public class BHCameraScanController: UIViewController {
+open class BHCameraScanController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private var backgroundView: UIView?
@@ -42,7 +42,7 @@ public class BHCameraScanController: UIViewController {
 
     // MARK: Overrides
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         if let device = AVCaptureDevice.default(for: .video),
@@ -81,7 +81,7 @@ public class BHCameraScanController: UIViewController {
         session.startRunning()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
 //        startingBarTintColor = navigationController?.navigationBar.barTintColor
@@ -101,7 +101,7 @@ public class BHCameraScanController: UIViewController {
         barcodeTypeLabel?.text = nil
     }
     
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         guard !hasLoaded else {
@@ -122,7 +122,7 @@ public class BHCameraScanController: UIViewController {
         }
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         guard !hasLoaded else {
@@ -146,7 +146,7 @@ public class BHCameraScanController: UIViewController {
         hasLoaded = true
     }
 
-    public override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         session.stopRunning()
@@ -155,41 +155,12 @@ public class BHCameraScanController: UIViewController {
 //        navigationController?.navigationBar.tintColor = startingTintColor
 //        navigationController?.navigationBar.isTranslucent = false
     }
-
-    // MARK: Events
-    
-//    func onBarcodeScanned(_ data: String?, type: HTBarcodeType) {
-//        guard let data = data else {
-//            return
-//        }
-//
-//        HardwareManager.shared.delegate?.onBarcodeScanned(data, type: type)
-//    }
-
-//    // MARK: Static
-//
-//    static func present(dismissOnScan: Bool) {
-//        let controller = CameraScanController()
-//        controller.dismissOnScan = dismissOnScan
-//
-//        controller.openAsModal(withStyle: .overlay)
-//    }
-//
-//    static func show(dismissOnScan: Bool = true) {
-//        let controller = CameraScanController()
-//        controller.dismissOnScan = dismissOnScan
-//
-//        UIApplication.shared.visibleViewController?.navigationController?.show(controller, sender: nil)
-//    }
 }
 
 // MARK: - Classes
 
 public protocol BHCameraScanControllerDelegate: class {
-//    var shouldStopSessionOnCapture: Bool { get }
-
     func didCapture(metadataObjects: [AVMetadataObject])
-//    func didScanBarcode(ofType type: AVMetadataObject.ObjectType, withData data: String?)
 }
 
 // MARK: - Extensions
@@ -198,52 +169,11 @@ extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
     public func metadataOutput(_ output: AVCaptureMetadataOutput,
                                didOutput metadataObjects: [AVMetadataObject],
                                from connection: AVCaptureConnection) {
-
-
         delegate?.didCapture(metadataObjects: metadataObjects)
 
         if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
             barcodeDataLabel?.text = metadataObject.stringValue
             barcodeTypeLabel?.text = String(describing: metadataObject.type.rawValue)
         }
-
-//        session.stopRunning()
-
-//        // The scanner is capable of capturing multiple 2-dimensional barcodes in one scan, but we only use the first
-//        guard let metadata = metadataObjects.first,
-//            let metadataObject = metadata as? AVMetadataMachineReadableCodeObject else {
-//                return
-//        }
-////
-////        let barcodeData = metadataObject.stringValue
-//
-//        barcodeDataLabel?.text = metadataObject.stringValue
-//        barcodeTypeLabel?.text = String(describing: metadataObject.type.rawValue)
-
-//        instructionsLabel?.isHidden = true
-//
-//        delegate?.didScanBarcode(ofType: metadataObject.type, withData: metadataObject.stringValue)
-//
-//        guard dismissOnScan else {
-//            return
-//        }
-//
-//        session.stopRunning()
-//
-////        // NOTE: The top statement in this block might never have fired even with only the first condition
-////        if navigationController is ModalNavigationController && navigationController?.viewControllers.first == self {
-////            dismiss(animated: true, completion: { [weak self] in
-////                self?.onBarcodeScanned(barcodeData, type: barcodeType)
-////            })
-////        } else {
-//            CATransaction.begin()
-//            CATransaction.setCompletionBlock({ //[weak self] in
-////                self?.onBarcodeScanned(barcodeData, type: barcodeType)
-//            })
-//
-//            _ = navigationController?.popViewController(animated: true)
-//
-//            CATransaction.commit()
-////        }
     }
 }

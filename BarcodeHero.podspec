@@ -1,20 +1,20 @@
 Pod::Spec.new do |spec|
     # Root Specification
     spec.name     = 'BarcodeHero'
-    spec.version  = '0.2.0'
+    spec.version  = '0.2.1'
 
     spec.author   = { 'SpotHero' => 'dev@spothero.com' }
     spec.homepage = 'https://github.com/SpotHero/BarcodeHero-iOS'
     spec.license  = { type: 'Commercial', text: 'Copyright 2017 SpotHero Inc.' }
     spec.source   = { :git => 'https://github.com/SpotHero/BarcodeHero-iOS.git',
-                      :tag => spec.version.to_s }
+                      :tag => 'v' + spec.version.to_s }
     spec.summary  = 'Allows easy generation of barcodes.'
 
     # Platform
-    spec.platform              = :ios, '10.0'
-    spec.ios.deployment_target = '9.0'
+    spec.platform = :ios, '10.0'
 
     # Build Settings
+    # spec.frameworks = 'AVFoundation', 'CoreImage', 'UIKit'
     spec.module_name = 'BarcodeHero'
 
     # File Patterns
