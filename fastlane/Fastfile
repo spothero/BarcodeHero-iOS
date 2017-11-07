@@ -60,7 +60,7 @@ platform :ios do
       devices: ['iPhone 8'],
       # devices: ['iPhone 6s', 'iPhone 7', 'iPhone 7 Plus'],
       fail_build: false,
-      output_directory: "tests",
+      output_directory: "test_output",
       output_files: "test_report.html,test_report.xml",
       output_types: "html,junit",
       scheme: ENV['SCHEME'],
