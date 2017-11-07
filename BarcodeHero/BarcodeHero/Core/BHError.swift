@@ -6,6 +6,7 @@
 //  Copyright © 2017 SpotHero. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
 
 public enum BHError: Error {
@@ -20,7 +21,9 @@ public enum BHError: Error {
     case imageViewRequired
     case indexOutOfBounds
     case invalidData(String, for: BHBarcodeType)
+    case invalidMetadataObjectType(AVMetadataObject.ObjectType)
     case invalidType(BHBarcodeType)
+    case metadataObjectTypeRequired
     case nonNativeType(BHBarcodeType)
     case sizeRequired
     case typeRequired
@@ -52,8 +55,12 @@ extension BHError: LocalizedError {
             return "Index is out of bounds."
         case .invalidData(let data, let barcodeType):
             return "Data '\(data)' is invalid for barcode type '\(barcodeType.rawValue)'."
+        case .invalidMetadataObjectType(let metadataObjectType):
+            return "Metadata object type '\(metadataObjectType.rawValue)' is invalid."
         case .invalidType(let barcodeType):
             return "Barcode type '\(barcodeType.rawValue)' is invalid."
+        case .metadataObjectTypeRequired:
+            return "Metadata object type is required for barcode generation."
         case .nonNativeType(let barcodeType):
             return "'\(barcodeType.rawValue)' is not a native barcode type."
         case .sizeRequired:

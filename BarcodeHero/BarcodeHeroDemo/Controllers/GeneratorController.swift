@@ -93,7 +93,7 @@ class GeneratorController: UIViewController {
         do {
             alertView?.isHidden = true
 
-            let image = try BHBarcodeGenerator.generate(type, withData: data).resizeTo(barcodeImageView)
+            let image = try BHBarcodeGenerator.generate(type, withData: data).bh_resizedTo(barcodeImageView)
             barcodeImageView?.image = image
         } catch {
             alertLabel?.text = error.localizedDescription

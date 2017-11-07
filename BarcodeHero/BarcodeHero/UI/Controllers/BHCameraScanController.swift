@@ -17,7 +17,6 @@ open class BHCameraScanController: UIViewController {
     @IBOutlet private var barcodeDataLabel: UILabel?
     @IBOutlet private var barcodeTypeLabel: UILabel?
     @IBOutlet private var crosshairImageView: UIImageView?
-    @IBOutlet private var instructionsLabel: UILabel?
     @IBOutlet private var overlayView: UIView?
 
     private let session: AVCaptureSession = AVCaptureSession()
@@ -76,7 +75,6 @@ open class BHCameraScanController: UIViewController {
         
         barcodeDataLabel?.text = nil
         barcodeTypeLabel?.text = nil
-        instructionsLabel?.text = nil
         
         session.startRunning()
     }

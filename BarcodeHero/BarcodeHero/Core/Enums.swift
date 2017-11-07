@@ -49,6 +49,8 @@ public enum BHBarcodeType: String {
             return .code93
         case .code128:
             return .code128
+//        case .dataMatrix:
+//            self = .dataMatrix
         case .ean8:
             return .ean8
         case .ean13:
@@ -107,7 +109,7 @@ public enum BHBarcodeType: String {
 }
 
 // https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html
-public enum BHNativeCodeGeneratorType: String {
+enum BHNativeCodeGeneratorType: String {
     case aztec = "CIAztecCodeGenerator"
     case code128 = "CICode128BarcodeGenerator"
     case pdf417 = "CIPDF417BarcodeGenerator"
@@ -129,8 +131,27 @@ public enum BHNativeCodeGeneratorType: String {
     }
 }
 
+public enum BHQRInputCorrectionLevel: String {
+    case low     = "L" // 7%
+    case medium  = "M" // 15% (default)
+    case quarter = "Q" // 25%
+    case high    = "H" // 30%
+}
+
+//public enum BHFilterParameter: String {
+//    case inputCompactStyle // aztec
+//    case inputCorrectionLevel // aztec
+//    case inputLayers // aztec
+//    case inputMessage // aztec, code128
+//    case inputQuietSpace // code128
+//}
+
+enum BHFilterParameterKey: String {
+    case inputMessage
+}
+
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator
-public enum BHAztecParameters: String {
+enum BHAztecFilterParameterKey: String {
     case inputCompactStyle
     case inputCorrectionLevel
     case inputLayers
@@ -138,25 +159,29 @@ public enum BHAztecParameters: String {
 }
 
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator
-public enum BHCode128Parameters: String {
+enum BHCode128FilterParameterKey: String {
     case inputMessage
     case inputQuietSpace
 }
 
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
-public enum BHPDF417Parameters: String {
+enum BHPDF417FilterParameterKey: String {
+    case inputAlwaysSpecifyCompaction
+    case inputCompactionMode
+    case inputCompactStyle
+    case inputCorrectionLevel
+    case inputDataColumns
+    case inputDataRows
+    case inputMaxHeight
+    case inputMaxWidth
     case inputMessage
+    case inputMinHeight
+    case inputMinWidth
+    case inputPreferredAspectRatio
 }
 
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
-public enum BHQRParameters: String {
+enum BHQRFilterParameterKey: String {
     case inputCorrectionLevel
     case inputMessage
-}
-
-public enum BHQRInputCorrectionLevel: String {
-    case low     = "L" // 7%
-    case medium  = "M" // 15% (default)
-    case quarter = "Q" // 25%
-    case high    = "H" // 30%
 }

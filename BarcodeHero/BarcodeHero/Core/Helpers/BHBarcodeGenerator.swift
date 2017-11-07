@@ -6,6 +6,7 @@
 //  Copyright © 2017 SpotHero. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
 
 public class BHBarcodeGenerator {
@@ -23,6 +24,20 @@ public class BHBarcodeGenerator {
         }
 
         return try generator.generate(barcodeType, withData: data, options: options)
+    }
+
+    public class func generate(_ metadataObjectType: AVMetadataObject.ObjectType?,
+                               withData data: String?,
+                               options: BHBarcodeOptions? = nil) throws -> UIImage {
+        guard let metadataObjectType = metadataObjectType else {
+            throw BHError.metadataObjectTypeRequired
+        }
+
+        guard let barcodeType = BHBarcodeType(metadataObjectType: metadataObjectType) else {
+            throw BHError.invalidMetadataObjectType(metadataObjectType)
+        }
+
+        return try generate(barcodeType, withData: data, options: options)
     }
 
     private static func getGenerator(for barcodeType: BHBarcodeType?) throws -> BHBarcodeGenerating? {

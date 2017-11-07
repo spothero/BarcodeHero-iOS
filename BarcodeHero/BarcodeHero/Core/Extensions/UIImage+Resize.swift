@@ -9,23 +9,22 @@
 import Foundation
 
 extension UIImage {
-    public func resizeTo(_ imageView: UIImageView?) throws  -> UIImage? {
+    public func bh_resizedTo(_ imageView: UIImageView?) throws  -> UIImage? {
         guard let imageView = imageView else {
             throw BHError.imageViewRequired
         }
 
-        return try resizeTo(imageView.bounds.size, forContentMode: imageView.contentMode)
+        return try bh_resizedTo(imageView.bounds.size, forContentMode: imageView.contentMode)
     }
 
-    public func resizeTo(_ size: CGSize?, forContentMode contentMode: UIViewContentMode? = nil) throws -> UIImage? {
+    public func bh_resizedTo(_ size: CGSize?, forContentMode contentMode: UIViewContentMode? = nil) throws -> UIImage? {
         guard let size = size else {
             throw BHError.sizeRequired
         }
 
-        if let ciImage = ciImage {//} ?? CIImage(image: self) { // ?? CIImage(cgImage: cgImage)
-            return ciImage.transformToFit(size)?.uiImage
-        }
-        else {
+        if let ciImage = ciImage {
+            return ciImage.transformedToFit(size)?.uiImage
+        } else {
             let contentMode = contentMode ?? .scaleAspectFit
             return try BHImageHelper.resize(self, toSize: size, forContentMode: contentMode)
         }

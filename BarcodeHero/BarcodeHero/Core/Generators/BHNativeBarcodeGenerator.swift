@@ -6,6 +6,7 @@
 //  Copyright © 2017 SpotHero. All rights reserved.
 //
 
+import CoreImage
 import Foundation
 
 class BHNativeBarcodeGenerator: BHBarcodeGenerating {
@@ -21,30 +22,37 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
         let data = rawData.data(using: .isoLatin1, allowLossyConversion: false)
 
         guard let generator = try BHNativeCodeGeneratorType(barcodeType: barcodeType) else {
-            throw BHError.nonNativeType(barcodeType)
+            throw BHError.couldNotGetGenerator(barcodeType)
         }
 
         guard let filter = CIFilter(name: generator.rawValue) else {
             throw BHError.couldNotCreateFilter(barcodeType)
         }
 
-        filter.setValue(data, forKey: "inputMessage")
+        filter.setValue(data, forKey: BHFilterParameterKey.inputMessage.rawValue)
 
-        switch barcodeType {
-        case .aztec:
-            //            filter.setValue(0, forKey: BHAztecParameters.inputCompactStyle.rawValue)
-            //            filter.setValue(23, forKey: BHAztecParameters.inputCorrectionLevel.rawValue)
-            //            filter.setValue(0, forKey: BHAztecParameters.inputLayers.rawValue)
-            break
-        case .code128:
-            break
-        case .pdf417:
-            break
-        case .qr:
-            filter.setValue(BHQRInputCorrectionLevel.medium.rawValue, forKey: BHQRParameters.inputCorrectionLevel.rawValue)
-        default:
-            throw BHError.nonNativeType(barcodeType)
+        if let filterParameters = options?.filterParameters {
+            filterParameters.loadInto(filter)
+//            for parameter in filterParameters {
+//                filter.setValue(parameter.value, forKey: parameter.key)
+//            }
         }
+
+//        switch barcodeType {
+//        case .aztec:
+//            //            filter.setValue(0, forKey: BHAztecParameters.inputCompactStyle.rawValue)
+//            //            filter.setValue(23, forKey: BHAztecParameters.inputCorrectionLevel.rawValue)
+//            //            filter.setValue(0, forKey: BHAztecParameters.inputLayers.rawValue)
+//            break
+//        case .code128:
+//            break
+//        case .pdf417:
+//            break
+//        case .qr:
+////            filter.setValue(BHQRInputCorrectionLevel.medium.rawValue, forKey: BHQRParameters.inputCorrectionLevel.rawValue)
+//        default:
+//            throw BHError.nonNativeType(barcodeType)
+//        }
 
         guard let image = filter.outputImage?.uiImage else {
             throw BHError.couldNotCreateImage(barcodeType)
