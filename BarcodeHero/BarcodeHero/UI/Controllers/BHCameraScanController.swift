@@ -145,14 +145,16 @@ public class BHCameraScanController: UIViewController {
         
         hasLoaded = true
     }
-    
-//    public override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        session.stopRunning()
+
 //        navigationController?.navigationBar.barTintColor = startingBarTintColor
 //        navigationController?.navigationBar.tintColor = startingTintColor
 //        navigationController?.navigationBar.isTranslucent = false
-//    }
+    }
 
     // MARK: Events
     
@@ -184,8 +186,10 @@ public class BHCameraScanController: UIViewController {
 // MARK: - Classes
 
 public protocol BHCameraScanControllerDelegate: class {
+//    var shouldStopSessionOnCapture: Bool { get }
+
     func didCapture(metadataObjects: [AVMetadataObject])
-    func didScanBarcode(ofType type: AVMetadataObject.ObjectType, withData data: String?)
+//    func didScanBarcode(ofType type: AVMetadataObject.ObjectType, withData data: String?)
 }
 
 // MARK: - Extensions
@@ -194,6 +198,8 @@ extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
     public func metadataOutput(_ output: AVCaptureMetadataOutput,
                                didOutput metadataObjects: [AVMetadataObject],
                                from connection: AVCaptureConnection) {
+
+
         delegate?.didCapture(metadataObjects: metadataObjects)
 
         if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
