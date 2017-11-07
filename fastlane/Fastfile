@@ -91,8 +91,9 @@ platform :ios do
     lint(allow_warnings: allow_warnings, verbose: verbose)
     
     version = version_bump_podspec(path: ENV['PODSPEC'], bump_type: bump_type)
+    tag = "v#{version}"
 
-    UI.user_error!("Tag #{version} already exists!") if git_tag_exists(tag: "#{version}")
+    UI.user_error!("Tag #{tag} already exists!") if git_tag_exists(tag: tag)
 
     increment_version_number(xcodeproj: ENV['PROJECT'], version_number: version)
 
@@ -103,7 +104,7 @@ platform :ios do
     ensure_git_status_clean
 
     add_git_tag(
-      tag: "#{version}"
+      tag: tag
     )
 
     push_git_tags
