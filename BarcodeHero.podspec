@@ -31,5 +31,6 @@ Pod::Spec.new do |spec|
         subspec.dependency 'BarcodeHero/Core'
 
         subspec.source_files = 'BarcodeHero/BarcodeHero/UI/**/*.swift'
+        subspec.resources    = 'BarcodeHero/BarcodeHero/UI/**/*.xib', 'BarcodeHero/BarcodeHero/UI/**/*.xcassets'
     end
 end
