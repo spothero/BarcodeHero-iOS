@@ -18,13 +18,13 @@ Pod::Spec.new do |spec|
     spec.module_name = 'BarcodeHero'
 
     # File Patterns
-    spec.source_files = 'BarcodeHero/Core'
+    # spec.source_files = 'BarcodeHero/Core'
 
     # Subspecs
     spec.default_subspec = 'Core'
 
     spec.subspec 'Core' do |subspec|
-        subspec.source_files = 'BarcodeHero/BarcodeHero/Core/**/*.swift', 'BarcodeHero/BarcodeHero/Extensions/**/*.swift'
+        subspec.source_files = 'BarcodeHero/BarcodeHero/Core/**/*.swift'
     end
 
     spec.subspec 'UI' do |subspec|

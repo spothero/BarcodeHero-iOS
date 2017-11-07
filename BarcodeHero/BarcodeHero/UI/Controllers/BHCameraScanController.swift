@@ -215,7 +215,7 @@ extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
 //            })
 //        } else {
             CATransaction.begin()
-            CATransaction.setCompletionBlock({ [weak self] in
+            CATransaction.setCompletionBlock({ //[weak self] in
 //                self?.onBarcodeScanned(barcodeData, type: barcodeType)
             })
 
