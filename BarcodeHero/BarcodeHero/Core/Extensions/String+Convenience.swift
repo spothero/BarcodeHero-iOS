@@ -40,7 +40,7 @@ extension String {
     }
 
     func substring(_ i: Int, length: Int) throws -> String {
-        guard i + length < count else {
+        guard i + length <= count else {
             throw BHError.indexOutOfBounds
         }
 

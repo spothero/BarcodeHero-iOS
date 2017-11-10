@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -69,7 +69,7 @@
 		1B2DBDF4FE7DED470AC535C49DD49228 /* BHCameraScanController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BHCameraScanController.swift; sourceTree = "<group>"; };
 		296B5AE17E86F9F59EBB4DF2FBC5BDB7 /* BHBarcodeOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BHBarcodeOptions.swift; path = BarcodeHero/BarcodeHero/Core/BHBarcodeOptions.swift; sourceTree = "<group>"; };
 		2AA6EB3CA9AEFCDBFC36E3B2B7D658A3 /* Pods-BarcodeHeroDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BarcodeHeroDemo-umbrella.h"; sourceTree = "<group>"; };
-		2DDBEF427AC9055B19762F1D71CDA1FA /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHeroDemo_BarcodeHeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DDBEF427AC9055B19762F1D71CDA1FA /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BarcodeHeroDemo_BarcodeHeroTests.framework; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		375103EBD878CFA2F4A6F8FFF276A724 /* Pods-BarcodeHeroDemo-BarcodeHeroTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		3D4315AEE2E0F16AB0907F4E496C6AAC /* BHCameraScanController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = BHCameraScanController.xib; sourceTree = "<group>"; };
 		4063BC97FBD65D2B84D8409F368319E1 /* Pods-BarcodeHeroDemo-BarcodeHeroTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests-dummy.m"; sourceTree = "<group>"; };
@@ -81,24 +81,24 @@
 		54B6FB564EC63F8EE7D829BB907F1E43 /* BarcodeHero.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BarcodeHero.xcconfig; sourceTree = "<group>"; };
 		58B6C40AF81833B3A9FA869DBDAF120A /* Pods-BarcodeHeroDemo-BarcodeHeroTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests-resources.sh"; sourceTree = "<group>"; };
 		5BB385F72F23567A445A2428FB4F1C95 /* Pods-BarcodeHero-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BarcodeHero-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5CF91C144AADBE15FF0ACEB235044F05 /* BarcodeHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BarcodeHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		61B3C1C44AEA1CAC323505C30DB90326 /* Pods_BarcodeHeroDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHeroDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CF91C144AADBE15FF0ACEB235044F05 /* BarcodeHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BarcodeHero.framework; path = BarcodeHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61B3C1C44AEA1CAC323505C30DB90326 /* Pods_BarcodeHeroDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BarcodeHeroDemo.framework; path = "Pods-BarcodeHeroDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64136E0F705D68ECCB5F067CEB3F7A2F /* Pods-BarcodeHero-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BarcodeHero-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6AE0B4C9EDEB1DDDFFC068E347FA1A21 /* Pods-BarcodeHeroDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BarcodeHeroDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6BF36194E2493BE848459EE6708DB4DD /* CIImage+Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CIImage+Transform.swift"; sourceTree = "<group>"; };
 		6E49217875F0B6E1F2C208F61C88D4CC /* Enums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = BarcodeHero/BarcodeHero/Core/Enums.swift; sourceTree = "<group>"; };
 		7ABC38EE40B07A1A18B137ADD5A1B0FE /* Pods-BarcodeHeroDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BarcodeHeroDemo.release.xcconfig"; sourceTree = "<group>"; };
-		811B8F7D7D42420CFECCEB633CD66A16 /* Pods-BarcodeHeroDemo-BarcodeHeroTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests.modulemap"; sourceTree = "<group>"; };
+		811B8F7D7D42420CFECCEB633CD66A16 /* Pods-BarcodeHeroDemo-BarcodeHeroTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests.modulemap"; sourceTree = "<group>"; };
 		8397E7DA5AA0454359FAD32D7461F825 /* String+Convenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Convenience.swift"; sourceTree = "<group>"; };
 		8E397722993B85B856984272825C30F0 /* Pods-BarcodeHero-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BarcodeHero-resources.sh"; sourceTree = "<group>"; };
-		8F9A48679FB25F717900D016D50344F7 /* BarcodeHero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BarcodeHero.modulemap; sourceTree = "<group>"; };
+		8F9A48679FB25F717900D016D50344F7 /* BarcodeHero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = BarcodeHero.modulemap; sourceTree = "<group>"; };
 		90B360567FD843808134A21C6BB5280C /* BarcodeHero-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BarcodeHero-dummy.m"; sourceTree = "<group>"; };
 		911C8FB8ED8F5CAF8939CA8C4FB325D6 /* BHNativeBarcodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BHNativeBarcodeGenerator.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D670FBF376731F7FB224364CAF3E4CF /* BarcodeHero-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BarcodeHero-prefix.pch"; sourceTree = "<group>"; };
-		9F3829C003C903A67ED055CC858E94D7 /* Pods_BarcodeHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FF7158A0E1CA04445689F8E6E863898 /* Pods-BarcodeHero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BarcodeHero.modulemap"; sourceTree = "<group>"; };
+		9F3829C003C903A67ED055CC858E94D7 /* Pods_BarcodeHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BarcodeHero.framework; path = "Pods-BarcodeHero.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FF7158A0E1CA04445689F8E6E863898 /* Pods-BarcodeHero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BarcodeHero.modulemap"; sourceTree = "<group>"; };
 		AB5C6A88B97D20A056EC0D52654A5FD0 /* Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE0F68583B84D1DD03576EE0384079FB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF697BAA8647E155A8E55DDB602F3EA4 /* Pods-BarcodeHeroDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BarcodeHeroDemo-frameworks.sh"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		ED598A39D0BBD87B3C242C162E942606 /* Pods-BarcodeHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BarcodeHero.debug.xcconfig"; sourceTree = "<group>"; };
 		EE0273A754E7E078AA3E4C2ECFDBCB26 /* UIView+Mask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Mask.swift"; sourceTree = "<group>"; };
 		F033C9C8C4BD1225B8E229DCE6FA6BA1 /* BarcodeHero-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BarcodeHero-umbrella.h"; sourceTree = "<group>"; };
-		F1D36822BE18C70D3F6D4B20BB173102 /* Pods-BarcodeHeroDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BarcodeHeroDemo.modulemap"; sourceTree = "<group>"; };
+		F1D36822BE18C70D3F6D4B20BB173102 /* Pods-BarcodeHeroDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BarcodeHeroDemo.modulemap"; sourceTree = "<group>"; };
 		F4247605E89F7FD1C3C8FB94CE305E00 /* BHCode39Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BHCode39Generator.swift; sourceTree = "<group>"; };
 		F804F9DBC3F9279FEECDF13F20844BEE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEE84971E09CC01BDF15137209A7B22D /* BHEANGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BHEANGenerator.swift; sourceTree = "<group>"; };
@@ -522,7 +522,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -900,7 +900,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
