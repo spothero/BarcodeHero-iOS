@@ -10,18 +10,10 @@ import Foundation
 
 extension String {
     subscript(i: Int) -> String {
-//        guard i < count else {
-//            throw BHError.indexOutOfBounds
-//        }
-
         return String(self[index(startIndex, offsetBy: i)])
     }
 
     subscript(r: Range<Int>) -> String {
-//        guard r.upperBound < count else {
-//            throw BHError.indexOutOfBounds
-//        }
-
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(startIndex, offsetBy: r.upperBound)
         return String(self[Range(start ..< end)])

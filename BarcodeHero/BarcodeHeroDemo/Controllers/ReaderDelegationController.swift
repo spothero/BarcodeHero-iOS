@@ -31,12 +31,14 @@ class ReaderDelegationController: UIViewController {
 }
 
 extension ReaderDelegationController: BHCameraScanControllerDelegate {
-    func didCapture(metadataObjects: [AVMetadataObject]) {
+    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController) {
         let firstObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
 
         dataLabel?.text = firstObject?.stringValue
         typeLabel?.text = firstObject?.type.rawValue
 
         navigationController?.popToViewController(self, animated: true)
+
+        controller.stopCapturing()
     }
 }
