@@ -8,6 +8,7 @@
 
 import CoreImage
 import Foundation
+import UIKit
 
 class BHNativeBarcodeGenerator: BHBarcodeGenerating {
     // MARK: - Properties
@@ -24,6 +25,8 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
         guard let generator = try BHNativeCodeGeneratorType(barcodeType: barcodeType) else {
             throw BHError.couldNotGetGenerator(barcodeType)
         }
+
+        let context = CIContext(options: nil)
 
         guard let filter = CIFilter(name: generator.rawValue) else {
             throw BHError.couldNotCreateFilter(barcodeType)
@@ -54,11 +57,12 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
 //            throw BHError.nonNativeType(barcodeType)
 //        }
 
-        guard let image = filter.outputImage?.uiImage else {
+        guard let filterImage = filter.outputImage,
+            let cgImage = context.createCGImage(filterImage, from: filterImage.extent) else {
             throw BHError.couldNotCreateImage(barcodeType)
         }
 
-        return image
+        return UIImage(cgImage: cgImage)
 
         // Keeping the following block around (and commented) just in case
         //        guard let outputImage = filter.outputImage,

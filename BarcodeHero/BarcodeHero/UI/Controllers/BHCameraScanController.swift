@@ -149,16 +149,26 @@ open class BHCameraScanController: UIViewController {
 
         session.stopRunning()
 
-//        navigationController?.navigationBar.barTintColor = startingBarTintColor
-//        navigationController?.navigationBar.tintColor = startingTintColor
-//        navigationController?.navigationBar.isTranslucent = false
+        // navigationController?.navigationBar.barTintColor = startingBarTintColor
+        // navigationController?.navigationBar.tintColor = startingTintColor
+        // navigationController?.navigationBar.isTranslucent = false
+    }
+
+    // MARK: - Utilities
+
+    public func stopCapturing() {
+        session.stopRunning()
+    }
+
+    public func startCapturing() {
+        session.startRunning()
     }
 }
 
 // MARK: - Classes
 
 public protocol BHCameraScanControllerDelegate: class {
-    func didCapture(metadataObjects: [AVMetadataObject])
+    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController)
 }
 
 // MARK: - Extensions
@@ -167,11 +177,15 @@ extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
     public func metadataOutput(_ output: AVCaptureMetadataOutput,
                                didOutput metadataObjects: [AVMetadataObject],
                                from connection: AVCaptureConnection) {
-        delegate?.didCapture(metadataObjects: metadataObjects)
+        guard session.isRunning else {
+            return
+        }
 
         if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
             barcodeDataLabel?.text = metadataObject.stringValue
             barcodeTypeLabel?.text = String(describing: metadataObject.type.rawValue)
         }
+
+        delegate?.didCapture(metadataObjects: metadataObjects, from: self)
     }
 }

@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     # Root Specification
     spec.name     = 'BarcodeHero'
-    spec.version  = '0.2.2'
+    spec.version  = '0.2.5'
 
     spec.author   = { 'SpotHero' => 'dev@spothero.com' }
     spec.homepage = 'https://github.com/SpotHero/BarcodeHero-iOS'

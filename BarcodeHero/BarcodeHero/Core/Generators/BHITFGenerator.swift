@@ -81,6 +81,11 @@ extension BHITFGenerator: BHBarcodeGenerating {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
 
+//        // TODO: Allow odd encoding?
+//        if rawData.count % 2 == 0 else {
+//            rawData = "0\(rawData)"
+//        }
+
         guard rawData.count % 2 == 0 else {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
