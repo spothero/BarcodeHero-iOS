@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26FFACDC125FFA2617485B70 /* Pods_BarcodeHero_BarcodeHeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B7334B7245E14DCB6484B5 /* Pods_BarcodeHero_BarcodeHeroTests.framework */; };
 		6137B83BDA7CA2B5AFD80B6F /* Pods_BarcodeHeroDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893790E5444B6D84DF70E80 /* Pods_BarcodeHeroDemo.framework */; };
 		87B4E14B8FFA27BB9E5A9F33 /* Pods_BarcodeHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6A775D6B9C4FE8E7F2C3F7 /* Pods_BarcodeHero.framework */; };
-		CBC084BC9F31C37C22277D01 /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5856519AEB092122ED35AD /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework */; };
 		D319BCC41FB15A1500D97106 /* UIView+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC31FB15A1500D97106 /* UIView+Mask.swift */; };
 		D319BCC71FB1635E00D97106 /* ReaderDelegationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC61FB1635E00D97106 /* ReaderDelegationController.swift */; };
 		D319BCC91FB17DFF00D97106 /* BHFilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC81FB17DFF00D97106 /* BHFilterParameters.swift */; };
@@ -67,13 +67,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240377BCBD21EB6DB2D50877 /* Pods-BarcodeHero-BarcodeHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHero-BarcodeHeroTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHero-BarcodeHeroTests/Pods-BarcodeHero-BarcodeHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C0ADAECDCCFD4C8532C736B /* Pods-BarcodeHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHero.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHero/Pods-BarcodeHero.debug.xcconfig"; sourceTree = "<group>"; };
 		5D6A775D6B9C4FE8E7F2C3F7 /* Pods_BarcodeHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEC54ED472808F244E267F6 /* Pods-BarcodeHeroDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHeroDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7F356367A4948091572D93C9 /* Pods-BarcodeHero-BarcodeHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHero-BarcodeHeroTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHero-BarcodeHeroTests/Pods-BarcodeHero-BarcodeHeroTests.release.xcconfig"; sourceTree = "<group>"; };
 		97BFF5A709C1911FE104C048 /* Pods-BarcodeHeroDemo-BarcodeHeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHeroDemo-BarcodeHeroTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHeroDemo-BarcodeHeroTests/Pods-BarcodeHeroDemo-BarcodeHeroTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9E5856519AEB092122ED35AD /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHeroDemo_BarcodeHeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF02823FCEC3E4FAAF197A2 /* Pods-BarcodeHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHero.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHero/Pods-BarcodeHero.release.xcconfig"; sourceTree = "<group>"; };
 		A009CD437C1254DE2FD3583E /* Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHeroDemo-BarcodeHeroTests/Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		A7B7334B7245E14DCB6484B5 /* Pods_BarcodeHero_BarcodeHeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHero_BarcodeHeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C893790E5444B6D84DF70E80 /* Pods_BarcodeHeroDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHeroDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D319BCC31FB15A1500D97106 /* UIView+Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Mask.swift"; sourceTree = "<group>"; };
 		D319BCC61FB1635E00D97106 /* ReaderDelegationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderDelegationController.swift; sourceTree = "<group>"; };
@@ -127,7 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D35826B51FB02916002A9858 /* BarcodeHero.framework in Frameworks */,
-				CBC084BC9F31C37C22277D01 /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework in Frameworks */,
+				26FFACDC125FFA2617485B70 /* Pods_BarcodeHero_BarcodeHeroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +157,7 @@
 			children = (
 				5D6A775D6B9C4FE8E7F2C3F7 /* Pods_BarcodeHero.framework */,
 				C893790E5444B6D84DF70E80 /* Pods_BarcodeHeroDemo.framework */,
-				9E5856519AEB092122ED35AD /* Pods_BarcodeHeroDemo_BarcodeHeroTests.framework */,
+				A7B7334B7245E14DCB6484B5 /* Pods_BarcodeHero_BarcodeHeroTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -364,6 +366,8 @@
 				7EEC54ED472808F244E267F6 /* Pods-BarcodeHeroDemo.release.xcconfig */,
 				97BFF5A709C1911FE104C048 /* Pods-BarcodeHeroDemo-BarcodeHeroTests.debug.xcconfig */,
 				A009CD437C1254DE2FD3583E /* Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig */,
+				240377BCBD21EB6DB2D50877 /* Pods-BarcodeHero-BarcodeHeroTests.debug.xcconfig */,
+				7F356367A4948091572D93C9 /* Pods-BarcodeHero-BarcodeHeroTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -457,7 +461,6 @@
 					D35826AF1FB02916002A9858 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = D365458A1F98491C00AE06E2;
 					};
 					D365457B1F9848E400AE06E2 = {
 						CreatedOnToolsVersion = 9.0;
@@ -547,7 +550,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo-BarcodeHeroTests/Pods-BarcodeHeroDemo-BarcodeHeroTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHero-BarcodeHeroTests/Pods-BarcodeHero-BarcodeHeroTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		61417EA3F10B5FEED513E1EC /* [CP] Check Pods Manifest.lock */ = {
@@ -583,7 +586,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo-BarcodeHeroTests/Pods-BarcodeHeroDemo-BarcodeHeroTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHero-BarcodeHeroTests/Pods-BarcodeHero-BarcodeHeroTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B8E35E23191B448E8B07894 /* [CP] Check Pods Manifest.lock */ = {
@@ -615,7 +618,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BarcodeHeroDemo-BarcodeHeroTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BarcodeHero-BarcodeHeroTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -746,7 +749,7 @@
 /* Begin XCBuildConfiguration section */
 		D35826B81FB02916002A9858 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97BFF5A709C1911FE104C048 /* Pods-BarcodeHeroDemo-BarcodeHeroTests.debug.xcconfig */;
+			baseConfigurationReference = 240377BCBD21EB6DB2D50877 /* Pods-BarcodeHero-BarcodeHeroTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 974V4LCG2F;
@@ -757,13 +760,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarcodeHeroDemo.app/BarcodeHeroDemo";
 			};
 			name = Debug;
 		};
 		D35826B91FB02916002A9858 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A009CD437C1254DE2FD3583E /* Pods-BarcodeHeroDemo-BarcodeHeroTests.release.xcconfig */;
+			baseConfigurationReference = 7F356367A4948091572D93C9 /* Pods-BarcodeHero-BarcodeHeroTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 974V4LCG2F;
@@ -774,7 +776,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarcodeHeroDemo.app/BarcodeHeroDemo";
 			};
 			name = Release;
 		};

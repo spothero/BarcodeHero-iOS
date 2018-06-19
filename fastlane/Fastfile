@@ -1,79 +1,26 @@
-fastlane_version '2.64.0'
+import "MechaFastfile"
 
 default_platform :ios
 
 platform :ios do
-  IS_LOCAL = !is_ci
+  # ========== # 
+  #   Global   #
+  # ========== #
 
-  # Fastlane Environment Variables
-  ENV['SLACK_URL'] = "https://hooks.slack.com/services/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"
-  ENV['FL_SLACK_CHANNEL'] = "#herotech-ios-alerts"
-
-  ENV['GITHUB_PULL_REQUEST_API_TOKEN'] = "34b8766aecf706ec70b27115ba38a00d036ff56c"
-  ENV['GITHUB_PULL_REQUEST_REPO'] = "SpotHero/BarcodeHero-iOS"
-
-  # Custom Environment Variables
-  ENV['PODSPEC'] = "BarcodeHero.podspec"
-  ENV['PODSPEC_REPO'] = "SpotHeroPods"
-  ENV['PODSPEC_REPO_URL'] = "https://github.com/SpotHero/Podspecs.git"
-
-  ENV['PROJECT'] = "BarcodeHero/BarcodeHero.xcodeproj"
-  ENV['SCHEME'] = "BarcodeHero"
-  ENV['WORKSPACE'] = "BarcodeHero.xcworkspace"
-
-  # Blocks
-  before_all do |lane|
-  end
-  
-  after_all do |lane|
+  before_all do |lane, options|
+    setup_environment
   end
 
   error do |lane, exception|
     alert(message: exception.message, success: false)
   end
 
-  # Public Lanes
-  desc "Prepares the environment by installing dependencies."
-  lane :prepare do |options|
-    update_fastlane
-
-    clean_build_artifacts
-    clear_derived_data
-
-    cocoapods(use_bundle_exec: true)
-  end
-
-  desc "Lints the pod library."
-  lane :lint do |options|
-    allow_warnings = options[:allow_warnings] != nil ? options[:allow_warnings] : true
-    verbose = options[:verbose] != nil ? options[:verbose] : !IS_LOCAL
-
-    # verify_pod_keys
-    pod_lib_lint(allow_warnings: allow_warnings, verbose: verbose)
-  end
-
-  desc "Runs unit tests and outputs to JUnit."
-  lane :test do |options|
-    scan(
-      clean: true,
-      code_coverage: true,
-      devices: ['iPhone 8'],
-      # devices: ['iPhone 6s', 'iPhone 7', 'iPhone 7 Plus'],
-      fail_build: false,
-      output_directory: "test_output",
-      output_files: "test_report.html,test_report.xml",
-      output_types: "html,junit",
-      scheme: ENV['SCHEME'],
-      skip_slack: IS_LOCAL,
-      slack_channel: ENV['FL_SLACK_CHANNEL'],
-      workspace: ENV['WORKSPACE']
-    )
-
-    alert(message: "Tested!")
-  end
+  # ============= # 
+  #   Deploying   #
+  # ============= #
 
   desc "Deploys the pod to the private spec repo. (Local only)"
-  lane :deploy do |options|
+  lane :pod_deploy do |options|
     UI.user_error!("This lane is only available locally.") if !IS_LOCAL
 
     begin
@@ -90,12 +37,12 @@ platform :ios do
 
     lint(allow_warnings: allow_warnings, verbose: verbose)
     
-    version = version_bump_podspec(path: ENV['PODSPEC'], bump_type: bump_type)
+    version = version_bump_podspec(bump_type: bump_type)
     tag = "v#{version}"
 
     UI.user_error!("Tag #{tag} already exists!") if git_tag_exists(tag: tag)
 
-    increment_version_number(xcodeproj: ENV['PROJECT'], version_number: version)
+    increment_version_number(version_number: version)
 
     message = options[:message] ? options[:message] : "Updating version number to #{version}."
 
@@ -111,8 +58,8 @@ platform :ios do
     
     pod_push(
       allow_warnings: allow_warnings,
-      path: ENV['PODSPEC'], 
-      repo: ENV['PODSPEC_REPO'],
+      path: ENV['SH_PODSPEC'], 
+      repo: ENV['SH_PODSPEC_REPO'],
       verbose: verbose
     )
 
@@ -120,61 +67,9 @@ platform :ios do
       title: "Release v#{version}",
     )
 
-    message = "SDK v#{version} Deployed!"
+    message = "#{ENV['SH_APP_NAME']} v#{version} Deployed!"
 
     alert(message: message, say: true)
-  end
-
-  # Local Lanes
-  desc "Adds the spec repo to the local cocoapods environment. (Local only)"
-  lane :add_spec_repo do
-    UI.user_error!("This lane is only available locally.") if !IS_LOCAL
-    
-    sh("pod repo add #{ENV['PODSPEC_REPO']} #{ENV['PODSPEC_REPO_URL']}")
-    # sh("cd ~/.cocoapods/repo/#{ENV['PODSPEC_REPO']} && pod repo lint .")
-  end
-
-  desc "Adds all files to a commit and gets a message from the terminal if none is provided, then pushes to remote. (Local only)"
-  lane :commit do |options|
-    UI.user_error!("This lane is only available locally.") if !IS_LOCAL
-
-    message = options[:message]
-
-    if !message then
-      message = UI.input("What did you change? (Enter commit message.)")
-    end
-
-    git_add(path: ".")
-
-    git_commit(path: ".", message: message)
-
-    push_to_git_remote
-
-    ensure_git_status_clean
-
-    alert(message: "Committed!")
-  end
-
-  # Private Lanes
-  desc "Displays a notification if local, sends a message to slack if remote."
-  private_lane :alert do |options|
-    message = options[:message]
-
-    if !message then
-      next
-    end
-
-    success = options[:success] != nil ? options[:success] : true
-
-    if is_ci then
-      slack(message: message, success: success)
-    else 
-      notification(message: message)
-
-      if options[:say] then
-        say message
-      end
-    end
   end
 
 end

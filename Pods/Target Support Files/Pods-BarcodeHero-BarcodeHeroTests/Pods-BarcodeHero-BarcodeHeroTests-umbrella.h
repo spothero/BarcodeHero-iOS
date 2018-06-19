@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_BarcodeHeroDemo_BarcodeHeroTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_BarcodeHeroDemo_BarcodeHeroTestsVersionString[];
+FOUNDATION_EXPORT double Pods_BarcodeHero_BarcodeHeroTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_BarcodeHero_BarcodeHeroTestsVersionString[];
 

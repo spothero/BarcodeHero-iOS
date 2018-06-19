@@ -8,48 +8,19 @@ Make sure you have the latest version of the Xcode command line tools installed:
 xcode-select --install
 ```
 
-## Choose your installation method:
-
-<table width="100%" >
-<tr>
-<th width="33%"><a href="http://brew.sh">Homebrew</a></th>
-<th width="33%">Installer Script</th>
-<th width="33%">RubyGems</th>
-</tr>
-<tr>
-<td width="33%" align="center">macOS</td>
-<td width="33%" align="center">macOS</td>
-<td width="33%" align="center">macOS or Linux with Ruby 2.0.0 or above</td>
-</tr>
-<tr>
-<td width="33%"><code>brew cask install fastlane</code></td>
-<td width="33%"><a href="https://download.fastlane.tools">Download the zip file</a>. Then double click on the <code>install</code> script (or run it in a terminal window).</td>
-<td width="33%"><code>sudo gem install fastlane -NV</code></td>
-</tr>
-</table>
+Install _fastlane_ using
+```
+[sudo] gem install fastlane -NV
+```
+or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios prepare
+### ios check_dependencies
 ```
-fastlane ios prepare
+fastlane ios check_dependencies
 ```
-Prepares the environment by installing dependencies.
-### ios lint
-```
-fastlane ios lint
-```
-Lints the pod library.
-### ios test
-```
-fastlane ios test
-```
-Runs unit tests and outputs to JUnit.
-### ios deploy
-```
-fastlane ios deploy
-```
-Deploys the pod to the private spec repo. (Local only)
+Checks various dependencies and installs or updates them accordingly. (Ruby Gems, Fastlane, Cocoapods, Xcode)
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo
@@ -60,6 +31,26 @@ Adds the spec repo to the local cocoapods environment. (Local only)
 fastlane ios commit
 ```
 Adds all files to a commit and gets a message from the terminal if none is provided, then pushes to remote. (Local only)
+### ios pod_lint
+```
+fastlane ios pod_lint
+```
+Lints the pod library.
+### ios dorp
+```
+fastlane ios dorp
+```
+
+### ios test
+```
+fastlane ios test
+```
+Runs unit tests and outputs to JUnit.
+### ios deploy
+```
+fastlane ios deploy
+```
+Deploys the pod to the private spec repo. (Local only)
 
 ----
 
