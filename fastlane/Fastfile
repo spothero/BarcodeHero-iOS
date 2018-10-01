@@ -1,4 +1,4 @@
-import "MechaFastfile"
+import "MasterFastfile"
 
 default_platform :ios
 
@@ -18,6 +18,16 @@ platform :ios do
   # ============= # 
   #   Deploying   #
   # ============= #
+
+  lane :danger_lint do |options|
+    danger(
+      # danger_id: "full",
+      dangerfile: "Dangerfile",
+      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
+      new_comment: true,
+      verbose: true
+    )
+  end
 
   desc "Deploys the pod to the private spec repo. (Local only)"
   lane :pod_deploy do |options|

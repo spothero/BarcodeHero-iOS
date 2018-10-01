@@ -1,0 +1,77 @@
+# Updated for v0.26.0
+
+opt_in_rules:
+  - attributes # Attributes should be on their own lines in functions and types, but on the same line as variables and imports.
+  - closure_end_indentation # Closure end should have the same indentation as the line that started it.
+  - closure_spacing # Closure expressions should have a single space inside each brace.
+  - conditional_returns_on_newline # Conditional statements should always return on the next line
+  - contains_over_first_not_nil # Prefer contains over first(where:) != nil
+  - convenience_type # Types used for hosting only static members should be implemented as a caseless enum to avoid instantiation.
+  - explicit_init # Explicitly calling .init() should be avoided.
+  - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
+  - empty_count # Prefer checking `isEmpty` over comparing `count` to zero.
+  - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
+  # - file_header # Header comments should be consistent with project patterns. The SWIFTLINT_CURRENT_FILENAME placeholder can optionally be used in the required and forbidden patterns. It will be replaced by the real file name.
+  - file_name # File name should match a type or extension declared in the file (if any).
+  - first_where # "Prefer using `.first(where:)` over `.filter { }.first` in collections.
+  - force_unwrapping # Force unwrapping should be avoided.
+  - function_default_parameter_at_end # Prefer to locate parameters with defaults toward the end of the parameter list.
+  - implicitly_unwrapped_optional # Implicitly unwrapped optionals should be avoided when possible.
+  - let_var_whitespace # Let and var should be separated from other statements by a blank line.
+  - literal_expression_end_indentation # Array and dictionary literal end should have the same indentation as the line that started it.
+  - modifier_order # Modifier order should be consistent.
+  - multiline_arguments # Arguments should be either on the same line, or one per line.
+  - multiline_function_chains # Chained function calls should be either on the same line, or one per line.
+  - multiline_parameters # Functions and methods parameters should be either on the same line, or one per line.
+  - number_separator # Underscores should be used as thousand separator in large decimal numbers.
+  - operator_usage_whitespace # Operators should be surrounded by a single whitespace
+  - overridden_super_call # Some overridden methods should always call super" eg: viewDidLoad
+  - private_action # IBActions should be private.
+  - private_outlet # IBOutlets should be private to avoid leaking UIKit to higher layers.
+  - prohibited_super_call # Some methods should not call super" eg: loadView
+  - redundant_nil_coalescing # Using nil coalescing operator with nil as rhs is redundant
+  - sorted_first_last # Prefer using min() or max() over sorted().first or sorted().last
+  - sorted_imports # Imports should be sorted
+  - switch_case_on_newline # Cases inside a switch should always end on a newline
+  - trailing_closure # Trailing closure syntax should be used whenever possible.
+  - unneeded_parentheses_in_closure_argument # Parentheses are not needed when declaring closure arguments.
+  - untyped_error_in_catch # Catch statements should not declare error variables without type casting.
+  - vertical_parameter_alignment_on_call # Function parameters should be aligned vertically if they're in multiple lines in a method call.
+  - vertical_whitespace # Limit vertical whitespace to a single empty line.
+
+
+colon: # Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.
+  apply_to_dictionaries: false # we don't want this rule applied to dictionaries
+cyclomatic_complexity: # Complexity of function bodies should be limited.
+  ignores_case_statements: true # ignores switch statements
+empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
+force_cast: warning # Force casts should be avoided.
+force_try: warning # Force tries should be avoided.
+file_length: # Files should not span too many lines.
+  warning: 1000
+  error: 2000
+function_body_length: # Functions' bodies should not span too many lines.
+  warning: 100
+  error: 200
+large_tuple: # Tuples shouldn't have too many members
+  warning: 3
+  error: 4
+line_length: # Lines should not span too many characters.
+  warning: 150
+  error: 400
+private_outlet: # IBOutlets should be private to avoid leaking UIKit to higher layers.
+  allow_private_set: true
+trailing_comma: # Trailing commas in arrays and dictionaries should be avoided/enforced.
+  mandatory_comma: true # Trailing commas in arrays and dictionaries should be enforced.
+type_body_length: # Type bodies should not span too many lines.
+  warning: 1000
+  error: 2000
+variable_name: # Variable names should not be too long or too short
+  excluded: # whitelisted exceptions to the above rule
+    - id
+    - x
+    - y
+
+
+excluded: # what folders should be excluded from analysis? 
+  - Pods
