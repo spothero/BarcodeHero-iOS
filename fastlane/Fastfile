@@ -20,18 +20,17 @@ platform :ios do
   # ============= #
 
   lane :danger_lint do |options|
-    # danger(
-    #   danger_id: "spothero/BarcodeHero-iOS",
-    #   dangerfile: "Dangerfile",
-    #   github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
-    #   new_comment: true,
-    #   verbose: true
-    # )
+    danger(
+      dangerfile: "Dangerfile",
+      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
+      new_comment: true,
+      verbose: true
+    )
 
-    sh 'npm install -g danger'
-    sh 'brew install danger/tap/danger-swift'
+    # sh 'npm install -g danger'
+    # sh 'brew install danger/tap/danger-swift'
 
-    sh 'danger process danger-swift'
+    # sh 'danger process danger-swift'
   end
 
   desc "Deploys the pod to the private spec repo. (Local only)"
