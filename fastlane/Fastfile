@@ -27,7 +27,7 @@ platform :ios do
     #   verbose: true
     # )
 
-    sh 'bundle exec danger --verbose'
+    sh 'bundle exec danger --verbose --dangerfile=Dangerfile --new-comment'
 
     # sh 'npm install -g danger'
     # sh 'brew install danger/tap/danger-swift'
