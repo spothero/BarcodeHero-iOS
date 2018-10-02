@@ -20,12 +20,14 @@ platform :ios do
   # ============= #
 
   lane :danger_lint do |options|
-    danger(
-      dangerfile: "Dangerfile",
-      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
-      new_comment: true,
-      verbose: true
-    )
+    # danger(
+    #   dangerfile: "Dangerfile",
+    #   github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
+    #   new_comment: true,
+    #   verbose: true
+    # )
+
+    sh 'bundle exec danger --verbose'
 
     # sh 'npm install -g danger'
     # sh 'brew install danger/tap/danger-swift'
