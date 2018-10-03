@@ -21,7 +21,7 @@ platform :ios do
 
   lane :danger_lint do |options|
     danger(
-      dangerfile: "Dangerfile",
+      dangerfile: "fastlane/Dangerfile",
       github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
       new_comment: true,
       use_bundle_exec: false,
