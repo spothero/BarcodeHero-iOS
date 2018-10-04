@@ -21,10 +21,9 @@ platform :ios do
 
   lane :danger_lint do |options|
 
-    puts '----'
-    puts 'wow my git repo url'
-    puts ENV['GIT_REPOSITORY_URL']
-    puts '----'
+    repo_url = ENV['GIT_REPOSITORY_URL']
+
+    ENV['GIT_REPOSITORY_URL'] = "spothero/BarcodeHero-iOS"
 
     danger(
       dangerfile: "fastlane/Dangerfile",
@@ -32,6 +31,8 @@ platform :ios do
       new_comment: true,
       verbose: true
     )
+
+    ENV['GIT_REPOSITORY_URL'] = repo_url
 
     # sh 'bundle exec danger --verbose --dangerfile=Dangerfile --new-comment'
 
