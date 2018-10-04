@@ -25,16 +25,16 @@ platform :ios do
 
     ENV['GIT_REPOSITORY_URL'] = "spothero/BarcodeHero-iOS"
 
-    danger(
-      dangerfile: "fastlane/Dangerfile",
-      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
-      new_comment: true,
-      verbose: true
-    )
+    # danger(
+    #   dangerfile: "fastlane/Dangerfile",
+    #   github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
+    #   new_comment: true,
+    #   verbose: true
+    # )
+
+    sh 'cd .. && bundle exec danger pr --dangerfile=fastlane/Dangerfile --new-comment --verbose'
 
     ENV['GIT_REPOSITORY_URL'] = repo_url
-
-    # sh 'bundle exec danger --verbose --dangerfile=Dangerfile --new-comment'
 
     # sh 'npm install -g danger'
     # sh 'brew install danger/tap/danger-swift'
