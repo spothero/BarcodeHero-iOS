@@ -32,7 +32,7 @@ platform :ios do
     #   verbose: true
     # )
 
-    sh 'cd .. && bundle exec danger pr --dangerfile=fastlane/Dangerfile --new-comment --verbose'
+    sh 'cd .. && bundle exec danger --dangerfile=fastlane/Dangerfile --new-comment --verbose'
 
     ENV['GIT_REPOSITORY_URL'] = repo_url
 
