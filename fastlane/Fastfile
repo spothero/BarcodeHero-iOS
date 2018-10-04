@@ -20,6 +20,12 @@ platform :ios do
   # ============= #
 
   lane :danger_lint do |options|
+
+    puts '----'
+    puts 'wow my git repo url'
+    puts ENV['GIT_REPOSITORY_URL']
+    puts '----'
+
     danger(
       dangerfile: "fastlane/Dangerfile",
       github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
