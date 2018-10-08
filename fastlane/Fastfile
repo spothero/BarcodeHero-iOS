@@ -21,20 +21,20 @@ platform :ios do
 
   lane :danger_lint do |options|
 
-    repo_url = ENV['GIT_REPOSITORY_URL']
+    # repo_url = ENV['GIT_REPOSITORY_URL']
 
-    ENV['GIT_REPOSITORY_URL'] = "spothero/BarcodeHero-iOS"
+    # ENV['GIT_REPOSITORY_URL'] = "spothero/BarcodeHero-iOS"
 
-    # danger(
-    #   dangerfile: "fastlane/Dangerfile",
-    #   github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
-    #   new_comment: true,
-    #   verbose: true
-    # )
+    danger(
+      dangerfile: "fastlane/Dangerfile",
+      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
+      new_comment: true,
+      verbose: true
+    )
 
-    sh 'cd .. && bundle exec danger --dangerfile=fastlane/Dangerfile --new-comment --verbose'
+    # sh 'cd .. && bundle exec danger --dangerfile=fastlane/Dangerfile --new-comment --verbose'
 
-    ENV['GIT_REPOSITORY_URL'] = repo_url
+    # ENV['GIT_REPOSITORY_URL'] = repo_url
 
     # sh 'npm install -g danger'
     # sh 'brew install danger/tap/danger-swift'
