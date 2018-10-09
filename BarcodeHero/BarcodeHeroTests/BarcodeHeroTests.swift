@@ -27,7 +27,7 @@ class BarcodeHeroTests: XCTestCase {
     func testNoThrow() {
         for type in BHBarcodeType.asArray {
             do {
-                    _ = try BHBarcodeGenerator.generate(type, withData: "Example")
+                _ = try BHBarcodeGenerator.generate(type, withData: "Example")
             } catch {
                 XCTFail(error.localizedDescription)
             }
