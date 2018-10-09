@@ -110,12 +110,12 @@ open class BHCameraScanController: UIViewController {
         previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         
         if let backgroundView = backgroundView {
-            view.bringSubview(toFront: backgroundView)
+            view.bringSubviewToFront(backgroundView)
             backgroundView.alpha = 0
         }
         
         if let overlayView = overlayView {
-            view.bringSubview(toFront: overlayView)
+            view.bringSubviewToFront(overlayView)
             overlayView.alpha = 0
         }
     }
