@@ -25,7 +25,7 @@ extension UIView {
         maskLayer.path = path
 
         if invert {
-            maskLayer.fillRule = kCAFillRuleEvenOdd
+            maskLayer.fillRule = .evenOdd
         }
 
         layer.mask = maskLayer

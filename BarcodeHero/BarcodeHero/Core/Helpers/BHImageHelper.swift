@@ -83,7 +83,7 @@ class BHImageHelper {
 
     static func resize(_ image: UIImage,
                        toSize targetSize: CGSize,
-                       forContentMode contentMode: UIViewContentMode = .scaleAspectFit) throws -> UIImage? {
+                       forContentMode contentMode: UIView.ContentMode = .scaleAspectFit) throws -> UIImage? {
         var x: CGFloat = 0
         var y: CGFloat = 0
         var width = targetSize.width
