@@ -1,10 +1,13 @@
-# Updated for v0.26.0
+# Updated for v0.27.0
 
 disabled_rules:
   # We run the swift_combined_lint_run_script.sh which handles TODO/FIXME/WARN/WARNING independently, so we want to disable this.
   - todo # TODOs and FIXMEs should be resolved.
 
+  
 opt_in_rules:
+  # - missing_docs # Declarations should be documented.
+  - anyobject_protocol # Prefer using AnyObject over class for class-only protocols.
   - attributes # Attributes should be on their own lines in functions and types, but on the same line as variables and imports.
   - closure_end_indentation # Closure end should have the same indentation as the line that started it.
   - closure_spacing # Closure expressions should have a single space inside each brace.
