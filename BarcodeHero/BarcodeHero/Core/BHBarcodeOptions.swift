@@ -14,4 +14,3 @@ public struct BHBarcodeOptions {
 
     public var filterParameters: BHFilterParameterizable?
 }
-

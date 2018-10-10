@@ -9,7 +9,7 @@
 import AVFoundation
 import Foundation
 
-public enum BHBarcodeType: String {
+public enum BHBarcodeType: String, CaseIterable {
     case aztec = "Aztec"
     case code39 = "Code 39"
     case code39Mod43 = "Code 39 mod 43"
@@ -26,12 +26,6 @@ public enum BHBarcodeType: String {
     case pdf417 = "PDF417"
     case qr = "QR" // swiftlint:disable:this identifier_name
     case upce = "UPC-E"
-
-    public static var asArray: [BHBarcodeType] {
-        return [.aztec, .code39, .code39Mod43, .code93, .code128,
-                .ean8, .ean13, .isbn13, .issn13, .itf, .itf14,
-                .pdf417, .qr, .upce]
-    }
 
     public var isNative: Bool {
         return [.aztec, .code128, .pdf417, .qr].contains(self)
@@ -150,7 +144,8 @@ enum BHFilterParameterKey: String {
     case inputMessage
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator
 enum BHAztecFilterParameterKey: String {
     case inputCompactStyle
     case inputCorrectionLevel
@@ -158,13 +153,15 @@ enum BHAztecFilterParameterKey: String {
     case inputMessage
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator
 enum BHCode128FilterParameterKey: String {
     case inputMessage
     case inputQuietSpace
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
 enum BHPDF417FilterParameterKey: String {
     case inputAlwaysSpecifyCompaction
     case inputCompactionMode
@@ -180,7 +177,8 @@ enum BHPDF417FilterParameterKey: String {
     case inputPreferredAspectRatio
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
 enum BHQRFilterParameterKey: String {
     case inputCorrectionLevel
     case inputMessage

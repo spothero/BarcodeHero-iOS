@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios check_dependencies
 ```
 Checks various dependencies and installs or updates them accordingly. (Ruby Gems, Fastlane, Cocoapods, Xcode)
+### ios test
+```
+fastlane ios test
+```
+Runs unit tests and outputs results in JUnit format.
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo
@@ -36,19 +41,14 @@ Adds all files to a commit and gets a message from the terminal if none is provi
 fastlane ios pod_lint
 ```
 Lints the pod library.
-### ios dorp
+### ios danger_lint
 ```
-fastlane ios dorp
+fastlane ios danger_lint
 ```
 
-### ios test
+### ios pod_deploy
 ```
-fastlane ios test
-```
-Runs unit tests and outputs to JUnit.
-### ios deploy
-```
-fastlane ios deploy
+fastlane ios pod_deploy
 ```
 Deploys the pod to the private spec repo. (Local only)
 

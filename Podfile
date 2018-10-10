@@ -9,11 +9,13 @@ workspace 'BarcodeHero.xcworkspace'
 target 'BarcodeHero' do
     project 'BarcodeHero/BarcodeHero.xcodeproj'
 
+    pod 'SwiftLint', '~> 0.27.0'
+
     target 'BarcodeHeroTests'
 end
 
 target 'BarcodeHeroDemo' do
     project 'BarcodeHero/BarcodeHero.xcodeproj'
 
-    pod 'BarcodeHero', :subspecs => ['Core', 'UI'], :path => '.'
+    podspec :path => './BarcodeHero.podspec'
 end

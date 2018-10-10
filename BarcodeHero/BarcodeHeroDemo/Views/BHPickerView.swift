@@ -10,29 +10,29 @@ import Foundation
 import UIKit
 
 class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
-    var pickerData: [String]!
-    var pickerTextField: UITextField!
+    private let pickerData: [String]
+    private let pickerTextField: UITextField
 
     init(pickerData: [String], dropdownField: UITextField) {
-        super.init(frame: CGRect.zero)
-
         self.pickerData = pickerData
         self.pickerTextField = dropdownField
 
         self.delegate = self
         self.dataSource = self
 
-        if pickerData.count > 0 {
-            self.pickerTextField.text = self.pickerData[0]
-            self.pickerTextField.isEnabled = true
-        } else {
+        if pickerData.isEmpty {
             self.pickerTextField.text = nil
             self.pickerTextField.isEnabled = false
+        } else {
+            self.pickerTextField.text = self.pickerData[0]
+            self.pickerTextField.isEnabled = true
         }
+
+        super.init(frame: CGRect.zero)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 
     // Sets number of columns in picker view
@@ -55,6 +55,4 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerTextField.text = pickerData[row]
     }
-
-
 }

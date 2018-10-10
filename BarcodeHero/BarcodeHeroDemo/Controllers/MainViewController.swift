@@ -11,7 +11,7 @@ import UIKit
 
 class MainViewController: UITableViewController {
     // MARK: - Methods
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -21,7 +21,6 @@ class MainViewController: UITableViewController {
             case 0:
                 let controller = BHCameraScanController()
                 show(controller, sender: nil)
-                break
             default:
                 break
             }
@@ -30,4 +29,3 @@ class MainViewController: UITableViewController {
         }
     }
 }
-

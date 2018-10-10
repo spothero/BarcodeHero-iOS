@@ -16,7 +16,7 @@ class BHITFGenerator {
     private static let characterSet = CharacterSet.decimalDigits
     private static let endMarker = "1101"
     private static let startMarker = "1010"
-    
+
     private static let characterEncodings = [
         "00110",
         "10001",
@@ -27,7 +27,7 @@ class BHITFGenerator {
         "01100",
         "00011",
         "10010",
-        "01010"
+        "01010",
     ]
 }
 
@@ -41,26 +41,24 @@ extension BHITFGenerator: BHBarcodeGenerating {
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
         var barcode = ""
 
-        for i in 0 ..< rawData.count / 2 {
-            let pair = try rawData.substring(i * 2, length: 2)
-            let bars = BHITFGenerator.characterEncodings[Int(pair[0])!]
-            let spaces = BHITFGenerator.characterEncodings[Int(pair[1])!]
+        for index in 0 ..< rawData.count / 2 {
+            let pair = try rawData.substring(index * 2, length: 2)
 
-            for j in 0 ..< 10 {
-                if j % 2 == 0 {
-                    let bar = Int(bars[j / 2])
-                    if bar == 1 {
-                        barcode += "11"
-                    } else {
-                        barcode += "1"
-                    }
+            guard let firstCharacterInPair = Int(pair[0]),
+                let secondCharacterInPair = Int(pair[1]) else {
+                    continue
+            }
+
+            let bars = BHITFGenerator.characterEncodings[firstCharacterInPair]
+            let spaces = BHITFGenerator.characterEncodings[secondCharacterInPair]
+
+            for characterEncodingIndex in 0 ..< BHITFGenerator.characterEncodings.count {
+                if characterEncodingIndex % 2 == 0 {
+                    let bar = Int(bars[characterEncodingIndex / 2])
+                    barcode += (bar == 1) ? "11" : "1"
                 } else {
-                    let space = Int(spaces[j / 2])
-                    if space == 1 {
-                        barcode += "00"
-                    } else {
-                        barcode += "0"
-                    }
+                    let space = Int(spaces[characterEncodingIndex / 2])
+                    barcode += (space == 1) ? "00" : "0"
                 }
             }
         }

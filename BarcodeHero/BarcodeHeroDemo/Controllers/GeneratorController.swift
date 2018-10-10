@@ -14,14 +14,14 @@ import UIKit
 class GeneratorController: UIViewController {
     // MARK: - Properties
 
-    @IBOutlet weak var alertLabel: UILabel?
-    @IBOutlet weak var alertView: UIView?
-    @IBOutlet weak var barcodeImageView: UIImageView?
-    @IBOutlet weak var dataTextField: UITextField?
-    @IBOutlet weak var sizeSlider: UISlider?
-    @IBOutlet weak var typeLabel: UILabel?
+    @IBOutlet private weak var alertLabel: UILabel!
+    @IBOutlet private weak var alertView: UIView!
+    @IBOutlet private weak var barcodeImageView: UIImageView!
+    @IBOutlet private weak var dataTextField: UITextField!
+    @IBOutlet private weak var sizeSlider: UISlider!
+    @IBOutlet private weak var typeLabel: UILabel!
 
-    @IBOutlet var barcodeImageViewWidthConstraint: NSLayoutConstraint?
+    @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 
     private var data: String = "12345678"
     private var type: BHBarcodeType = .qr
@@ -44,7 +44,7 @@ class GeneratorController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
 
         regenerateBarcode()
     }
@@ -60,13 +60,13 @@ class GeneratorController: UIViewController {
 
     // MARK: Actions
 
-    @IBAction func onDataTextFieldEditingChanged(textField: UITextField?) {
+    @IBAction private func onDataTextFieldEditingChanged(textField: UITextField?) {
         data = textField?.text ?? ""
 
         regenerateBarcode()
     }
 
-    @IBAction func onSliderValueChanged(slider: UISlider?) {
+    @IBAction private func onSliderValueChanged(slider: UISlider?) {
         guard var sliderValue = slider?.value else {
             return
         }
@@ -82,7 +82,8 @@ class GeneratorController: UIViewController {
 
     // MARK: Events
 
-    @objc func onGenerateButtonTapped() {
+    @objc
+    func onGenerateButtonTapped() {
         view.endEditing(true)
         regenerateBarcode()
     }
@@ -98,7 +99,7 @@ class GeneratorController: UIViewController {
         } catch {
             alertLabel?.text = error.localizedDescription
             alertView?.isHidden = false
-            
+
             barcodeImageView?.image = nil
             print(error.localizedDescription)
         }
@@ -110,7 +111,7 @@ class GeneratorController: UIViewController {
 extension GeneratorController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
-        
+
         return true
     }
 }

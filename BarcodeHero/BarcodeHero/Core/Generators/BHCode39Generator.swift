@@ -91,13 +91,13 @@ class BHCode39Generator {
          27 = R = Check Character
          */
         var sum = 0
-        
+
         for character in rawData {
-             let index = try BHCode39Generator.acceptedCharacters.indexDistance(of: character)
+            let index = try BHCode39Generator.acceptedCharacters.indexDistance(of: character)
 
             sum += index
         }
-        
+
         // 43 = CODE39_ALPHABET_STRING's length - 1 -- excludes asterisk
         return BHCode39Generator.acceptedCharacters[sum % (BHCode39Generator.acceptedCharacters.count - 1)]
     }
@@ -119,7 +119,7 @@ extension BHCode39Generator: BHBarcodeGenerating {
 
         rawData = BHCode39Generator.startMarker + rawData + BHCode39Generator.endMarker
 
-        return try rawData.map({ try encode(character: $0) }).joined()
+        return try rawData.map { try encode(character: $0) }.joined()
     }
 
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {

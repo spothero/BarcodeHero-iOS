@@ -25,7 +25,7 @@ class BHUPCEGenerator {
         "0101111",
         "0111011",
         "0110111",
-        "0001011"
+        "0001011",
     ]
 
     // Same as EAN-13 lefthand even encodings
@@ -39,7 +39,7 @@ class BHUPCEGenerator {
         "0000101",
         "0010001",
         "0001001",
-        "0010111"
+        "0010111",
     ]
 
     private static let sequences = [
@@ -52,7 +52,7 @@ class BHUPCEGenerator {
         "011100",
         "010101",
         "010110",
-        "011010"
+        "011010",
     ]
 
     // MARK: - Methods
@@ -68,7 +68,7 @@ class BHUPCEGenerator {
         }
 
         var insertDigits = "0000"
-        
+
         switch lastDigit {
         case 0...2:
             upca += code[0 ..< 2] + String(lastDigit) + insertDigits + code[2 ..< 5]
@@ -101,10 +101,12 @@ class BHUPCEGenerator {
         var oddSum = 0
         var evenSum = 0
 
-        for i in 0 ..< upca.count {
-            let digit = Int(upca[i])!
+        for index in 0 ..< upca.count {
+            guard let digit = Int(upca[index]) else {
+                continue
+            }
 
-            if i % 2 == 0 {
+            if index % 2 == 0 {
                 evenSum += digit
             } else {
                 oddSum += digit
@@ -125,12 +127,21 @@ extension BHUPCEGenerator: BHBarcodeGenerating {
     }
 
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
-        let checkValue = Int(rawData[rawData.count - 1])!
-        let sequence = BHUPCEGenerator.sequences[checkValue]
         var barcode = ""
-        for i in 1..<rawData.count - 1 {
-            let digit = Int(rawData[i])!
-            if Int(sequence[i - 1])! % 2 == 0 {
+
+        guard let checkValue = Int(rawData[rawData.count - 1]) else {
+            return barcode
+        }
+
+        let sequence = BHUPCEGenerator.sequences[checkValue]
+
+        for index in 1 ..< rawData.count - 1 {
+            guard let digit = Int(rawData[index]),
+                let sequenceBit = Int(sequence[index - 1]) else {
+                continue
+            }
+
+            if sequenceBit % 2 == 0 {
                 barcode += BHUPCEGenerator.evenEncodings[digit]
             } else {
                 barcode += BHUPCEGenerator.oddEncodings[digit]
