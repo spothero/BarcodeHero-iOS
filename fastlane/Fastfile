@@ -20,10 +20,7 @@ platform :ios do
   # ============= #
 
   lane :danger_lint do |options|
-
-    # repo_url = ENV['GIT_REPOSITORY_URL']
-
-    # ENV['GIT_REPOSITORY_URL'] = "spothero/BarcodeHero-iOS"
+    ENV['GIT_REPOSITORY_URL'] = "github.com/spothero/BarcodeHero-iOS"
 
     danger(
       dangerfile: "fastlane/Dangerfile",
@@ -31,15 +28,6 @@ platform :ios do
       new_comment: true,
       verbose: true
     )
-
-    # sh 'cd .. && bundle exec danger --dangerfile=fastlane/Dangerfile --new-comment --verbose'
-
-    # ENV['GIT_REPOSITORY_URL'] = repo_url
-
-    # sh 'npm install -g danger'
-    # sh 'brew install danger/tap/danger-swift'
-
-    # sh 'danger process danger-swift'
   end
 
   desc "Deploys the pod to the private spec repo. (Local only)"
