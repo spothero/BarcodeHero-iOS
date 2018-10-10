@@ -71,7 +71,7 @@ platform :ios do
       allow_warnings: allow_warnings,
       path: ENV['SH_PODSPEC'], 
       repo: ENV['SH_PODSPEC_REPO'],
-      swift_version: ENV['SH_SWIFT_VERSION'],
+      # swift_version: ENV['SH_SWIFT_VERSION'],
       verbose: verbose
     )
 
