@@ -17,7 +17,7 @@ class BarcodeTypesController: UITableViewController {
 
     weak var delegate: BarcodeTypesControllerDelegate?
 
-    private var types: [BHBarcodeType] = BHBarcodeType.asArray
+    private var types: [BHBarcodeType] = BHBarcodeType.allCases
 
     // MARK: - Methods
 
