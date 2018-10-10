@@ -71,14 +71,19 @@ platform :ios do
       allow_warnings: allow_warnings,
       path: ENV['SH_PODSPEC'], 
       repo: ENV['SH_PODSPEC_REPO'],
+      swift_version: ENV['SH_SWIFT_VERSION'],
       verbose: verbose
     )
 
-    create_pull_request(
-      title: "Release v#{version}",
-    )
+    if ENV['GITHUB_PULL_REQUEST_API_TOKEN']
+      create_pull_request(
+        title: "Release v#{version}",
+      )
 
-    message = "#{ENV['SH_APP_NAME']} v#{version} Deployed!"
+      message = "#{ENV['SH_APP_NAME']} v#{version} Deployed! Don't forget to create a pull request from develop to master."
+    else 
+      message = "#{ENV['SH_APP_NAME']} v#{version} Deployed!"
+    end
 
     alert(message: message, say: true)
   end
