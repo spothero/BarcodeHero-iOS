@@ -167,7 +167,7 @@ open class BHCameraScanController: UIViewController {
 
 // MARK: - Classes
 
-public protocol BHCameraScanControllerDelegate: class {
+public protocol BHCameraScanControllerDelegate: AnyObject {
     func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController)
 }
 

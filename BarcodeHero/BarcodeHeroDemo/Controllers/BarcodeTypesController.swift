@@ -51,6 +51,6 @@ class BarcodeTypesController: UITableViewController {
 
 // MARK: - Delegate
 
-protocol BarcodeTypesControllerDelegate: class {
+protocol BarcodeTypesControllerDelegate: AnyObject {
     func didSelectType(type: BHBarcodeType)
 }
