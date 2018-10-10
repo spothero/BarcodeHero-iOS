@@ -15,6 +15,6 @@ class MainNavigationController: UINavigationController {
 
         if #available(iOS 11.0, *) {
             navigationBar.prefersLargeTitles = true
-        } 
+        }
     }
 }

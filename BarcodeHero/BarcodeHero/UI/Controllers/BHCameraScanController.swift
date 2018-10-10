@@ -12,12 +12,12 @@ import UIKit
 
 open class BHCameraScanController: UIViewController {
     // MARK: - Properties
-    
-    @IBOutlet private var backgroundView: UIView?
-    @IBOutlet private var barcodeDataLabel: UILabel?
-    @IBOutlet private var barcodeTypeLabel: UILabel?
-    @IBOutlet private var crosshairImageView: UIImageView?
-    @IBOutlet private var overlayView: UIView?
+
+    @IBOutlet private var backgroundView: UIView!
+    @IBOutlet private var barcodeDataLabel: UILabel!
+    @IBOutlet private var barcodeTypeLabel: UILabel!
+    @IBOutlet private var crosshairImageView: UIImageView!
+    @IBOutlet private var overlayView: UIView!
 
     private let session: AVCaptureSession = AVCaptureSession()
 
@@ -28,10 +28,10 @@ open class BHCameraScanController: UIViewController {
 //    private var startingTintColor: UIColor?
 
     public weak var delegate: BHCameraScanControllerDelegate?
-    
+
     // MARK: - Methods
 
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: Bundle(for: BHCameraScanController.self))
     }
 
@@ -40,15 +40,15 @@ open class BHCameraScanController: UIViewController {
     }
 
     // MARK: Overrides
-    
-    open override func viewDidLoad() {
+
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         if let device = AVCaptureDevice.default(for: .video),
             let input = try? AVCaptureDeviceInput(device: device) {
 
             try? device.lockForConfiguration()
-            
+
             if device.isFocusModeSupported(.continuousAutoFocus) {
                 device.focusMode = .continuousAutoFocus
             }
@@ -61,27 +61,27 @@ open class BHCameraScanController: UIViewController {
 
             session.addInput(input)
         }
-        
+
         let output = AVCaptureMetadataOutput()
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         session.addOutput(output)
         output.metadataObjectTypes = output.availableMetadataObjectTypes
-        
+
         self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        
+
         if let previewLayer = previewLayer {
             view.layer.addSublayer(previewLayer)
         }
-        
+
         barcodeDataLabel?.text = nil
         barcodeTypeLabel?.text = nil
-        
+
         session.startRunning()
     }
-    
-    open override func viewWillAppear(_ animated: Bool) {
+
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
 //        startingBarTintColor = navigationController?.navigationBar.barTintColor
 //        startingTintColor = navigationController?.navigationBar.tintColor
 
@@ -92,41 +92,41 @@ open class BHCameraScanController: UIViewController {
 //        navigationController?.view.backgroundColor = .clear
 
         edgesForExtendedLayout = UIRectEdge.all
-        
+
         session.startRunning()
-        
+
         barcodeDataLabel?.text = nil
         barcodeTypeLabel?.text = nil
     }
-    
-    open override func viewDidLayoutSubviews() {
+
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         guard !hasLoaded else {
             return
         }
-        
+
         previewLayer?.frame = view.bounds
         previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
+
         if let backgroundView = backgroundView {
             view.bringSubviewToFront(backgroundView)
             backgroundView.alpha = 0
         }
-        
+
         if let overlayView = overlayView {
             view.bringSubviewToFront(overlayView)
             overlayView.alpha = 0
         }
     }
-    
-    open override func viewDidAppear(_ animated: Bool) {
+
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         guard !hasLoaded else {
             return
         }
-        
+
         UIView.animate(withDuration: 0.35) {
             if let crosshairImageView = self.crosshairImageView {
                 self.backgroundView?.mask(
@@ -136,15 +136,15 @@ open class BHCameraScanController: UIViewController {
                            height: crosshairImageView.frame.height + 20),
                     invert: true)
             }
-            
+
             self.backgroundView?.alpha = 1
             self.overlayView?.alpha = 1
         }
-        
+
         hasLoaded = true
     }
 
-    open override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         session.stopRunning()

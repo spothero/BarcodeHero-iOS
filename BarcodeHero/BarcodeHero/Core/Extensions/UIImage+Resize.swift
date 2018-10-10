@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIImage {
-    public func bh_resizedTo(_ imageView: UIImageView?) throws  -> UIImage? {
+    public func bh_resizedTo(_ imageView: UIImageView?) throws -> UIImage? {
         guard let imageView = imageView else {
             throw BHError.imageViewRequired
         }
@@ -30,4 +30,3 @@ extension UIImage {
         }
     }
 }
-

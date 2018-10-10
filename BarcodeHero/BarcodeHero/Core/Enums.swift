@@ -144,7 +144,8 @@ enum BHFilterParameterKey: String {
     case inputMessage
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator
 enum BHAztecFilterParameterKey: String {
     case inputCompactStyle
     case inputCorrectionLevel
@@ -152,13 +153,15 @@ enum BHAztecFilterParameterKey: String {
     case inputMessage
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator
 enum BHCode128FilterParameterKey: String {
     case inputMessage
     case inputQuietSpace
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
 enum BHPDF417FilterParameterKey: String {
     case inputAlwaysSpecifyCompaction
     case inputCompactionMode
@@ -174,7 +177,8 @@ enum BHPDF417FilterParameterKey: String {
     case inputPreferredAspectRatio
 }
 
-/// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
+// swiftlint:disable:next line_length
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
 enum BHQRFilterParameterKey: String {
     case inputCorrectionLevel
     case inputMessage

@@ -65,7 +65,7 @@ class BHCode93Generator {
 //        "(/)": "111011010",
 //        "(+)": "111010110",
 //        "(%)": "100110010",
-        "*": "101011110"
+        "*": "101011110",
     ]
 
     // MARK: - Methods
@@ -84,13 +84,13 @@ class BHCode93Generator {
         // The first character
         var sum = 0
 
-        for i in 0 ..< rawData.count {
-            let character = rawData[rawData.count - i - 1]
-            let index = try BHCode93Generator.acceptedCharacters.indexDistance(of: character)
+        for index in 0 ..< rawData.count {
+            let character = rawData[rawData.count - index - 1]
+            let indexDistance = try BHCode93Generator.acceptedCharacters.indexDistance(of: character)
 
-            sum += index * (i % 20 + 1)
+            sum += indexDistance * (index % 20 + 1)
         }
-        
+
         var checkDigits = ""
 
         checkDigits += BHCode93Generator.acceptedCharacters[sum % (BHCode93Generator.acceptedCharacterCount - 1)]
@@ -100,12 +100,12 @@ class BHCode93Generator {
 
         let newContents = rawData + checkDigits
 
-        for i in 0 ..< newContents.count {
-            let character = newContents[newContents.count - i - 1]
+        for newContentsIndex in 0 ..< newContents.count {
+            let character = newContents[newContents.count - newContentsIndex - 1]
 
             let index = try BHCode93Generator.acceptedCharacters.indexDistance(of: character)
 
-            sum += index * (i % 15 + 1)
+            sum += index * (newContentsIndex % 15 + 1)
         }
 
         checkDigits += BHCode93Generator.acceptedCharacters[sum % (BHCode93Generator.acceptedCharacterCount - 1)]
@@ -126,7 +126,7 @@ extension BHCode93Generator: BHBarcodeGenerating {
 
         rawData = BHCode93Generator.startMarker + rawData + BHCode93Generator.endMarker
 
-        return try rawData.map({ try encode(character: $0) }).joined()
+        return try rawData.map { try encode(character: $0) }.joined()
     }
 
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {

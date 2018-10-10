@@ -75,6 +75,6 @@ extension BHBarcodeGenerating {
     }
 
     func validate(_ rawData: String, for barcodeType: BHBarcodeType) throws {
-        let _ = try isValid(rawData, for: barcodeType)
+        _ = try isValid(rawData, for: barcodeType)
     }
 }

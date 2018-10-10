@@ -11,9 +11,9 @@ import Foundation
 import UIKit
 
 class BarcodeCell: UITableViewCell {
-    @IBOutlet private var alertLabel: UILabel?
-    @IBOutlet private var barcodeImageView: UIImageView?
-    @IBOutlet private var typeLabel: UILabel?
+    @IBOutlet private var alertLabel: UILabel!
+    @IBOutlet private var barcodeImageView: UIImageView!
+    @IBOutlet private var typeLabel: UILabel!
 
     func load(_ barcodeType: BHBarcodeType?, withData rawData: String?) {
         typeLabel?.text = barcodeType?.rawValue
@@ -37,4 +37,3 @@ class BarcodeCell: UITableViewCell {
         }
     }
 }
-

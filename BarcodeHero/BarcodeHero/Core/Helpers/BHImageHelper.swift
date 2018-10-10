@@ -1,5 +1,5 @@
 //
-//  BHBarcodeCreator.swift
+//  BHImageHelper.swift
 //  BarcodeHero
 //
 //  Created by Brian Drelling on 11/5/17.
@@ -41,12 +41,12 @@ class BHImageHelper {
         context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
         context.setLineWidth(1)
 
-        for i in 0 ..< data.count {
-            guard data[i] == "1" else {
+        for index in 0 ..< data.count {
+            guard data[index] == "1" else {
                 continue
             }
 
-            let x = i + (2 + 1)
+            let x = index + (2 + 1)
             context.move(to: CGPoint(x: CGFloat(x), y: 1.5))
             context.addLine(to: CGPoint(x: CGFloat(x), y: size.height - 2))
         }
@@ -95,48 +95,47 @@ class BHImageHelper {
             break
         case .scaleAspectFill:
             // contents scaled to fill with fixed aspect. some portion of content may be clipped.
-            let targtLength  = (targetSize.height > targetSize.width)   ? targetSize.height  : targetSize.width
+            let targtLength = (targetSize.height > targetSize.width) ? targetSize.height : targetSize.width
             let sourceLength = (image.size.height < image.size.width) ? image.size.height : image.size.width
             let fillScale = targtLength / sourceLength
             width = image.size.width * fillScale
             height = image.size.height * fillScale
-            x = (targetSize.width  - width)  / 2.0
+            x = (targetSize.width - width) / 2.0
             y = (targetSize.height - height) / 2.0
-
-            break
         default:
-            let scaledRect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(x: 0.0, y: 0.0, width: targetSize.width, height: targetSize.height))
+            let scaledRect = AVMakeRect(aspectRatio: image.size,
+                                        insideRect: CGRect(x: 0.0, y: 0.0, width: targetSize.width, height: targetSize.height))
 
             width = scaledRect.width
             height = scaledRect.height
 
             switch contentMode {
             case .scaleAspectFit, .redraw, .center:
-                x = (targetSize.width  - width)  / 2.0
+                x = (targetSize.width - width) / 2.0
                 y = (targetSize.height - height) / 2.0
             case .top:
-                x = (targetSize.width  - width)  / 2.0
+                x = (targetSize.width - width) / 2.0
                 y = 0
             case .bottom:
-                x = (targetSize.width  - width)  / 2.0
+                x = (targetSize.width - width) / 2.0
                 y = targetSize.height - height
             case .left:
                 x = 0
                 y = (targetSize.height - height) / 2.0
             case .right:
-                x = targetSize.width  - width
+                x = targetSize.width - width
                 y = (targetSize.height - height) / 2.0
             case .topLeft:
                 x = 0
                 y = 0
             case .topRight:
-                x = targetSize.width  - width
+                x = targetSize.width - width
                 y = 0
             case .bottomLeft:
                 x = 0
                 y = targetSize.height - height
             case .bottomRight:
-                x = targetSize.width  - width
+                x = targetSize.width - width
                 y = targetSize.height - height
             default:
                 break

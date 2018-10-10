@@ -10,16 +10,14 @@
 import XCTest
 
 class BarcodeHeroTests: XCTestCase {
-    var testData: [(String, [BHBarcodeType])] = [
-        ("Example", [.qr])
-    ]
+    var testData: [(String, [BHBarcodeType])] = [("Example", [.qr])]
 
     override func setUp() {
         super.setUp()
 
         continueAfterFailure = true
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }

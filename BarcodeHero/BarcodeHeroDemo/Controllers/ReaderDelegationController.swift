@@ -12,8 +12,8 @@ import Foundation
 import UIKit
 
 class ReaderDelegationController: UIViewController {
-    @IBOutlet private var dataLabel: UILabel?
-    @IBOutlet private var typeLabel: UILabel?
+    @IBOutlet private var dataLabel: UILabel!
+    @IBOutlet private var typeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class ReaderDelegationController: UIViewController {
         typeLabel?.text = ""
     }
 
-    @IBAction func onScanButtonTapped() {
+    @IBAction private func onScanButtonTapped() {
         let controller = BHCameraScanController()
         controller.delegate = self
 

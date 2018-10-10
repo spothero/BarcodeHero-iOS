@@ -1,12 +1,16 @@
 # Updated for v0.26.0
 
+disabled_rules:
+  # We run the swift_combined_lint_run_script.sh which handles TODO/FIXME/WARN/WARNING independently, so we want to disable this.
+  - todo # TODOs and FIXMEs should be resolved.
+
 opt_in_rules:
   - attributes # Attributes should be on their own lines in functions and types, but on the same line as variables and imports.
   - closure_end_indentation # Closure end should have the same indentation as the line that started it.
   - closure_spacing # Closure expressions should have a single space inside each brace.
   - conditional_returns_on_newline # Conditional statements should always return on the next line
   - contains_over_first_not_nil # Prefer contains over first(where:) != nil
-  - convenience_type # Types used for hosting only static members should be implemented as a caseless enum to avoid instantiation.
+  # - convenience_type # Types used for hosting only static members should be implemented as a caseless enum to avoid instantiation.
   - explicit_init # Explicitly calling .init() should be avoided.
   - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
   - empty_count # Prefer checking `isEmpty` over comparing `count` to zero.
@@ -47,6 +51,8 @@ cyclomatic_complexity: # Complexity of function bodies should be limited.
 empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
 force_cast: warning # Force casts should be avoided.
 force_try: warning # Force tries should be avoided.
+file_name: # File name should match a type or extension declared in the file (if any).
+  excluded: ["Enums.swift"]
 file_length: # Files should not span too many lines.
   warning: 1000
   error: 2000

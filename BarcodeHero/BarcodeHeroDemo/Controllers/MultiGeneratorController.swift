@@ -14,9 +14,9 @@ import UIKit
 class MultiGeneratorController: UITableViewController {
     // MARK: - Properties
 
-    @IBOutlet weak var dataTextField: UITextField?
+    @IBOutlet private weak var dataTextField: UITextField!
 
-    @IBOutlet var barcodeImageViewWidthConstraint: NSLayoutConstraint?
+    @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 
     private var data: String = "12345678"
     private var types: [BHBarcodeType] = BHBarcodeType.allCases
@@ -37,7 +37,7 @@ class MultiGeneratorController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BarcodeCell",
                                                        for: indexPath) as? BarcodeCell else {
-                                                        return UITableViewCell()
+            return UITableViewCell()
         }
 
         let type = types[indexPath.row]
@@ -54,12 +54,6 @@ class MultiGeneratorController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return types.count
     }
-
-    // MARK: Utilities
-
-    private func generateBarcodes() {
-        
-    }
 }
 
 // MARK: - Extensions
@@ -71,16 +65,3 @@ extension MultiGeneratorController: UITextFieldDelegate {
         return true
     }
 }
-
-//extension MultiGeneratorController: BarcodeTypesControllerDelegate {
-//    func didSelectType(type: BHBarcodeType) {
-//        self.type = type
-//
-//        typeLabel?.text = type.rawValue
-//
-//        regenerateBarcode()
-//
-//        navigationController?.popToViewController(self, animated: true)
-//    }
-//}
-

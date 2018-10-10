@@ -12,8 +12,12 @@
 		87B4E14B8FFA27BB9E5A9F33 /* Pods_BarcodeHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6A775D6B9C4FE8E7F2C3F7 /* Pods_BarcodeHero.framework */; };
 		D319BCC41FB15A1500D97106 /* UIView+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC31FB15A1500D97106 /* UIView+Mask.swift */; };
 		D319BCC71FB1635E00D97106 /* ReaderDelegationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC61FB1635E00D97106 /* ReaderDelegationController.swift */; };
-		D319BCC91FB17DFF00D97106 /* BHFilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC81FB17DFF00D97106 /* BHFilterParameters.swift */; };
+		D319BCC91FB17DFF00D97106 /* BHFilterParameterizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC81FB17DFF00D97106 /* BHFilterParameterizable.swift */; };
 		D319BCCB1FB400FC00D97106 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCCA1FB400FC00D97106 /* MainNavigationController.swift */; };
+		D347FD4A216E8786002B0252 /* BHCode128FilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D347FD49216E8786002B0252 /* BHCode128FilterParameters.swift */; };
+		D347FD4C216E87A8002B0252 /* BHPDF417FilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D347FD4B216E87A8002B0252 /* BHPDF417FilterParameters.swift */; };
+		D347FD4E216E87C2002B0252 /* BHQRFilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D347FD4D216E87C2002B0252 /* BHQRFilterParameters.swift */; };
+		D347FD50216E87CD002B0252 /* BHAztecFilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D347FD4F216E87CD002B0252 /* BHAztecFilterParameters.swift */; };
 		D358268E1FAE5316002A9858 /* BHCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268D1FAE5316002A9858 /* BHCode39Generator.swift */; };
 		D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358268F1FAE5378002A9858 /* UIImage+Resize.swift */; };
 		D35826921FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */; };
@@ -79,8 +83,12 @@
 		C893790E5444B6D84DF70E80 /* Pods_BarcodeHeroDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeHeroDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D319BCC31FB15A1500D97106 /* UIView+Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Mask.swift"; sourceTree = "<group>"; };
 		D319BCC61FB1635E00D97106 /* ReaderDelegationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderDelegationController.swift; sourceTree = "<group>"; };
-		D319BCC81FB17DFF00D97106 /* BHFilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHFilterParameters.swift; sourceTree = "<group>"; };
+		D319BCC81FB17DFF00D97106 /* BHFilterParameterizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHFilterParameterizable.swift; sourceTree = "<group>"; };
 		D319BCCA1FB400FC00D97106 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		D347FD49216E8786002B0252 /* BHCode128FilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHCode128FilterParameters.swift; sourceTree = "<group>"; };
+		D347FD4B216E87A8002B0252 /* BHPDF417FilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHPDF417FilterParameters.swift; sourceTree = "<group>"; };
+		D347FD4D216E87C2002B0252 /* BHQRFilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHQRFilterParameters.swift; sourceTree = "<group>"; };
+		D347FD4F216E87CD002B0252 /* BHAztecFilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHAztecFilterParameters.swift; sourceTree = "<group>"; };
 		D358268D1FAE5316002A9858 /* BHCode39Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHCode39Generator.swift; sourceTree = "<group>"; };
 		D358268F1FAE5378002A9858 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		D35826911FAE6FA8002A9858 /* BHNativeBarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHNativeBarcodeGenerator.swift; sourceTree = "<group>"; };
@@ -170,10 +178,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D347FD52216E8808002B0252 /* FilterParameters */ = {
+			isa = PBXGroup;
+			children = (
+				D347FD4F216E87CD002B0252 /* BHAztecFilterParameters.swift */,
+				D347FD49216E8786002B0252 /* BHCode128FilterParameters.swift */,
+				D347FD4B216E87A8002B0252 /* BHPDF417FilterParameters.swift */,
+				D347FD4D216E87C2002B0252 /* BHQRFilterParameters.swift */,
+			);
+			path = FilterParameters;
+			sourceTree = "<group>";
+		};
 		D358269B1FAFA7D0002A9858 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				D35826951FAE7570002A9858 /* BHBarcodeGenerating.swift */,
+				D319BCC81FB17DFF00D97106 /* BHFilterParameterizable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -337,9 +357,9 @@
 			children = (
 				D35826BD1FB035B2002A9858 /* BHBarcodeOptions.swift */,
 				D35826931FAE6FC9002A9858 /* BHError.swift */,
-				D319BCC81FB17DFF00D97106 /* BHFilterParameters.swift */,
 				D35F2BB21F9860340017A4D6 /* Enums.swift */,
 				D35F2BB61F986EED0017A4D6 /* Extensions */,
+				D347FD52216E8808002B0252 /* FilterParameters */,
 				D365459D1F98492300AE06E2 /* Generators */,
 				D35F2BAD1F985F320017A4D6 /* Helpers */,
 				D358269B1FAFA7D0002A9858 /* Protocols */,
@@ -394,8 +414,6 @@
 				D35826AC1FB02916002A9858 /* Sources */,
 				D35826AD1FB02916002A9858 /* Frameworks */,
 				D35826AE1FB02916002A9858 /* Resources */,
-				6708F09EC64A586F2EB5EFAD /* [CP] Embed Pods Frameworks */,
-				5B2E6DA5910A7D271435D8AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,7 +435,7 @@
 				D36545781F9848E400AE06E2 /* Frameworks */,
 				D36545791F9848E400AE06E2 /* Headers */,
 				D365457A1F9848E400AE06E2 /* Resources */,
-				E9F1416F091FCFD1727CE233 /* [CP] Copy Pods Resources */,
+				D347FD47216E8645002B0252 /* Lint Run Script */,
 			);
 			buildRules = (
 			);
@@ -436,8 +454,6 @@
 				D36545871F98491C00AE06E2 /* Sources */,
 				D36545881F98491C00AE06E2 /* Frameworks */,
 				D36545891F98491C00AE06E2 /* Resources */,
-				D06FA91DA8E0531BA65B571A /* [CP] Embed Pods Frameworks */,
-				49653FFC04DD1D25B150DFAE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -525,36 +541,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49653FFC04DD1D25B150DFAE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B2E6DA5910A7D271435D8AD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHero-BarcodeHeroTests/Pods-BarcodeHero-BarcodeHeroTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		61417EA3F10B5FEED513E1EC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -571,24 +557,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6708F09EC64A586F2EB5EFAD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo-BarcodeHeroTests/Pods-BarcodeHeroDemo-BarcodeHeroTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BarcodeHero/BarcodeHero.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarcodeHero.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHero-BarcodeHeroTests/Pods-BarcodeHero-BarcodeHeroTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B8E35E23191B448E8B07894 /* [CP] Check Pods Manifest.lock */ = {
@@ -627,38 +595,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D06FA91DA8E0531BA65B571A /* [CP] Embed Pods Frameworks */ = {
+		D347FD47216E8645002B0252 /* Lint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BarcodeHero/BarcodeHero.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarcodeHero.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E9F1416F091FCFD1727CE233 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "Lint Run Script";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHero/Pods-BarcodeHero-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "${SRCROOT}/../scripts/swift_combined_lint_run_script.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -682,11 +635,15 @@
 				D35826941FAE6FC9002A9858 /* BHError.swift in Sources */,
 				D35826901FAE5378002A9858 /* UIImage+Resize.swift in Sources */,
 				D35826981FAFA234002A9858 /* BHEANGenerator.swift in Sources */,
+				D347FD4C216E87A8002B0252 /* BHPDF417FilterParameters.swift in Sources */,
+				D347FD4A216E8786002B0252 /* BHCode128FilterParameters.swift in Sources */,
 				D35826BE1FB035B2002A9858 /* BHBarcodeOptions.swift in Sources */,
 				D358268E1FAE5316002A9858 /* BHCode39Generator.swift in Sources */,
-				D319BCC91FB17DFF00D97106 /* BHFilterParameters.swift in Sources */,
+				D319BCC91FB17DFF00D97106 /* BHFilterParameterizable.swift in Sources */,
 				D319BCC41FB15A1500D97106 /* UIView+Mask.swift in Sources */,
 				D35F2BB31F9860340017A4D6 /* Enums.swift in Sources */,
+				D347FD4E216E87C2002B0252 /* BHQRFilterParameters.swift in Sources */,
+				D347FD50216E87CD002B0252 /* BHAztecFilterParameters.swift in Sources */,
 				D35F2BB81F986EFB0017A4D6 /* CIImage+Transform.swift in Sources */,
 				D35F2BC31F990E6E0017A4D6 /* BHCameraScanController.swift in Sources */,
 				D35F2BB11F9860070017A4D6 /* BHBarcodeGenerator.swift in Sources */,
