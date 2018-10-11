@@ -17,9 +17,6 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         self.pickerData = pickerData
         self.pickerTextField = dropdownField
 
-        self.delegate = self
-        self.dataSource = self
-
         if pickerData.isEmpty {
             self.pickerTextField.text = nil
             self.pickerTextField.isEnabled = false
@@ -29,10 +26,13 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
 
         super.init(frame: CGRect.zero)
+        
+        self.delegate = self
+        self.dataSource = self
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 
     // Sets number of columns in picker view
