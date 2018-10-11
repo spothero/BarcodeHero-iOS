@@ -4,7 +4,7 @@ disabled_rules:
   # We run the swift_combined_lint_run_script.sh which handles TODO/FIXME/WARN/WARNING independently, so we want to disable this.
   - todo # TODOs and FIXMEs should be resolved.
 
-  
+
 opt_in_rules:
   # - missing_docs # Declarations should be documented.
   - anyobject_protocol # Prefer using AnyObject over class for class-only protocols.
@@ -15,7 +15,6 @@ opt_in_rules:
   - contains_over_first_not_nil # Prefer contains over first(where:) != nil
   # - convenience_type # Types used for hosting only static members should be implemented as a caseless enum to avoid instantiation.
   - explicit_init # Explicitly calling .init() should be avoided.
-  - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
   - empty_count # Prefer checking `isEmpty` over comparing `count` to zero.
   - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
   # - file_header # Header comments should be consistent with project patterns. The SWIFTLINT_CURRENT_FILENAME placeholder can optionally be used in the required and forbidden patterns. It will be replaced by the real file name.
@@ -45,6 +44,10 @@ opt_in_rules:
   - untyped_error_in_catch # Catch statements should not declare error variables without type casting.
   - vertical_parameter_alignment_on_call # Function parameters should be aligned vertically if they're in multiple lines in a method call.
   - vertical_whitespace # Limit vertical whitespace to a single empty line.
+
+
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+  - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
 
 
 colon: # Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.
@@ -82,5 +85,5 @@ variable_name: # Variable names should not be too long or too short
     - y
 
 
-excluded: # what folders should be excluded from analysis? 
+excluded: # what folders should be excluded from analysis?
   - Pods
