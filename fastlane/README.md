@@ -41,14 +41,14 @@ Adds all files to a commit and gets a message from the terminal if none is provi
 fastlane ios pod_lint
 ```
 Lints the pod library.
-### ios danger_lint
+### ios run_danger
 ```
-fastlane ios danger_lint
+fastlane ios run_danger
 ```
 
-### ios pod_deploy
+### ios deploy_pod
 ```
-fastlane ios pod_deploy
+fastlane ios deploy_pod
 ```
 Deploys the pod to the private spec repo. (Local only)
 

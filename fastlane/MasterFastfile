@@ -23,6 +23,7 @@ platform :ios do
   # ============= #
 
   IS_LOCAL = !is_ci
+  ENV['IS_LOCAL'] = IS_LOCAL ? 'true' : 'false'
 
   # ======================= # 
   #   Computed Properties   #

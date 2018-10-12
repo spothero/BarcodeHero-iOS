@@ -1,8 +1,0 @@
-# We need a pat on the back sometimes!
-message('👋🏻 👋🏻 Great job!')
-
-# Run the Danger-SwiftLint plugin and make inline comments with any warnings or errors
-swiftlint.lint_files inline_mode: true
-
-# Run the Danger-Rubocop plugin and make inline comments with any warnings or errors
-rubocop.lint inline_comment: true
