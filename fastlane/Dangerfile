@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'danger/cheer.rb'
 require_relative 'danger/debug_message.rb'
 require_relative 'danger/validate_pull_request.rb'

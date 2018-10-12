@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 import 'MasterFastfile'
 
 default_platform :ios
 
-platform :ios do
-  # ========== # 
+platform :ios do # rubocop:disable Metrics/BlockLength
+  # ========== #
   #   Global   #
   # ========== #
 
-  before_all do |lane, options|
+  before_all do |_lane, _options|
     setup_environment
   end
 
@@ -15,7 +17,7 @@ platform :ios do
     alert(message: exception.message, success: false)
   end
 
-  # ============= # 
+  # ============= #
   #   Deploying   #
   # ============= #
 
@@ -24,15 +26,13 @@ platform :ios do
     ENV['GIT_REPOSITORY_URL'] = 'github.com/spothero/BarcodeHero-iOS'
 
     # we can only run danger locally if we pass in a pull request ID
-    if IS_LOCAL
-      if options[:pr]
-        pull_request = "https://github.com/#{ENV['SH_REPO']}/pull/#{options[:pr]}"
-      else
-        UI.user_error!('Unable run danger locally without specifying a pull request ID! Use the pr: lane parameter to do so.')
-        next
-      end
-    else
-      UI.error 'Pull request ID can only be specified whenn running danger locally.' if options[:pr]
+    if IS_LOCAL && options[:pr]
+      pull_request = "https://github.com/#{ENV['SH_REPO']}/pull/#{options[:pr]}"
+    elsif IS_LOCAL && options[:pr].nil?
+      UI.user_error!('Unable run danger locally without specifying a pull request ID! Use the pr: lane parameter to do so.')
+      next
+    elsif !IS_LOCAL && options[:pr]
+      UI.error 'Pull request ID can only be specified whenn running danger locally.'
     end
 
     danger(
@@ -45,22 +45,22 @@ platform :ios do
 
   desc 'Deploys the pod to the private spec repo. (Local only)'
   lane :deploy_pod do |options|
-    UI.user_error!('This lane is only available locally.') if !IS_LOCAL
+    UI.user_error!('This lane is only available locally.') unless IS_LOCAL
 
     begin
       ensure_git_status_clean
-    rescue => exception
-      commitMessage = UI.input("Current branch is not clean. You need to commit. Enter your commit message: ")
-      commit(message: commitMessage)
+    rescue StandardError
+      commit_message = UI.input('Current branch is not clean. You need to commit. Enter your commit message: ')
+      commit(message: commit_message)
     end
 
-    allow_warnings = options[:allow_warnings] != nil ? options[:allow_warnings] : true
-    verbose = options[:verbose] != nil ? options[:verbose] : false
+    allow_warnings = options[:allow_warnings].nil? ? options[:allow_warnings] : true
+    verbose = options[:verbose].nil? ? options[:verbose] : false
 
-    bump_type = UI.select('What type of update is this?', ['major', 'minor', 'patch'])
+    bump_type = UI.select('What type of update is this?', %w[major minor patch])
 
     pod_lint(allow_warnings: allow_warnings, verbose: verbose)
-    
+
     version = version_bump_podspec(bump_type: bump_type)
     tag = "v#{version}"
 
@@ -68,7 +68,7 @@ platform :ios do
 
     increment_version_number(version_number: version)
 
-    message = options[:message] ? options[:message] : "Updating version number to #{version}."
+    message = options[:message] || "Updating version number to #{version}."
 
     commit(message: message)
 
@@ -77,10 +77,10 @@ platform :ios do
     add_git_tag(tag: tag)
 
     push_git_tags
-    
+
     pod_push(
       allow_warnings: allow_warnings,
-      path: ENV['SH_PODSPEC'], 
+      path: ENV['SH_PODSPEC'],
       repo: ENV['SH_PODSPEC_REPO'],
       # swift_version: ENV['SH_SWIFT_VERSION'],
       verbose: verbose,
@@ -92,11 +92,10 @@ platform :ios do
       )
 
       message = "#{ENV['SH_APP_NAME']} v#{version} Deployed! Don't forget to create a pull request from develop to master."
-    else 
+    else
       message = "#{ENV['SH_APP_NAME']} v#{version} Deployed!"
     end
 
     alert(message: message, say: true)
   end
-
 end

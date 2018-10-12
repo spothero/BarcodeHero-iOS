@@ -5,13 +5,13 @@ AllCops:
     - 'fastlane/MasterFastfile'
 
 Metrics/BlockLength:
-  Max: 100
+  Max: 50
 
 Metrics/LineLength:
   Max: 150
 
 Metrics/MethodLength:
-  Max: 100
+  Max: 50
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
