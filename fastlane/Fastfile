@@ -19,7 +19,7 @@ platform :ios do
   #   Deploying   #
   # ============= #
 
-  lane :danger_lint do |options|
+  lane :run_danger do |options|
     ENV['GIT_REPOSITORY_URL'] = 'github.com/spothero/BarcodeHero-iOS'
 
     danger(
@@ -31,7 +31,7 @@ platform :ios do
   end
 
   desc "Deploys the pod to the private spec repo. (Local only)"
-  lane :pod_deploy do |options|
+  lane :deploy_pod do |options|
     UI.user_error!('This lane is only available locally.') if !IS_LOCAL
 
     begin
