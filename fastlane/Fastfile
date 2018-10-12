@@ -20,19 +20,19 @@ platform :ios do
   # ============= #
 
   lane :danger_lint do |options|
-    ENV['GIT_REPOSITORY_URL'] = "github.com/spothero/BarcodeHero-iOS"
+    ENV['GIT_REPOSITORY_URL'] = 'github.com/spothero/BarcodeHero-iOS'
 
     danger(
-      dangerfile: "fastlane/Dangerfile",
-      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
+      dangerfile: 'fastlane/Dangerfile',
+      github_api_token: ENV['GITHUB_ACCESS_TOKEN'],
       new_comment: true,
-      verbose: true
+      verbose: true,
     )
   end
 
   desc "Deploys the pod to the private spec repo. (Local only)"
   lane :pod_deploy do |options|
-    UI.user_error!("This lane is only available locally.") if !IS_LOCAL
+    UI.user_error!('This lane is only available locally.') if !IS_LOCAL
 
     begin
       ensure_git_status_clean
@@ -44,7 +44,7 @@ platform :ios do
     allow_warnings = options[:allow_warnings] != nil ? options[:allow_warnings] : true
     verbose = options[:verbose] != nil ? options[:verbose] : false
 
-    bump_type = UI.select("What type of update is this?", ["major", "minor", "patch"])
+    bump_type = UI.select('What type of update is this?', ['major', 'minor', 'patch'])
 
     pod_lint(allow_warnings: allow_warnings, verbose: verbose)
     
@@ -61,9 +61,7 @@ platform :ios do
 
     ensure_git_status_clean
 
-    add_git_tag(
-      tag: tag
-    )
+    add_git_tag(tag: tag)
 
     push_git_tags
     
@@ -72,7 +70,7 @@ platform :ios do
       path: ENV['SH_PODSPEC'], 
       repo: ENV['SH_PODSPEC_REPO'],
       # swift_version: ENV['SH_SWIFT_VERSION'],
-      verbose: verbose
+      verbose: verbose,
     )
 
     if ENV['GITHUB_PULL_REQUEST_API_TOKEN']

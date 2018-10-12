@@ -1,0 +1,11 @@
+AllCops:
+  Include:
+    - 'fastlane/Dangerfile'
+    - 'fastlane/Fastfile'
+    - 'fastlane/MasterFastfile'
+
+Metrics/LineLength:
+  Max: 150
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
