@@ -20,32 +20,27 @@ or alternatively using `brew cask install fastlane`
 ```
 fastlane ios prepare
 ```
-Prepares the build by registering devices and checking installed dependencies
+Registers the devices (if possible), then checks and installs dependencies.
 ### ios register
 ```
 fastlane ios register
 ```
 Registers devices on the Apple Developer Portal.
-### ios load_env
-```
-fastlane ios load_env
-```
-
 ### ios certify
 ```
 fastlane ios certify
 ```
-Syncs codesigning certificates and provisioning profiles via Fastlane Match.
+Syncs codesigning certificates and provisioning profiles via Fastlane Match. (App only)
 ### ios certify_aps
 ```
 fastlane ios certify_aps
 ```
-Syncs certificates for Apple Push Services.
+Syncs certificates for Apple Push Services. (App only)
 ### ios build
 ```
 fastlane ios build
 ```
-Builds the app.
+Builds the project.
 ### ios test
 ```
 fastlane ios test
@@ -56,51 +51,68 @@ Runs unit tests and outputs results in JUnit format.
 fastlane ios run_danger
 ```
 
-### ios deploy
+### ios app_deploy
 ```
-fastlane ios deploy
+fastlane ios app_deploy
 ```
-Deploys the app.
-### ios deploy_to_aws
+Deploys the app. (App only)
+### ios app_deploy_to_aws
 ```
-fastlane ios deploy_to_aws
+fastlane ios app_deploy_to_aws
+```
+Deploys the app to AWS. (App only)
+### ios app_deploy_to_hockeyapp
+```
+fastlane ios app_deploy_to_hockeyapp
+```
+Deploys the app to HockeyApp. (App only)
+### ios app_upload_symbols
+```
+fastlane ios app_upload_symbols
+```
+Uploads symbols to crashlytics and sentry. (App only)
+### ios pod_bump
+```
+fastlane ios pod_bump
+```
+Bumps or sets the podspec and project version. (Pod only) (Local only)
+### ios pod_deploy
+```
+fastlane ios pod_deploy
 ```
 
-### ios deploy_to_hockeyapp
+### ios pod_deploy_on_new_tag
 ```
-fastlane ios deploy_to_hockeyapp
+fastlane ios pod_deploy_on_new_tag
 ```
-
-### ios upload_symbols
-```
-fastlane ios upload_symbols
-```
-
-### ios deploy_pod
-```
-fastlane ios deploy_pod
-```
-Deploys the pod to the private spec repo. (Local only)
+Deploys the pod when a new tag is pushed. (Pod only) (CI only)
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo
 ```
 Adds the spec repo to the local cocoapods environment. (Local only)
-### ios build_and_deploy
-```
-fastlane ios build_and_deploy
-```
-Then builds and deploys.
 ### ios commit
 ```
 fastlane ios commit
 ```
 Adds all files to a commit and gets a message from the terminal if none is provided, then pushes to remote. (Local only)
+### ios test_and_lint
+```
+fastlane ios test_and_lint
+```
+Runs test and lints with danger.
+
+If the project is a pod, it will also run the pod_lint lane.
+### ios app_build_and_deploy
+```
+fastlane ios app_build_and_deploy
+```
+Builds then deploys. (App only)
 ### ios pod_lint
 ```
 fastlane ios pod_lint
 ```
-Lints the pod library.
+Lints the pod library. (Pod only)
 
 ----
 
