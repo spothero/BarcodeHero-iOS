@@ -16,21 +16,81 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios check_dependencies
+### ios prepare
 ```
-fastlane ios check_dependencies
+fastlane ios prepare
 ```
-Checks various dependencies and installs or updates them accordingly. (Ruby Gems, Fastlane, Cocoapods, Xcode)
+Prepares the build by registering devices and checking installed dependencies
+### ios register
+```
+fastlane ios register
+```
+Registers devices on the Apple Developer Portal.
+### ios load_env
+```
+fastlane ios load_env
+```
+
+### ios certify
+```
+fastlane ios certify
+```
+Syncs codesigning certificates and provisioning profiles via Fastlane Match.
+### ios certify_aps
+```
+fastlane ios certify_aps
+```
+Syncs certificates for Apple Push Services.
+### ios build
+```
+fastlane ios build
+```
+Builds the app.
 ### ios test
 ```
 fastlane ios test
 ```
 Runs unit tests and outputs results in JUnit format.
+### ios run_danger
+```
+fastlane ios run_danger
+```
+
+### ios deploy
+```
+fastlane ios deploy
+```
+Deploys the app.
+### ios deploy_to_aws
+```
+fastlane ios deploy_to_aws
+```
+
+### ios deploy_to_hockeyapp
+```
+fastlane ios deploy_to_hockeyapp
+```
+
+### ios upload_symbols
+```
+fastlane ios upload_symbols
+```
+
+### ios deploy_pod
+```
+fastlane ios deploy_pod
+```
+Deploys the pod to the private spec repo. (Local only)
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo
 ```
 Adds the spec repo to the local cocoapods environment. (Local only)
+### ios build_and_deploy
+```
+fastlane ios build_and_deploy
+```
+Then builds and deploys.
 ### ios commit
 ```
 fastlane ios commit
@@ -41,16 +101,6 @@ Adds all files to a commit and gets a message from the terminal if none is provi
 fastlane ios pod_lint
 ```
 Lints the pod library.
-### ios run_danger
-```
-fastlane ios run_danger
-```
-
-### ios deploy_pod
-```
-fastlane ios deploy_pod
-```
-Deploys the pod to the private spec repo. (Local only)
 
 ----
 

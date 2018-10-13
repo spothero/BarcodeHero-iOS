@@ -1,101 +1,13 @@
 # frozen_string_literal: true
 
-import 'MasterFastfile'
+import_from_git(
+  url: 'https://github.com/spothero/Shared-iOS',
+  branch: 'fastlane/0.2.0',
+  path: 'Fastlane/fastlane/MasterAppFastfile',
+)
 
 default_platform :ios
 
-platform :ios do # rubocop:disable Metrics/BlockLength
-  # ========== #
-  #   Global   #
-  # ========== #
-
-  before_all do |_lane, _options|
-    setup_environment
-  end
-
-  error do |_lane, exception|
-    alert(message: exception.message, success: false)
-  end
-
-  # ============= #
-  #   Deploying   #
-  # ============= #
-
-  lane :run_danger do |options|
-    # we do this due to a Bitrise bug, which is being addressed by their team
-    ENV['GIT_REPOSITORY_URL'] = 'github.com/spothero/BarcodeHero-iOS'
-
-    # we can only run danger locally if we pass in a pull request ID
-    if IS_LOCAL && options[:pr]
-      pull_request = "https://github.com/#{ENV['SH_REPO']}/pull/#{options[:pr]}"
-    elsif IS_LOCAL && options[:pr].nil?
-      UI.user_error!('Unable run danger locally without specifying a pull request ID! Use the pr: lane parameter to do so.')
-      next
-    elsif !IS_LOCAL && options[:pr]
-      UI.error 'Pull request ID can only be specified whenn running danger locally.'
-    end
-
-    danger(
-      github_api_token: ENV['GITHUB_ACCESS_TOKEN'],
-      new_comment: true,
-      pr: pull_request,
-      verbose: true,
-    )
-  end
-
-  desc 'Deploys the pod to the private spec repo. (Local only)'
-  lane :deploy_pod do |options|
-    UI.user_error!('This lane is only available locally.') unless IS_LOCAL
-
-    begin
-      ensure_git_status_clean
-    rescue StandardError
-      commit_message = UI.input('Current branch is not clean. You need to commit. Enter your commit message: ')
-      commit(message: commit_message)
-    end
-
-    allow_warnings = options[:allow_warnings].nil? ? options[:allow_warnings] : true
-    verbose = options[:verbose].nil? ? options[:verbose] : false
-
-    bump_type = UI.select('What type of update is this?', %w[major minor patch])
-
-    pod_lint(allow_warnings: allow_warnings, verbose: verbose)
-
-    version = version_bump_podspec(bump_type: bump_type)
-    tag = "v#{version}"
-
-    UI.user_error!("Tag #{tag} already exists!") if git_tag_exists(tag: tag)
-
-    increment_version_number(version_number: version)
-
-    message = options[:message] || "Updating version number to #{version}."
-
-    commit(message: message)
-
-    ensure_git_status_clean
-
-    add_git_tag(tag: tag)
-
-    push_git_tags
-
-    pod_push(
-      allow_warnings: allow_warnings,
-      path: ENV['SH_PODSPEC'],
-      repo: ENV['SH_PODSPEC_REPO'],
-      # swift_version: ENV['SH_SWIFT_VERSION'],
-      verbose: verbose,
-    )
-
-    if ENV['GITHUB_PULL_REQUEST_API_TOKEN']
-      create_pull_request(
-        title: "Release v#{version}",
-      )
-
-      message = "#{ENV['SH_APP_NAME']} v#{version} Deployed! Don't forget to create a pull request from develop to master."
-    else
-      message = "#{ENV['SH_APP_NAME']} v#{version} Deployed!"
-    end
-
-    alert(message: message, say: true)
-  end
+platform :ios do
+  # your app-specific lanes go here!
 end

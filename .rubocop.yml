@@ -1,9 +1,10 @@
 AllCops:
   Include:
-    - 'danger/*'
-    - 'fastlane/Fastfile'
-    - 'fastlane/MasterFastfile'
     - 'Dangerfile'
+    - 'fastlane/Fastfile'
+
+Metrics/AbcSize:
+  Enabled: false
 
 Metrics/BlockLength:
   Max: 50
