@@ -71,6 +71,11 @@ Deploys the app to HockeyApp. (App only)
 fastlane ios app_upload_symbols
 ```
 Uploads symbols to crashlytics and sentry. (App only)
+### ios pod_bump
+```
+fastlane ios pod_bump
+```
+Bumps or sets the podspec and project version. (Pod only) (Local only)
 ### ios pod_deploy
 ```
 fastlane ios pod_deploy
@@ -81,11 +86,6 @@ fastlane ios pod_deploy
 fastlane ios pod_deploy_on_new_tag
 ```
 Deploys the pod when a new tag is pushed. (Pod only) (CI only)
-### ios pod_bump
-```
-fastlane ios pod_bump
-```
-Bumps or sets the podspec and project version. (Pod only) (Local only)
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo
