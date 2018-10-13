@@ -76,6 +76,16 @@ fastlane ios deploy_to_hockeyapp
 fastlane ios upload_symbols
 ```
 
+### ios pod_deploy_on_new_tag
+```
+fastlane ios pod_deploy_on_new_tag
+```
+
+### ios pod_bump
+```
+fastlane ios pod_bump
+```
+
 ### ios prepare_pod_deploy
 ```
 fastlane ios prepare_pod_deploy
@@ -90,7 +100,12 @@ Adds the spec repo to the local cocoapods environment. (Local only)
 ```
 fastlane ios build_and_deploy
 ```
-Then builds and deploys.
+Builds then deploys.
+### ios test_and_lint
+```
+fastlane ios test_and_lint
+```
+Runs test, runs danger, and lints the pod.
 ### ios commit
 ```
 fastlane ios commit
