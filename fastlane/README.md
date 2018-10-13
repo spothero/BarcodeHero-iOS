@@ -76,11 +76,11 @@ fastlane ios deploy_to_hockeyapp
 fastlane ios upload_symbols
 ```
 
-### ios deploy_pod
+### ios prepare_pod_deploy
 ```
-fastlane ios deploy_pod
+fastlane ios prepare_pod_deploy
 ```
-Deploys the pod to the private spec repo. (Local only)
+Deploys the pod to the private spec repo.
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo

@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-import_from_git(
-  url: 'https://github.com/spothero/Shared-iOS',
-  branch: 'fastlane/0.2.1',
-  path: 'Fastlane/fastlane/MasterAppFastfile',
-)
+import '../../Shared-iOS/Fastlane/fastlane/MasterAppFastfile'
+
+# import_from_git(
+#   url: 'https://github.com/spothero/Shared-iOS',
+#   branch: 'fastlane/0.2.1',
+#   path: 'Fastlane/fastlane/MasterAppFastfile',
+# )
 
 default_platform :ios
 
