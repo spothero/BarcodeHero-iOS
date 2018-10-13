@@ -1,91 +1,13 @@
-import "MasterFastfile"
+# frozen_string_literal: true
+
+import_from_git(
+  url: 'https://github.com/spothero/Shared-iOS',
+  branch: 'fastlane/0.2.1',
+  path: 'Fastlane/fastlane/MasterAppFastfile',
+)
 
 default_platform :ios
 
 platform :ios do
-  # ========== # 
-  #   Global   #
-  # ========== #
-
-  before_all do |lane, options|
-    setup_environment
-  end
-
-  error do |lane, exception|
-    alert(message: exception.message, success: false)
-  end
-
-  # ============= # 
-  #   Deploying   #
-  # ============= #
-
-  lane :danger_lint do |options|
-    ENV['GIT_REPOSITORY_URL'] = "github.com/spothero/BarcodeHero-iOS"
-
-    danger(
-      dangerfile: "fastlane/Dangerfile",
-      github_api_token: ENV["GITHUB_ACCESS_TOKEN"],
-      new_comment: true,
-      verbose: true
-    )
-  end
-
-  desc "Deploys the pod to the private spec repo. (Local only)"
-  lane :pod_deploy do |options|
-    UI.user_error!("This lane is only available locally.") if !IS_LOCAL
-
-    begin
-      ensure_git_status_clean
-    rescue => exception
-      commitMessage = UI.input("Current branch is not clean. You need to commit. Enter your commit message: ")
-      commit(message: commitMessage)
-    end
-
-    allow_warnings = options[:allow_warnings] != nil ? options[:allow_warnings] : true
-    verbose = options[:verbose] != nil ? options[:verbose] : false
-
-    bump_type = UI.select("What type of update is this?", ["major", "minor", "patch"])
-
-    pod_lint(allow_warnings: allow_warnings, verbose: verbose)
-    
-    version = version_bump_podspec(bump_type: bump_type)
-    tag = "v#{version}"
-
-    UI.user_error!("Tag #{tag} already exists!") if git_tag_exists(tag: tag)
-
-    increment_version_number(version_number: version)
-
-    message = options[:message] ? options[:message] : "Updating version number to #{version}."
-
-    commit(message: message)
-
-    ensure_git_status_clean
-
-    add_git_tag(
-      tag: tag
-    )
-
-    push_git_tags
-    
-    pod_push(
-      allow_warnings: allow_warnings,
-      path: ENV['SH_PODSPEC'], 
-      repo: ENV['SH_PODSPEC_REPO'],
-      # swift_version: ENV['SH_SWIFT_VERSION'],
-      verbose: verbose
-    )
-
-    if ENV['GITHUB_PULL_REQUEST_API_TOKEN']
-      create_pull_request(
-        title: "Release v#{version}",
-      )
-
-      message = "#{ENV['SH_APP_NAME']} v#{version} Deployed! Don't forget to create a pull request from develop to master."
-    else 
-      message = "#{ENV['SH_APP_NAME']} v#{version} Deployed!"
-    end
-
-    alert(message: message, say: true)
-  end
-
+  # your app-specific lanes go here!
 end
