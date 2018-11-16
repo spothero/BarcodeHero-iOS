@@ -19,7 +19,7 @@ open class BHCameraScanController: UIViewController {
     @IBOutlet private var crosshairImageView: UIImageView!
     @IBOutlet private var overlayView: UIView!
 
-    private let session: AVCaptureSession = AVCaptureSession()
+    private let session = AVCaptureSession()
 
 //    private var dismissOnScan: Bool = false
     private var hasLoaded: Bool = false
