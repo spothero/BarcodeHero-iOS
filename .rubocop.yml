@@ -1,19 +1,34 @@
+# Update for v0.59.2
+
+# TODO: Add Podfile and Podspec
+
 AllCops:
   Include:
     - 'Dangerfile'
     - 'fastlane/Fastfile'
+    - 'scripts/**/*.rb'
 
+# ABC size = Assignment Branch Condition size, kind of like cyclomatic complexity
+# Fastlane as a whole kind of blows up when this is enabled, so we're turning it off (at least for now)
 Metrics/AbcSize:
   Enabled: false
 
+# We don't care about block length right now
 Metrics/BlockLength:
-  Max: 50
+  Enabled: false
 
+# Matches SwiftLint line length
 Metrics/LineLength:
   Max: 150
 
+# We don't care about method length right now
 Metrics/MethodLength:
-  Max: 50
+  Enabled: false
 
+# This means we prefer the use of !!foo instead of !foo.nil?
+Style/DoubleNegation:
+  Enabled: false
+
+# Matches SwiftLint rules on trailing commas in multiline
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
