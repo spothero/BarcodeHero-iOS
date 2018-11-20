@@ -81,16 +81,16 @@ Bumps or sets the podspec and project version. (Pod only) (Local only)
 fastlane ios pod_deploy
 ```
 
-### ios pod_deploy_on_new_tag
+### ios pod_deploy_on_tag
 ```
-fastlane ios pod_deploy_on_new_tag
+fastlane ios pod_deploy_on_tag
 ```
-Deploys the pod when a new tag is pushed. (Pod only) (CI only)
+Deploys the pod when a tag is pushed. (Pod only) (CI only)
 ### ios add_spec_repo
 ```
 fastlane ios add_spec_repo
 ```
-Adds the spec repo to the local cocoapods environment. (Local only)
+Adds the spec repo to the local cocoapods environment.
 ### ios commit
 ```
 fastlane ios commit
