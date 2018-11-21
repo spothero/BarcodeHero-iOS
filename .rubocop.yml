@@ -1,12 +1,13 @@
 # Update for v0.59.2
 
-# TODO: Add Podfile and Podspec
-
 AllCops:
+  Exclude:
+    - 'Pods/*'
   Include:
-    - 'Dangerfile'
-    - 'fastlane/Fastfile'
-    - 'scripts/**/*.rb'
+    - '**/Dangerfile'
+    - '**/Fastfile'
+    - '**/Gemfile'
+    - '**/*.rb'
 
 # ABC size = Assignment Branch Condition size, kind of like cyclomatic complexity
 # Fastlane as a whole kind of blows up when this is enabled, so we're turning it off (at least for now)
