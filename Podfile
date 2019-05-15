@@ -17,5 +17,5 @@ end
 target 'BarcodeHeroDemo' do
     project 'BarcodeHero/BarcodeHero.xcodeproj'
 
-    podspec :path => './BarcodeHero.podspec'
+    pod 'BarcodeHero', :subspecs => ['Core', 'UI'], :path => '.'
 end

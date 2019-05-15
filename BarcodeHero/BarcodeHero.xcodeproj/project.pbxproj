@@ -454,6 +454,7 @@
 				D36545871F98491C00AE06E2 /* Sources */,
 				D36545881F98491C00AE06E2 /* Frameworks */,
 				D36545891F98491C00AE06E2 /* Resources */,
+				D72C45FACE31AEACD792E4C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -612,6 +613,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${SRCROOT}/../scripts/swift_combined_lint_run_script.sh\n";
+		};
+		D72C45FACE31AEACD792E4C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BarcodeHero/BarcodeHero.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarcodeHero.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
