@@ -1,4 +1,4 @@
-# Update for v0.59.2
+# Updated for v0.69.0
 
 AllCops:
   Exclude:
@@ -7,7 +7,9 @@ AllCops:
     - '**/Dangerfile'
     - '**/Fastfile'
     - '**/Gemfile'
+    - '**/Podfile'
     - '**/*.rb'
+    - '**/*.podspec'
 
 # ABC size = Assignment Branch Condition size, kind of like cyclomatic complexity
 # Fastlane as a whole kind of blows up when this is enabled, so we're turning it off (at least for now)
@@ -33,3 +35,8 @@ Style/DoubleNegation:
 # Matches SwiftLint rules on trailing commas in multiline
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
+ 
+# Opt out of using %w or %W for arrays of words.
+# Example: ['Foo', 'Bar'] instead of %w[Foo Bar]
+Style/WordArray:
+  Enabled: false

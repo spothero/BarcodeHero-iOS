@@ -2,25 +2,18 @@ PODS:
   - BarcodeHero/Core (0.3.2)
   - BarcodeHero/UI (0.3.2):
     - BarcodeHero/Core
-  - SwiftLint (0.27.0)
 
 DEPENDENCIES:
-  - BarcodeHero/Core (from `.`)
-  - BarcodeHero/UI (from `.`)
-  - SwiftLint (~> 0.27.0)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - SwiftLint
+  - BarcodeHero/Core (from `./BarcodeHero.podspec`)
+  - BarcodeHero/UI (from `./BarcodeHero.podspec`)
 
 EXTERNAL SOURCES:
   BarcodeHero:
-    :path: "."
+    :path: "./BarcodeHero.podspec"
 
 SPEC CHECKSUMS:
-  BarcodeHero: a1c6769968faa58d162ff4789f3ed0b699865a7b
-  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  BarcodeHero: 24d4f2c825b939c24678cf3ec176ce1437914131
 
-PODFILE CHECKSUM: 304b6d87de020cacb542900793767676e9f75299
+PODFILE CHECKSUM: 3f75c4fe7cd2d04035021143c6f774d162f85cff
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.2
