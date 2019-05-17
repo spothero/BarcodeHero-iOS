@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
+# Get the base filename for this script
+filename = File.basename(__FILE__)
+
 # Only run linting scripts locally, Danger will handle linting on CI
 if ENV.key?('CI')
-  puts "This script does not run on CI. Don't worry, Danger will handle it!"
+  puts "This script does not run on CI. Don't worry, Danger will handle it! (#{filename})"
   return
 end
 

@@ -613,7 +613,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby ${SRCROOT}/../scripts/combined_lint_run_script.rb\n";
+			shellScript = "ruby \"${SRCROOT}/../scripts/combined_lint_run_script.rb\"\n";
 		};
 		D3BF7756228E6F370073C6D6 /* Combined Lint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -631,7 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby ${SRCROOT}/../scripts/combined_lint_run_script.rb\n";
+			shellScript = "ruby \"${SRCROOT}/../scripts/combined_lint_run_script.rb\"\n";
 		};
 		D72C45FACE31AEACD792E4C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
