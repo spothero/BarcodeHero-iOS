@@ -432,10 +432,10 @@
 			buildPhases = (
 				61417EA3F10B5FEED513E1EC /* [CP] Check Pods Manifest.lock */,
 				D36545771F9848E400AE06E2 /* Sources */,
+				D347FD47216E8645002B0252 /* Combined Lint Run Script */,
 				D36545781F9848E400AE06E2 /* Frameworks */,
 				D36545791F9848E400AE06E2 /* Headers */,
 				D365457A1F9848E400AE06E2 /* Resources */,
-				D347FD47216E8645002B0252 /* Lint Run Script */,
 			);
 			buildRules = (
 			);
@@ -452,6 +452,7 @@
 			buildPhases = (
 				6B8E35E23191B448E8B07894 /* [CP] Check Pods Manifest.lock */,
 				D36545871F98491C00AE06E2 /* Sources */,
+				D3BF7756228E6F370073C6D6 /* Combined Lint Run Script */,
 				D36545881F98491C00AE06E2 /* Frameworks */,
 				D36545891F98491C00AE06E2 /* Resources */,
 				D72C45FACE31AEACD792E4C1 /* [CP] Embed Pods Frameworks */,
@@ -596,7 +597,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D347FD47216E8645002B0252 /* Lint Run Script */ = {
+		D347FD47216E8645002B0252 /* Combined Lint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -605,14 +606,32 @@
 			);
 			inputPaths = (
 			);
-			name = "Lint Run Script";
+			name = "Combined Lint Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/../scripts/swift_combined_lint_run_script.sh\n";
+			shellScript = "ruby \"${SRCROOT}/../scripts/combined_lint_run_script.rb\"\n";
+		};
+		D3BF7756228E6F370073C6D6 /* Combined Lint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Combined Lint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ruby \"${SRCROOT}/../scripts/combined_lint_run_script.rb\"\n";
 		};
 		D72C45FACE31AEACD792E4C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
