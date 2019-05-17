@@ -11,8 +11,6 @@ workspace 'BarcodeHero.xcworkspace'
 target 'BarcodeHero' do
   project 'BarcodeHero/BarcodeHero.xcodeproj'
 
-  pod 'SwiftLint', '~> 0.32.0'
-
   target 'BarcodeHeroTests'
 end
 
