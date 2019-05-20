@@ -38,13 +38,13 @@ class BarcodeTypesController: UITableViewController {
         return cell
     }
 
-    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = types[indexPath.row]
 
         delegate?.didSelectType(type: type)
     }
 
-    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return types.count
     }
 }

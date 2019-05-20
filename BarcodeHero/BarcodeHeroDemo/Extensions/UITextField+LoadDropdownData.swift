@@ -11,6 +11,6 @@ import UIKit
 
 extension UITextField {
     public func loadDropdownData(data: [String]) {
-        inputView = BHPickerView(pickerData: data, dropdownField: self)
+        self.inputView = BHPickerView(pickerData: data, dropdownField: self)
     }
 }

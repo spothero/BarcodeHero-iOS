@@ -121,7 +121,7 @@ extension BHCode93Generator: BHBarcodeGenerating {
         return [.code93]
     }
 
-    func encode(_ rawData: String, for _: BHBarcodeType) throws -> String {
+    func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
         var rawData = try rawData + generateCheckDigits(for: rawData)
 
         rawData = BHCode93Generator.startMarker + rawData + BHCode93Generator.endMarker
