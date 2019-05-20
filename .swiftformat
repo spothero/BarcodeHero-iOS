@@ -6,7 +6,7 @@
 # Disabled Rules
 # self: just because it'll introduce a huge PR right now
 # specifiers: because it isn't configurable
---disable self, specifiers
+--disable self,specifiers
 
 # File Exclusions
 --exclude Pods,Package.swift
