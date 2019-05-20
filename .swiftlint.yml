@@ -104,5 +104,5 @@ identifier_name: # Identifier names should only contain alphanumeric characters 
 
 
 excluded: # what folders should be excluded from analysis?
-  - .build
-  - Pods
+  - .build # Swift Package Manager
+  - Pods # CocoaPods
