@@ -31,7 +31,7 @@ open class BHCameraScanController: UIViewController {
 
     // MARK: - Methods
 
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: Bundle(for: BHCameraScanController.self))
     }
 
@@ -41,11 +41,12 @@ open class BHCameraScanController: UIViewController {
 
     // MARK: Overrides
 
-    open override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         if let device = AVCaptureDevice.default(for: .video),
             let input = try? AVCaptureDeviceInput(device: device) {
+
             try? device.lockForConfiguration()
 
             if device.isFocusModeSupported(.continuousAutoFocus) {
@@ -66,7 +67,7 @@ open class BHCameraScanController: UIViewController {
         session.addOutput(output)
         output.metadataObjectTypes = output.availableMetadataObjectTypes
 
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
 
         if let previewLayer = previewLayer {
             view.layer.addSublayer(previewLayer)
@@ -78,7 +79,7 @@ open class BHCameraScanController: UIViewController {
         session.startRunning()
     }
 
-    open override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
 //        startingBarTintColor = navigationController?.navigationBar.barTintColor
@@ -98,7 +99,7 @@ open class BHCameraScanController: UIViewController {
         barcodeTypeLabel?.text = nil
     }
 
-    open override func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         guard !hasLoaded else {
@@ -119,7 +120,7 @@ open class BHCameraScanController: UIViewController {
         }
     }
 
-    open override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         guard !hasLoaded else {
@@ -133,8 +134,7 @@ open class BHCameraScanController: UIViewController {
                            y: crosshairImageView.frame.minY - 10,
                            width: crosshairImageView.frame.width + 20,
                            height: crosshairImageView.frame.height + 20),
-                    invert: true
-                )
+                    invert: true)
             }
 
             self.backgroundView?.alpha = 1
@@ -144,7 +144,7 @@ open class BHCameraScanController: UIViewController {
         hasLoaded = true
     }
 
-    open override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         session.stopRunning()
