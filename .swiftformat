@@ -1,2 +1,3 @@
 --ranges no-space
+--self insert
 --stripunusedargs closure-only

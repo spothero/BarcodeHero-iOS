@@ -16,22 +16,22 @@ class BarcodeCell: UITableViewCell {
     @IBOutlet private var typeLabel: UILabel!
 
     func load(_ barcodeType: BHBarcodeType?, withData rawData: String?) {
-        typeLabel?.text = barcodeType?.rawValue
+        self.typeLabel?.text = barcodeType?.rawValue
 
         do {
-            let image = try BHBarcodeGenerator.generate(barcodeType, withData: rawData).bh_resizedTo(barcodeImageView)
+            let image = try BHBarcodeGenerator.generate(barcodeType, withData: rawData).bh_resizedTo(self.barcodeImageView)
 
-            alertLabel?.isHidden = true
-            alertLabel?.text = ""
+            self.alertLabel?.isHidden = true
+            self.alertLabel?.text = ""
 
-            barcodeImageView?.image = image
-            barcodeImageView?.isHidden = false
+            self.barcodeImageView?.image = image
+            self.barcodeImageView?.isHidden = false
         } catch {
-            alertLabel?.isHidden = false
-            alertLabel?.text = error.localizedDescription
+            self.alertLabel?.isHidden = false
+            self.alertLabel?.text = error.localizedDescription
 
-            barcodeImageView?.image = nil
-            barcodeImageView?.isHidden = true
+            self.barcodeImageView?.image = nil
+            self.barcodeImageView?.isHidden = true
 
             print(error.localizedDescription)
         }

@@ -28,8 +28,8 @@ class MultiGeneratorController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 400
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 400
     }
 
     // MARK: Overrides (UITableView)
@@ -40,9 +40,9 @@ class MultiGeneratorController: UITableViewController {
             return UITableViewCell()
         }
 
-        let type = types[indexPath.row]
+        let type = self.types[indexPath.row]
 
-        cell.load(type, withData: data)
+        cell.load(type, withData: self.data)
 
         return cell
     }
@@ -52,7 +52,7 @@ class MultiGeneratorController: UITableViewController {
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return types.count
+        return self.types.count
     }
 }
 

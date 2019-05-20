@@ -15,6 +15,6 @@ public struct BHCode128FilterParameters: BHFilterParameterizable {
     public var inputQuietSpace: NSNumber = 7
 
     public func loadInto(_ filter: CIFilter) {
-        filter.setValue(inputQuietSpace, forKey: BHCode128FilterParameterKey.inputQuietSpace.rawValue)
+        filter.setValue(self.inputQuietSpace, forKey: BHCode128FilterParameterKey.inputQuietSpace.rawValue)
     }
 }

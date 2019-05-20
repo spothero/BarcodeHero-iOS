@@ -14,7 +14,7 @@ extension CIImage {
     }
 
     func transformedToFit(_ imageView: UIImageView?) -> CIImage? {
-        return transformedToFit(imageView?.frame.size)
+        return self.transformedToFit(imageView?.frame.size)
     }
 
     func transformedToFit(_ size: CGSize?) -> CIImage? {
