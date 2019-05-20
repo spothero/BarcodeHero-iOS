@@ -52,7 +52,7 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
 //        case .pdf417:
 //            break
 //        case .qr:
-////            filter.setValue(BHQRInputCorrectionLevel.medium.rawValue, forKey: BHQRParameters.inputCorrectionLevel.rawValue)
+//            filter.setValue(BHQRInputCorrectionLevel.medium.rawValue, forKey: BHQRParameters.inputCorrectionLevel.rawValue)
 //        default:
 //            throw BHError.nonNativeType(barcodeType)
 //        }
