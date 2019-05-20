@@ -61,7 +61,7 @@ class BHCode93Generator {
         "/": "101101110",
         "+": "101110110",
         "%": "110101110",
-//        "($)": "100100110",
+        //        "($)": "100100110",
 //        "(/)": "111011010",
 //        "(+)": "111010110",
 //        "(%)": "100110010",
@@ -121,7 +121,7 @@ extension BHCode93Generator: BHBarcodeGenerating {
         return [.code93]
     }
 
-    func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
+    func encode(_ rawData: String, for _: BHBarcodeType) throws -> String {
         var rawData = try rawData + generateCheckDigits(for: rawData)
 
         rawData = BHCode93Generator.startMarker + rawData + BHCode93Generator.endMarker
