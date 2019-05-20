@@ -51,6 +51,7 @@
 		D36545931F98491C00AE06E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36545911F98491C00AE06E2 /* Main.storyboard */; };
 		D36545951F98491C00AE06E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36545941F98491C00AE06E2 /* Assets.xcassets */; };
 		D36545981F98491C00AE06E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36545961F98491C00AE06E2 /* LaunchScreen.storyboard */; };
+		D3BF775A229365770073C6D6 /* SPMWorkaround.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF7759229365770073C6D6 /* SPMWorkaround.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,13 @@
 		D36545941F98491C00AE06E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D36545971F98491C00AE06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36545991F98491C00AE06E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3BF7759229365770073C6D6 /* SPMWorkaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPMWorkaround.swift; sourceTree = "<group>"; };
+		D3BF775D229368090073C6D6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		D3BF775E229368090073C6D6 /* Dangerfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dangerfile.swift; path = ../Dangerfile.swift; sourceTree = "<group>"; };
+		D3BF775F229368090073C6D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D3BF7760229368090073C6D6 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../scripts; sourceTree = "<group>"; };
+		D3BF7761229368090073C6D6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile; path = ../Gemfile; sourceTree = "<group>"; };
+		D3BF7762229368090073C6D6 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fastlane; path = ../fastlane; sourceTree = "<group>"; };
 		D43BAFA9DE3EE29EB45E7AAE /* Pods-BarcodeHeroDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeHeroDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BarcodeHeroDemo/Pods-BarcodeHeroDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,12 +264,13 @@
 			isa = PBXGroup;
 			children = (
 				D358D1E71FAE2BF100D207D1 /* BarcodeHero.podspec */,
+				D3BF775C229367F20073C6D6 /* Supporting Files */,
 				D365457E1F9848E400AE06E2 /* BarcodeHero */,
 				D365458C1F98491C00AE06E2 /* BarcodeHeroDemo */,
 				D35826B11FB02916002A9858 /* BarcodeHeroTests */,
+				A8E25C1F49197089AD0C50A6 /* Frameworks */,
 				D365457D1F9848E400AE06E2 /* Products */,
 				F0A1AEED8D74D03BE4A03998 /* Pods */,
-				A8E25C1F49197089AD0C50A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,6 +289,7 @@
 			children = (
 				D365457F1F9848E400AE06E2 /* BarcodeHero.h */,
 				D36545801F9848E400AE06E2 /* Info.plist */,
+				D3BF7759229365770073C6D6 /* SPMWorkaround.swift */,
 				D3ABE8B31F984EF000FA00CE /* Core */,
 				D3ABE8B41F984EF500FA00CE /* UI */,
 			);
@@ -375,6 +385,19 @@
 				D36545C61F98494400AE06E2 /* Controllers */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		D3BF775C229367F20073C6D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3BF7762229368090073C6D6 /* fastlane */,
+				D3BF7761229368090073C6D6 /* Gemfile */,
+				D3BF7760229368090073C6D6 /* scripts */,
+				D3BF775F229368090073C6D6 /* README.md */,
+				D3BF775E229368090073C6D6 /* Dangerfile.swift */,
+				D3BF775D229368090073C6D6 /* Package.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F0A1AEED8D74D03BE4A03998 /* Pods */ = {
@@ -690,6 +713,7 @@
 				D35F2BC31F990E6E0017A4D6 /* BHCameraScanController.swift in Sources */,
 				D35F2BB11F9860070017A4D6 /* BHBarcodeGenerator.swift in Sources */,
 				D358269D1FAFC31E002A9858 /* BHImageHelper.swift in Sources */,
+				D3BF775A229365770073C6D6 /* SPMWorkaround.swift in Sources */,
 				D35826A51FAFF86F002A9858 /* BHITFGenerator.swift in Sources */,
 				D35826961FAE7570002A9858 /* BHBarcodeGenerating.swift in Sources */,
 			);
