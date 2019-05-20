@@ -46,7 +46,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
 
             guard let firstCharacterInPair = Int(pair[0]),
                 let secondCharacterInPair = Int(pair[1]) else {
-                    continue
+                continue
             }
 
             let bars = BHITFGenerator.characterEncodings[firstCharacterInPair]

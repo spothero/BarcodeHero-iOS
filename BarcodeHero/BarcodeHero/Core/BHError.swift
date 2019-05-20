@@ -33,15 +33,15 @@ public enum BHError: Error {
 extension BHError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .characterEncodingNotFound(let character):
+        case let .characterEncodingNotFound(character):
             return "Character encoding not found for character '\(character)'."
-        case .couldNotCreateFilter(let barcodeType):
+        case let .couldNotCreateFilter(barcodeType):
             return "Could not create filter for barcode type '\(barcodeType)'."
-        case .couldNotCreateImage(let barcodeType):
+        case let .couldNotCreateImage(barcodeType):
             return "Could not create image for barcode type '\(barcodeType)'."
-        case .couldNotEncode(let rawData, let barcodeType, let encodedData):
+        case let .couldNotEncode(rawData, barcodeType, encodedData):
             return "Could not encode '\(rawData)' for barcode type '\(barcodeType)'. Result: '\(encodedData)'."
-        case .couldNotGetGenerator(let barcodeType):
+        case let .couldNotGetGenerator(barcodeType):
             return "Could not get generator for barcode type '\(barcodeType)'."
         case .couldNotGetGraphicsContext:
             return "Coulde not get current graphics context."
@@ -53,15 +53,15 @@ extension BHError: LocalizedError {
             return "Image view is required for barcode resizing."
         case .indexOutOfBounds:
             return "Index is out of bounds."
-        case .invalidData(let data, let barcodeType):
+        case let .invalidData(data, barcodeType):
             return "Data '\(data)' is invalid for barcode type '\(barcodeType.rawValue)'."
-        case .invalidMetadataObjectType(let metadataObjectType):
+        case let .invalidMetadataObjectType(metadataObjectType):
             return "Metadata object type '\(metadataObjectType.rawValue)' is invalid."
-        case .invalidType(let barcodeType):
+        case let .invalidType(barcodeType):
             return "Barcode type '\(barcodeType.rawValue)' is invalid."
         case .metadataObjectTypeRequired:
             return "Metadata object type is required for barcode generation."
-        case .nonNativeType(let barcodeType):
+        case let .nonNativeType(barcodeType):
             return "'\(barcodeType.rawValue)' is not a native barcode type."
         case .sizeRequired:
             return "Size is required for barcode resizing."

@@ -14,12 +14,12 @@ import UIKit
 class GeneratorController: UIViewController {
     // MARK: - Properties
 
-    @IBOutlet private weak var alertLabel: UILabel!
-    @IBOutlet private weak var alertView: UIView!
-    @IBOutlet private weak var barcodeImageView: UIImageView!
-    @IBOutlet private weak var dataTextField: UITextField!
-    @IBOutlet private weak var sizeSlider: UISlider!
-    @IBOutlet private weak var typeLabel: UILabel!
+    @IBOutlet private var alertLabel: UILabel!
+    @IBOutlet private var alertView: UIView!
+    @IBOutlet private var barcodeImageView: UIImageView!
+    @IBOutlet private var dataTextField: UITextField!
+    @IBOutlet private var sizeSlider: UISlider!
+    @IBOutlet private var typeLabel: UILabel!
 
     @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 

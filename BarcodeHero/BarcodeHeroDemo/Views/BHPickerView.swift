@@ -15,20 +15,20 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     init(pickerData: [String], dropdownField: UITextField) {
         self.pickerData = pickerData
-        self.pickerTextField = dropdownField
+        pickerTextField = dropdownField
 
         if pickerData.isEmpty {
-            self.pickerTextField.text = nil
-            self.pickerTextField.isEnabled = false
+            pickerTextField.text = nil
+            pickerTextField.isEnabled = false
         } else {
-            self.pickerTextField.text = self.pickerData[0]
-            self.pickerTextField.isEnabled = true
+            pickerTextField.text = self.pickerData[0]
+            pickerTextField.isEnabled = true
         }
 
         super.init(frame: CGRect.zero)
-        
-        self.delegate = self
-        self.dataSource = self
+
+        delegate = self
+        dataSource = self
     }
 
     required init?(coder aDecoder: NSCoder) {
