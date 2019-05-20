@@ -84,7 +84,7 @@ class BHCode93Generator {
         // The first character
         var sum = 0
 
-        for index in 0..<rawData.count {
+        for index in 0 ..< rawData.count {
             let character = rawData[rawData.count - index - 1]
             let indexDistance = try BHCode93Generator.acceptedCharacters.indexDistance(of: character)
 
@@ -100,7 +100,7 @@ class BHCode93Generator {
 
         let newContents = rawData + checkDigits
 
-        for newContentsIndex in 0..<newContents.count {
+        for newContentsIndex in 0 ..< newContents.count {
             let character = newContents[newContents.count - newContentsIndex - 1]
 
             let index = try BHCode93Generator.acceptedCharacters.indexDistance(of: character)

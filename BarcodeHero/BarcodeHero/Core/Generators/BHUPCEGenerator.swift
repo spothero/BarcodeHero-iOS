@@ -70,16 +70,16 @@ class BHUPCEGenerator {
         var insertDigits = "0000"
 
         switch lastDigit {
-        case 0...2:
-            upca += code[0..<2] + String(lastDigit) + insertDigits + code[2..<5]
+        case 0 ... 2:
+            upca += code[0 ..< 2] + String(lastDigit) + insertDigits + code[2 ..< 5]
         case 3:
             insertDigits = "00000"
-            upca += code[0..<3] + String(lastDigit) + insertDigits + code[3..<5]
+            upca += code[0 ..< 3] + String(lastDigit) + insertDigits + code[3 ..< 5]
         case 4:
             insertDigits = "00000"
-            upca += code[0..<4] + String(lastDigit) + insertDigits + code[4..<5]
+            upca += code[0 ..< 4] + String(lastDigit) + insertDigits + code[4 ..< 5]
         default:
-            upca += code[0..<5] + String(lastDigit) + insertDigits + code[5]
+            upca += code[0 ..< 5] + String(lastDigit) + insertDigits + code[5]
         }
 
         return "00" + upca
@@ -101,7 +101,7 @@ class BHUPCEGenerator {
         var oddSum = 0
         var evenSum = 0
 
-        for index in 0..<upca.count {
+        for index in 0 ..< upca.count {
             guard let digit = Int(upca[index]) else {
                 continue
             }
@@ -135,7 +135,7 @@ extension BHUPCEGenerator: BHBarcodeGenerating {
 
         let sequence = BHUPCEGenerator.sequences[checkValue]
 
-        for index in 1..<rawData.count - 1 {
+        for index in 1 ..< rawData.count - 1 {
             guard let digit = Int(rawData[index]),
                 let sequenceBit = Int(sequence[index - 1]) else {
                 continue

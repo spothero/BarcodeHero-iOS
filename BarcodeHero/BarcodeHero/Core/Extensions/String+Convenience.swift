@@ -17,7 +17,7 @@ extension String {
     subscript(r: Range<Int>) -> String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(startIndex, offsetBy: r.upperBound)
-        return String(self[start..<end])
+        return String(self[start ..< end])
     }
 
     func indexDistance(of character: Character) throws -> Int {
@@ -37,6 +37,6 @@ extension String {
             throw BHError.indexOutOfBounds
         }
 
-        return self[i..<i + length]
+        return self[i ..< i + length]
     }
 }

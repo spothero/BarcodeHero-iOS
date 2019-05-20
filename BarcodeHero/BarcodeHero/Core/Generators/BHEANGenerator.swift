@@ -71,7 +71,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
 
         var encodedData: String = ""
 
-        for index in 0..<encodableData.count {
+        for index in 0 ..< encodableData.count {
             guard let digit = Int(encodableData[index]) else {
                 throw BHError.couldNotEncode(rawData, for: barcodeType, withResult: encodedData)
             }
@@ -119,7 +119,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
         var sumOdd = 0
         var sumEven = 0
 
-        for index in 0..<(rawData.count - 1) {
+        for index in 0 ..< (rawData.count - 1) {
             guard let digit = Int(rawData[index]) else {
                 continue
             }
