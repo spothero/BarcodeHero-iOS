@@ -4,9 +4,9 @@
 #--header 
 
 # Disabled Rules
-# self: just because it'll introduce a huge PR right now
-# specifiers: because it isn't configurable
---disable self,specifiers
+--disable self # just because it'll introduce a huge PR right now
+--disable specifiers # because it isn't configurable
 
 # File Exclusions
---exclude Pods,Package.swift
+--exclude Pods
+--exclude Package.swift
