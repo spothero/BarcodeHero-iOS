@@ -29,7 +29,7 @@ swiftlint_path = if should_use_pod_swiftlint
 scripts_directory = File.dirname(__FILE__)
 
 # The workspace directory should be one level up
-workspace_directory = "#{scripts_directory}/../sdsds"
+workspace_directory = "#{scripts_directory}/../"
 
 # If the workspace directory doesn't exist, exit
 unless Dir.exist?(workspace_directory.to_s)
