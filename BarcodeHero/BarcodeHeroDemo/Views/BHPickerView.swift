@@ -26,7 +26,7 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
 
         super.init(frame: CGRect.zero)
-        
+
         self.delegate = self
         self.dataSource = self
     }

@@ -46,7 +46,6 @@ open class BHCameraScanController: UIViewController {
 
         if let device = AVCaptureDevice.default(for: .video),
             let input = try? AVCaptureDeviceInput(device: device) {
-
             try? device.lockForConfiguration()
 
             if device.isFocusModeSupported(.continuousAutoFocus) {
@@ -134,7 +133,8 @@ open class BHCameraScanController: UIViewController {
                            y: crosshairImageView.frame.minY - 10,
                            width: crosshairImageView.frame.width + 20,
                            height: crosshairImageView.frame.height + 20),
-                    invert: true)
+                    invert: true
+                )
             }
 
             self.backgroundView?.alpha = 1
