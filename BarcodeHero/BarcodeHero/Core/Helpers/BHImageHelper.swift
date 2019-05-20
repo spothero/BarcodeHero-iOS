@@ -41,7 +41,7 @@ class BHImageHelper {
         context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
         context.setLineWidth(1)
 
-        for index in 0 ..< data.count {
+        for index in 0..<data.count {
             guard data[index] == "1" else {
                 continue
             }

@@ -41,7 +41,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
     func encode(_ rawData: String, for _: BHBarcodeType) throws -> String {
         var barcode = ""
 
-        for index in 0 ..< rawData.count / 2 {
+        for index in 0..<rawData.count / 2 {
             let pair = try rawData.substring(index * 2, length: 2)
 
             guard let firstCharacterInPair = Int(pair[0]),
@@ -52,7 +52,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
             let bars = BHITFGenerator.characterEncodings[firstCharacterInPair]
             let spaces = BHITFGenerator.characterEncodings[secondCharacterInPair]
 
-            for characterEncodingIndex in 0 ..< BHITFGenerator.characterEncodings.count {
+            for characterEncodingIndex in 0..<BHITFGenerator.characterEncodings.count {
                 if characterEncodingIndex % 2 == 0 {
                     let bar = Int(bars[characterEncodingIndex / 2])
                     barcode += (bar == 1) ? "11" : "1"
