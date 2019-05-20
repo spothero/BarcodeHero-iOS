@@ -29,7 +29,7 @@ extension String {
     }
 
     func indexDistance(of character: String) throws -> Int {
-        return try self.indexDistance(of: character[startIndex])
+        return try indexDistance(of: character[startIndex])
     }
 
     func substring(_ i: Int, length: Int) throws -> String {

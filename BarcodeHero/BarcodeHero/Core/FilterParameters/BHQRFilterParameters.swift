@@ -15,6 +15,6 @@ public struct BHQRFilterParameters: BHFilterParameterizable {
     public var inputCorrectionLevel: BHQRInputCorrectionLevel = .medium
 
     public func loadInto(_ filter: CIFilter) {
-        filter.setValue(self.inputCorrectionLevel, forKey: BHQRFilterParameterKey.inputCorrectionLevel.rawValue)
+        filter.setValue(inputCorrectionLevel, forKey: BHQRFilterParameterKey.inputCorrectionLevel.rawValue)
     }
 }

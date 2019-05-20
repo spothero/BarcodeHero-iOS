@@ -34,7 +34,7 @@ extension BHBarcodeGenerating {
 //    }
 
     func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions? = nil) throws -> UIImage {
-        try self.validate(rawData, for: barcodeType)
+        try validate(rawData, for: barcodeType)
 //        guard try isValid(barcodeType, withData: rawData) else {
 //            throw BHError.invalidData(rawData, for: barcodeType)
 //        }
@@ -75,6 +75,6 @@ extension BHBarcodeGenerating {
     }
 
     func validate(_ rawData: String, for barcodeType: BHBarcodeType) throws {
-        _ = try self.isValid(rawData, for: barcodeType)
+        _ = try isValid(rawData, for: barcodeType)
     }
 }

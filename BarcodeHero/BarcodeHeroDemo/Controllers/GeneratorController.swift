@@ -33,20 +33,20 @@ class GeneratorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.dataTextField?.returnKeyType = .done
-        self.dataTextField?.delegate = self
-        self.dataTextField?.text = self.data
+        dataTextField?.returnKeyType = .done
+        dataTextField?.delegate = self
+        dataTextField?.text = data
 
-        self.typeLabel?.text = self.type.rawValue
+        typeLabel?.text = type.rawValue
 
-        let generateBarButtonItem = UIBarButtonItem(title: "Generate", style: .plain, target: self, action: #selector(self.onGenerateButtonTapped))
+        let generateBarButtonItem = UIBarButtonItem(title: "Generate", style: .plain, target: self, action: #selector(onGenerateButtonTapped))
         navigationItem.rightBarButtonItem = generateBarButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.regenerateBarcode()
+        regenerateBarcode()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
@@ -55,15 +55,15 @@ class GeneratorController: UIViewController {
         }
 
         controller.delegate = self
-        controller.selectedType = self.type
+        controller.selectedType = type
     }
 
     // MARK: Actions
 
     @IBAction private func onDataTextFieldEditingChanged(textField: UITextField?) {
-        self.data = textField?.text ?? ""
+        data = textField?.text ?? ""
 
-        self.regenerateBarcode()
+        regenerateBarcode()
     }
 
     @IBAction private func onSliderValueChanged(slider: UISlider?) {
@@ -77,7 +77,7 @@ class GeneratorController: UIViewController {
             sliderValue = 1
         }
 
-        self.barcodeImageView?.transform = CGAffineTransform(scaleX: CGFloat(sliderValue), y: CGFloat(sliderValue))
+        barcodeImageView?.transform = CGAffineTransform(scaleX: CGFloat(sliderValue), y: CGFloat(sliderValue))
     }
 
     // MARK: Events
@@ -85,22 +85,22 @@ class GeneratorController: UIViewController {
     @objc
     func onGenerateButtonTapped() {
         view.endEditing(true)
-        self.regenerateBarcode()
+        regenerateBarcode()
     }
 
     // MARK: Utilities
 
     func regenerateBarcode() {
         do {
-            self.alertView?.isHidden = true
+            alertView?.isHidden = true
 
-            let image = try BHBarcodeGenerator.generate(self.type, withData: self.data).bh_resizedTo(self.barcodeImageView)
-            self.barcodeImageView?.image = image
+            let image = try BHBarcodeGenerator.generate(type, withData: data).bh_resizedTo(barcodeImageView)
+            barcodeImageView?.image = image
         } catch {
-            self.alertLabel?.text = error.localizedDescription
-            self.alertView?.isHidden = false
+            alertLabel?.text = error.localizedDescription
+            alertView?.isHidden = false
 
-            self.barcodeImageView?.image = nil
+            barcodeImageView?.image = nil
             print(error.localizedDescription)
         }
     }
@@ -120,7 +120,7 @@ extension GeneratorController: BarcodeTypesControllerDelegate {
     func didSelectType(type: BHBarcodeType) {
         self.type = type
 
-        self.typeLabel?.text = type.rawValue
+        typeLabel?.text = type.rawValue
 
         navigationController?.popToViewController(self, animated: true)
     }

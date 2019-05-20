@@ -15,14 +15,14 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     init(pickerData: [String], dropdownField: UITextField) {
         self.pickerData = pickerData
-        self.pickerTextField = dropdownField
+        pickerTextField = dropdownField
 
         if pickerData.isEmpty {
-            self.pickerTextField.text = nil
-            self.pickerTextField.isEnabled = false
+            pickerTextField.text = nil
+            pickerTextField.isEnabled = false
         } else {
-            self.pickerTextField.text = self.pickerData[0]
-            self.pickerTextField.isEnabled = true
+            pickerTextField.text = self.pickerData[0]
+            pickerTextField.isEnabled = true
         }
 
         super.init(frame: CGRect.zero)
@@ -42,17 +42,17 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // Sets the number of rows in the picker view
     func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return self.pickerData.count
+        return pickerData.count
     }
 
     // This function sets the text of the picker view to the content of the "salutations" array
     func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-        return self.pickerData[row]
+        return pickerData[row]
     }
 
     // When user selects an option, this function will set the text of the text field to reflect
     // the selected option.
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        self.pickerTextField.text = self.pickerData[row]
+        pickerTextField.text = pickerData[row]
     }
 }

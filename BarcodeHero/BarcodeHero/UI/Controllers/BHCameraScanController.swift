@@ -58,24 +58,24 @@ open class BHCameraScanController: UIViewController {
 
             device.unlockForConfiguration()
 
-            self.session.addInput(input)
+            session.addInput(input)
         }
 
         let output = AVCaptureMetadataOutput()
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        self.session.addOutput(output)
+        session.addOutput(output)
         output.metadataObjectTypes = output.availableMetadataObjectTypes
 
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
 
         if let previewLayer = previewLayer {
             view.layer.addSublayer(previewLayer)
         }
 
-        self.barcodeDataLabel?.text = nil
-        self.barcodeTypeLabel?.text = nil
+        barcodeDataLabel?.text = nil
+        barcodeTypeLabel?.text = nil
 
-        self.session.startRunning()
+        session.startRunning()
     }
 
     open override func viewWillAppear(_ animated: Bool) {
@@ -92,21 +92,21 @@ open class BHCameraScanController: UIViewController {
 
         edgesForExtendedLayout = UIRectEdge.all
 
-        self.session.startRunning()
+        session.startRunning()
 
-        self.barcodeDataLabel?.text = nil
-        self.barcodeTypeLabel?.text = nil
+        barcodeDataLabel?.text = nil
+        barcodeTypeLabel?.text = nil
     }
 
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        guard !self.hasLoaded else {
+        guard !hasLoaded else {
             return
         }
 
-        self.previewLayer?.frame = view.bounds
-        self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        previewLayer?.frame = view.bounds
+        previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
 
         if let backgroundView = backgroundView {
             view.bringSubviewToFront(backgroundView)
@@ -122,7 +122,7 @@ open class BHCameraScanController: UIViewController {
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        guard !self.hasLoaded else {
+        guard !hasLoaded else {
             return
         }
 
@@ -141,13 +141,13 @@ open class BHCameraScanController: UIViewController {
             self.overlayView?.alpha = 1
         }
 
-        self.hasLoaded = true
+        hasLoaded = true
     }
 
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        self.session.stopRunning()
+        session.stopRunning()
 
         // navigationController?.navigationBar.barTintColor = startingBarTintColor
         // navigationController?.navigationBar.tintColor = startingTintColor
@@ -157,11 +157,11 @@ open class BHCameraScanController: UIViewController {
     // MARK: - Utilities
 
     public func stopCapturing() {
-        self.session.stopRunning()
+        session.stopRunning()
     }
 
     public func startCapturing() {
-        self.session.startRunning()
+        session.startRunning()
     }
 }
 
@@ -177,15 +177,15 @@ extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
     public func metadataOutput(_: AVCaptureMetadataOutput,
                                didOutput metadataObjects: [AVMetadataObject],
                                from _: AVCaptureConnection) {
-        guard self.session.isRunning else {
+        guard session.isRunning else {
             return
         }
 
         if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-            self.barcodeDataLabel?.text = metadataObject.stringValue
-            self.barcodeTypeLabel?.text = String(describing: metadataObject.type.rawValue)
+            barcodeDataLabel?.text = metadataObject.stringValue
+            barcodeTypeLabel?.text = String(describing: metadataObject.type.rawValue)
         }
 
-        self.delegate?.didCapture(metadataObjects: metadataObjects, from: self)
+        delegate?.didCapture(metadataObjects: metadataObjects, from: self)
     }
 }
