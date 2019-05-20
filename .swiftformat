@@ -1,2 +1,6 @@
+# Rules
 #--self insert
 --stripunusedargs closure-only
+
+# File Exclusions
+--exclude Pods,Package.swift
