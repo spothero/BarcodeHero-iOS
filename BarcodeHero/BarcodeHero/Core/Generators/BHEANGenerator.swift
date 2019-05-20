@@ -9,8 +9,8 @@
 //  http://www.appsbarcode.com/ISBN.php
 //  http://www.appsbarcode.com/ISSN.php
 
-//public let RSBarcodesTypeISBN13Code = "com.pdq.rsbarcodes.isbn13"
-//public let RSBarcodesTypeISSN13Code = "com.pdq.rsbarcodes.issn13"
+// public let RSBarcodesTypeISBN13Code = "com.pdq.rsbarcodes.isbn13"
+// public let RSBarcodesTypeISSN13Code = "com.pdq.rsbarcodes.issn13"
 
 import Foundation
 import UIKit
@@ -109,7 +109,7 @@ extension BHEANGenerator: BHBarcodeGenerating {
             || barcodeType == .ean13
             || (barcodeType == .isbn13 && rawData.starts(with: "978"))
             || (barcodeType == .issn13 && rawData.starts(with: "977")) else {
-                throw BHError.invalidData(rawData, for: barcodeType)
+            throw BHError.invalidData(rawData, for: barcodeType)
         }
 
         guard (barcodeType == .ean8 && rawData.count == 8) || rawData.count == 13 else {

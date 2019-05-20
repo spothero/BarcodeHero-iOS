@@ -12,7 +12,7 @@ import UIKit
 class MainViewController: UITableViewController {
     // MARK: - Methods
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
             break

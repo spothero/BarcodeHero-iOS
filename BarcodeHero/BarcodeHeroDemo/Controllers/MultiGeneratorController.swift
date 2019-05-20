@@ -14,7 +14,7 @@ import UIKit
 class MultiGeneratorController: UITableViewController {
     // MARK: - Properties
 
-    @IBOutlet private weak var dataTextField: UITextField!
+    @IBOutlet private var dataTextField: UITextField!
 
     @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 
@@ -47,11 +47,11 @@ class MultiGeneratorController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
 //        let type = types[indexPath.row]
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return types.count
     }
 }
@@ -59,7 +59,7 @@ class MultiGeneratorController: UITableViewController {
 // MARK: - Extensions
 
 extension MultiGeneratorController: UITextFieldDelegate {
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_: UITextField) -> Bool {
         view.endEditing(true)
 
         return true

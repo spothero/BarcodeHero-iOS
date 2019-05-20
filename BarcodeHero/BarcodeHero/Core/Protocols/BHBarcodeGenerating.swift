@@ -17,7 +17,7 @@ protocol BHBarcodeGenerating {
 }
 
 extension BHBarcodeGenerating {
-    func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
+    func encode(_ rawData: String, for _: BHBarcodeType) throws -> String {
         return rawData
     }
 

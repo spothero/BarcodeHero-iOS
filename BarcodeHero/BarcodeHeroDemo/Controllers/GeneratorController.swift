@@ -14,12 +14,12 @@ import UIKit
 class GeneratorController: UIViewController {
     // MARK: - Properties
 
-    @IBOutlet private weak var alertLabel: UILabel!
-    @IBOutlet private weak var alertView: UIView!
-    @IBOutlet private weak var barcodeImageView: UIImageView!
-    @IBOutlet private weak var dataTextField: UITextField!
-    @IBOutlet private weak var sizeSlider: UISlider!
-    @IBOutlet private weak var typeLabel: UILabel!
+    @IBOutlet private var alertLabel: UILabel!
+    @IBOutlet private var alertView: UIView!
+    @IBOutlet private var barcodeImageView: UIImageView!
+    @IBOutlet private var dataTextField: UITextField!
+    @IBOutlet private var sizeSlider: UISlider!
+    @IBOutlet private var typeLabel: UILabel!
 
     @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 
@@ -49,7 +49,7 @@ class GeneratorController: UIViewController {
         regenerateBarcode()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         guard let controller = segue.destination as? BarcodeTypesController else {
             return
         }
@@ -109,7 +109,7 @@ class GeneratorController: UIViewController {
 // MARK: - Extensions
 
 extension GeneratorController: UITextFieldDelegate {
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_: UITextField) -> Bool {
         view.endEditing(true)
 
         return true
