@@ -1,9 +1,8 @@
 # Rules
-#--self insert
+--self insert
 --stripunusedargs closure-only
 
 # Disabled Rules
---disable redundantSelf # just because it'll introduce a huge PR right now
 --disable specifiers # because it isn't configurable
 
 # File Exclusions
