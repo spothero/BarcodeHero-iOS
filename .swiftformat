@@ -1,7 +1,6 @@
 # Rules
 #--self insert
 --stripunusedargs closure-only
-#--header 
 
 # Disabled Rules
 --disable redundantSelf # just because it'll introduce a huge PR right now
