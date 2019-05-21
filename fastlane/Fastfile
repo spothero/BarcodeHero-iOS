@@ -12,6 +12,6 @@ platform :ios do
   # your app-specific lanes go here!
 
   lane :format do
-    sh 'cd .. && swift run swiftformat . --config .swiftformat'
+    sh 'cd .. && swift run swiftformat .'
   end
 end
