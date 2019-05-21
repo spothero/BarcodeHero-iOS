@@ -20,6 +20,20 @@
                ReferencedContainer = "container:BarcodeHero.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D35826AF1FB02916002A9858"
+               BuildableName = "BarcodeHeroTests.xctest"
+               BlueprintName = "BarcodeHeroTests"
+               ReferencedContainer = "container:BarcodeHero.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

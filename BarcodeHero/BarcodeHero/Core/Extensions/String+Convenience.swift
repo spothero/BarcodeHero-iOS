@@ -21,7 +21,7 @@ extension String {
     }
 
     func indexDistance(of character: Character) throws -> Int {
-        guard let index = index(of: character) else {
+        guard let index = firstIndex(of: character) else {
             throw BHError.indexOutOfBounds
         }
 
