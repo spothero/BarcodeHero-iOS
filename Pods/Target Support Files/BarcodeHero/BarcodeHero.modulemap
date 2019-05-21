@@ -1,6 +1,0 @@
-framework module BarcodeHero {
-  umbrella header "BarcodeHero-umbrella.h"
-
-  export *
-  module * { export * }
-}
