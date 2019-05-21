@@ -126,19 +126,19 @@ enum BHNativeCodeGeneratorType: String {
 }
 
 public enum BHQRInputCorrectionLevel: String {
-    case low = "L" // 7%
-    case medium = "M" // 15% (default)
+    case low     = "L" // 7%
+    case medium  = "M" // 15% (default)
     case quarter = "Q" // 25%
-    case high = "H" // 30%
+    case high    = "H" // 30%
 }
 
-// public enum BHFilterParameter: String {
+//public enum BHFilterParameter: String {
 //    case inputCompactStyle // aztec
 //    case inputCorrectionLevel // aztec
 //    case inputLayers // aztec
 //    case inputMessage // aztec, code128
 //    case inputQuietSpace // code128
-// }
+//}
 
 enum BHFilterParameterKey: String {
     case inputMessage

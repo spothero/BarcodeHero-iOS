@@ -14,7 +14,7 @@ import UIKit
 class MultiGeneratorController: UITableViewController {
     // MARK: - Properties
 
-    @IBOutlet private var dataTextField: UITextField!
+    @IBOutlet private weak var dataTextField: UITextField!
 
     @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 
