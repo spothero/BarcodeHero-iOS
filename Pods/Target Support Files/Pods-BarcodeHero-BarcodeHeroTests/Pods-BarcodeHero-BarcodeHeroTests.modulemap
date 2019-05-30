@@ -1,0 +1,6 @@
+framework module Pods_BarcodeHero_BarcodeHeroTests {
+  umbrella header "Pods-BarcodeHero-BarcodeHeroTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
