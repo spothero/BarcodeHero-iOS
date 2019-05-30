@@ -1,0 +1,10 @@
+# Rules
+--self insert
+--stripunusedargs closure-only
+
+# Disabled Rules
+--disable specifiers # because it isn't configurable
+
+# File Exclusions
+--exclude Pods
+--exclude Package.swift
