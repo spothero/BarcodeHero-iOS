@@ -6,8 +6,7 @@ files:
   - source_path: .github/pull_request_template.md
     destination_path: .github
   - source_path: Danger/Dangerfile
-  # - source_path: Fastlane/fastlane/MasterFastfile
-    # destination_path: fastlane
-    # name: Fastfile
+  - source_path: Fastlane/fastlane/MasterFastfile
+    destination_path: fastlane
   - source_path: SwiftLint/.swiftlint.yml
   - source_path: SwiftFormat/.swiftformat
