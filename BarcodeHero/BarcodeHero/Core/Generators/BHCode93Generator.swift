@@ -122,7 +122,7 @@ extension BHCode93Generator: BHBarcodeGenerating {
     }
 
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
-        var rawData = try rawData + generateCheckDigits(for: rawData)
+        var rawData = try rawData + self.generateCheckDigits(for: rawData)
 
         rawData = BHCode93Generator.startMarker + rawData + BHCode93Generator.endMarker
 
@@ -130,7 +130,7 @@ extension BHCode93Generator: BHBarcodeGenerating {
     }
 
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
-        guard acceptedTypes.contains(barcodeType) else {
+        guard self.acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
 

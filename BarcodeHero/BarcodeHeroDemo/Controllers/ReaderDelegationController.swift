@@ -18,8 +18,8 @@ class ReaderDelegationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataLabel?.text = ""
-        typeLabel?.text = ""
+        self.dataLabel?.text = ""
+        self.typeLabel?.text = ""
     }
 
     @IBAction private func onScanButtonTapped() {
@@ -34,8 +34,8 @@ extension ReaderDelegationController: BHCameraScanControllerDelegate {
     func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController) {
         let firstObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
 
-        dataLabel?.text = firstObject?.stringValue
-        typeLabel?.text = firstObject?.type.rawValue
+        self.dataLabel?.text = firstObject?.stringValue
+        self.typeLabel?.text = firstObject?.type.rawValue
 
         navigationController?.popToViewController(self, animated: true)
 

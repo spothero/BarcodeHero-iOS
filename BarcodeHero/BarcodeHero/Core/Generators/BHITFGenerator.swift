@@ -46,7 +46,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
 
             guard let firstCharacterInPair = Int(pair[0]),
                 let secondCharacterInPair = Int(pair[1]) else {
-                    continue
+                continue
             }
 
             let bars = BHITFGenerator.characterEncodings[firstCharacterInPair]
@@ -67,7 +67,7 @@ extension BHITFGenerator: BHBarcodeGenerating {
     }
 
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
-        guard acceptedTypes.contains(barcodeType) else {
+        guard self.acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
 

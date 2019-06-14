@@ -26,7 +26,7 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
 
         super.init(frame: CGRect.zero)
-        
+
         self.delegate = self
         self.dataSource = self
     }
@@ -42,17 +42,17 @@ class BHPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // Sets the number of rows in the picker view
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return self.pickerData.count
     }
 
     // This function sets the text of the picker view to the content of the "salutations" array
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        return self.pickerData[row]
     }
 
     // When user selects an option, this function will set the text of the text field to reflect
     // the selected option.
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = pickerData[row]
+        self.pickerTextField.text = self.pickerData[row]
     }
 }

@@ -114,7 +114,7 @@ extension BHCode39Generator: BHBarcodeGenerating {
         var rawData = rawData
 
         if barcodeType == .code39Mod43 {
-            rawData += try generateCheckDigit(for: rawData)
+            rawData += try self.generateCheckDigit(for: rawData)
         }
 
         rawData = BHCode39Generator.startMarker + rawData + BHCode39Generator.endMarker
@@ -123,7 +123,7 @@ extension BHCode39Generator: BHBarcodeGenerating {
     }
 
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
-        guard acceptedTypes.contains(barcodeType) else {
+        guard self.acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
 

@@ -27,7 +27,7 @@ class BarcodeTypesController: UITableViewController {
             return UITableViewCell()
         }
 
-        let type = types[indexPath.row]
+        let type = self.types[indexPath.row]
 
         if let selectedType = selectedType, selectedType == type {
             cell.accessoryType = .checkmark
@@ -39,13 +39,13 @@ class BarcodeTypesController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = types[indexPath.row]
+        let type = self.types[indexPath.row]
 
-        delegate?.didSelectType(type: type)
+        self.delegate?.didSelectType(type: type)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return types.count
+        return self.types.count
     }
 }
 
