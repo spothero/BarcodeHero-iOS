@@ -15,7 +15,7 @@ class BarcodeTypeCell: UITableViewCell {
 
     var type: BHBarcodeType? {
         didSet {
-            typeLabel?.text = type?.rawValue
+            self.typeLabel?.text = self.type?.rawValue
         }
     }
 }

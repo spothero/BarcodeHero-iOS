@@ -41,6 +41,11 @@ Syncs certificates for Apple Push Services. (App only)
 fastlane ios build
 ```
 Builds the project.
+### ios update_build_number
+```
+fastlane ios update_build_number
+```
+
 ### ios test
 ```
 fastlane ios test
@@ -56,16 +61,16 @@ fastlane ios run_danger
 fastlane ios app_deploy
 ```
 Deploys the app. (App only)
-### ios app_deploy_to_aws
-```
-fastlane ios app_deploy_to_aws
-```
-Deploys the app to AWS. (App only)
 ### ios app_deploy_to_hockeyapp
 ```
 fastlane ios app_deploy_to_hockeyapp
 ```
 Deploys the app to HockeyApp. (App only)
+### ios app_deploy_to_testflight
+```
+fastlane ios app_deploy_to_testflight
+```
+Deploys the app to TestFlight. (App only)
 ### ios app_upload_symbols
 ```
 fastlane ios app_upload_symbols

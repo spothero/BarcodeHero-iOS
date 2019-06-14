@@ -37,7 +37,7 @@ public class BHBarcodeGenerator {
             throw BHError.invalidMetadataObjectType(metadataObjectType)
         }
 
-        return try generate(barcodeType, withData: data, options: options)
+        return try self.generate(barcodeType, withData: data, options: options)
     }
 
     private static func getGenerator(for barcodeType: BHBarcodeType?) throws -> BHBarcodeGenerating? {

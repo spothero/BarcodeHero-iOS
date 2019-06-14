@@ -1,0 +1,18 @@
+---
+source: https://github.com/spothero/Shared-iOS.git
+files:
+  # GitHub
+  - source_path: .github/CODEOWNERS
+    destination_path: .github
+  - source_path: .github/pull_request_template.md
+    destination_path: .github
+  # Danger
+  - source_path: Danger/Dangerfile
+    destination_path: danger
+  # Fastlane
+  - source_path: Fastlane/fastlane/MasterFastfile
+    destination_path: fastlane
+  # SwiftLint
+  - source_path: SwiftLint/.swiftlint.yml
+  # SwiftFormat
+  - source_path: SwiftFormat/.swiftformat

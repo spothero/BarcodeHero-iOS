@@ -70,7 +70,7 @@ class BHUPCEGenerator {
         var insertDigits = "0000"
 
         switch lastDigit {
-        case 0...2:
+        case 0 ... 2:
             upca += code[0 ..< 2] + String(lastDigit) + insertDigits + code[2 ..< 5]
         case 3:
             insertDigits = "00000"
@@ -152,7 +152,7 @@ extension BHUPCEGenerator: BHBarcodeGenerating {
     }
 
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
-        guard acceptedTypes.contains(barcodeType) else {
+        guard self.acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
 
@@ -164,7 +164,7 @@ extension BHUPCEGenerator: BHBarcodeGenerating {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
 
-        guard rawData.count == 8 && Int(rawData[0]) == 0 else {
+        guard rawData.count == 8, Int(rawData[0]) == 0 else {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
 

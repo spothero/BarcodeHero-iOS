@@ -20,7 +20,6 @@ opt_in_rules:
   - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
   - empty_xctest_method # Empty XCTest method should be avoided.
   - fatal_error_message # A fatalError call should have a message.
-  #### - file_header # Header comments should be consistent with project patterns. The SWIFTLINT_CURRENT_FILENAME placeholder can optionally be used in the required and forbidden patterns. It will be replaced by the real file name.
   - file_name # File name should match a type or extension declared in the file (if any).
   - first_where # "Prefer using `.first(where:)` over `.filter { }.first` in collections.
   - force_unwrapping # Force unwrapping should be avoided.
@@ -37,7 +36,6 @@ opt_in_rules:
   - multiline_arguments # Arguments should be either on the same line, or one per line.
   - multiline_function_chains # Chained function calls should be either on the same line, or one per line.
   - multiline_parameters # Functions and methods parameters should be either on the same line, or one per line.
-  - number_separator # Underscores should be used as thousand separator in large decimal numbers.
   - operator_usage_whitespace # Operators should be surrounded by a single whitespace
   - overridden_super_call # Some overridden methods should always call super" eg: viewDidLoad
   - private_action # IBActions should be private.

@@ -14,12 +14,12 @@ import UIKit
 class GeneratorController: UIViewController {
     // MARK: - Properties
 
-    @IBOutlet private weak var alertLabel: UILabel!
-    @IBOutlet private weak var alertView: UIView!
-    @IBOutlet private weak var barcodeImageView: UIImageView!
-    @IBOutlet private weak var dataTextField: UITextField!
-    @IBOutlet private weak var sizeSlider: UISlider!
-    @IBOutlet private weak var typeLabel: UILabel!
+    @IBOutlet private var alertLabel: UILabel!
+    @IBOutlet private var alertView: UIView!
+    @IBOutlet private var barcodeImageView: UIImageView!
+    @IBOutlet private var dataTextField: UITextField!
+    @IBOutlet private var sizeSlider: UISlider!
+    @IBOutlet private var typeLabel: UILabel!
 
     @IBOutlet private var barcodeImageViewWidthConstraint: NSLayoutConstraint!
 
@@ -33,20 +33,20 @@ class GeneratorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataTextField?.returnKeyType = .done
-        dataTextField?.delegate = self
-        dataTextField?.text = data
+        self.dataTextField?.returnKeyType = .done
+        self.dataTextField?.delegate = self
+        self.dataTextField?.text = self.data
 
-        typeLabel?.text = type.rawValue
+        self.typeLabel?.text = self.type.rawValue
 
-        let generateBarButtonItem = UIBarButtonItem(title: "Generate", style: .plain, target: self, action: #selector(onGenerateButtonTapped))
+        let generateBarButtonItem = UIBarButtonItem(title: "Generate", style: .plain, target: self, action: #selector(self.onGenerateButtonTapped))
         navigationItem.rightBarButtonItem = generateBarButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        regenerateBarcode()
+        self.regenerateBarcode()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,15 +55,15 @@ class GeneratorController: UIViewController {
         }
 
         controller.delegate = self
-        controller.selectedType = type
+        controller.selectedType = self.type
     }
 
     // MARK: Actions
 
     @IBAction private func onDataTextFieldEditingChanged(textField: UITextField?) {
-        data = textField?.text ?? ""
+        self.data = textField?.text ?? ""
 
-        regenerateBarcode()
+        self.regenerateBarcode()
     }
 
     @IBAction private func onSliderValueChanged(slider: UISlider?) {
@@ -77,7 +77,7 @@ class GeneratorController: UIViewController {
             sliderValue = 1
         }
 
-        barcodeImageView?.transform = CGAffineTransform(scaleX: CGFloat(sliderValue), y: CGFloat(sliderValue))
+        self.barcodeImageView?.transform = CGAffineTransform(scaleX: CGFloat(sliderValue), y: CGFloat(sliderValue))
     }
 
     // MARK: Events
@@ -85,22 +85,22 @@ class GeneratorController: UIViewController {
     @objc
     func onGenerateButtonTapped() {
         view.endEditing(true)
-        regenerateBarcode()
+        self.regenerateBarcode()
     }
 
     // MARK: Utilities
 
     func regenerateBarcode() {
         do {
-            alertView?.isHidden = true
+            self.alertView?.isHidden = true
 
-            let image = try BHBarcodeGenerator.generate(type, withData: data).bh_resizedTo(barcodeImageView)
-            barcodeImageView?.image = image
+            let image = try BHBarcodeGenerator.generate(self.type, withData: self.data).bh_resizedTo(self.barcodeImageView)
+            self.barcodeImageView?.image = image
         } catch {
-            alertLabel?.text = error.localizedDescription
-            alertView?.isHidden = false
+            self.alertLabel?.text = error.localizedDescription
+            self.alertView?.isHidden = false
 
-            barcodeImageView?.image = nil
+            self.barcodeImageView?.image = nil
             print(error.localizedDescription)
         }
     }
@@ -120,7 +120,7 @@ extension GeneratorController: BarcodeTypesControllerDelegate {
     func didSelectType(type: BHBarcodeType) {
         self.type = type
 
-        typeLabel?.text = type.rawValue
+        self.typeLabel?.text = type.rawValue
 
         navigationController?.popToViewController(self, animated: true)
     }
