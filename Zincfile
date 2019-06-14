@@ -11,7 +11,7 @@ files:
     destination_path: .github
   - source_path: GitHub/.gitignore
   # Rubocop
-  - source_path: Rubocop/.rubocop.yml
+  - source_path: Rubocop/rubocop.yml
     destination_path: .zinc
   # SwiftLint
   - source_path: SwiftLint/.swiftlint.yml

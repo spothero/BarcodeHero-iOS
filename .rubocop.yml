@@ -1,1 +1,1 @@
-inherit_from: '.zinc/.rubocop.yml'
+inherit_from: '.zinc/rubocop.yml'
