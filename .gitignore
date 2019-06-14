@@ -2,6 +2,9 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## Exclude OS X folder attributes
+.DS_Store
+
 ## Build generated
 build/
 DerivedData/
@@ -54,9 +57,9 @@ playground.xcworkspace
 
 Carthage/Build
 
-# macOS
-
-.DS_Store
+# jazzy
+undocumented.json
+*.tgz
 
 # fastlane
 #
@@ -65,8 +68,13 @@ Carthage/Build
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
 fastlane/test_output
+fastlane/[Pp]rovisioning
+fastlane/report.xml
+fastlane/[Bb]uild
+fastlane/DerivedData
+fastlane/screenshots
+fastlane/[Pp]review.html
+
+# SpotHero
 fastlane/.env.local

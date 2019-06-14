@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-import 'MasterFastfile'
+import_from_git(
+  url: 'https://github.com/spothero/Shared-iOS',
+  branch: 'fastlane/0.3.24',
+  path: 'Fastlane/fastlane/MasterFastfile',
+)
 
 default_platform :ios
 
 platform :ios do
   # your app-specific lanes go here!
-
-  lane :format do
-    sh 'cd .. && swift run swiftformat .'
-  end
 end

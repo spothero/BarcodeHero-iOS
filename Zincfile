@@ -2,16 +2,13 @@
 source: https://github.com/spothero/Shared-iOS.git
 files:
   # GitHub
-  - source_path: .github/CODEOWNERS
+  - source_path: GitHub/CODEOWNERS
     destination_path: .github
-  - source_path: .github/pull_request_template.md
+  - source_path: GitHub/pull_request_template.md
     destination_path: .github
-  # Danger
-  - source_path: Danger/Dangerfile
-    destination_path: danger
-  # Fastlane
-  - source_path: Fastlane/fastlane/MasterFastfile
-    destination_path: fastlane
+  - source_path: GitHub/.gitignore
+  # Rubocop
+  - source_path: Rubocop/.rubocop.yml
   # SwiftLint
   - source_path: SwiftLint/.swiftlint.yml
   # SwiftFormat
