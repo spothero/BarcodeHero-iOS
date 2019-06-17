@@ -3,7 +3,7 @@
 //  BarcodeHero
 //
 //  Created by Brian Drelling on 11/5/17.
-//  Copyright © 2017 SpotHero. All rights reserved.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 //  http://www.barcodeisland.com/int2of5.phtml
 //  http://www.gs1au.org/assets/documents/info/user_manuals/barcode_technical_details/ITF_14_Barcode_Structure.pdf

@@ -3,7 +3,7 @@
 //  BarcodeHero
 //
 //  Created by Brian Drelling on 11/5/17.
-//  Copyright © 2017 SpotHero. All rights reserved.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 //  http://blog.sina.com.cn/s/blog_4015406e0100bsqk.html
 //  http://www.appsbarcode.com/ISBN.php
