@@ -3,7 +3,7 @@
 //  BarcodeHero
 //
 //  Created by Brian Drelling on 6/8/16.
-//  Copyright © 2016 SpotHero. All rights reserved.
+//  Copyright © 2016 SpotHero, Inc. All rights reserved.
 //
 
 import AVFoundation

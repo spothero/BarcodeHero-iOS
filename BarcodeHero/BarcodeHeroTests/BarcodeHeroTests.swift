@@ -3,7 +3,7 @@
 //  BarcodeHeroTests
 //
 //  Created by Brian Drelling on 11/6/17.
-//  Copyright © 2017 SpotHero. All rights reserved.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 
 @testable import BarcodeHero
