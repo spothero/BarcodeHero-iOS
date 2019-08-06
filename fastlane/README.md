@@ -118,11 +118,6 @@ Builds then deploys. (App only)
 fastlane ios pod_lint
 ```
 Lints the pod library. (Pod only)
-### ios format
-```
-fastlane ios format
-```
-
 
 ----
 
