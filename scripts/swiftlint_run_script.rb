@@ -41,7 +41,7 @@ end
 swiftlint_yml_path = ARGV[0] || "#{workspace_directory}/.swiftlint.yml"
 
 # Set the command
-command = "#{swiftlint_path} lint --no-cache --config #{swiftlint_yml_path}"
+command = "#{swiftlint_path} lint --config #{swiftlint_yml_path}"
 
 # Call the command!
 system(command)
