@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 
     spec.author   = { 'SpotHero' => 'dev@spothero.com' }
     spec.homepage = 'https://github.com/SpotHero/BarcodeHero-iOS'
-    spec.license  = { type: 'Commercial', text: 'Copyright 2017 SpotHero Inc.' }
+    spec.license  = { type: 'Commercial', text: 'Copyright 2019 SpotHero Inc.' }
     spec.source   = { :git => 'https://github.com/SpotHero/BarcodeHero-iOS.git',
                       :tag => 'v' + spec.version.to_s }
     spec.summary  = 'Allows easy generation of barcodes.'
