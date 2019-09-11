@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Pod::Spec.new do |spec|
   # Root Specification
   spec.name     = 'BarcodeHero'
