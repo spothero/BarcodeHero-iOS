@@ -14,7 +14,8 @@ Pod::Spec.new do |spec|
 
   # Platform
   spec.platform = :ios, '10.0'
-
+  spec.swift_version = '5.0'
+  
   # Build Settings
   # spec.frameworks = 'AVFoundation', 'CoreImage', 'UIKit'
   spec.module_name = 'BarcodeHero'
