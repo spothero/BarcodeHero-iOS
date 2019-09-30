@@ -9,27 +9,11 @@ if ENV.key?('CI')
   return
 end
 
-pods_path = ENV['PODS_ROOT'] || 'Pods'
-
-# These are our default swiftlint run paths
-pod_swiftlint_path = "#{pods_path}/SwiftLint/swiftlint"
-spm_swiftlint_path = 'swift run swiftlint'
-
-# Check if we installed swiftlint with Cocoapods
-should_use_pod_swiftlint = File.file?(pod_swiftlint_path)
-
-# Set the path based on whether or not we are using Cocoapods or SPM
-swiftlint_path = if should_use_pod_swiftlint
-                   pod_swiftlint_path
-                 else
-                   spm_swiftlint_path
-                 end
-
 # Get the directory for this script
 scripts_directory = File.dirname(__FILE__)
 
 # The workspace directory should be one level up
-workspace_directory = "#{scripts_directory}/../"
+workspace_directory = "#{scripts_directory}/.."
 
 # If the workspace directory doesn't exist, exit
 unless Dir.exist?(workspace_directory.to_s)
@@ -41,7 +25,7 @@ end
 swiftlint_yml_path = ARGV[0] || "#{workspace_directory}/.swiftlint.yml"
 
 # Set the command
-command = "#{swiftlint_path} lint --config #{swiftlint_yml_path}"
+command = "mint run swiftlint swiftlint --config #{swiftlint_yml_path}"
 
 # Call the command!
 system(command)
