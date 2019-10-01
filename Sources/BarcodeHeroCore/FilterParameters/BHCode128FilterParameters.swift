@@ -9,7 +9,6 @@
 import CoreImage
 import Foundation
 
-// swiftlint:disable:next line_length
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator
 public struct BHCode128FilterParameters: BHFilterParameterizable {
     public var inputQuietSpace: NSNumber = 7

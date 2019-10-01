@@ -9,7 +9,6 @@
 import CoreImage
 import Foundation
 
-// swiftlint:disable:next line_length
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
 public struct BHQRFilterParameters: BHFilterParameterizable {
     public var inputCorrectionLevel: BHQRInputCorrectionLevel = .medium

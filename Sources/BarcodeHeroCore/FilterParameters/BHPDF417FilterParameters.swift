@@ -9,7 +9,6 @@
 import CoreImage
 import Foundation
 
-// swiftlint:disable:next line_length
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
 public struct BHPDF417FilterParameters: BHFilterParameterizable {
     public var inputAlwaysSpecifyCompaction: NSNumber
