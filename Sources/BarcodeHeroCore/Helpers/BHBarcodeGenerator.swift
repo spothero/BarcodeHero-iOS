@@ -7,13 +7,11 @@
 //
 
 import AVFoundation
+import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-import UIKit
-
 public class BHBarcodeGenerator {
-    public class func generate(_ barcodeType: BHBarcodeType?, withData data: String?, options: BHBarcodeOptions? = nil) throws -> UIImage {
+    public class func generate(_ barcodeType: BHBarcodeType?, withData data: String?, options: BHBarcodeOptions? = nil) throws -> CGImage {
         guard let barcodeType = barcodeType else {
             throw BHError.typeRequired
         }
@@ -31,7 +29,7 @@ public class BHBarcodeGenerator {
 
     public class func generate(_ metadataObjectType: AVMetadataObject.ObjectType?,
                                withData data: String?,
-                               options: BHBarcodeOptions? = nil) throws -> UIImage {
+                               options: BHBarcodeOptions? = nil) throws -> CGImage {
         guard let metadataObjectType = metadataObjectType else {
             throw BHError.metadataObjectTypeRequired
         }
@@ -64,5 +62,3 @@ public class BHBarcodeGenerator {
         }
     }
 }
-
-#endif

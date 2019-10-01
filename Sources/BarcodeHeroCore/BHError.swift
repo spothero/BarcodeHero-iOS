@@ -14,6 +14,7 @@ public enum BHError: Error {
     case characterEncodingNotFound(String)
     case couldNotCreateFilter(BHBarcodeType)
     case couldNotCreateImage(BHBarcodeType)
+    case couldNotCreateImageFromContext
     case couldNotEncode(String, for: BHBarcodeType, withResult: String)
     case couldNotGetGenerator(BHBarcodeType)
     case couldNotGetGraphicsContext
@@ -39,6 +40,8 @@ extension BHError: LocalizedError {
             return "Could not create filter for barcode type '\(barcodeType)'."
         case let .couldNotCreateImage(barcodeType):
             return "Could not create image for barcode type '\(barcodeType)'."
+        case .couldNotCreateImageFromContext:
+            return "Could not create image from graphics context."
         case let .couldNotEncode(rawData, barcodeType, encodedData):
             return "Could not encode '\(rawData)' for barcode type '\(barcodeType)'. Result: '\(encodedData)'."
         case let .couldNotGetGenerator(barcodeType):

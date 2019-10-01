@@ -1,8 +1,8 @@
 import XCTest
 
-import BarcodeHeroTests
+import BarcodeHeroCoreTests
 
 var tests = [XCTestCaseEntry]()
-tests += BarcodeHeroTests.__allTests()
+tests += BarcodeHeroCoreTests.__allTests()
 
 XCTMain(tests)

@@ -25,11 +25,14 @@ extension UIImage {
             throw BHError.sizeRequired
         }
 
-        if let ciImage = ciImage {
+        if let ciImage = self.ciImage {
             return ciImage.transformedToFit(size)?.uiImage
-        } else {
+        } else if let cgImage = self.cgImage {
             let contentMode = contentMode ?? .scaleAspectFit
-            return try BHImageHelper.resize(self, toSize: size, forContentMode: contentMode)
+            return try BHImageHelper.resize(cgImage, toSize: size, forContentMode: contentMode).uiImage
+        } else {
+            // TODO: Throw error
+            return nil
         }
     }
 }

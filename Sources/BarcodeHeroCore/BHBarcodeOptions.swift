@@ -6,18 +6,12 @@
 //  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-import UIKit
-#endif
-
 public struct BHBarcodeOptions {
-
-    #if canImport(UIKit)
-    public var fillColor = UIColor.white
-    public var strokeColor = UIColor.black
-    #endif
+    public var fillColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1, 1, 1, 1]) // White
+    public var strokeColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0, 0, 0, 1]) // Black
 
     public var filterParameters: BHFilterParameterizable?
 }

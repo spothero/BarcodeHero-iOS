@@ -1,15 +1,15 @@
 //
-//  BarcodeHeroTests.swift
-//  BarcodeHeroTests
+//  BarcodeHeroCoreTests.swift
+//  BarcodeHeroCoreTests
 //
 //  Created by Brian Drelling on 11/6/17.
 //  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 
-@testable import BarcodeHero
+@testable import BarcodeHeroCore
 import XCTest
 
-class BarcodeHeroTests: XCTestCase {
+class BarcodeHeroCoreTests: XCTestCase {
     var testData: [(String, [BHBarcodeType])] = [("Example", [.qr])]
 
     override func setUp() {

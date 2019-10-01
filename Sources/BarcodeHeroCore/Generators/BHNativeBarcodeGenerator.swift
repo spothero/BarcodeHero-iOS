@@ -6,11 +6,9 @@
 //  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 
-#if canImport(UIKit)
-
+import CoreGraphics
 import CoreImage
 import Foundation
-import UIKit
 
 class BHNativeBarcodeGenerator: BHBarcodeGenerating {
     // MARK: - Properties
@@ -19,7 +17,7 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
 
     // MARK: - Methods
 
-    func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions? = nil) throws -> UIImage {
+    func generate(_ barcodeType: BHBarcodeType, withData rawData: String, options: BHBarcodeOptions? = nil) throws -> CGImage {
         try validate(rawData, for: barcodeType)
 
         let data = rawData.data(using: .isoLatin1, allowLossyConversion: false)
@@ -64,7 +62,7 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
             throw BHError.couldNotCreateImage(barcodeType)
         }
 
-        return UIImage(cgImage: cgImage)
+        return cgImage
 
         // Keeping the following block around (and commented) just in case
         //        guard let outputImage = filter.outputImage,
@@ -75,5 +73,3 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
         //        return UIImage(cgImage: cgImage, scale: 1, orientation: UIImageOrientation.up)
     }
 }
-
-#endif

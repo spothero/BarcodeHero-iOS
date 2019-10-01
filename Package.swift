@@ -32,12 +32,17 @@ let package = Package(
         //     dependencies: []
         // ),
         .testTarget(
-            name: "BarcodeHeroTests",
+            name: "BarcodeHeroCoreTests",
             dependencies: [
                 .target(name: "BarcodeHeroCore"),
-                // BLOCKED BY SR-2866 -- Uncomment
-                // .target(name: "BarcodeHeroUI"),
             ]
         ),
+        // BLOCKED BY SR-2866 -- Uncomment
+        // .testTarget(
+        //     name: "BarcodeHeroUITests",
+        //     dependencies: [
+        //         .target(name: "BarcodeHeroUI"),
+        //     ]
+        // ),
     ]
 )
