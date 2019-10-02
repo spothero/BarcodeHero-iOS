@@ -243,6 +243,7 @@
 			buildPhases = (
 				3486BEDB23444AFE0056D488 /* Headers */,
 				3486BEDC23444AFE0056D488 /* Sources */,
+				3412126623444EDE008ED5F5 /* Combined Lint Run Script */,
 				3486BEDD23444AFE0056D488 /* Frameworks */,
 				3486BEDE23444AFE0056D488 /* Resources */,
 			);
@@ -341,6 +342,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3412126623444EDE008ED5F5 /* Combined Lint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Combined Lint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ruby \"${SRCROOT}/../scripts/combined_lint_run_script.rb\"\n";
+		};
 		D3BF7756228E6F370073C6D6 /* Combined Lint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
