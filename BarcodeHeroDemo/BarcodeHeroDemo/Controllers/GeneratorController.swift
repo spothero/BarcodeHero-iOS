@@ -7,7 +7,8 @@
 //
 
 import AVFoundation
-import BarcodeHero
+import BarcodeHeroCore
+import BarcodeHeroUI
 import Foundation
 import UIKit
 
@@ -94,7 +95,9 @@ class GeneratorController: UIViewController {
         do {
             self.alertView?.isHidden = true
 
-            let image = try BHBarcodeGenerator.generate(self.type, withData: self.data).bh_resizedTo(self.barcodeImageView)
+            let cgImage = try BHBarcodeGenerator.generate(self.type, withData: self.data)
+            let image = try UIImage(cgImage: cgImage).bh_resizedTo(self.barcodeImageView)
+            
             self.barcodeImageView?.image = image
         } catch {
             self.alertLabel?.text = error.localizedDescription

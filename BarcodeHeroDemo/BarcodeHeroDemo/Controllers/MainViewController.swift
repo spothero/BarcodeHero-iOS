@@ -6,7 +6,7 @@
 //  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 
-import BarcodeHero
+import BarcodeHeroUI
 import UIKit
 
 class MainViewController: UITableViewController {

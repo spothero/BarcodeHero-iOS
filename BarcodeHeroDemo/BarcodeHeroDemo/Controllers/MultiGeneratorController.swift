@@ -7,7 +7,8 @@
 //
 
 import AVFoundation
-import BarcodeHero
+import BarcodeHeroCore
+import BarcodeHeroUI
 import Foundation
 import UIKit
 

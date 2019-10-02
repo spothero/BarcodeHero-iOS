@@ -6,7 +6,8 @@
 //  Copyright © 2017 SpotHero, Inc. All rights reserved.
 //
 
-import BarcodeHero
+import BarcodeHeroCore
+import BarcodeHeroUI
 import Foundation
 import UIKit
 
@@ -19,7 +20,8 @@ class BarcodeCell: UITableViewCell {
         self.typeLabel?.text = barcodeType?.rawValue
 
         do {
-            let image = try BHBarcodeGenerator.generate(barcodeType, withData: rawData).bh_resizedTo(self.barcodeImageView)
+            let cgImage = try BHBarcodeGenerator.generate(barcodeType, withData: rawData)
+            let image = try UIImage(cgImage: cgImage).bh_resizedTo(self.barcodeImageView)
 
             self.alertLabel?.isHidden = true
             self.alertLabel?.text = ""

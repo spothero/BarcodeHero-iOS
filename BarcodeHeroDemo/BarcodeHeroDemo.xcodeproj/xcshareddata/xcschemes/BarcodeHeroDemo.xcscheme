@@ -41,9 +41,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BarcodeHeroTests"
-               BuildableName = "BarcodeHeroTests"
-               BlueprintName = "BarcodeHeroTests"
+               BlueprintIdentifier = "BarcodeHeroCoreTests"
+               BuildableName = "BarcodeHeroCoreTests"
+               BlueprintName = "BarcodeHeroCoreTests"
                ReferencedContainer = "container:..">
             </BuildableReference>
          </TestableReference>
