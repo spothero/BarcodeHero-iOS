@@ -1,9 +1,8 @@
-# Updated for v0.32.0
+# Updated for v0.34.0
 
 disabled_rules:
   # We run the swift_combined_lint_run_script.sh which handles TODO/FIXME/WARN/WARNING independently, so we want to disable this.
   - todo # TODOs and FIXMEs should be resolved.
-
 
 opt_in_rules:
   - anyobject_protocol # Prefer using AnyObject over class for class-only protocols.
@@ -20,6 +19,7 @@ opt_in_rules:
   - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
   - empty_xctest_method # Empty XCTest method should be avoided.
   - fatal_error_message # A fatalError call should have a message.
+  #### - file_header # Header comments should be consistent with project patterns. The SWIFTLINT_CURRENT_FILENAME placeholder can optionally be used in the required and forbidden patterns. It will be replaced by the real file name.
   - file_name # File name should match a type or extension declared in the file (if any).
   - first_where # "Prefer using `.first(where:)` over `.filter { }.first` in collections.
   - force_unwrapping # Force unwrapping should be avoided.
@@ -36,6 +36,7 @@ opt_in_rules:
   - multiline_arguments # Arguments should be either on the same line, or one per line.
   - multiline_function_chains # Chained function calls should be either on the same line, or one per line.
   - multiline_parameters # Functions and methods parameters should be either on the same line, or one per line.
+  - number_separator # Underscores should be used as thousand separator in large decimal numbers.
   - operator_usage_whitespace # Operators should be surrounded by a single whitespace
   - overridden_super_call # Some overridden methods should always call super" eg: viewDidLoad
   - private_action # IBActions should be private.
@@ -51,29 +52,35 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument # Parentheses are not needed when declaring closure arguments.
   - untyped_error_in_catch # Catch statements should not declare error variables without type casting.
   - unused_import # All imported modules should be required to make the file compile.
-  - unused_private_declaration # Private declarations should be referenced in that file.
   - vertical_parameter_alignment_on_call # Function parameters should be aligned vertically if they're in multiple lines in a method call.
-
 
 analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
   - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
-
+  - unused_declaration # Declarations should be referenced at least once within all files linted.
 
 colon: # Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.
   apply_to_dictionaries: false # we don't want this rule applied to dictionaries
 cyclomatic_complexity: # Complexity of function bodies should be limited.
   ignores_case_statements: true # ignores switch statements
 empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
-force_cast: warning # Force casts should be avoided.
-force_try: warning # Force tries should be avoided.
 file_name: # File name should match a type or extension declared in the file (if any).
-  excluded: ["Enums.swift"]
+  excluded: ['Enums.swift']
 file_length: # Files should not span too many lines.
   warning: 1000
   error: 2000
+force_cast: warning # Force casts should be avoided.
+force_try: warning # Force tries should be avoided.
 function_body_length: # Functions' bodies should not span too many lines.
   warning: 100
   error: 200
+identifier_name: # Identifier names should only contain alphanumeric characters and start with a lowercase character or should only contain capital letters.
+  allowed_symbols:
+    - _
+  excluded: # whitelisted exceptions to the above rule
+    - id
+    - x
+    - y
+    - i
 large_tuple: # Tuples shouldn't have too many members
   warning: 3
   error: 4
@@ -83,7 +90,7 @@ line_length: # Lines should not span too many characters.
   ignores_urls: true
 nesting:
   type_level:
-    warning: 1
+    warning: 2
   statement_level:
     warning: 4
 private_outlet: # IBOutlets should be private to avoid leaking UIKit to higher layers.
@@ -95,13 +102,11 @@ trailing_whitespace: #Lines should not have trailing whitespace.
 type_body_length: # Type bodies should not span too many lines.
   warning: 1000
   error: 2000
-identifier_name: # Identifier names should only contain alphanumeric characters and start with a lowercase character or should only contain capital letters.
-  excluded: # whitelisted exceptions to the above rule
-    - id
-    - x
-    - y
-
 
 excluded: # what folders should be excluded from analysis?
-  - .build # Swift Package Manager
-  - Pods # CocoaPods
+  # CocoaPods
+  - Pods
+  # Swift Package Manager
+  - .build
+  - Tests/LinuxMain.swift
+  - 'Tests/*/XCTestManifests.swift'
