@@ -19,14 +19,12 @@ public enum BHError: Error {
     case couldNotGetGenerator(BHBarcodeType)
     case couldNotGetGraphicsContext
     case dataRequired
-    case imageViewRequired
     case indexOutOfBounds
     case invalidData(String, for: BHBarcodeType)
     case invalidMetadataObjectType(AVMetadataObject.ObjectType)
     case invalidType(BHBarcodeType)
     case metadataObjectTypeRequired
     case nonNativeType(BHBarcodeType)
-    case sizeRequired
     case typeRequired
 //    case unknown
 }
@@ -52,8 +50,6 @@ extension BHError: LocalizedError {
             return "Data is required for barcode generation."
 //        case .generic(let message):
 //            return message
-        case .imageViewRequired:
-            return "Image view is required for barcode resizing."
         case .indexOutOfBounds:
             return "Index is out of bounds."
         case let .invalidData(data, barcodeType):
@@ -66,8 +62,6 @@ extension BHError: LocalizedError {
             return "Metadata object type is required for barcode generation."
         case let .nonNativeType(barcodeType):
             return "'\(barcodeType.rawValue)' is not a native barcode type."
-        case .sizeRequired:
-            return "Size is required for barcode resizing."
         case .typeRequired:
             return "Type is required for barcode generation."
 //        case .unknown:
