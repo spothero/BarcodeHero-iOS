@@ -7,11 +7,25 @@
 //
 
 import CoreGraphics
-import Foundation
+import UIKit
 
 public struct BHBarcodeOptions {
-    public var fillColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1, 1, 1, 1]) // White
-    public var strokeColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0, 0, 0, 1]) // Black
+    
+    // MARK: Properties
+    
+    public let fillColor: CGColor
+    public let strokeColor: CGColor
 
-    public var filterParameters: BHFilterParameterizable?
+    public let filterParameters: BHFilterParameterizable?
+    
+    // MARK: Initialization
+    
+    public init(fillColor: CGColor = UIColor.white.cgColor,
+                strokeColor: CGColor = UIColor.black.cgColor,
+                filterParameters: BHFilterParameterizable? = nil) {
+        self.fillColor = fillColor
+        self.strokeColor = strokeColor
+        self.filterParameters = filterParameters
+    }
+    
 }
