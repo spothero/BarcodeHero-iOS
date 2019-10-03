@@ -9,20 +9,15 @@
 import Foundation
 
 extension UIImage {
-    public func bh_resizedTo(_ imageView: UIImageView?) throws -> UIImage? {
-        guard let imageView = imageView else {
-            throw BHError.imageViewRequired
-        }
-
+    
+    /// Resizes an image based on the size and contentMode of the passed in imageView
+    /// - Parameter imageView: The imageView whose size and contentMode should be referenced
+    public func bh_resizedTo(_ imageView: UIImageView) throws -> UIImage? {
         return try self.bh_resizedTo(imageView.bounds.size, forContentMode: imageView.contentMode)
     }
 
-    public func bh_resizedTo(_ size: CGSize?, forContentMode contentMode: UIView.ContentMode? = nil) throws -> UIImage? {
-        guard let size = size else {
-            throw BHError.sizeRequired
-        }
-
-        if let ciImage = ciImage {
+    public func bh_resizedTo(_ size: CGSize, forContentMode contentMode: UIView.ContentMode? = nil) throws -> UIImage? {
+        if let ciImage = self.ciImage {
             return ciImage.transformedToFit(size)?.uiImage
         } else {
             let contentMode = contentMode ?? .scaleAspectFit
