@@ -28,8 +28,8 @@ public struct BHBarcodeOptions {
     public init(fillColor: CGColor? = nil,
                 strokeColor: CGColor? = nil,
                 filterParameters: BHFilterParameterizable? = nil) {
-        self.fillColor = fillColor ?? CGColor.white
-        self.strokeColor = strokeColor ?? CGColor.black
+        self.fillColor = fillColor ?? CGColor.systemSafeWhite
+        self.strokeColor = strokeColor ?? CGColor.systemSafeBlack
         self.filterParameters = filterParameters
     }
     
