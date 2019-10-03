@@ -10,8 +10,27 @@ import CoreGraphics
 import Foundation
 
 public struct BHBarcodeOptions {
-    public var fillColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1, 1, 1, 1]) // White
-    public var strokeColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0, 0, 0, 1]) // Black
+    
+    // MARK: Properties
+    
+    public let fillColor: CGColor?
+    public let strokeColor: CGColor?
 
-    public var filterParameters: BHFilterParameterizable?
+    public let filterParameters: BHFilterParameterizable?
+    
+    // MARK: Initialization
+    
+    /// Creates options used to create a barcode.
+    /// - Parameter fillColor:          Color used to fill the background. Defaults to white.
+    /// - Parameter strokeColor:        Color used to fill the foreground. Defaults to black.
+    /// - Parameter filterParameters:   Parameters to set on the filter used when generating a barcode.
+    ///                                 Defaults to nil.
+    public init(fillColor: CGColor? = nil,
+                strokeColor: CGColor? = nil,
+                filterParameters: BHFilterParameterizable? = nil) {
+        self.fillColor = fillColor ?? CGColor.systemSafeWhite
+        self.strokeColor = strokeColor ?? CGColor.systemSafeBlack
+        self.filterParameters = filterParameters
+    }
+    
 }
