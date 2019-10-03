@@ -9,8 +9,22 @@
 import Foundation
 
 public struct BHBarcodeOptions {
-    public var fillColor = UIColor.white
-    public var strokeColor = UIColor.black
+    
+    // MARK: Properties
+    
+    public let fillColor: UIColor
+    public let strokeColor: UIColor
 
-    public var filterParameters: BHFilterParameterizable?
+    public let filterParameters: BHFilterParameterizable?
+    
+    // MARK: Initialization
+    
+    public init(fillColor: UIColor = .white,
+                strokeColor: UIColor = .black,
+                filterParameters: BHFilterParameterizable? = nil) {
+        self.fillColor = fillColor
+        self.strokeColor = strokeColor
+        self.filterParameters = filterParameters
+    }
+    
 }
