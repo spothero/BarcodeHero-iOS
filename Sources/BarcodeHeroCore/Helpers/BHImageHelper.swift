@@ -35,8 +35,13 @@ class BHImageHelper {
 
         context.setShouldAntialias(false)
         
-        context.setFillColor(options.fillColor)
-        context.setStrokeColor(options.strokeColor)
+        if let fillColor = options.fillColor {
+            context.setFillColor(fillColor)
+        }
+        
+        if let strokeColor = options.strokeColor {
+            context.setStrokeColor(strokeColor)
+        }
 
         context.fill(CGRect(origin: .zero, size: size))
         context.setLineWidth(1)
