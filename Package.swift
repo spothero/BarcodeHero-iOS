@@ -11,6 +11,8 @@ let package = Package(
     platforms: [
         .iOS(.v10),
         .macOS(.v10_15),
+        // tvOS is unsupported due to lack of AVMetadataObject support
+        // watchOS is unsupported due to lack of CoreImage support
     ],
     products: [
         .library(name: "BarcodeHeroCore", targets: ["BarcodeHeroCore"]),
@@ -44,5 +46,8 @@ let package = Package(
         //         .target(name: "BarcodeHeroUI"),
         //     ]
         // ),
+    ],
+    swiftLanguageVersions: [
+        .v5
     ]
 )
