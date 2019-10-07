@@ -1,4 +1,10 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  Enums.swift
+//  BarcodeHero
+//
+//  Created by Brian Drelling on 10/19/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
 
 import AVFoundation
 import Foundation

@@ -1,4 +1,10 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  BarcodeHeroCoreTests.swift
+//  BarcodeHeroCoreTests
+//
+//  Created by Brian Drelling on 11/6/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
 
 @testable import BarcodeHeroCore
 import XCTest

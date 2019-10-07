@@ -1,4 +1,12 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  BHCode39Generator.swift
+//  BarcodeHero
+//
+//  Created by Brian Drelling on 11/4/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
+//  http://www.barcodesymbols.com/code39.htm
+//  http://www.barcodeisland.com/code39.phtml
 
 import Foundation
 

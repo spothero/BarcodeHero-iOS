@@ -1,4 +1,10 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  BHFilterParameterizable.swift
+//  BarcodeHero
+//
+//  Created by Brian Drelling on 11/7/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
 
 import CoreImage
 import Foundation

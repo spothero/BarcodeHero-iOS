@@ -1,4 +1,10 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  UITextField+LoadDropdownData.swift
+//  BarcodeHeroDemo
+//
+//  Created by Brian Drelling on 10/19/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
 
 import Foundation
 import UIKit

@@ -1,4 +1,10 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  BHBarcodeGenerating.swift
+//  BarcodeHero
+//
+//  Created by Brian Drelling on 11/4/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
 
 import CoreGraphics
 import Foundation

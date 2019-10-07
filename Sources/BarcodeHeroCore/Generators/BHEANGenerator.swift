@@ -1,4 +1,13 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+//
+//  BHEANGenerator.swift
+//  BarcodeHero
+//
+//  Created by Brian Drelling on 11/5/17.
+//  Copyright © 2017 SpotHero, Inc. All rights reserved.
+//
+//  http://blog.sina.com.cn/s/blog_4015406e0100bsqk.html
+//  http://www.appsbarcode.com/ISBN.php
+//  http://www.appsbarcode.com/ISSN.php
 
 // public let RSBarcodesTypeISBN13Code = "com.pdq.rsbarcodes.isbn13"
 // public let RSBarcodesTypeISSN13Code = "com.pdq.rsbarcodes.issn13"

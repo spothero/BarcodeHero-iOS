@@ -1,39 +1,10 @@
-# Updated for v0.40.11
+# Rules
+--self insert
+--stripunusedargs closure-only
 
-#-------------------#
-# Whitelisted Rules #
-#-------------------#
-
-# Use this section to opt-in to rules explicitly, whitelist rules 
-# Only rules included in this list can be used with SwiftFormat
-
-# --rules self
-
-
-#--------------------#
-# Rule Configuration #
-#--------------------#
-
-# makes sure the self. prefix is added where appropriate
---self insert 
-
-# only strips unused arguments (replacing with _) in closures, not methods
---stripunusedargs closure-only 
-
-# sets the header block to supplied text
---header "Copyright © {year} SpotHero, Inc. All rights reserved."
-
-
-#----------------#
-# Disabled Rules #
-#----------------#
-
+# Disabled Rules
 --disable specifiers # because it isn't configurable
 
-
-#-----------------#
-# File Exclusions #
-#-----------------#
-
+# File Exclusions
 --exclude Pods
 --exclude Package.swift
