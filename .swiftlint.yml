@@ -19,7 +19,7 @@ opt_in_rules:
   - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
   - empty_xctest_method # Empty XCTest method should be avoided.
   - fatal_error_message # A fatalError call should have a message.
-  #### - file_header # Header comments should be consistent with project patterns. The SWIFTLINT_CURRENT_FILENAME placeholder can optionally be used in the required and forbidden patterns. It will be replaced by the real file name.
+  - file_header # Header comments should be consistent with project patterns. The SWIFTLINT_CURRENT_FILENAME placeholder can optionally be used in the required and forbidden patterns. It will be replaced by the real file name.
   - file_name # File name should match a type or extension declared in the file (if any).
   - first_where # "Prefer using `.first(where:)` over `.filter { }.first` in collections.
   - force_unwrapping # Force unwrapping should be avoided.
@@ -63,8 +63,10 @@ colon: # Colons should be next to the identifier when specifying a type and next
 cyclomatic_complexity: # Complexity of function bodies should be limited.
   ignores_case_statements: true # ignores switch statements
 empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
+file_header:
+  required_pattern: "// Copyright © 2019 SpotHero, Inc. All rights reserved."
 file_name: # File name should match a type or extension declared in the file (if any).
-  excluded: ['Enums.swift']
+  excluded: ["Enums.swift"]
 file_length: # Files should not span too many lines.
   warning: 1000
   error: 2000
@@ -105,8 +107,8 @@ type_body_length: # Type bodies should not span too many lines.
 
 excluded: # what folders should be excluded from analysis?
   # CocoaPods
-  - Pods
+  - Pods 
   # Swift Package Manager
-  - .build
+  - .build 
   - Tests/LinuxMain.swift
-  - 'Tests/*/XCTestManifests.swift'
+  - "Tests/*/XCTestManifests.swift"

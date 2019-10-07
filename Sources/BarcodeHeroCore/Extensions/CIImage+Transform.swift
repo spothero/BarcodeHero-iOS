@@ -1,24 +1,18 @@
-//
-//  CIImage+Transform.swift
-//  BarcodeHero
-//
-//  Created by Brian Drelling on 10/19/17.
-//  Copyright © 2017 SpotHero, Inc. All rights reserved.
-//
+// Copyright © 2019 SpotHero, Inc. All rights reserved.
 
 import CoreGraphics
 import CoreImage
 import Foundation
 
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #endif
 
 extension CIImage {
     #if canImport(UIKit)
-    func transformedToFit(_ imageView: UIImageView?) -> CIImage? {
-        return self.transformedToFit(imageView?.frame.size)
-    }
+        func transformedToFit(_ imageView: UIImageView?) -> CIImage? {
+            return self.transformedToFit(imageView?.frame.size)
+        }
     #endif
 
     func transformedToFit(_ size: CGSize?) -> CIImage? {

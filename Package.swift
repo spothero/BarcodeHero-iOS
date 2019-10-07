@@ -1,5 +1,7 @@
 // swift-tools-version:5.1
 
+// Copyright © 2019 SpotHero, Inc. All rights reserved.
+
 import PackageDescription
 
 // NOTE: BarcodeHeroUI is not yet supported! We're lacking the ability to include Resources in SPM projects.
@@ -9,8 +11,8 @@ import PackageDescription
 let package = Package(
     name: "BarcodeHero",
     platforms: [
-        .iOS(.v10),
-        .macOS(.v10_15),
+        .iOS(.v8),          // minimum supported version via SPM
+        .macOS(.v10_15),    // supports AVMetaDataObject.ObjectType barcode and QR code types
         // tvOS is unsupported due to lack of AVMetadataObject support
         // watchOS is unsupported due to lack of CoreImage support
     ],
@@ -48,6 +50,6 @@ let package = Package(
         // ),
     ],
     swiftLanguageVersions: [
-        .v5
+        .v5,
     ]
 )
