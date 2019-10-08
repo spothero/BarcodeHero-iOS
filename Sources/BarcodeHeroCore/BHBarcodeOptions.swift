@@ -25,4 +25,8 @@ public struct BHBarcodeOptions {
         self.strokeColor = strokeColor ?? CGColor.systemSafeBlack
         self.filterParameters = filterParameters
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> spm
 }
