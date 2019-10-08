@@ -110,5 +110,6 @@ excluded: # what folders should be excluded from analysis?
   - Pods 
   # Swift Package Manager
   - .build 
+  - .swiftpm
   - Tests/LinuxMain.swift
   - "Tests/*/XCTestManifests.swift"

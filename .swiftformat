@@ -1,5 +1,11 @@
 # Updated for v0.40.11
 
+#---------------------#
+# SwiftFormat Options #
+#---------------------#
+
+--swiftversion 5.1
+
 #-------------------#
 # Whitelisted Rules #
 #-------------------#
@@ -8,7 +14,6 @@
 # Only rules included in this list can be used with SwiftFormat
 
 # --rules self
-
 
 #--------------------#
 # Rule Configuration #
@@ -23,17 +28,19 @@
 # sets the header block to supplied text
 --header "Copyright © {year} SpotHero, Inc. All rights reserved."
 
-
 #----------------#
 # Disabled Rules #
 #----------------#
 
 --disable specifiers # because it isn't configurable
 
-
 #-----------------#
 # File Exclusions #
 #-----------------#
 
 --exclude Pods
+--exclude .build
+--exclude .swiftpm
 --exclude Package.swift
+--exclude Tests/LinuxMain.swift
+--exclude "Tests/*/XCTestManifests.swift"
