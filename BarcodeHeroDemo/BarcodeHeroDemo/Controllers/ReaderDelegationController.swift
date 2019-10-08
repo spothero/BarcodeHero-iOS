@@ -1,10 +1,4 @@
-//
-//  ReaderDelegationController.swift
-//  BarcodeHeroDemo
-//
-//  Created by Brian Drelling on 11/6/17.
-//  Copyright © 2017 SpotHero, Inc. All rights reserved.
-//
+// Copyright © 2019 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import BarcodeHeroUI

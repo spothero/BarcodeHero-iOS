@@ -1,10 +1,4 @@
-//
-//  GeneratorController.swift
-//  BarcodeHeroDemo
-//
-//  Created by Brian Drelling on 10/19/17.
-//  Copyright © 2017 SpotHero, Inc. All rights reserved.
-//
+// Copyright © 2019 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import BarcodeHeroCore
@@ -97,7 +91,7 @@ class GeneratorController: UIViewController {
 
             let cgImage = try BHBarcodeGenerator.generate(self.type, withData: self.data)
             let image = try UIImage(cgImage: cgImage).bh_resizedTo(self.barcodeImageView)
-            
+
             self.barcodeImageView?.image = image
         } catch {
             self.alertLabel?.text = error.localizedDescription

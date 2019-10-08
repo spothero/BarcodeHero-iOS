@@ -13,9 +13,12 @@ Pod::Spec.new do |spec|
   spec.summary  = 'Allows easy generation of barcodes.'
 
   # Platform
-  spec.platform = :ios, '10.0'
+  spec.ios.deployment_target = '8.0'
+  # CocoaPods can't support our current method of implementing BarcodeHeroUI on macOS
+  # When Mac Catalyst support is out, we can re-enable this if we want to
+  # spec.osx.deployment_target = '10.15'
   spec.swift_versions = ['5.0', '5.1']
-  
+
   # Build Settings
   # spec.frameworks = 'AVFoundation', 'CoreImage', 'UIKit'
   spec.module_name = 'BarcodeHero'
