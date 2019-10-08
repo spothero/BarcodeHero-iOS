@@ -75,7 +75,7 @@ GEM
       no_proxy_fix
       octokit (~> 4.7)
       terminal-table (~> 1)
-    danger-rubocop (0.6.1)
+    danger-rubocop (0.7.0)
       danger
       rubocop
     danger-swiftlint (0.23.0)
@@ -271,7 +271,7 @@ DEPENDENCIES
   bundler (~> 1.17.3)
   cocoapods (~> 1.8.3)
   danger (~> 6.1.0)
-  danger-rubocop (~> 0.6.1)
+  danger-rubocop (~> 0.7.0)
   danger-swiftlint (~> 0.23.0)
   dotenv (~> 2.7.5)
   fastlane (~> 2.133.0)
