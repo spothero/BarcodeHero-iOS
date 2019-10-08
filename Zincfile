@@ -2,18 +2,28 @@
 source: https://github.com/spothero/Shared-iOS.git
 files:
   # Danger
-  - source_path: Danger/Dangerfile
+  - source_path: Tools/Danger/Dangerfile
     destination_path: .zinc
   # GitHub
-  - source_path: GitHub/CODEOWNERS
+  - source_path: Tools/GitHub/CODEOWNERS
     destination_path: .github
-  - source_path: GitHub/pull_request_template.md
+  - source_path: Tools/GitHub/pull_request_template.md
     destination_path: .github
-  - source_path: GitHub/.gitignore
+  - source_path: Tools/GitHub/.gitignore
   # Rubocop
-  - source_path: Rubocop/rubocop.yml
+  - source_path: Tools/Rubocop/rubocop.yml
     destination_path: .zinc
   # SwiftLint
-  - source_path: SwiftLint/.swiftlint.yml
+  - source_path: Tools/SwiftLint/.swiftlint.yml
   # SwiftFormat
-  - source_path: SwiftFormat/.swiftformat
+  - source_path: Tools/SwiftFormat/.swiftformat
+  # Xcode
+  - source_path: Applications/Xcode/RunScriptHelper-Info.plist
+    destination_path: .zinc
+  # Scripts
+  - source_path: Scripts/combined_lint_run_script.rb
+    destination_path: scripts
+  - source_path: Scripts/swiftlint_run_script.rb
+    destination_path: scripts
+  - source_path: Scripts/todo_warning_run_script.rb
+    destination_path: scripts

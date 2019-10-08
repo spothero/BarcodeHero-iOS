@@ -1,8 +1,8 @@
-# Updated for v0.69.0
+# Updated for v0.70.0
 
 AllCops:
   Exclude:
-    - 'Pods/*'
+    - 'Pods/**/*'
   Include:
     - '**/Dangerfile'
     - '**/Fastfile'

@@ -42,6 +42,13 @@ playground.xcworkspace
 # Package.pins
 .build/
 
+# .swiftpm/ is generated when editing a Swift package in Xcode 11
+.swiftpm/
+
+# For SPM-only projects, .xcworkspace or .xcodeproj files should never be created or generated, except for use with versions earlier than Xcode 11
+# *.xcworkspace
+# *.xcodeproj
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
@@ -54,7 +61,6 @@ playground.xcworkspace
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
-
 Carthage/Build
 
 # jazzy
@@ -76,5 +82,6 @@ fastlane/DerivedData
 fastlane/screenshots
 fastlane/[Pp]review.html
 
-# SpotHero
-fastlane/.env.local
+# dotenv
+# A .env.local file contains keys that should never be checked into the repository
+.env.local

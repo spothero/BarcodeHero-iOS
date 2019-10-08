@@ -3,19 +3,22 @@
 Pod::Spec.new do |spec|
   # Root Specification
   spec.name     = 'BarcodeHero'
-  spec.version  = '0.3.2'
+  spec.version  = '0.4.0'
 
   spec.author   = { 'SpotHero' => 'dev@spothero.com' }
   spec.homepage = 'https://github.com/SpotHero/BarcodeHero-iOS'
   spec.license  = { type: 'Commercial', text: 'Copyright 2019 SpotHero Inc.' }
   spec.source   = { :git => 'https://github.com/SpotHero/BarcodeHero-iOS.git',
-                    :tag => 'v' + spec.version.to_s }
+                    :tag => spec.version.to_s }
   spec.summary  = 'Allows easy generation of barcodes.'
 
   # Platform
-  spec.platform = :ios, '10.0'
-  spec.swift_version = '5.0'
-  
+  spec.ios.deployment_target = '8.0'
+  # CocoaPods can't support our current method of implementing BarcodeHeroUI on macOS
+  # When Mac Catalyst support is out, we can re-enable this if we want to
+  # spec.osx.deployment_target = '10.15'
+  spec.swift_versions = ['5.0', '5.1']
+
   # Build Settings
   # spec.frameworks = 'AVFoundation', 'CoreImage', 'UIKit'
   spec.module_name = 'BarcodeHero'
@@ -27,13 +30,13 @@ Pod::Spec.new do |spec|
   spec.default_subspec = 'Core'
 
   spec.subspec 'Core' do |subspec|
-    subspec.source_files = 'BarcodeHero/BarcodeHero/Core/**/*.swift'
+    subspec.source_files = 'Sources/BarcodeHeroCore/**/*.swift'
   end
 
   spec.subspec 'UI' do |subspec|
     subspec.dependency 'BarcodeHero/Core'
 
-    subspec.source_files = 'BarcodeHero/BarcodeHero/UI/**/*.swift'
-    subspec.resources    = 'BarcodeHero/BarcodeHero/UI/**/*.xib', 'BarcodeHero/BarcodeHero/UI/**/*.xcassets'
+    subspec.source_files = 'Sources/BarcodeHeroUI/**/*.swift'
+    subspec.resources    = 'Sources/BarcodeHeroUI/**/*.xib', 'BarcodeHero/BarcodeHero/UI/**/*.xcassets'
   end
 end
