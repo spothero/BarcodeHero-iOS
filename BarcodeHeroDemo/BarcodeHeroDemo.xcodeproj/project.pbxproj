@@ -301,7 +301,7 @@
 				};
 			};
 			buildConfigurationList = D36545761F9848E400AE06E2 /* Build configuration list for PBXProject "BarcodeHeroDemo" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
