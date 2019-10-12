@@ -12,11 +12,10 @@
             let path = CGMutablePath()
 
             if invert {
-                path.__addRect(transform: nil, rect: bounds)
-                //            CGMutablePath.__addRect(path, transform: nil, rect: bounds)
+                path.addRect(bounds)
             }
 
-            path.__addRoundedRect(transform: nil, rect: maskRect, cornerWidth: 4.0, cornerHeight: 4.0)
+            path.addRoundedRect(in: maskRect, cornerWidth: 4.0, cornerHeight: 4.0)
 
             maskLayer.path = path
 
