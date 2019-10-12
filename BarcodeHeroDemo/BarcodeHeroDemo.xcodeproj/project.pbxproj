@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		344282DE23528706008150A2 /* BarcodeHero in Frameworks */ = {isa = PBXBuildFile; productRef = 344282DD23528706008150A2 /* BarcodeHero */; };
+		34B061A523528EEF001E2C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B061A423528EEF001E2C7D /* AppDelegate.swift */; };
+		34B061A723528EEF001E2C7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B061A623528EEF001E2C7D /* SceneDelegate.swift */; };
+		34B061AE23528EEF001E2C7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B061AD23528EEF001E2C7D /* Preview Assets.xcassets */; };
+		34B061B723528EFE001E2C7D /* BarcodeHero in Frameworks */ = {isa = PBXBuildFile; productRef = 34B061B623528EFE001E2C7D /* BarcodeHero */; };
+		34B061C023528F2D001E2C7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B061B923528F2D001E2C7D /* Assets.xcassets */; };
+		34B061C123528F2D001E2C7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B061BA23528F2D001E2C7D /* LaunchScreen.storyboard */; };
+		34B061C223528F2D001E2C7D /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B061BD23528F2D001E2C7D /* GeneratorView.swift */; };
+		34B061C323528F2D001E2C7D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B061BE23528F2D001E2C7D /* MenuView.swift */; };
+		34B061C423528F2D001E2C7D /* MultiGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B061BF23528F2D001E2C7D /* MultiGeneratorView.swift */; };
 		D319BCC71FB1635E00D97106 /* ReaderDelegationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCC61FB1635E00D97106 /* ReaderDelegationController.swift */; };
 		D319BCCB1FB400FC00D97106 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319BCCA1FB400FC00D97106 /* MainNavigationController.swift */; };
 		D358269F1FAFD2C7002A9858 /* MultiGeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */; };
@@ -38,6 +47,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		34B061A223528EEF001E2C7D /* BarcodeHeroSwiftUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeHeroSwiftUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34B061A423528EEF001E2C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		34B061A623528EEF001E2C7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		34B061AD23528EEF001E2C7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		34B061B223528EEF001E2C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B061B923528F2D001E2C7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34B061BB23528F2D001E2C7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34B061BD23528F2D001E2C7D /* GeneratorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
+		34B061BE23528F2D001E2C7D /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		34B061BF23528F2D001E2C7D /* MultiGeneratorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiGeneratorView.swift; sourceTree = "<group>"; };
 		D319BCC61FB1635E00D97106 /* ReaderDelegationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderDelegationController.swift; sourceTree = "<group>"; };
 		D319BCCA1FB400FC00D97106 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		D358269E1FAFD2C7002A9858 /* MultiGeneratorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGeneratorController.swift; sourceTree = "<group>"; };
@@ -57,6 +76,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		34B0619F23528EEF001E2C7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34B061B723528EFE001E2C7D /* BarcodeHero in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D36545881F98491C00AE06E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +95,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34B061A323528EEF001E2C7D /* BarcodeHeroSwiftUIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				34B061B223528EEF001E2C7D /* Info.plist */,
+				34B061A423528EEF001E2C7D /* AppDelegate.swift */,
+				34B061A623528EEF001E2C7D /* SceneDelegate.swift */,
+				34B061AC23528EEF001E2C7D /* Preview Content */,
+				34B061B823528F2D001E2C7D /* Resources */,
+				34B061BC23528F2D001E2C7D /* Views */,
+			);
+			path = BarcodeHeroSwiftUIDemo;
+			sourceTree = "<group>";
+		};
+		34B061AC23528EEF001E2C7D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				34B061AD23528EEF001E2C7D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		34B061B823528F2D001E2C7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				34B061B923528F2D001E2C7D /* Assets.xcassets */,
+				34B061BA23528F2D001E2C7D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		34B061BC23528F2D001E2C7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34B061BD23528F2D001E2C7D /* GeneratorView.swift */,
+				34B061BE23528F2D001E2C7D /* MenuView.swift */,
+				34B061BF23528F2D001E2C7D /* MultiGeneratorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		34E7CDEE23444BF300D58A4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D365458C1F98491C00AE06E2 /* BarcodeHeroDemo */,
+				34B061A323528EEF001E2C7D /* BarcodeHeroSwiftUIDemo */,
 				D365457D1F9848E400AE06E2 /* Products */,
 				34E7CDEE23444BF300D58A4E /* Frameworks */,
 			);
@@ -106,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				D365458B1F98491C00AE06E2 /* BarcodeHeroDemo.app */,
+				34B061A223528EEF001E2C7D /* BarcodeHeroSwiftUIDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +226,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		34B061A123528EEF001E2C7D /* BarcodeHeroSwiftUIDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34B061B523528EEF001E2C7D /* Build configuration list for PBXNativeTarget "BarcodeHeroSwiftUIDemo" */;
+			buildPhases = (
+				34B0619E23528EEF001E2C7D /* Sources */,
+				34B0619F23528EEF001E2C7D /* Frameworks */,
+				34B061A023528EEF001E2C7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BarcodeHeroSwiftUIDemo;
+			packageProductDependencies = (
+				34B061B623528EFE001E2C7D /* BarcodeHero */,
+			);
+			productName = BarcodeHeroSwiftUIDemo;
+			productReference = 34B061A223528EEF001E2C7D /* BarcodeHeroSwiftUIDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D365458A1F98491C00AE06E2 /* BarcodeHeroDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D365459A1F98491C00AE06E2 /* Build configuration list for PBXNativeTarget "BarcodeHeroDemo" */;
@@ -185,10 +274,13 @@
 		D36545731F9848E400AE06E2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = SpotHero;
 				TargetAttributes = {
+					34B061A123528EEF001E2C7D = {
+						CreatedOnToolsVersion = 11.1;
+					};
 					D365458A1F98491C00AE06E2 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 1020;
@@ -210,11 +302,22 @@
 			projectRoot = "";
 			targets = (
 				D365458A1F98491C00AE06E2 /* BarcodeHeroDemo */,
+				34B061A123528EEF001E2C7D /* BarcodeHeroSwiftUIDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		34B061A023528EEF001E2C7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34B061C123528F2D001E2C7D /* LaunchScreen.storyboard in Resources */,
+				34B061C023528F2D001E2C7D /* Assets.xcassets in Resources */,
+				34B061AE23528EEF001E2C7D /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D36545891F98491C00AE06E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +352,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		34B0619E23528EEF001E2C7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34B061C223528F2D001E2C7D /* GeneratorView.swift in Sources */,
+				34B061C323528F2D001E2C7D /* MenuView.swift in Sources */,
+				34B061C423528F2D001E2C7D /* MultiGeneratorView.swift in Sources */,
+				34B061A523528EEF001E2C7D /* AppDelegate.swift in Sources */,
+				34B061A723528EEF001E2C7D /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D36545871F98491C00AE06E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +385,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		34B061BA23528F2D001E2C7D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34B061BB23528F2D001E2C7D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		D36545911F98491C00AE06E2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +412,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		34B061B323528EEF001E2C7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BarcodeHeroSwiftUIDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = ZW7QWR628D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = BarcodeHeroSwiftUIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spothero.BarcodeHeroSwiftUIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34B061B423528EEF001E2C7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BarcodeHeroSwiftUIDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = ZW7QWR628D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = BarcodeHeroSwiftUIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spothero.BarcodeHeroSwiftUIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D36545821F9848E400AE06E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -450,6 +620,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		34B061B523528EEF001E2C7D /* Build configuration list for PBXNativeTarget "BarcodeHeroSwiftUIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34B061B323528EEF001E2C7D /* Debug */,
+				34B061B423528EEF001E2C7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D36545761F9848E400AE06E2 /* Build configuration list for PBXProject "BarcodeHeroDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -472,6 +651,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		344282DD23528706008150A2 /* BarcodeHero */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BarcodeHero;
+		};
+		34B061B623528EFE001E2C7D /* BarcodeHero */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BarcodeHero;
 		};

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D365458A1F98491C00AE06E2"
-               BuildableName = "BarcodeHeroDemo.app"
-               BlueprintName = "BarcodeHeroDemo"
-               ReferencedContainer = "container:BarcodeHeroDemo.xcodeproj">
+               BlueprintIdentifier = "BarcodeHero"
+               BuildableName = "BarcodeHero"
+               BlueprintName = "BarcodeHero"
+               ReferencedContainer = "container:..">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BarcodeHero"
-               BuildableName = "BarcodeHero"
-               BlueprintName = "BarcodeHero"
-               ReferencedContainer = "container:..">
+               BlueprintIdentifier = "D365458A1F98491C00AE06E2"
+               BuildableName = "BarcodeHeroDemo.app"
+               BlueprintName = "BarcodeHeroDemo"
+               ReferencedContainer = "container:BarcodeHeroDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

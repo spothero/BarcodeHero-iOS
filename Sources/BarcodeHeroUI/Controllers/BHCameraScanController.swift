@@ -9,7 +9,7 @@
     #warning("TODO: Make the controller work well in any orientation.")
 
     @available(iOS 9.0, *)
-    open class BHCameraScanController: UIViewController {
+    public final class BHCameraScanController: UIViewController {
         // MARK: Properties
 
         private lazy var backgroundView: UIView = {
@@ -73,7 +73,7 @@
 
         // MARK: Methods - Lifecycle
 
-        override open func viewDidLoad() {
+        override public func viewDidLoad() {
             super.viewDidLoad()
 
             if let device = AVCaptureDevice.default(for: .video),
@@ -109,7 +109,7 @@
             self.session.startRunning()
         }
 
-        override open func viewWillAppear(_ animated: Bool) {
+        override public func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
 
 //        startingBarTintColor = navigationController?.navigationBar.barTintColor
@@ -128,7 +128,7 @@
             self.crosshairView.clear()
         }
 
-        override open func viewDidLayoutSubviews() {
+        override public func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
 
             guard !self.hasLoaded else {
@@ -145,7 +145,7 @@
             self.crosshairView.alpha = 0
         }
 
-        override open func viewDidAppear(_ animated: Bool) {
+        override public func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
 
             guard !self.hasLoaded else {
@@ -165,7 +165,7 @@
             self.hasLoaded = true
         }
 
-        override open func viewWillDisappear(_ animated: Bool) {
+        override public func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
 
             self.session.stopRunning()
@@ -212,5 +212,22 @@
             self.delegate?.didCapture(metadataObjects: metadataObjects, from: self)
         }
     }
+
+    #if canImport(SwiftUI)
+
+        import SwiftUI
+
+        @available(iOS 9.0, *)
+        extension BHCameraScanController: UIViewControllerRepresentable {
+            public typealias UIViewControllerType = BHCameraScanController
+
+            public func makeUIViewController(context: Context) -> BHCameraScanController {
+                return BHCameraScanController()
+            }
+
+            public func updateUIViewController(_ controller: BHCameraScanController, context: Context) {}
+        }
+
+    #endif
 
 #endif
