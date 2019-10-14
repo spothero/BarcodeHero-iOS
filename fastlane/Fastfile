@@ -2,7 +2,7 @@
 
 import_from_git(
   url: 'https://github.com/spothero/Shared-iOS',
-  branch: 'fastlane/0.3.26',
+  branch: 'fastlane/0.4.0',
   path: 'Fastlane/fastlane/MasterFastfile',
 )
 
