@@ -4,6 +4,7 @@ Pod::Spec.new do |spec|
   # Root Specification
   spec.name     = 'BarcodeHero'
   spec.version  = '0.5.0'
+  
   spec.swift_versions = ['5.0', '5.1']
 
   spec.author   = { 'SpotHero' => 'ios@spothero.com' }
@@ -15,7 +16,9 @@ Pod::Spec.new do |spec|
 
   # Platform
   spec.ios.deployment_target = '8.0'
-  spec.osx.deployment_target = '10.15'
+  # CocoaPods can't support our current method of implementing BarcodeHeroUI on macOS
+  # When Mac Catalyst support is out, we can re-enable this if we want to
+  # spec.osx.deployment_target = '10.15'
 
   # Build Settings
   # spec.frameworks = 'AVFoundation', 'CoreImage', 'UIKit'
