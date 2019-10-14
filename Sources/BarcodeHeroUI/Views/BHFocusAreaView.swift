@@ -83,14 +83,11 @@
             let totalSpacing = stackView.spacing * CGFloat(stackView.arrangedSubviews.count - 1)
             let height = (Self.labelHeight * 2) + Self.cutoutHeight + totalSpacing
 
-            // Activate height and width constraints for this view
             NSLayoutConstraint.activate([
+                // Activate height and width constraints for this view
                 self.heightAnchor.constraint(equalToConstant: height),
                 self.widthAnchor.constraint(equalToConstant: Self.width),
-            ])
-
-            // Activate pinning constraints for the embedded stack view
-            NSLayoutConstraint.activate([
+                // Activate pinning constraints for the embedded stack view
                 stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 stackView.topAnchor.constraint(equalTo: self.topAnchor),
