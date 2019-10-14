@@ -16,9 +16,7 @@ Pod::Spec.new do |spec|
 
   # Platform
   spec.ios.deployment_target = '8.0'
-  # CocoaPods can't support our current method of implementing BarcodeHeroUI on macOS
-  # When Mac Catalyst support is out, we can re-enable this if we want to
-  # spec.osx.deployment_target = '10.15'
+  spec.osx.deployment_target = '10.15'
 
   # Build Settings
   # spec.frameworks = 'AVFoundation', 'CoreImage', 'UIKit'
