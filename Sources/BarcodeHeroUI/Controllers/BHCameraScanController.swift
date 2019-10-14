@@ -6,14 +6,49 @@
     import Foundation
     import UIKit
 
-    open class BHCameraScanController: UIViewController {
-        // MARK: - Properties
+    #warning("TODO: Make the controller work well in any orientation.")
 
-        @IBOutlet private var backgroundView: UIView!
-        @IBOutlet private var barcodeDataLabel: UILabel!
-        @IBOutlet private var barcodeTypeLabel: UILabel!
-        @IBOutlet private var crosshairImageView: UIImageView!
-        @IBOutlet private var overlayView: UIView!
+    @available(iOS 9.0, *)
+    open class BHCameraScanController: UIViewController {
+        // MARK: Properties
+
+        private lazy var backgroundView: UIView = {
+            let backgroundView = UIView(frame: UIScreen.main.bounds)
+            backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.65)
+
+            self.view.addSubview(backgroundView)
+
+            if #available(iOS 11.0, *) {
+                NSLayoutConstraint.activate([
+                    backgroundView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                    backgroundView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                    backgroundView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+                    backgroundView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+                ])
+            } else {
+                NSLayoutConstraint.activate([
+                    backgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                    backgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                    backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor),
+                    backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                ])
+            }
+
+            return backgroundView
+        }()
+
+        private lazy var focusAreaView: BHFocusAreaView = {
+            let focusAreaView = BHFocusAreaView()
+
+            self.view.addSubview(focusAreaView)
+
+            NSLayoutConstraint.activate([
+                focusAreaView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                focusAreaView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            ])
+
+            return focusAreaView
+        }()
 
         private let session = AVCaptureSession()
 
@@ -25,17 +60,17 @@
 
         public weak var delegate: BHCameraScanControllerDelegate?
 
-        // MARK: - Methods
+        // MARK: Methods - Initializers
 
-        override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-            super.init(nibName: nil, bundle: Bundle(for: BHCameraScanController.self))
+        public init() {
+            super.init(nibName: nil, bundle: nil)
         }
 
         public required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         }
 
-        // MARK: Overrides
+        // MARK: Methods - Lifecycle
 
         override open func viewDidLoad() {
             super.viewDidLoad()
@@ -68,8 +103,7 @@
                 view.layer.addSublayer(previewLayer)
             }
 
-            self.barcodeDataLabel?.text = nil
-            self.barcodeTypeLabel?.text = nil
+            self.focusAreaView.clear()
 
             self.session.startRunning()
         }
@@ -90,8 +124,7 @@
 
             self.session.startRunning()
 
-            self.barcodeDataLabel?.text = nil
-            self.barcodeTypeLabel?.text = nil
+            self.focusAreaView.clear()
         }
 
         override open func viewDidLayoutSubviews() {
@@ -104,15 +137,11 @@
             self.previewLayer?.frame = view.bounds
             self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
 
-            if let backgroundView = backgroundView {
-                view.bringSubviewToFront(backgroundView)
-                backgroundView.alpha = 0
-            }
+            view.bringSubviewToFront(self.backgroundView)
+            self.backgroundView.alpha = 0
 
-            if let overlayView = overlayView {
-                view.bringSubviewToFront(overlayView)
-                overlayView.alpha = 0
-            }
+            view.bringSubviewToFront(self.focusAreaView)
+            self.focusAreaView.alpha = 0
         }
 
         override open func viewDidAppear(_ animated: Bool) {
@@ -123,18 +152,13 @@
             }
 
             UIView.animate(withDuration: 0.35) {
-                if let crosshairImageView = self.crosshairImageView {
-                    self.backgroundView?.mask(
-                        CGRect(x: crosshairImageView.frame.minX - 10,
-                               y: crosshairImageView.frame.minY - 10,
-                               width: crosshairImageView.frame.width + 20,
-                               height: crosshairImageView.frame.height + 20),
-                        invert: true
-                    )
-                }
+                let cutoutView = self.focusAreaView.cutoutView
+                let cutoutFrame = cutoutView.convert(cutoutView.bounds, to: self.view)
 
-                self.backgroundView?.alpha = 1
-                self.overlayView?.alpha = 1
+                self.backgroundView.mask(cutoutFrame, invert: true)
+
+                self.backgroundView.alpha = 1
+                self.focusAreaView.alpha = 1
             }
 
             self.hasLoaded = true
@@ -150,7 +174,7 @@
             // navigationController?.navigationBar.isTranslucent = false
         }
 
-        // MARK: - Utilities
+        // MARK: Methods - Utilities
 
         public func stopCapturing() {
             self.session.stopRunning()
@@ -163,12 +187,14 @@
 
     // MARK: - Classes
 
+    @available(iOS 9.0, *)
     public protocol BHCameraScanControllerDelegate: AnyObject {
         func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController)
     }
 
     // MARK: - Extensions
 
+    @available(iOS 9.0, *)
     extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
         public func metadataOutput(_ output: AVCaptureMetadataOutput,
                                    didOutput metadataObjects: [AVMetadataObject],
@@ -178,8 +204,8 @@
             }
 
             if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-                self.barcodeDataLabel?.text = metadataObject.stringValue
-                self.barcodeTypeLabel?.text = String(describing: metadataObject.type.rawValue)
+                self.focusAreaView.barcodeData = metadataObject.stringValue
+                self.focusAreaView.barcodeType = String(describing: metadataObject.type.rawValue)
             }
 
             self.delegate?.didCapture(metadataObjects: metadataObjects, from: self)

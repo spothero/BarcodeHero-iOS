@@ -102,20 +102,20 @@ if defined?(junit)
   if ENV.key?('DANGER_JUNIT_PATH')
     junit.parse ENV['DANGER_JUNIT_PATH']
     junit.report
-  
+
     if junit.passes.count == junit.tests.count
       message "#{junit.tests.count} tests ran. All passed! 🎉"
-    elsif
+    else
       message "#{junit.tests.count} tests ran. #{junit.passes.count} passed, #{junit.failures.count} failed."
     end
-    
+
     # Set some environment variables for Fastlane to work with after Danger is finished running
     ENV['DANGER_JUNIT_TESTS_COUNT'] = junit.tests.count.to_s
     ENV['DANGER_JUNIT_PASSES_COUNT'] = junit.passes.count.to_s
     ENV['DANGER_JUNIT_FAILURES_COUNT'] = junit.failures.count.to_s
     ENV['DANGER_JUNIT_ERRORS_COUNT'] = junit.errors.count.to_s
     ENV['DANGER_JUNIT_SKIPPED_COUNT'] = junit.skipped.count.to_s
-  elsif
+  else
     warn 'The danger-junit plugin was found, but no DANGER_JUNIT_PATH was set.'
   end
 end

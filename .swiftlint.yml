@@ -13,7 +13,6 @@ opt_in_rules:
   - collection_alignment # All elements in a collection literal should be vertically aligned
   - conditional_returns_on_newline # Conditional statements should always return on the next line
   - contains_over_first_not_nil # Prefer contains over first(where:) != nil
-  - discouraged_optional_boolean # Prefer non-optional booleans over optional booleans.
   - explicit_init # Explicitly calling .init() should be avoided.
   - empty_count # Prefer checking `isEmpty` over comparing `count` to zero.
   - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
@@ -36,7 +35,6 @@ opt_in_rules:
   - multiline_arguments # Arguments should be either on the same line, or one per line.
   - multiline_function_chains # Chained function calls should be either on the same line, or one per line.
   - multiline_parameters # Functions and methods parameters should be either on the same line, or one per line.
-  - number_separator # Underscores should be used as thousand separator in large decimal numbers.
   - operator_usage_whitespace # Operators should be surrounded by a single whitespace
   - overridden_super_call # Some overridden methods should always call super" eg: viewDidLoad
   - private_action # IBActions should be private.
