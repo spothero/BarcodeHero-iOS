@@ -37,18 +37,17 @@
             return backgroundView
         }()
 
-        private lazy var crosshairView: BHCrosshairView = {
-            let crosshairView = BHCrosshairView()
+        private lazy var focusAreaView: BHFocusAreaView = {
+            let focusAreaView = BHFocusAreaView()
 
-            self.view.addSubview(crosshairView)
+            self.view.addSubview(focusAreaView)
 
             NSLayoutConstraint.activate([
-                crosshairView.centerXAnchor.constraint(equalTo:
-                    self.view.centerXAnchor),
-                crosshairView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+                focusAreaView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                focusAreaView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             ])
 
-            return crosshairView
+            return focusAreaView
         }()
 
         private let session = AVCaptureSession()
@@ -104,7 +103,7 @@
                 view.layer.addSublayer(previewLayer)
             }
 
-            self.crosshairView.clear()
+            self.focusAreaView.clear()
 
             self.session.startRunning()
         }
@@ -125,7 +124,7 @@
 
             self.session.startRunning()
 
-            self.crosshairView.clear()
+            self.focusAreaView.clear()
         }
 
         override open func viewDidLayoutSubviews() {
@@ -141,8 +140,8 @@
             view.bringSubviewToFront(self.backgroundView)
             self.backgroundView.alpha = 0
 
-            view.bringSubviewToFront(self.crosshairView)
-            self.crosshairView.alpha = 0
+            view.bringSubviewToFront(self.focusAreaView)
+            self.focusAreaView.alpha = 0
         }
 
         override open func viewDidAppear(_ animated: Bool) {
@@ -153,13 +152,13 @@
             }
 
             UIView.animate(withDuration: 0.35) {
-                let cutoutView = self.crosshairView.cutoutView
+                let cutoutView = self.focusAreaView.cutoutView
                 let cutoutFrame = cutoutView.convert(cutoutView.bounds, to: self.view)
 
                 self.backgroundView.mask(cutoutFrame, invert: true)
 
                 self.backgroundView.alpha = 1
-                self.crosshairView.alpha = 1
+                self.focusAreaView.alpha = 1
             }
 
             self.hasLoaded = true
@@ -205,8 +204,8 @@
             }
 
             if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-                self.crosshairView.barcodeData = metadataObject.stringValue
-                self.crosshairView.barcodeType = String(describing: metadataObject.type.rawValue)
+                self.focusAreaView.barcodeData = metadataObject.stringValue
+                self.focusAreaView.barcodeType = String(describing: metadataObject.type.rawValue)
             }
 
             self.delegate?.didCapture(metadataObjects: metadataObjects, from: self)

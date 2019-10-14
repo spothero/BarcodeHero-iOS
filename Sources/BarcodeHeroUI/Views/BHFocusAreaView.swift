@@ -6,7 +6,7 @@
     import UIKit
 
     @available(iOS 9.0, *)
-    public class BHCrosshairView: UIView {
+    class BHFocusAreaView: UIView {
         // MARK: Constants
 
         private static let cutoutHeight: CGFloat = 170
@@ -33,7 +33,7 @@
             return typeLabel
         }()
 
-        public private(set) lazy var cutoutView: UIView = {
+        private(set) lazy var cutoutView: UIView = {
             let cutoutView = UIView()
             cutoutView.translatesAutoresizingMaskIntoConstraints = false
             cutoutView.heightAnchor.constraint(equalToConstant: Self.cutoutHeight).isActive = true
@@ -44,7 +44,7 @@
 
         // MARK: Properties - Convenience
 
-        public var barcodeData: String? {
+        var barcodeData: String? {
             get {
                 return self.barcodeDataLabel.text
             }
@@ -53,7 +53,7 @@
             }
         }
 
-        public var barcodeType: String? {
+        var barcodeType: String? {
             get {
                 return self.barcodeTypeLabel.text
             }
@@ -63,8 +63,10 @@
         }
 
         // MARK: Methods - Lifecycle
-
-        override public func layoutSubviews() {
+        
+        init() {
+            super.init(frame: .zero)
+            
             self.translatesAutoresizingMaskIntoConstraints = false
 
             let stackView = UIStackView()
@@ -95,10 +97,14 @@
                 stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             ])
         }
-
+        
+        required convenience init?(coder: NSCoder) {
+            self.init()
+        }
+        
         // MARK: Methods - Utilities
 
-        public func clear() {
+        func clear() {
             self.barcodeData = nil
             self.barcodeType = nil
         }
