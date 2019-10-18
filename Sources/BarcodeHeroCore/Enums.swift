@@ -138,6 +138,12 @@ enum BHFilterParameterKey: String {
     case inputMessage
 }
 
+enum BHColorFilterParameterKey: String {
+    case backgroundColor = "inputColor1"
+    case foregroundColor = "inputColor0"
+    case inputImage
+}
+
 // https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator
 enum BHAztecFilterParameterKey: String {
     case inputCompactStyle

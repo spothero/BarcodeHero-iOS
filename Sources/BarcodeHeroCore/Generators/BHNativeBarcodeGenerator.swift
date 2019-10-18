@@ -51,9 +51,27 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
 //            throw BHError.nonNativeType(barcodeType)
 //        }
 
-        guard let filterImage = filter.outputImage,
-            let cgImage = context.createCGImage(filterImage, from: filterImage.extent) else {
-            throw BHError.couldNotCreateImage(barcodeType)
+        var filterImage: CIImage?
+        
+        if
+            let fillColor = options?.fillColor,
+            let strokeColor = options?.strokeColor {
+            
+                // Create a color filter to pass the image through
+                let colorFilter = CIFilter(name: "CIFalseColor")
+                colorFilter?.setValue(filter.outputImage, forKey: BHColorFilterParameterKey.inputImage.rawValue)
+                colorFilter?.setValue(CIColor(cgColor: fillColor), forKey: BHColorFilterParameterKey.backgroundColor.rawValue)
+                colorFilter?.setValue(CIColor(cgColor: strokeColor), forKey: BHColorFilterParameterKey.foregroundColor.rawValue)
+                
+                filterImage = colorFilter?.outputImage
+        } else {
+            filterImage = filter.outputImage
+        }
+        
+        guard
+            let ciImage = filterImage,
+            let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
+                throw BHError.couldNotCreateImage(barcodeType)
         }
 
         return cgImage
