@@ -59,9 +59,9 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
             
                 // Create a color filter to pass the image through
                 let colorFilter = CIFilter(name: "CIFalseColor")
-                colorFilter?.setValue(filter.outputImage, forKey: BHFilterParameterKey.inputImage.rawValue)
-                colorFilter?.setValue(CIColor(cgColor: fillColor), forKey: BHFilterParameterKey.backgroundColor.rawValue)
-                colorFilter?.setValue(CIColor(cgColor: strokeColor), forKey: BHFilterParameterKey.foregroundColor.rawValue)
+                colorFilter?.setValue(filter.outputImage, forKey: BHColorFilterParameterKey.inputImage.rawValue)
+                colorFilter?.setValue(CIColor(cgColor: fillColor), forKey: BHColorFilterParameterKey.backgroundColor.rawValue)
+                colorFilter?.setValue(CIColor(cgColor: strokeColor), forKey: BHColorFilterParameterKey.foregroundColor.rawValue)
                 
                 filterImage = colorFilter?.outputImage
         } else {
