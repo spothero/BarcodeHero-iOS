@@ -175,7 +175,7 @@ private extension CGContext {
 
         // If we can import UIKit, attempt to create the CGContext from the current UIGraphics context
         #if canImport(UIKit)
-            UIGraphicsBeginImageContextWithOptions(size, false, 0)
+            UIGraphicsBeginImageContextWithOptions(size, false, 1)
 
             context = UIGraphicsGetCurrentContext()
         #endif
