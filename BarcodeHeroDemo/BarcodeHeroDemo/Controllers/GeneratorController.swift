@@ -7,6 +7,11 @@ import Foundation
 import UIKit
 
 class GeneratorController: UIViewController {
+    // MARK: - Constants
+    
+    // TODO: Make this configurable on the controller display
+    private static let debugColorsEnabled = false
+    
     // MARK: - Properties
 
     @IBOutlet private var alertLabel: UILabel!
@@ -88,8 +93,17 @@ class GeneratorController: UIViewController {
     func regenerateBarcode() {
         do {
             self.alertView?.isHidden = true
+            
+            var options: BHBarcodeOptions?
+            
+            // If debug colors are enabled, this will draw codes with a blue stroke on a red background
+            if #available(iOS 13.0, *), Self.debugColorsEnabled {
+                options = BHBarcodeOptions(fillColor: CGColor(srgbRed: 1, green: 0, blue: 0, alpha: 1),
+                                           strokeColor: CGColor(srgbRed: 0, green: 0, blue: 1, alpha: 1),
+                                           filterParameters: nil)
+            }
 
-            let cgImage = try BHBarcodeGenerator.generate(self.type, withData: self.data)
+            let cgImage = try BHBarcodeGenerator.generate(self.type, withData: self.data, options: options)
             let image = try UIImage(cgImage: cgImage).bh_resizedTo(self.barcodeImageView)
 
             self.barcodeImageView?.image = image

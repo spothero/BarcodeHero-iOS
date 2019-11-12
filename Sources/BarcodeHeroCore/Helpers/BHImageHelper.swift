@@ -9,6 +9,23 @@ import Foundation
 #endif
 
 class BHImageHelper {
+    /// The default top spacing of the CIImage generated AVMetadataObjectTypePDF417Code type image
+    private static let topSpacing: CGFloat = 0
+    
+    /// The default top spacing of the CIImage generated AVMetadataObjectTypePDF417Code type image
+    private static let bottomSpacing: CGFloat = 0
+    
+    /// The default height of the CIImage generated AVMetadataObjectTypePDF417Code type image
+    private static let height: CGFloat = 28
+    
+    /// The default line width for a 1D barcode
+    private static let lineWidth: CGFloat = 1
+    
+    // TODO: For now, we're not use Quiet Zone spacing and we're expecting the client to adjust padding on their own
+    /// The spacing to provide to the quiet zone all around
+    /// For 1D barcodes, this should be 10 times the width of the narrowest bar or 1/8 inch, whichever is greater
+    private static let quietZoneSpacing: CGFloat = 0 // Self.lineWidth * 10
+    
     static func draw(_ data: String, options: BHBarcodeOptions? = nil) throws -> CGImage? {
         guard !data.isEmpty else {
             throw BHError.dataRequired
@@ -16,12 +33,7 @@ class BHImageHelper {
 
         let options = options ?? BHBarcodeOptions()
 
-        // Values taken from CIImage generated AVMetadataObjectTypePDF417Code type image
-        // Top spacing          = 1.5
-        // Bottom spacing       = 2
-        // Left & right spacing = 2
-        // Height               = 28
-        let size = CGSize(width: data.count + 4, height: 28)
+        let size = CGSize(width: CGFloat(data.count) + (Self.quietZoneSpacing * 2), height: Self.height)
 
         guard let context = CGContext.from(size: size) else {
             throw BHError.couldNotGetGraphicsContext
@@ -38,16 +50,17 @@ class BHImageHelper {
         }
 
         context.fill(CGRect(origin: .zero, size: size))
-        context.setLineWidth(1)
+        context.setLineWidth(Self.lineWidth)
 
         for index in 0 ..< data.count {
+            // 1 implies that nothing is drawn ("quiet zone")
             guard data[index] == "1" else {
                 continue
             }
 
-            let x = index + (2 + 1)
-            context.move(to: CGPoint(x: CGFloat(x), y: 1.5))
-            context.addLine(to: CGPoint(x: CGFloat(x), y: size.height - 2))
+            let x = CGFloat(index) + (Self.quietZoneSpacing + 1)
+            context.move(to: CGPoint(x: x, y: Self.topSpacing))
+            context.addLine(to: CGPoint(x: x, y: size.height - Self.bottomSpacing))
         }
 
         context.drawPath(using: CGPathDrawingMode.fillStroke)
