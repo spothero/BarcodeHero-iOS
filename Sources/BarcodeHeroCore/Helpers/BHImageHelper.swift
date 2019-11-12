@@ -144,8 +144,12 @@ class BHImageHelper {
                 throw BHError.couldNotGetGraphicsContext
             }
 
-//        context.setShouldAntialias(false)
             context.interpolationQuality = CGInterpolationQuality.none
+            
+            // this puts the origin of the coordinate system into the top-left for drawing,
+            // which makes 2D codes orient properly when drawn
+            context.translateBy(x: 0, y: height)
+            context.scaleBy(x: 1, y: -1)
 
             context.draw(image, in: CGRect(x: x, y: y, width: width, height: height))
 
