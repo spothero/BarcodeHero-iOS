@@ -9,7 +9,8 @@ import UIKit
 class GeneratorController: UIViewController {
     // MARK: - Constants
     
-    private static let debugColorsEnabled = true
+    // TODO: Make this configurable on the controller display
+    private static let debugColorsEnabled = false
     
     // MARK: - Properties
 
