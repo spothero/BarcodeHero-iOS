@@ -15,18 +15,16 @@ class BHImageHelper {
     /// The default top spacing of the CIImage generated AVMetadataObjectTypePDF417Code type image
     private static let bottomSpacing: CGFloat = 0
     
-    /// The default left and right spacing of the CIImage generated AVMetadataObjectTypePDF417Code type image
-    private static let sideSpacing: CGFloat = 0
-    
     /// The default height of the CIImage generated AVMetadataObjectTypePDF417Code type image
     private static let height: CGFloat = 28
     
     /// The default line width for a 1D barcode
     private static let lineWidth: CGFloat = 1
     
+    // TODO: For now, we're not use Quiet Zone spacing and we're expecting the client to adjust padding on their own
     /// The spacing to provide to the quiet zone all around
     /// For 1D barcodes, this should be 10 times the width of the narrowest bar or 1/8 inch, whichever is greater
-    private static let quietZoneSpacing: CGFloat = Self.lineWidth * 10
+    private static let quietZoneSpacing: CGFloat = 0 // Self.lineWidth * 10
     
     static func draw(_ data: String, options: BHBarcodeOptions? = nil) throws -> CGImage? {
         guard !data.isEmpty else {
@@ -35,7 +33,7 @@ class BHImageHelper {
 
         let options = options ?? BHBarcodeOptions()
 
-        let size = CGSize(width: CGFloat(data.count) + (Self.sideSpacing * 2), height: Self.height)
+        let size = CGSize(width: CGFloat(data.count) + (Self.quietZoneSpacing * 2), height: Self.height)
 
         guard let context = CGContext.from(size: size) else {
             throw BHError.couldNotGetGraphicsContext
@@ -60,7 +58,7 @@ class BHImageHelper {
                 continue
             }
 
-            let x = CGFloat(index) + (Self.sideSpacing + 1)
+            let x = CGFloat(index) + (Self.quietZoneSpacing + 1)
             context.move(to: CGPoint(x: x, y: Self.topSpacing))
             context.addLine(to: CGPoint(x: x, y: size.height - Self.bottomSpacing))
         }
