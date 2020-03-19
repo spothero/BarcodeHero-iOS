@@ -3,7 +3,7 @@
 Pod::Spec.new do |spec|
   # Root Specification
   spec.name     = 'BarcodeHero'
-  spec.version  = '0.6.0'
+  spec.version  = '0.7.0'
 
   spec.swift_versions = ['5.0', '5.1']
 
