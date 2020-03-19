@@ -36,6 +36,9 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
 //            for parameter in filterParameters {
 //                filter.setValue(parameter.value, forKey: parameter.key)
 //            }
+        } else if barcodeType == .code128 {
+            // TODO: We are replacing the native quiet zone here, figure out a better way to load defaults
+            BHCode128FilterParameters().loadInto(filter)
         }
 
 //        switch barcodeType {
