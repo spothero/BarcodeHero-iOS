@@ -1,7 +1,8 @@
 // Copyright © 2019 SpotHero, Inc. All rights reserved.
 
-import CoreImage
-import Foundation
+#if canImport(CoreImage)
+    import CoreImage
+    import Foundation
 
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator
 public struct BHPDF417FilterParameters: BHFilterParameterizable {
@@ -33,3 +34,5 @@ public struct BHPDF417FilterParameters: BHFilterParameterizable {
         ])
     }
 }
+
+#endif

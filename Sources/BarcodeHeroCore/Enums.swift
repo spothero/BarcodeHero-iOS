@@ -24,7 +24,9 @@ public enum BHBarcodeType: String, CaseIterable {
     public var isNative: Bool {
         return [.aztec, .code128, .pdf417, .qr].contains(self)
     }
-
+    
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     public var metadataObjectType: AVMetadataObject.ObjectType? {
         switch self {
         case .aztec:
@@ -61,7 +63,9 @@ public enum BHBarcodeType: String, CaseIterable {
             return .upce
         }
     }
-
+    
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     init?(metadataObjectType: AVMetadataObject.ObjectType) {
         switch metadataObjectType {
         case .aztec:

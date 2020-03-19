@@ -1,6 +1,6 @@
 // Copyright © 2019 SpotHero, Inc. All rights reserved.
 
-#if canImport(UIKit)
+#if canImport(UIKit) && (os(iOS) || targetEnvironment(macCatalyst))
 
     import Foundation
     import UIKit

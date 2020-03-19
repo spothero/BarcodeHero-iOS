@@ -1,9 +1,12 @@
 // Copyright © 2019 SpotHero, Inc. All rights reserved.
 
+#if canImport(CoreImage)
 import CoreGraphics
-import CoreImage
-import Foundation
+    import CoreImage
+    import Foundation
 
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
 class BHNativeBarcodeGenerator: BHBarcodeGenerating {
     // MARK: - Properties
 
@@ -85,3 +88,5 @@ class BHNativeBarcodeGenerator: BHBarcodeGenerating {
         //        return UIImage(cgImage: cgImage, scale: 1, orientation: UIImageOrientation.up)
     }
 }
+
+#endif

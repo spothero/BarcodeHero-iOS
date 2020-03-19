@@ -15,12 +15,13 @@ public enum BHError: Error {
     case dataRequired
     case indexOutOfBounds
     case invalidData(String, for: BHBarcodeType)
-    case invalidMetadataObjectType(AVMetadataObject.ObjectType)
+    case invalidMetadataObjectType(String)
     case invalidType(BHBarcodeType)
     case metadataObjectTypeRequired
     case nonNativeType(BHBarcodeType)
     case typeRequired
 //    case unknown
+    
 }
 
 extension BHError: LocalizedError {
@@ -49,7 +50,7 @@ extension BHError: LocalizedError {
         case let .invalidData(data, barcodeType):
             return "Data '\(data)' is invalid for barcode type '\(barcodeType.rawValue)'."
         case let .invalidMetadataObjectType(metadataObjectType):
-            return "Metadata object type '\(metadataObjectType.rawValue)' is invalid."
+            return "Metadata object type '\(metadataObjectType)' is invalid."
         case let .invalidType(barcodeType):
             return "Barcode type '\(barcodeType.rawValue)' is invalid."
         case .metadataObjectTypeRequired:

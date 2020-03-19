@@ -1,8 +1,11 @@
 // Copyright © 2019 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
-import CoreImage
 import Foundation
+
+#if canImport(CoreImage)
+    import CoreImage
+#endif
 
 #if canImport(UIKit)
     import UIKit
@@ -89,9 +92,10 @@ class BHImageHelper {
 
 // MARK: BHImageHelper
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 
     extension BHImageHelper {
+        
         static func resize(_ image: CGImage,
                            toSize targetSize: CGSize,
                            forContentMode contentMode: UIView.ContentMode = .scaleAspectFit) throws -> CGImage {

@@ -1,7 +1,8 @@
 // Copyright © 2019 SpotHero, Inc. All rights reserved.
 
-import CoreImage
-import Foundation
+#if canImport(CoreImage)
+    import CoreImage
+    import Foundation
 
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
 public struct BHQRFilterParameters: BHFilterParameterizable {
@@ -11,3 +12,5 @@ public struct BHQRFilterParameters: BHFilterParameterizable {
         filter.setValue(self.inputCorrectionLevel, forKey: BHQRFilterParameterKey.inputCorrectionLevel.rawValue)
     }
 }
+
+#endif

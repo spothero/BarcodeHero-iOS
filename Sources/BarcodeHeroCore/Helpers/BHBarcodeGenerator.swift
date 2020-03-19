@@ -20,7 +20,9 @@ public class BHBarcodeGenerator {
 
         return try generator.generate(barcodeType, withData: data, options: options)
     }
-
+    
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     public class func generate(_ metadataObjectType: AVMetadataObject.ObjectType?,
                                withData data: String?,
                                options: BHBarcodeOptions? = nil) throws -> CGImage {
@@ -29,7 +31,7 @@ public class BHBarcodeGenerator {
         }
 
         guard let barcodeType = BHBarcodeType(metadataObjectType: metadataObjectType) else {
-            throw BHError.invalidMetadataObjectType(metadataObjectType)
+            throw BHError.invalidMetadataObjectType(metadataObjectType.rawValue)
         }
 
         return try self.generate(barcodeType, withData: data, options: options)
@@ -42,7 +44,11 @@ public class BHBarcodeGenerator {
 
         switch barcodeType {
         case .aztec, .code128, .pdf417, .qr:
+            #if os(tvOS) || os(watchOS)
+            return nil
+            #else
             return BHNativeBarcodeGenerator()
+            #endif
         case .code39, .code39Mod43:
             return BHCode39Generator()
         case .ean8, .ean13, .isbn13, .issn13:
