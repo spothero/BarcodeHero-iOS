@@ -1,8 +1,11 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
-import CoreImage
 import Foundation
+
+#if canImport(CoreImage)
+    import CoreImage
+#endif
 
 #if canImport(UIKit)
     import UIKit
@@ -11,21 +14,21 @@ import Foundation
 class BHImageHelper {
     /// The default top spacing of the CIImage generated AVMetadataObjectTypePDF417Code type image
     private static let topSpacing: CGFloat = 0
-    
+
     /// The default top spacing of the CIImage generated AVMetadataObjectTypePDF417Code type image
     private static let bottomSpacing: CGFloat = 0
-    
+
     /// The default height of the CIImage generated AVMetadataObjectTypePDF417Code type image
     private static let height: CGFloat = 28
-    
+
     /// The default line width for a 1D barcode
     private static let lineWidth: CGFloat = 1
-    
+
     // TODO: For now, we're not use Quiet Zone spacing and we're expecting the client to adjust padding on their own
     /// The spacing to provide to the quiet zone all around
     /// For 1D barcodes, this should be 10 times the width of the narrowest bar or 1/8 inch, whichever is greater
     private static let quietZoneSpacing: CGFloat = 0 // Self.lineWidth * 10
-    
+
     static func draw(_ data: String, options: BHBarcodeOptions? = nil) throws -> CGImage? {
         guard !data.isEmpty else {
             throw BHError.dataRequired
@@ -89,7 +92,7 @@ class BHImageHelper {
 
 // MARK: BHImageHelper
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 
     extension BHImageHelper {
         static func resize(_ image: CGImage,
@@ -158,7 +161,7 @@ class BHImageHelper {
             }
 
             context.interpolationQuality = CGInterpolationQuality.none
-            
+
             // this puts the origin of the coordinate system into the top-left for drawing,
             // which makes 2D codes orient properly when drawn
             context.translateBy(x: 0, y: height)

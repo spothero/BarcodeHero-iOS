@@ -1,8 +1,13 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
-import CoreImage
 import Foundation
 
+#if canImport(CoreImage)
+    import CoreImage
+#endif
+
 public protocol BHFilterParameterizable {
-    func loadInto(_ filter: CIFilter)
+    #if canImport(CoreImage)
+        func loadInto(_ filter: CIFilter)
+    #endif
 }

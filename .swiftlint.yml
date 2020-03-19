@@ -62,7 +62,8 @@ cyclomatic_complexity: # Complexity of function bodies should be limited.
   ignores_case_statements: true # ignores switch statements
 empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
 file_header:
-  required_pattern: "// Copyright © 2019 SpotHero, Inc. All rights reserved."
+  required_pattern: |
+    \/\/  Copyright © \d{4} SpotHero, Inc\. All rights reserved\.
 file_name: # File name should match a type or extension declared in the file (if any).
   excluded: ["Enums.swift"]
 file_length: # Files should not span too many lines.
@@ -105,9 +106,9 @@ type_body_length: # Type bodies should not span too many lines.
 
 excluded: # what folders should be excluded from analysis?
   # CocoaPods
-  - Pods 
+  - Pods
   # Swift Package Manager
-  - .build 
+  - .build
   - .swiftpm
   - Tests/LinuxMain.swift
   - "Tests/*/XCTestManifests.swift"

@@ -1,4 +1,4 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import Foundation
@@ -25,6 +25,8 @@ public enum BHBarcodeType: String, CaseIterable {
         return [.aztec, .code128, .pdf417, .qr].contains(self)
     }
 
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     public var metadataObjectType: AVMetadataObject.ObjectType? {
         switch self {
         case .aztec:
@@ -62,6 +64,8 @@ public enum BHBarcodeType: String, CaseIterable {
         }
     }
 
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     init?(metadataObjectType: AVMetadataObject.ObjectType) {
         switch metadataObjectType {
         case .aztec:
