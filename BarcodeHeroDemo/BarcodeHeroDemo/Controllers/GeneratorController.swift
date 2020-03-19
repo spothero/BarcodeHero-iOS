@@ -1,4 +1,4 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import BarcodeHeroCore
@@ -8,10 +8,10 @@ import UIKit
 
 class GeneratorController: UIViewController {
     // MARK: - Constants
-    
+
     // TODO: Make this configurable on the controller display
     private static let debugColorsEnabled = false
-    
+
     // MARK: - Properties
 
     @IBOutlet private var alertLabel: UILabel!
@@ -93,9 +93,9 @@ class GeneratorController: UIViewController {
     func regenerateBarcode() {
         do {
             self.alertView?.isHidden = true
-            
+
             var options: BHBarcodeOptions?
-            
+
             // If debug colors are enabled, this will draw codes with a blue stroke on a red background
             if #available(iOS 13.0, *), Self.debugColorsEnabled {
                 options = BHBarcodeOptions(fillColor: CGColor(srgbRed: 1, green: 0, blue: 0, alpha: 1),

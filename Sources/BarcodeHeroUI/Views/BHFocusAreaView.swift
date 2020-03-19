@@ -1,4 +1,4 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
 #if canImport(UIKit)
 
@@ -63,10 +63,10 @@
         }
 
         // MARK: Methods - Lifecycle
-        
+
         init() {
             super.init(frame: .zero)
-            
+
             self.translatesAutoresizingMaskIntoConstraints = false
 
             let stackView = UIStackView()
@@ -94,11 +94,11 @@
                 stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             ])
         }
-        
+
         required convenience init?(coder: NSCoder) {
             self.init()
         }
-        
+
         // MARK: Methods - Utilities
 
         func clear() {

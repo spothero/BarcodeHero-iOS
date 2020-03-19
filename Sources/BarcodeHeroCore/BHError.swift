@@ -1,4 +1,4 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import Foundation
@@ -21,7 +21,6 @@ public enum BHError: Error {
     case nonNativeType(BHBarcodeType)
     case typeRequired
 //    case unknown
-    
 }
 
 extension BHError: LocalizedError {

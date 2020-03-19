@@ -1,4 +1,4 @@
-// Copyright © 2019 SpotHero, Inc. All rights reserved.
+// Copyright © 2020 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import CoreGraphics
@@ -20,7 +20,7 @@ public class BHBarcodeGenerator {
 
         return try generator.generate(barcodeType, withData: data, options: options)
     }
-    
+
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
     public class func generate(_ metadataObjectType: AVMetadataObject.ObjectType?,
@@ -45,9 +45,9 @@ public class BHBarcodeGenerator {
         switch barcodeType {
         case .aztec, .code128, .pdf417, .qr:
             #if os(tvOS) || os(watchOS)
-            return nil
+                return nil
             #else
-            return BHNativeBarcodeGenerator()
+                return BHNativeBarcodeGenerator()
             #endif
         case .code39, .code39Mod43:
             return BHCode39Generator()
