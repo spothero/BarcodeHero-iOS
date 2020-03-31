@@ -1,0 +1,79 @@
+---
+format_version: '4'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+app:
+  envs:
+  - FASTLANE_XCODE_LIST_TIMEOUT: '120'
+  - opts:
+      is_expand: false
+    FASTLANE_WORK_DIR: "."
+  - GITHUB_USERNAME: spothero-ios-ci
+trigger_map:
+- push_branch: master
+  workflow: test_and_lint
+- pull_request_source_branch: "*"
+  pull_request_target_branch: master
+  workflow: test_and_lint
+- tag: "*"
+  workflow: deploy_on_tag
+workflows:
+  prepare:
+    steps:
+    - authenticate-with-github-oauth:
+        inputs:
+        - access_token: "$GITHUB_ACCESS_TOKEN"
+        - username: "$GITHUB_USERNAME"
+    - git-clone: {}
+    - script:
+        title: Set GEM_CACHE_PATH Environment Variable
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -ev
+
+            # setup so we can cache ruby gems: https://devcenter.bitrise.io/builds/caching/caching-ruby-gems/
+            RBENV_DIR="`cd $(rbenv which ruby)/../..;pwd`"
+            echo "Gem cache directory: $RBENV_DIR"
+            envman add --key GEM_CACHE_PATH --value $RBENV_DIR
+    - cache-pull: {}
+    - fastlane:
+        title: fastlane prepare
+        inputs:
+        - lane: prepare
+  test_and_lint:
+    steps:
+    - fastlane:
+        inputs:
+        - lane: test_and_lint
+        - work_dir: "$FASTLANE_WORK_DIR"
+        title: fastlane test_and_lint
+    before_run:
+    - prepare
+    after_run:
+    - deploy
+  deploy_on_tag:
+    steps:
+    - fastlane:
+        inputs:
+        - lane: pod_deploy_on_tag
+        - work_dir: "$FASTLANE_WORK_DIR"
+        title: fastlane pod_deploy_on_tag
+    before_run:
+    - prepare
+    after_run:
+    - deploy
+  deploy:
+    steps:
+    - deploy-to-bitrise-io:
+        inputs:
+        - notify_user_groups: admins
+    - cache-push:
+        inputs:
+        - cache_paths: |-
+            $BITRISE_CACHE_DIR
+            $GEM_CACHE_PATH
+            ./.build
+            ./.swiftpm
+    before_run: []
