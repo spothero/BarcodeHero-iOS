@@ -51,24 +51,25 @@ BarcodeHero is a library that allows you to generate and scan barcodes.
 
 ## Installation
 
+### Swift Package Manager
+
+(Swift Package Manager](https://swift.org/package-manager/) is built into the Swift toolchain and is our preferred way of integrating the SDK.
+
+For Swift package projects, simply add the following line to your `Package.swift` file in the `dependencies` section:
+
+```swift
+dependencies: [
+  .package(url: "https://github.com/spothero/BarcodeHero-iOS", .upToNextMajor(from: "0.5.0")),
+]
+```
+
+For app projects, simply follow the [Apple documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) on adding package dependencies to your app.
+
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. 
 
-```
-$ gem install cocoapods
-```
-
-BarcodeHero can be added to your project by adding the following line to your Podfile:
-
-```Ruby
-pod 'BarcodeHero', '~> 0.1'
-```
-
-For convenience, BarcodeHero is broken up into separate subspecs depending on functionality. 
-
-- `Core` is for barcode generation. It is included by default.
-- `UI` is for barcode scanning. It is dependent on the `Core` subspec.
+We no longer support CocoaPods for versions later then `0.5.0`. If you require CocoaPods support, please open an issue. 
 
 ## Usage
 
