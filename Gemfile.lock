@@ -302,7 +302,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.1.4)
-  cocoapods (~> 1.9.0)
+  cocoapods (~> 1.9.1)
   danger (~> 7.0.0)
   danger-rubocop (~> 0.7.2)
   danger-swiftlint (~> 0.24.1)

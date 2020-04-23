@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'bundler', '~> 2.1.4'
-gem 'cocoapods', '~> 1.9.0'
+gem 'cocoapods', '~> 1.9.1'
 gem 'danger', '~> 7.0.0'
 gem 'danger-rubocop', '~> 0.7.2'
 gem 'danger-swiftlint', '~> 0.24.1'
