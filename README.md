@@ -65,12 +65,6 @@ dependencies: [
 
 For app projects, simply follow the [Apple documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) on adding package dependencies to your app.
 
-### CocoaPods
-
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. 
-
-We no longer support CocoaPods for versions later then `0.5.0`. If you require CocoaPods support, please open an issue. 
-
 ## Usage
 
 You can easily generate a barcode by doing the following:
