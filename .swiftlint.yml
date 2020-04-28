@@ -63,7 +63,7 @@ cyclomatic_complexity: # Complexity of function bodies should be limited.
 empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
 file_header:
   required_pattern: |
-    \/\/  Copyright © \d{4} SpotHero, Inc\. All rights reserved\.
+    \/\/ Copyright © \d{4} SpotHero, Inc\. All rights reserved\.
 file_name: # File name should match a type or extension declared in the file (if any).
   excluded: ["Enums.swift"]
 file_length: # Files should not span too many lines.
