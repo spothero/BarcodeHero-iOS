@@ -6,37 +6,28 @@
 	objectVersion = 51;
 	objects = {
 
-/* Begin PBXFileReference section */
-		3471D5D5234BB8C900729A46 /* RunScriptHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RunScriptHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+/* Begin PBXAggregateTarget section */
+		34E5ABD124620FF50070A80B /* RunScriptHelper */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 34E5ABD224620FF50070A80B /* Build configuration list for PBXAggregateTarget "RunScriptHelper" */;
+			buildPhases = (
+				34E5ABD524620FFB0070A80B /* SwiftLint Script */,
+			);
+			dependencies = (
+			);
+			name = RunScriptHelper;
+			productName = RunScriptHelper;
+		};
+/* End PBXAggregateTarget section */
 
 /* Begin PBXGroup section */
 		34B63A9D234BAF7500D4F0A9 = {
 			isa = PBXGroup;
 			children = (
-				3471D5D5234BB8C900729A46 /* RunScriptHelper.framework */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		3471D5C9234BB4DB00729A46 /* RunScriptHelper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3471D5CF234BB4DB00729A46 /* Build configuration list for PBXNativeTarget "RunScriptHelper" */;
-			buildPhases = (
-				3471D5D2234BB51400729A46 /* SwiftLint Script */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RunScriptHelper;
-			productName = "SpotHeroAPI-Package";
-			productReference = 3471D5D5234BB8C900729A46 /* RunScriptHelper.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		34B63A9E234BAF7500D4F0A9 /* Project object */ = {
@@ -45,8 +36,8 @@
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "SpotHero, Inc.";
 				TargetAttributes = {
-					3471D5C9234BB4DB00729A46 = {
-						CreatedOnToolsVersion = 11.1;
+					34E5ABD124620FF50070A80B = {
+						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
 			};
@@ -63,13 +54,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3471D5C9234BB4DB00729A46 /* RunScriptHelper */,
+				34E5ABD124620FF50070A80B /* RunScriptHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3471D5D2234BB51400729A46 /* SwiftLint Script */ = {
+		34E5ABD524620FFB0070A80B /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -90,44 +81,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3471D5D0234BB4DB00729A46 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = ZW7QWR628D;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ".zinc/RunScriptHelper-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3471D5D1234BB4DB00729A46 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = ZW7QWR628D;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ".zinc/RunScriptHelper-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		34B63AAD234BAF7500D4F0A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -248,23 +201,41 @@
 			};
 			name = Release;
 		};
+		34E5ABD324620FF50070A80B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZW7QWR628D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		34E5ABD424620FF50070A80B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZW7QWR628D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3471D5CF234BB4DB00729A46 /* Build configuration list for PBXNativeTarget "RunScriptHelper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3471D5D0234BB4DB00729A46 /* Debug */,
-				3471D5D1234BB4DB00729A46 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		34B63AA1234BAF7500D4F0A9 /* Build configuration list for PBXProject "RunScriptHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34B63AAD234BAF7500D4F0A9 /* Debug */,
 				34B63AAE234BAF7500D4F0A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34E5ABD224620FF50070A80B /* Build configuration list for PBXAggregateTarget "RunScriptHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E5ABD324620FF50070A80B /* Debug */,
+				34E5ABD424620FF50070A80B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
