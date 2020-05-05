@@ -9,18 +9,18 @@ public class BHBarcodeGenerator {
         guard let barcodeType = barcodeType else {
             throw BHError.typeRequired
         }
-
+        
         guard let data = data else {
             throw BHError.dataRequired
         }
-
+        
         guard let generator = try getGenerator(for: barcodeType) else {
             throw BHError.couldNotGetGenerator(barcodeType)
         }
-
+        
         return try generator.generate(barcodeType, withData: data, options: options)
     }
-
+    
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
     public class func generate(_ metadataObjectType: AVMetadataObject.ObjectType?,
@@ -29,19 +29,19 @@ public class BHBarcodeGenerator {
         guard let metadataObjectType = metadataObjectType else {
             throw BHError.metadataObjectTypeRequired
         }
-
+        
         guard let barcodeType = BHBarcodeType(metadataObjectType: metadataObjectType) else {
             throw BHError.invalidMetadataObjectType(metadataObjectType.rawValue)
         }
-
+        
         return try self.generate(barcodeType, withData: data, options: options)
     }
-
+    
     private static func getGenerator(for barcodeType: BHBarcodeType?) throws -> BHBarcodeGenerating? {
         guard let barcodeType = barcodeType else {
             throw BHError.typeRequired
         }
-
+        
         switch barcodeType {
         case .aztec, .code128, .pdf417, .qr:
             #if os(tvOS) || os(watchOS)

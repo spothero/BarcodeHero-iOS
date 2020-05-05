@@ -10,10 +10,11 @@
 # Whitelisted Rules #
 #-------------------#
 
-# Use this section to opt-in to rules explicitly, whitelist rules 
-# Only rules included in this list can be used with SwiftFormat
+# Use this section to opt-in to rules explicitly
+# When rules in this list are enabled, no other rules will be run
 
-# --rules self
+# --rules redundantSelf
+# --rules trailingSpace
 
 #--------------------#
 # Rule Configuration #
@@ -28,11 +29,28 @@
 # sets the header block to supplied text
 --header "Copyright © {year} SpotHero, Inc. All rights reserved."
 
+# only trims whitespace on nonblank-lines to avoid xcode inconsistencies
+--trimwhitespace nonblank-lines
+
+# this removes the underscore (_) separation in large numbers
+--binarygrouping none
+--decimalgrouping none
+--hexgrouping none
+--octalgrouping none
+--exponentgrouping disabled
+--fractiongrouping disabled
+
 #----------------#
 # Disabled Rules #
 #----------------#
 
---disable specifiers # because it isn't configurable
+# Enforces consistent ordering for member specifiers
+# Disabled because this rule is non-configurable
+--disable specifiers 
+
+# Removes return within closures as well as the new Swift 5 implicit return 
+# Disabled because this rule is non-configurable
+--disable redundantReturn 
 
 #-----------------#
 # File Exclusions #
@@ -42,5 +60,7 @@
 --exclude .build
 --exclude .swiftpm
 --exclude Package.swift
+--exclude */Package.swift
 --exclude Tests/LinuxMain.swift
 --exclude "Tests/*/XCTestManifests.swift"
+--exclude "**/*/*+CoreDataProperties.swift"

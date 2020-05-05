@@ -5,17 +5,17 @@ import XCTest
 
 class BarcodeHeroCoreTests: XCTestCase {
     var testData: [(String, [BHBarcodeType])] = [("Example", [.qr])]
-
+    
     override func setUp() {
         super.setUp()
-
+        
         continueAfterFailure = true
     }
-
+    
     override func tearDown() {
         super.tearDown()
     }
-
+    
     func testNoThrow() {
         for type in BHBarcodeType.allCases {
             do {

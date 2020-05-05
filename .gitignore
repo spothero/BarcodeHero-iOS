@@ -78,7 +78,9 @@ fastlane/test_output
 fastlane/[Pp]rovisioning
 fastlane/report.xml
 fastlane/[Bb]uild
+fastlane/[Oo]utput
 fastlane/DerivedData
+fastlane/derived_data
 fastlane/screenshots
 fastlane/[Pp]review.html
 

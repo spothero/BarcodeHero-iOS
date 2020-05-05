@@ -5,14 +5,14 @@ import Foundation
 
 public struct BHBarcodeOptions {
     // MARK: Properties
-
+    
     public let fillColor: CGColor?
     public let strokeColor: CGColor?
-
+    
     public let filterParameters: BHFilterParameterizable?
-
+    
     // MARK: Initialization
-
+    
     /// Creates options used to create a barcode.
     /// - Parameter fillColor:          Color used to fill the background. Defaults to white.
     /// - Parameter strokeColor:        Color used to fill the foreground. Defaults to black.

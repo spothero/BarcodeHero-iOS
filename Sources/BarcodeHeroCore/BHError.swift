@@ -62,11 +62,11 @@ extension BHError: LocalizedError {
 //            return "An unknown error has occurred."
         }
     }
-
+    
     public var failureReason: String? {
         return nil
     }
-
+    
     public var recoverySuggestion: String? {
         return nil
     }

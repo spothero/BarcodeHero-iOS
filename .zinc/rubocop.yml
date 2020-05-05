@@ -11,6 +11,10 @@ AllCops:
     - '**/*.rb'
     - '**/*.podspec'
 
+# Matches SwiftLint line length
+Layout/LineLength:
+  Max: 150
+
 # ABC size = Assignment Branch Condition size, kind of like cyclomatic complexity
 # Fastlane as a whole kind of blows up when this is enabled, so we're turning it off (at least for now)
 Metrics/AbcSize:
@@ -19,10 +23,6 @@ Metrics/AbcSize:
 # We don't care about block length right now
 Metrics/BlockLength:
   Enabled: false
-
-# Matches SwiftLint line length
-Metrics/LineLength:
-  Max: 150
 
 # We don't care about method length right now
 Metrics/MethodLength:

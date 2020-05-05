@@ -4,12 +4,12 @@ import Foundation
 
 class BHCode39Generator {
     // MARK: - Properties
-
+    
     private static let acceptedCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%"
     private static let characterSet = CharacterSet(charactersIn: acceptedCharacters)
     private static let endMarker = "*"
     private static let startMarker: String = "*"
-
+    
     private static let characterEncodings = [
         "0": "1010011011010",
         "1": "1101001010110",
@@ -56,40 +56,40 @@ class BHCode39Generator {
         "%": "1010010010010",
         "*": "1001011011010",
     ]
-
+    
     // MARK: - Methods
-
+    
     private func encode(character: Character) throws -> String {
         guard let encodedCharacter = BHCode39Generator.characterEncodings[String(character)] else {
             throw BHError.characterEncodingNotFound(String(character))
         }
-
+        
         return encodedCharacter
     }
-
+    
     private func generateCheckDigit(for rawData: String) throws -> String {
         /**
          Step 1: From the table below, find the values of each character.
          C    O    D    E        3    9    <--Message characters
          12   24   13   14  38   3    9    <--Character values
-
+         
          Step 2: Sum the character values.
          12 + 24 + 13 + 14 + 38 + 3 + 9 = 113
-
+         
          Step 3: Divide the result by 43.
          113 / 43 = 11  with remainder of 27.
-
+         
          Step 4: From the table, find the character with this value.
          27 = R = Check Character
          */
         var sum = 0
-
+        
         for character in rawData {
             let index = try BHCode39Generator.acceptedCharacters.indexDistance(of: character)
-
+            
             sum += index
         }
-
+        
         // 43 = CODE39_ALPHABET_STRING's length - 1 -- excludes asterisk
         return BHCode39Generator.acceptedCharacters[sum % (BHCode39Generator.acceptedCharacters.count - 1)]
     }
@@ -101,32 +101,32 @@ extension BHCode39Generator: BHBarcodeGenerating {
     var acceptedTypes: [BHBarcodeType] {
         return [.code39, .code39Mod43]
     }
-
+    
     func encode(_ rawData: String, for barcodeType: BHBarcodeType) throws -> String {
         var rawData = rawData
-
+        
         if barcodeType == .code39Mod43 {
             rawData += try self.generateCheckDigit(for: rawData)
         }
-
+        
         rawData = BHCode39Generator.startMarker + rawData + BHCode39Generator.endMarker
-
+        
         return try rawData.map { try encode(character: $0) }.joined()
     }
-
+    
     func isValid(_ rawData: String, for barcodeType: BHBarcodeType) throws -> Bool {
         guard self.acceptedTypes.contains(barcodeType) else {
             throw BHError.invalidType(barcodeType)
         }
-
+        
         guard !rawData.isEmpty else {
             throw BHError.dataRequired
         }
-
+        
         guard rawData.rangeOfCharacter(from: BHCode39Generator.characterSet.inverted) == nil else {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
-
+        
         return true
     }
 }

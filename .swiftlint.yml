@@ -1,12 +1,13 @@
 # Updated for v0.34.0
 
 disabled_rules:
-  # We run the swift_combined_lint_run_script.sh which handles TODO/FIXME/WARN/WARNING independently, so we want to disable this.
+  - number_separator # Underscores should be used as thousand separator in large decimal numbers.
   - todo # TODOs and FIXMEs should be resolved.
+  - trailing_closure # Trailing closure syntax should be used whenever possible.
 
 opt_in_rules:
   - anyobject_protocol # Prefer using AnyObject over class for class-only protocols.
-  - array_init #Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
+  - array_init # Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
   - attributes # Attributes should be on their own lines in functions and types, but on the same line as variables and imports.
   - closure_end_indentation # Closure end should have the same indentation as the line that started it.
   - closure_spacing # Closure expressions should have a single space inside each brace.
@@ -23,6 +24,7 @@ opt_in_rules:
   - first_where # "Prefer using `.first(where:)` over `.filter { }.first` in collections.
   - force_unwrapping # Force unwrapping should be avoided.
   - function_default_parameter_at_end # Prefer to locate parameters with defaults toward the end of the parameter list.
+  - function_parameter_count # Number of function parameters should be low.
   - identical_operands # Comparing two identical operands is likely a mistake.
   - implicitly_unwrapped_optional # Implicitly unwrapped optionals should be avoided when possible.
   - joined_default_parameter # Discouraged explicit usage of the default separator.
@@ -63,7 +65,7 @@ cyclomatic_complexity: # Complexity of function bodies should be limited.
 empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
 file_header:
   required_pattern: |
-    \/\/  Copyright © \d{4} SpotHero, Inc\. All rights reserved\.
+    \/\/ Copyright © \d{4} SpotHero, Inc\. All rights reserved\.
 file_name: # File name should match a type or extension declared in the file (if any).
   excluded: ["Enums.swift"]
 file_length: # Files should not span too many lines.
@@ -74,6 +76,9 @@ force_try: warning # Force tries should be avoided.
 function_body_length: # Functions' bodies should not span too many lines.
   warning: 100
   error: 200
+function_parameter_count:
+  warning: 7
+  error: 9
 identifier_name: # Identifier names should only contain alphanumeric characters and start with a lowercase character or should only contain capital letters.
   allowed_symbols:
     - _
@@ -106,9 +111,9 @@ type_body_length: # Type bodies should not span too many lines.
 
 excluded: # what folders should be excluded from analysis?
   # CocoaPods
-  - Pods
+  - Pods 
   # Swift Package Manager
-  - .build
+  - .build 
   - .swiftpm
   - Tests/LinuxMain.swift
   - "Tests/*/XCTestManifests.swift"
