@@ -2,9 +2,7 @@
 
 BarcodeHero is a library that allows you to generate and scan barcodes.
 
->:warning: SpotHero uses this library in Production, but the code in this library has been open-sourced as-is. As such, it lack the documentation, stability, and functionality necessary to support external use.
->
-> While we work on improving this codebase, **use this library at your own risk** and please [reach out](#communication) if you have any questions or feedback.
+>:warning: SpotHero uses this library in Production, but the code in this library has been open-sourced as-is. As such, it lack the documentation, stability, and functionality necessary to support external use. While we work on improving this codebase, **use this library at your own risk** and please [reach out](#communication) if you have any questions or feedback.
 
 - [Features](#features)
 - [Formats](#formats)
