@@ -2,6 +2,10 @@
 
 BarcodeHero is a library that allows you to generate and scan barcodes.
 
+>:warning: SpotHero uses this library in Production, but the code in this library has been open-sourced as-is. As such, it lack the documentation, stability, and functionality necessary to support external use.
+>
+> While we work on improving this codebase, **use this library at your own risk** and please [reach out](#communication) if you have any questions or feedback.
+
 - [Features](#features)
 - [Formats](#formats)
 - [Requirements](#requirements)
@@ -14,8 +18,8 @@ BarcodeHero is a library that allows you to generate and scan barcodes.
 - [x] Generates images for numerous barcode types.
 - [x] Validates barcode data prior to generation.
 - [x] Handles errors with ease. (Nearly every method is marked with `throws` and errors are clear and concise.)
-- [x] Separates subspecs by function so you only take what you need.
-- [ ] Contains a camera scan controller for easy implementation into your own app. (In the UI subspec only!)
+- [x] Separates submodules by function so you only take what you need.
+- [x] Contains a camera scan controller for easy implementation into your own app.
 
 ## Formats
 
@@ -67,9 +71,9 @@ For app projects, simply follow the [Apple documentation](https://developer.appl
 
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. 
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
 
-We no longer support CocoaPods for versions later then `0.5.0`. If you require CocoaPods support, please open an issue. 
+We no longer support CocoaPods for versions later then `0.5.0`.
 
 ## Usage
 
@@ -88,4 +92,4 @@ try image.resizeTo(CGSize(width: 100, height: 20), forContentMode: .scaleAspectF
 
 ## Communication
 
-For all bugs, feature requests, and communication, please open an issue for the time being.
+For all bug reports, feature requests, and general communication, please open an issue to get in contact with us.

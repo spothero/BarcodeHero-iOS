@@ -7,8 +7,6 @@ files:
   # GitHub
   - source_path: Tools/GitHub/CODEOWNERS
     destination_path: .github
-  - source_path: Tools/GitHub/pull_request_template.md
-    destination_path: .github
   - source_path: Tools/GitHub/.gitignore
   # Rubocop
   - source_path: Tools/Rubocop/rubocop.yml
@@ -17,9 +15,6 @@ files:
   - source_path: Tools/SwiftLint/.swiftlint.yml
   # SwiftFormat
   - source_path: Tools/SwiftFormat/.swiftformat
-  # Xcode
-  - source_path: Applications/Xcode/RunScriptHelper-Info.plist
-    destination_path: .zinc
   # Scripts
   - source_path: Scripts/onboard.sh
     destination_path: scripts
