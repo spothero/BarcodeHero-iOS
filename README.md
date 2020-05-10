@@ -21,7 +21,7 @@ BarcodeHero is a library that allows you to generate and scan barcodes.
 
 ## Formats
 
-#### Supported
+### Supported
 
 - [x] Aztec (native)
 - [x] Code 39
@@ -35,7 +35,7 @@ BarcodeHero is a library that allows you to generate and scan barcodes.
 - [x] QR (native)
 - [x] UPC-E
 
-#### Unsupported
+### Unsupported
 
 - [ ] Codabar
 - [ ] Code 39 Extended
@@ -55,7 +55,7 @@ BarcodeHero is a library that allows you to generate and scan barcodes.
 
 ### Swift Package Manager
 
-(Swift Package Manager](https://swift.org/package-manager/) is built into the Swift toolchain and is our preferred way of integrating the SDK.
+[Swift Package Manager](https://swift.org/package-manager/) is built into the Swift toolchain and is our preferred way of integrating the SDK.
 
 For Swift package projects, simply add the following line to your `Package.swift` file in the `dependencies` section:
 
