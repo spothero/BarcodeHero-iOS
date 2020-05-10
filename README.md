@@ -1,5 +1,7 @@
 # BarcodeHero
 
+[![Build Status](https://app.bitrise.io/app/1cf58c896f098057/status.svg?token=M8gTwC85GIPeOnsEVC5VqA)](https://app.bitrise.io/app/1cf58c896f098057)
+
 BarcodeHero is a library that allows you to generate and scan barcodes.
 
 >:warning: The code in this library has been provided as-is. SpotHero uses this library in Production, but it may lack the documentation, stability, and functionality necessary to support external use. While we work on improving this codebase, **use this library at your own risk** and please [reach out](#communication) if you have any questions or feedback.
@@ -61,7 +63,7 @@ For Swift package projects, simply add the following line to your `Package.swift
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/spothero/BarcodeHero-iOS", .upToNextMajor(from: "0.5.0")),
+  .package(url: "https://github.com/spothero/BarcodeHero-iOS", .upToNextMajor(from: "<version>")),
 ]
 ```
 
