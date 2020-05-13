@@ -3,7 +3,7 @@
 [![CI Status](https://github.com/spothero/BarcodeHero-iOS/workflows/CI/badge.svg)](https://github.com/spothero/BarcodeHero-iOS/actions?query=workflow%3A%22CI%22)
 [![Latest Release](https://img.shields.io/github/v/tag/spothero/BarcodeHero-iOS?color=blue&label=latest)](https://github.com/spothero/BarcodeHero-iOS/releases)
 [![Swift Version](https://img.shields.io/static/v1?label=swift&message=5.2&color=red&logo=swift&logoColor=white)](https://developer.apple.com/swift)
-[![Platform Support](https://img.shields.io/static/v1?label=platform&message=iOS%20|%20macOS%20|%20watchOS%20|%20tvOS&color=darkgray)](https://github.com/spothero/BarcodeHero-iOS/blob/master/Package.swift)
+[![Platform Support](https://img.shields.io/static/v1?label=platform&message=iOS%20|%20macOS&color=darkgray)](https://github.com/spothero/BarcodeHero-iOS/blob/master/Package.swift)
 [![License](https://img.shields.io/github/license/spothero/BarcodeHero-iOS)](https://github.com/spothero/BarcodeHero-iOS/blob/master/LICENSE)
 
 BarcodeHero is a library that allows you to generate and scan barcodes.

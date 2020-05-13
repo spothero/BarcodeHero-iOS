@@ -92,7 +92,7 @@ class BHImageHelper {
 
 // MARK: BHImageHelper
 
-#if canImport(UIKit) && !os(watchOS)
+#if !os(watchOS) && canImport(UIKit)
     
     extension BHImageHelper {
         static func resize(_ image: CGImage,

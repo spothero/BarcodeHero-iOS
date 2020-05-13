@@ -1,6 +1,6 @@
 // Copyright © 2020 SpotHero, Inc. All rights reserved.
 
-#if canImport(UIKit)
+#if !os(watchOS) && canImport(UIKit)
     
     import AVFoundation
     import Foundation
