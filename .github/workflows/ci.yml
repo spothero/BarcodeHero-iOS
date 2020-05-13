@@ -84,24 +84,6 @@ jobs:
   #       with:
   #         name: "macOS Catalyst Output"
   #         path: ${{ env.DEPLOY_DIRECTORY }}
-  tvOS:
-    name: tvOS ${{ matrix.os }} ${{ matrix.device_name }}
-    runs-on: macos-latest
-    needs: [lint]
-    strategy:
-      matrix:
-        device_name: ["Apple TV 4K"]
-        os: [13.4]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Run Tests
-        run: sh ./scripts/xcode_build.sh "name=${{ matrix.device_name }},OS=${{ matrix.os }},platform=tvOS Simulator"
-      - name: Upload Step Output
-        uses: actions/upload-artifact@v1
-        with:
-          name: "tvOS ${{ matrix.os }} ${{ matrix.device_name }} Output"
-          path: ${{ env.DEPLOY_DIRECTORY }}
   spm:
     name: SPM
     runs-on: macos-latest
