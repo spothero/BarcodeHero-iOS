@@ -19,4 +19,4 @@ set -o pipefail &&
 #     COMPILER_INDEX_STORE_ENABLE=NO \
 #     GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES \
 #     GCC_GENERATE_TEST_COVERAGE_FILES=YES \
-#     xcpretty -color --report html --output output/xcode-test-results-BarcodeHero.html
+#     xcpretty -color --report html --output output/xcode-test-results-UtilityBelt.html
