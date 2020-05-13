@@ -10,19 +10,21 @@ files:
   - source_path: Tools/GitHub/.gitignore
   # Rubocop
   - source_path: Tools/Rubocop/rubocop.yml
-    destination_path: .zinc
+    name: .rubocop.yml
   # SwiftLint
   - source_path: Tools/SwiftLint/.swiftlint.yml
   # SwiftFormat
   - source_path: Tools/SwiftFormat/.swiftformat
   # Scripts
+  - source_path: Scripts/danger_lint.sh
+    destination_path: scripts
   - source_path: Scripts/onboard.sh
     destination_path: scripts
-  - source_path: Scripts/combined_lint_run_script.rb
+  - source_path: Scripts/swift_build.sh
     destination_path: scripts
-  - source_path: Scripts/swiftlint_run_script.rb
+  - source_path: Scripts/swiftlint_run_script.sh
     destination_path: scripts
-  - source_path: Scripts/todo_warning_run_script.rb
+  - source_path: Scripts/xcode_build.sh
     destination_path: scripts
   # Git Hooks
   - source_path: Scripts/git-hooks/pre-commit
