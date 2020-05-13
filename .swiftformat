@@ -4,7 +4,7 @@
 # SwiftFormat Options #
 #---------------------#
 
---swiftversion 5.1
+--swiftversion 5.2
 
 #-------------------#
 # Whitelisted Rules #

@@ -1,6 +1,6 @@
 // Copyright © 2020 SpotHero, Inc. All rights reserved.
 
-#if canImport(UIKit)
+#if !os(watchOS) && canImport(UIKit)
     
     import AVFoundation
     import Foundation
@@ -9,6 +9,8 @@
     #warning("TODO: Make the controller work well in any orientation.")
     
     @available(iOS 9.0, *)
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     open class BHCameraScanController: UIViewController {
         // MARK: Properties
         
@@ -18,7 +20,7 @@
             
             self.view.addSubview(backgroundView)
             
-            if #available(iOS 11.0, *) {
+            if #available(iOS 11.0, tvOS 11.0, *) {
                 NSLayoutConstraint.activate([
                     backgroundView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
                     backgroundView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
@@ -188,6 +190,8 @@
     // MARK: - Classes
     
     @available(iOS 9.0, *)
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     public protocol BHCameraScanControllerDelegate: AnyObject {
         func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController)
     }
@@ -195,6 +199,8 @@
     // MARK: - Extensions
     
     @available(iOS 9.0, *)
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
     extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
         public func metadataOutput(_ output: AVCaptureMetadataOutput,
                                    didOutput metadataObjects: [AVMetadataObject],

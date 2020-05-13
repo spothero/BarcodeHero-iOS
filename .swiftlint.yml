@@ -1,10 +1,12 @@
 # Updated for v0.34.0
 
+# Disabled Rules
 disabled_rules:
   - number_separator # Underscores should be used as thousand separator in large decimal numbers.
   - todo # TODOs and FIXMEs should be resolved.
   - trailing_closure # Trailing closure syntax should be used whenever possible.
 
+# Enabled Rules
 opt_in_rules:
   - anyobject_protocol # Prefer using AnyObject over class for class-only protocols.
   - array_init # Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
@@ -54,43 +56,46 @@ opt_in_rules:
   - unused_import # All imported modules should be required to make the file compile.
   - vertical_parameter_alignment_on_call # Function parameters should be aligned vertically if they're in multiple lines in a method call.
 
-analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+# Rules run by `swiftlint analyze` (experimental)
+analyzer_rules: 
   - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
   - unused_declaration # Declarations should be referenced at least once within all files linted.
 
-colon: # Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.
-  apply_to_dictionaries: false # we don't want this rule applied to dictionaries
-cyclomatic_complexity: # Complexity of function bodies should be limited.
+# Rule Configurations
+colon:
+  apply_to_dictionaries: false
+cyclomatic_complexity:
   ignores_case_statements: true # ignores switch statements
-empty_count: warning # Prefer checking `isEmpty` over comparing `count` to zero.
+empty_count:
+  severity: warning
 file_header:
   required_pattern: |
     \/\/ Copyright © \d{4} SpotHero, Inc\. All rights reserved\.
-file_name: # File name should match a type or extension declared in the file (if any).
+file_name:
   excluded: ["Enums.swift"]
-file_length: # Files should not span too many lines.
+file_length:
   warning: 1000
   error: 2000
-force_cast: warning # Force casts should be avoided.
-force_try: warning # Force tries should be avoided.
-function_body_length: # Functions' bodies should not span too many lines.
+force_cast: warning
+force_try: warning
+function_body_length:
   warning: 100
   error: 200
 function_parameter_count:
   warning: 7
   error: 9
-identifier_name: # Identifier names should only contain alphanumeric characters and start with a lowercase character or should only contain capital letters.
+identifier_name:
   allowed_symbols:
     - _
-  excluded: # whitelisted exceptions to the above rule
+  excluded:
     - id
     - x
     - y
     - i
-large_tuple: # Tuples shouldn't have too many members
+large_tuple:
   warning: 3
   error: 4
-line_length: # Lines should not span too many characters.
+line_length:
   warning: 150
   error: 400
   ignores_urls: true
@@ -99,21 +104,22 @@ nesting:
     warning: 2
   statement_level:
     warning: 4
-private_outlet: # IBOutlets should be private to avoid leaking UIKit to higher layers.
+private_outlet:
   allow_private_set: true
-trailing_comma: # Trailing commas in arrays and dictionaries should be avoided/enforced.
-  mandatory_comma: true # Trailing commas in arrays and dictionaries should be enforced.
-trailing_whitespace: #Lines should not have trailing whitespace.
+trailing_comma:
+  mandatory_comma: true
+trailing_whitespace:
   ignores_empty_lines: true
-type_body_length: # Type bodies should not span too many lines.
+type_body_length:
   warning: 1000
   error: 2000
 
-excluded: # what folders should be excluded from analysis?
+# File and Folder Exclusions
+excluded:
   # CocoaPods
-  - Pods 
+  - Pods
   # Swift Package Manager
-  - .build 
+  - .build
   - .swiftpm
   - Tests/LinuxMain.swift
   - "Tests/*/XCTestManifests.swift"
