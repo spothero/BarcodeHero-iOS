@@ -60,8 +60,6 @@ jobs:
     name: macOS
     runs-on: macos-latest
     needs: [lint]
-    env:
-      XCODEBUILD_SCHEME: "BarcodeHero macOS"
     steps:
       - name: Checkout
         uses: actions/checkout@v2

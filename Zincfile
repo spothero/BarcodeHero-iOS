@@ -2,8 +2,7 @@
 source: https://github.com/spothero/Shared-iOS.git
 files:
   # Danger
-  - source_path: Tools/Danger/Dangerfile
-    destination_path: .zinc
+  - source_path: Tools/Danger/Dangerfile-Lint
   # GitHub
   - source_path: Tools/GitHub/CODEOWNERS
     destination_path: .github
