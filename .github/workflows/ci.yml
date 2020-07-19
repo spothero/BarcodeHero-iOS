@@ -10,7 +10,7 @@ env:
   PACKAGE_NAME: BarcodeHero
   XCODEBUILD_WORKSPACE: BarcodeHero.xcworkspace
   XCODEBUILD_SCHEME: BarcodeHero
-  DEVELOPER_DIR: /Applications/Xcode_11.5.app/Contents/Developer
+  DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
   DEPLOY_DIRECTORY: deploy
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
       matrix:
         device_name: ["iPhone 11 Pro", "iPad Pro (11-inch) (2nd generation)"]
         os: [13.5]
-        xcode_version: [11.5]
+        xcode_version: [11.6]
         # The keys below are included as a one-off combination
         # include:
         #   - device_name: "iPhone SE (2nd generation)"
