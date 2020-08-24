@@ -16,6 +16,11 @@ let package = Package(
         .library(name: "BarcodeHero", targets: ["BarcodeHeroCore", "BarcodeHeroUI"]),
         .library(name: "BarcodeHeroCore", targets: ["BarcodeHeroCore"]),
         .library(name: "BarcodeHeroUI", targets: ["BarcodeHeroUI"]),
+        // Dynamic Libraries
+        // These libraries are required due to the Xcode 11.3+ static linking bug: https://bugs.swift.org/browse/SR-12303
+        .library(name: "BarcodeHeroDynamic", type: .dynamic, targets: ["BarcodeHeroCore", "BarcodeHeroUI"]),
+        .library(name: "BarcodeHeroCoreDynamic", type: .dynamic, targets: ["BarcodeHeroCore"]),
+        .library(name: "BarcodeHeroUIDynamic", type: .dynamic, targets: ["BarcodeHeroUI"]),
     ],
     dependencies: [],
     targets: [
