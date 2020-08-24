@@ -35,8 +35,8 @@ jobs:
     strategy:
       matrix:
         device_name: ["iPhone 11 Pro", "iPad Pro (11-inch) (2nd generation)"]
-        os: [13.4.1]
-        xcode_version: [11.4.1]
+        os: [13.6]
+        xcode_version: [11.6]
         # The keys below are included as a one-off combination
         # include:
         #   - device_name: "iPhone SE (2nd generation)"
