@@ -25,7 +25,8 @@ public class BHBarcodeGenerator {
     @available(watchOS, unavailable)
     public class func generate(_ metadataObjectType: AVMetadataObject.ObjectType?,
                                withData data: String?,
-                               options: BHBarcodeOptions? = nil) throws -> CGImage {
+                               options: BHBarcodeOptions? = nil) throws -> CGImage
+    {
         guard let metadataObjectType = metadataObjectType else {
             throw BHError.metadataObjectTypeRequired
         }

@@ -37,7 +37,8 @@ extension BHITFGenerator: BHBarcodeGenerating {
             let pair = try rawData.substring(index * 2, length: 2)
             
             guard let firstCharacterInPair = Int(pair[0]),
-                let secondCharacterInPair = Int(pair[1]) else {
+                  let secondCharacterInPair = Int(pair[1])
+            else {
                 continue
             }
             

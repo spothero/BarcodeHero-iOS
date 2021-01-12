@@ -78,7 +78,8 @@
             super.viewDidLoad()
             
             if let device = AVCaptureDevice.default(for: .video),
-                let input = try? AVCaptureDeviceInput(device: device) {
+               let input = try? AVCaptureDeviceInput(device: device)
+            {
                 try? device.lockForConfiguration()
                 
                 if device.isFocusModeSupported(.continuousAutoFocus) {
@@ -204,7 +205,8 @@
     extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
         public func metadataOutput(_ output: AVCaptureMetadataOutput,
                                    didOutput metadataObjects: [AVMetadataObject],
-                                   from connection: AVCaptureConnection) {
+                                   from connection: AVCaptureConnection)
+        {
             guard self.session.isRunning else {
                 return
             }

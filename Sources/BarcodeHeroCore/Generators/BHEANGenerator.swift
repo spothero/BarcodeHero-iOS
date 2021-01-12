@@ -98,7 +98,8 @@ extension BHEANGenerator: BHBarcodeGenerating {
         guard barcodeType == .ean8
             || barcodeType == .ean13
             || (barcodeType == .isbn13 && rawData.starts(with: "978"))
-            || (barcodeType == .issn13 && rawData.starts(with: "977")) else {
+            || (barcodeType == .issn13 && rawData.starts(with: "977"))
+        else {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
         

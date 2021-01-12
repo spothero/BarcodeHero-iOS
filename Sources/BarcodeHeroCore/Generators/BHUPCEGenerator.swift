@@ -131,7 +131,8 @@ extension BHUPCEGenerator: BHBarcodeGenerating {
         
         for index in 1 ..< rawData.count - 1 {
             guard let digit = Int(rawData[index]),
-                let sequenceBit = Int(sequence[index - 1]) else {
+                  let sequenceBit = Int(sequence[index - 1])
+            else {
                 continue
             }
             

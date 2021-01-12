@@ -3,8 +3,8 @@
 import Foundation
 import UIKit
 
-extension UITextField {
-    public func loadDropdownData(data: [String]) {
+public extension UITextField {
+    func loadDropdownData(data: [String]) {
         self.inputView = BHPickerView(pickerData: data, dropdownField: self)
     }
 }
