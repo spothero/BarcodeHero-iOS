@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 #if canImport(CoreImage)
     import CoreImage
@@ -12,9 +12,9 @@
         
         public func loadInto(_ filter: CIFilter) {
             filter.setValuesForKeys([
-                BHAztecFilterParameterKey.inputCompactStyle.rawValue: inputCompactStyle,
-                BHAztecFilterParameterKey.inputCorrectionLevel.rawValue: inputCorrectionLevel,
-                BHAztecFilterParameterKey.inputLayers.rawValue: inputLayers,
+                BHAztecFilterParameterKey.inputCompactStyle.rawValue: self.inputCompactStyle,
+                BHAztecFilterParameterKey.inputCorrectionLevel.rawValue: self.inputCorrectionLevel,
+                BHAztecFilterParameterKey.inputLayers.rawValue: self.inputLayers,
             ])
         }
     }

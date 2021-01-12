@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 // public let RSBarcodesTypeISBN13Code = "com.pdq.rsbarcodes.isbn13"
 // public let RSBarcodesTypeISSN13Code = "com.pdq.rsbarcodes.issn13"
