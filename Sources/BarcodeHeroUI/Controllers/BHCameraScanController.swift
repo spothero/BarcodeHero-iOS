@@ -78,8 +78,7 @@
             super.viewDidLoad()
             
             if let device = AVCaptureDevice.default(for: .video),
-               let input = try? AVCaptureDeviceInput(device: device)
-            {
+               let input = try? AVCaptureDeviceInput(device: device) {
                 try? device.lockForConfiguration()
                 
                 if device.isFocusModeSupported(.continuousAutoFocus) {

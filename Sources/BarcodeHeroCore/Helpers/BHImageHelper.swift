@@ -97,8 +97,7 @@ class BHImageHelper {
     extension BHImageHelper {
         static func resize(_ image: CGImage,
                            toSize targetSize: CGSize,
-                           forContentMode contentMode: UIView.ContentMode = .scaleAspectFit) throws -> CGImage
-        {
+                           forContentMode contentMode: UIView.ContentMode = .scaleAspectFit) throws -> CGImage {
             var x: CGFloat = 0
             var y: CGFloat = 0
             var width = targetSize.width

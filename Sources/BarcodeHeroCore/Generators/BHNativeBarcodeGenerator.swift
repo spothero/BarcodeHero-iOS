@@ -61,8 +61,7 @@
             
             if
                 let fillColor = options?.fillColor,
-                let strokeColor = options?.strokeColor
-            {
+                let strokeColor = options?.strokeColor {
                 // Create a color filter to pass the image through
                 let colorFilter = CIFilter(name: "CIFalseColor")
                 colorFilter?.setValue(filter.outputImage, forKey: BHColorFilterParameterKey.inputImage.rawValue)
