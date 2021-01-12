@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 // public let RSBarcodesTypeISBN13Code = "com.pdq.rsbarcodes.isbn13"
 // public let RSBarcodesTypeISSN13Code = "com.pdq.rsbarcodes.issn13"
@@ -98,7 +98,8 @@ extension BHEANGenerator: BHBarcodeGenerating {
         guard barcodeType == .ean8
             || barcodeType == .ean13
             || (barcodeType == .isbn13 && rawData.starts(with: "978"))
-            || (barcodeType == .issn13 && rawData.starts(with: "977")) else {
+            || (barcodeType == .issn13 && rawData.starts(with: "977"))
+        else {
             throw BHError.invalidData(rawData, for: barcodeType)
         }
         

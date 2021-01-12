@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 import AVFoundation
 import BarcodeHeroCore
@@ -31,7 +31,8 @@ class MultiGeneratorController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BarcodeCell",
-                                                       for: indexPath) as? BarcodeCell else {
+                                                       for: indexPath) as? BarcodeCell
+        else {
             return UITableViewCell()
         }
         

@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 #if canImport(CoreImage)
     import CoreGraphics
@@ -75,7 +75,8 @@
             
             guard
                 let ciImage = filterImage,
-                let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
+                let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
+            else {
                 throw BHError.couldNotCreateImage(barcodeType)
             }
             

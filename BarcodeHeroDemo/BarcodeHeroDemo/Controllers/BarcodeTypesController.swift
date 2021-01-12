@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 import BarcodeHeroCore
 import BarcodeHeroUI
@@ -18,7 +18,8 @@ class BarcodeTypesController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BarcodeTypeCell",
-                                                       for: indexPath) as? BarcodeTypeCell else {
+                                                       for: indexPath) as? BarcodeTypeCell
+        else {
             return UITableViewCell()
         }
         

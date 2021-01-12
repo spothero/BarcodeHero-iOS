@@ -1,4 +1,4 @@
-// Copyright © 2020 SpotHero, Inc. All rights reserved.
+// Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 #if !os(watchOS) && canImport(UIKit)
     
@@ -78,7 +78,7 @@
             super.viewDidLoad()
             
             if let device = AVCaptureDevice.default(for: .video),
-                let input = try? AVCaptureDeviceInput(device: device) {
+               let input = try? AVCaptureDeviceInput(device: device) {
                 try? device.lockForConfiguration()
                 
                 if device.isFocusModeSupported(.continuousAutoFocus) {

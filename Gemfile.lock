@@ -68,13 +68,13 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
-  bundler (~> 2.1.4)
   danger (~> 8.2.1)
   danger-swiftformat (~> 0.7.0)
   danger-swiftlint (~> 0.24.5)
   xcpretty (~> 0.3.0)
 
 BUNDLED WITH
-   2.1.4
+   2.2.2
