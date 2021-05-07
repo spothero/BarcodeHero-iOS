@@ -25,7 +25,7 @@ end
 
 def validate_pull_request
   # TODO: Validate that the right branch is being merged, etc.
-  # if branch_for_base == 'master' && branch_for_head != 'develop'
+  # if branch_for_base == 'main' && branch_for_head != 'develop'
   #   fail ''
   # end
 
