@@ -57,7 +57,7 @@ opt_in_rules:
   - vertical_parameter_alignment_on_call # Function parameters should be aligned vertically if they're in multiple lines in a method call.
 
 # Rules run by `swiftlint analyze` (experimental)
-analyzer_rules: 
+analyzer_rules:
   - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
   - unused_declaration # Declarations should be referenced at least once within all files linted.
 

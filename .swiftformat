@@ -45,15 +45,15 @@
 #----------------#
 
 # Enforces consistent ordering for member specifiers
-# Disabled because this rule is non-configurable.
---disable specifiers
+# Disabled because this rule is non-configurable
+--disable specifiers 
 
 # Removes return within closures as well as the new Swift 5 implicit return 
-# Disabled because this rule is non-configurable.
---disable redundantReturn
+# Disabled because this rule is non-configurable
+--disable redundantReturn 
 
-# Wraps the opening brace of multiline statements.
-# Disabled because this rule is non-configurable.
+# Wrap the opening brace of multiline statements
+# Disabled because this rule is non-configurable
 --disable wrapMultilineStatementBraces
 
 #-----------------#
