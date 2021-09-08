@@ -23,6 +23,8 @@
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
     open class BHBaseCameraScanController: UIViewController {
+        // MARK: Properties
+
         fileprivate let session = AVCaptureSession()
         private lazy var previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
         
@@ -95,6 +97,8 @@
             self.session.startRunning()
         }
         
+        /// A function that subclasses can use to update the UI of this view controller when new metadataObjects are recieved
+        /// - Parameter metadataObjects: The metadataObjects parsed from the video feed
         public func updateUI(with metadataObjects: [AVMetadataObject]) {
             // Subclasses can override
         }
