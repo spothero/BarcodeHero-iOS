@@ -23,7 +23,7 @@ class ReaderDelegationController: UIViewController {
     }
 }
 
-// MARK: -  BHCameraScanControllerDelegate
+// MARK: - BHCameraScanControllerDelegate
 
 extension ReaderDelegationController: BHCameraScanControllerDelegate {
     func didCapture(metadataObjects: [AVMetadataObject], from controller: BHBaseCameraScanController) {
