@@ -28,5 +28,7 @@ class MainViewController: UITableViewController {
 // MARK: - BHCameraScanControllerDelegate
 
 extension MainViewController: BHCameraScanControllerDelegate {
-    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHBaseCameraScanController) { }
+    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHBaseCameraScanController) {
+        // no-op
+    }
 }
