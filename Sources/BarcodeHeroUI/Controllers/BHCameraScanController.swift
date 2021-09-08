@@ -100,7 +100,7 @@
             self.hasLoaded = true
         }
         
-        public override func updateUI(with metadataObjects: [AVMetadataObject]) {
+        override public func updateUI(with metadataObjects: [AVMetadataObject]) {
             if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
                 self.focusAreaView.barcodeData = metadataObject.stringValue
                 self.focusAreaView.barcodeType = String(describing: metadataObject.type.rawValue)
@@ -108,4 +108,3 @@
         }
     }
 #endif
-

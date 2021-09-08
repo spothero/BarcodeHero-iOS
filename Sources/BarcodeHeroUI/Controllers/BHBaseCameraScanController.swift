@@ -17,7 +17,7 @@
         func didCapture(metadataObjects: [AVMetadataObject], from controller: BHBaseCameraScanController)
     }
 
-    // MARK: - Protocols
+    // MARK: - Classes
 
     @available(iOS 9.0, *)
     @available(tvOS, unavailable)
@@ -99,6 +99,8 @@
             // Subclasses can override
         }
     }
+    
+    // MARK: - Extensions
 
     @available(iOS 9.0, *)
     @available(tvOS, unavailable)
