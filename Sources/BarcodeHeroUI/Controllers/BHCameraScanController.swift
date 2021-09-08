@@ -54,11 +54,8 @@
         
         private let session = AVCaptureSession()
         
-//    private var dismissOnScan: Bool = false
-        private var hasLoaded: Bool = false
+        private var hasLoaded = false
         private var previewLayer: AVCaptureVideoPreviewLayer?
-//    private var startingBarTintColor: UIColor?
-//    private var startingTintColor: UIColor?
         
         public weak var delegate: BHCameraScanControllerDelegate?
         
@@ -102,7 +99,7 @@
             self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
             
             if let previewLayer = previewLayer {
-                view.layer.addSublayer(previewLayer)
+                self.view.layer.addSublayer(previewLayer)
             }
             
             self.focusAreaView.clear()
@@ -112,17 +109,8 @@
         
         override open func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            
-//        startingBarTintColor = navigationController?.navigationBar.barTintColor
-//        startingTintColor = navigationController?.navigationBar.tintColor
-            
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.tintColor = UIColor.white
-//        navigationController?.view.backgroundColor = .clear
-            
-            edgesForExtendedLayout = UIRectEdge.all
+
+            self.edgesForExtendedLayout = UIRectEdge.all
             
             self.session.startRunning()
             
@@ -139,10 +127,10 @@
             self.previewLayer?.frame = view.bounds
             self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             
-            view.bringSubviewToFront(self.backgroundView)
+            self.view.bringSubviewToFront(self.backgroundView)
             self.backgroundView.alpha = 0
             
-            view.bringSubviewToFront(self.focusAreaView)
+            self.view.bringSubviewToFront(self.focusAreaView)
             self.focusAreaView.alpha = 0
         }
         
@@ -170,10 +158,6 @@
             super.viewWillDisappear(animated)
             
             self.session.stopRunning()
-            
-            // navigationController?.navigationBar.barTintColor = startingBarTintColor
-            // navigationController?.navigationBar.tintColor = startingTintColor
-            // navigationController?.navigationBar.isTranslucent = false
         }
         
         // MARK: Methods - Utilities
