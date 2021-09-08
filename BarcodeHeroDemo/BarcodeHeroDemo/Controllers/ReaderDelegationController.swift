@@ -17,15 +17,16 @@ class ReaderDelegationController: UIViewController {
     }
     
     @IBAction private func onScanButtonTapped() {
-        let controller = BHCameraScanController()
-        controller.delegate = self
+        let controller = BHCameraScanController(delegate: self)
         
         show(controller, sender: nil)
     }
 }
 
+// MARK: -  BHCameraScanControllerDelegate
+
 extension ReaderDelegationController: BHCameraScanControllerDelegate {
-    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController) {
+    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHBaseCameraScanController) {
         let firstObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
         
         self.dataLabel?.text = firstObject?.stringValue

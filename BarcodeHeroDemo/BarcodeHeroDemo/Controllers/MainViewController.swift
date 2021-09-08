@@ -1,5 +1,6 @@
 // Copyright © 2021 SpotHero, Inc. All rights reserved.
 
+import AVFoundation
 import BarcodeHeroUI
 import UIKit
 
@@ -13,7 +14,7 @@ class MainViewController: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                let controller = BHCameraScanController()
+                let controller = BHCameraScanController(delegate: self)
                 show(controller, sender: nil)
             default:
                 break
@@ -22,4 +23,10 @@ class MainViewController: UITableViewController {
             break
         }
     }
+}
+
+// MARK: -  BHCameraScanControllerDelegate
+
+extension MainViewController: BHCameraScanControllerDelegate {
+    func didCapture(metadataObjects: [AVMetadataObject], from controller: BHBaseCameraScanController) { }
 }

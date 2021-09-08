@@ -1,19 +1,16 @@
 // Copyright © 2021 SpotHero, Inc. All rights reserved.
 
 #if !os(watchOS) && canImport(UIKit)
-    
     import AVFoundation
     import Foundation
     import UIKit
-    
-    #warning("TODO: Make the controller work well in any orientation.")
-    
+
     @available(iOS 9.0, *)
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
-    open class BHCameraScanController: UIViewController {
+    open class BHCameraScanController: BHBaseCameraScanController {
         // MARK: Properties
-        
+
         private lazy var backgroundView: UIView = {
             let backgroundView = UIView(frame: UIScreen.main.bounds)
             backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.65)
@@ -52,68 +49,20 @@
             return focusAreaView
         }()
         
-        private let session = AVCaptureSession()
-        
         private var hasLoaded = false
-        private var previewLayer: AVCaptureVideoPreviewLayer?
-        
-        public weak var delegate: BHCameraScanControllerDelegate?
-        
-        // MARK: Methods - Initializers
-        
-        public init() {
-            super.init(nibName: nil, bundle: nil)
-        }
-        
-        public required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-        }
-        
+    
         // MARK: Methods - Lifecycle
         
         override open func viewDidLoad() {
             super.viewDidLoad()
             
-            if let device = AVCaptureDevice.default(for: .video),
-               let input = try? AVCaptureDeviceInput(device: device) {
-                try? device.lockForConfiguration()
-                
-                if device.isFocusModeSupported(.continuousAutoFocus) {
-                    device.focusMode = .continuousAutoFocus
-                }
-                
-                if device.isAutoFocusRangeRestrictionSupported {
-                    device.autoFocusRangeRestriction = .near
-                }
-                
-                device.unlockForConfiguration()
-                
-                self.session.addInput(input)
-            }
-            
-            let output = AVCaptureMetadataOutput()
-            output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            self.session.addOutput(output)
-            output.metadataObjectTypes = output.availableMetadataObjectTypes
-            
-            self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
-            
-            if let previewLayer = previewLayer {
-                self.view.layer.addSublayer(previewLayer)
-            }
-            
             self.focusAreaView.clear()
-            
-            self.session.startRunning()
         }
         
         override open func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
 
             self.edgesForExtendedLayout = UIRectEdge.all
-            
-            self.session.startRunning()
-            
             self.focusAreaView.clear()
         }
         
@@ -123,9 +72,6 @@
             guard !self.hasLoaded else {
                 return
             }
-            
-            self.previewLayer?.frame = view.bounds
-            self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             
             self.view.bringSubviewToFront(self.backgroundView)
             self.backgroundView.alpha = 0
@@ -150,56 +96,16 @@
                 self.backgroundView.alpha = 1
                 self.focusAreaView.alpha = 1
             }
-            
+
             self.hasLoaded = true
         }
         
-        override open func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            
-            self.session.stopRunning()
-        }
-        
-        // MARK: Methods - Utilities
-        
-        public func stopCapturing() {
-            self.session.stopRunning()
-        }
-        
-        public func startCapturing() {
-            self.session.startRunning()
-        }
-    }
-    
-    // MARK: - Classes
-    
-    @available(iOS 9.0, *)
-    @available(tvOS, unavailable)
-    @available(watchOS, unavailable)
-    public protocol BHCameraScanControllerDelegate: AnyObject {
-        func didCapture(metadataObjects: [AVMetadataObject], from controller: BHCameraScanController)
-    }
-    
-    // MARK: - Extensions
-    
-    @available(iOS 9.0, *)
-    @available(tvOS, unavailable)
-    @available(watchOS, unavailable)
-    extension BHCameraScanController: AVCaptureMetadataOutputObjectsDelegate {
-        public func metadataOutput(_ output: AVCaptureMetadataOutput,
-                                   didOutput metadataObjects: [AVMetadataObject],
-                                   from connection: AVCaptureConnection) {
-            guard self.session.isRunning else {
-                return
-            }
-            
+        public override func updateUI(with metadataObjects: [AVMetadataObject]) {
             if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
                 self.focusAreaView.barcodeData = metadataObject.stringValue
                 self.focusAreaView.barcodeType = String(describing: metadataObject.type.rawValue)
             }
-            
-            self.delegate?.didCapture(metadataObjects: metadataObjects, from: self)
         }
     }
-    
 #endif
+
