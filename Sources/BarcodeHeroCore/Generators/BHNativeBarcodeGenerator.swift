@@ -40,7 +40,12 @@
                 // TODO: We are replacing the native quiet zone here, figure out a better way to load defaults
                 BHCode128FilterParameters().loadInto(filter)
             }
-            
+
+            if barcodeType == .qr {
+                let level = (options?.qrCorrectionLevel ?? .low).rawValue
+                filter.setValue(level, forKey: BHQRFilterParameterKey.inputCorrectionLevel.rawValue)
+            }
+
 //        switch barcodeType {
 //        case .aztec:
 //            //            filter.setValue(0, forKey: BHAztecParameters.inputCompactStyle.rawValue)
@@ -57,8 +62,8 @@
 //            throw BHError.nonNativeType(barcodeType)
 //        }
             
-            var filterImage: CIImage?
-            
+            let filterImage: CIImage?
+
             if
                 let fillColor = options?.fillColor,
                 let strokeColor = options?.strokeColor {

@@ -8,7 +8,7 @@ public struct BHBarcodeOptions {
     
     public let fillColor: CGColor?
     public let strokeColor: CGColor?
-    
+    public var qrCorrectionLevel: BHQRInputCorrectionLevel = .low
     public let filterParameters: BHFilterParameterizable?
     
     // MARK: Initialization
@@ -20,9 +20,11 @@ public struct BHBarcodeOptions {
     ///                                 Defaults to nil.
     public init(fillColor: CGColor? = nil,
                 strokeColor: CGColor? = nil,
+                qrCorrectionLevel: BHQRInputCorrectionLevel = .low,
                 filterParameters: BHFilterParameterizable? = nil) {
         self.fillColor = fillColor ?? CGColor.systemSafeWhite
         self.strokeColor = strokeColor ?? CGColor.systemSafeBlack
+        self.qrCorrectionLevel = qrCorrectionLevel
         self.filterParameters = filterParameters
     }
 }
