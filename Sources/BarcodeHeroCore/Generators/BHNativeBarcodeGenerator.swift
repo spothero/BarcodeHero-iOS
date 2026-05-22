@@ -8,6 +8,8 @@
     @available(tvOS, unavailable)
     @available(watchOS, unavailable)
     class BHNativeBarcodeGenerator: BHBarcodeGenerating {
+        private static let context = CIContext(options: nil)
+
         // MARK: - Properties
         
         var acceptedTypes: [BHBarcodeType] = [.aztec, .code128, .pdf417, .qr]
@@ -22,9 +24,7 @@
             guard let generator = try BHNativeCodeGeneratorType(barcodeType: barcodeType) else {
                 throw BHError.couldNotGetGenerator(barcodeType)
             }
-            
-            let context = CIContext(options: nil)
-            
+
             guard let filter = CIFilter(name: generator.rawValue) else {
                 throw BHError.couldNotCreateFilter(barcodeType)
             }
@@ -33,9 +33,6 @@
             
             if let filterParameters = options?.filterParameters {
                 filterParameters.loadInto(filter)
-//            for parameter in filterParameters {
-//                filter.setValue(parameter.value, forKey: parameter.key)
-//            }
             } else if barcodeType == .code128 {
                 // TODO: We are replacing the native quiet zone here, figure out a better way to load defaults
                 BHCode128FilterParameters().loadInto(filter)
@@ -45,28 +42,9 @@
                 let level = (options?.qrCorrectionLevel ?? .low).rawValue
                 filter.setValue(level, forKey: BHQRFilterParameterKey.inputCorrectionLevel.rawValue)
             }
-
-//        switch barcodeType {
-//        case .aztec:
-//            //            filter.setValue(0, forKey: BHAztecParameters.inputCompactStyle.rawValue)
-//            //            filter.setValue(23, forKey: BHAztecParameters.inputCorrectionLevel.rawValue)
-//            //            filter.setValue(0, forKey: BHAztecParameters.inputLayers.rawValue)
-//            break
-//        case .code128:
-//            break
-//        case .pdf417:
-//            break
-//        case .qr:
-//            filter.setValue(BHQRInputCorrectionLevel.medium.rawValue, forKey: BHQRParameters.inputCorrectionLevel.rawValue)
-//        default:
-//            throw BHError.nonNativeType(barcodeType)
-//        }
             
             let filterImage: CIImage?
-
-            if
-                let fillColor = options?.fillColor,
-                let strokeColor = options?.strokeColor {
+            if let fillColor = options?.fillColor, let strokeColor = options?.strokeColor {
                 // Create a color filter to pass the image through
                 let colorFilter = CIFilter(name: "CIFalseColor")
                 colorFilter?.setValue(filter.outputImage, forKey: BHColorFilterParameterKey.inputImage.rawValue)
@@ -78,22 +56,11 @@
                 filterImage = filter.outputImage
             }
             
-            guard
-                let ciImage = filterImage,
-                let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
-            else {
+            guard let ciImage = filterImage, let cgImage = Self.context.createCGImage(ciImage, from: ciImage.extent) else {
                 throw BHError.couldNotCreateImage(barcodeType)
             }
             
             return cgImage
-            
-            // Keeping the following block around (and commented) just in case
-            //        guard let outputImage = filter.outputImage,
-            //            let cgImage = CIContext(options: nil).createCGImage(outputImage, from: outputImage.extent) else {
-            //                return nil
-            //        }
-            //
-            //        return UIImage(cgImage: cgImage, scale: 1, orientation: UIImageOrientation.up)
         }
     }
     
